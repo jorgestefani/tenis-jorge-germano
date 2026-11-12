@@ -1,5 +1,5 @@
 {
- "atualizado": "12/11/2026 19:45",
+ "atualizado": "12/11/2026 19:56",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -15,8 +15,17 @@
  },
  "total_ida": 4,
  "total_volta": 8,
+ "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
+   "escalas_detalhe": [
+    "COR – Ingeniero Aeronáutico Ambrosio L.V. Taravella International Airport: chega 15/02 01:50, sai 15/02 07:40 (horário local) – espera 5h50",
+    "BOG – El Dorado International Airport: chega 15/02 11:25, sai 15/02 13:00 (horário local) – espera 1h35"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "Avianca: https://www.avianca.com/br/pt"
+   ],
    "companhias": [
     "Gol",
     "Avianca"
@@ -34,6 +43,12 @@
    "preco": 6216
   },
   {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
    "companhias": [
     "LATAM"
    ],
@@ -49,6 +64,12 @@
    "preco": 7215
   },
   {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 10:10, sai 14/02 12:35 (horário local) – espera 2h25"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
    "companhias": [
     "LATAM"
    ],
@@ -66,6 +87,14 @@
  ],
  "volta": [
   {
+   "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:25 (horário local) – espera 1h40",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 05:55, sai 25/02 08:25 (horário local) – espera 2h30"
+   ],
+   "sites": [
+    "Avianca: https://www.avianca.com/br/pt",
+    "Gol: https://www.voegol.com.br"
+   ],
    "companhias": [
     "Avianca",
     "Gol"
@@ -83,6 +112,12 @@
    "preco": 3216
   },
   {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 19:45, sai 24/02 22:25 (horário local) – espera 2h40"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
    "companhias": [
     "LATAM"
    ],
@@ -98,6 +133,13 @@
    "preco": 4852
   },
   {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 07:35, sai 25/02 09:05 (horário local) – espera 1h30"
+   ],
+   "sites": [
+    "American: https://www.aa.com.br",
+    "Gol: https://www.voegol.com.br"
+   ],
    "companhias": [
     "American",
     "Gol"
