@@ -1,20 +1,20 @@
 {
- "atualizado": "12/11/2026 19:56",
+ "atualizado": "12/11/2026 20:58",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
   "ida": "2027-02-14",
   "volta": "2027-02-24",
   "adultos": 4,
-  "meta_por_pessoa": 8000,
   "espera_max_horas": 6,
+  "meta_por_pessoa": 8000,
   "email": "jorge.stefani@gmail.com",
   "intervalo_horas": 2,
   "hora_inicio": 0,
   "hora_fim": 23
  },
  "total_ida": 4,
- "total_volta": 8,
+ "total_volta": 9,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
@@ -88,6 +88,31 @@
  "volta": [
   {
    "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 24/02 17:10, sai 24/02 21:25 (horário local) – espera 4h15",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 05:55, sai 25/02 08:25 (horário local) – espera 2h30"
+   ],
+   "sites": [
+    "Avianca: https://www.avianca.com/br/pt",
+    "Gol: https://www.voegol.com.br"
+   ],
+   "companhias": [
+    "Avianca",
+    "Gol"
+   ],
+   "saida": "24/02 13:20",
+   "chegada": "25/02 10:00",
+   "hora_saida": 13,
+   "paradas": 2,
+   "escalas": [
+    "BOG: 4.2h",
+    "GIG: 2.5h"
+   ],
+   "espera_max_h": 4.2,
+   "duracao_h": 20.7,
+   "preco": 2489
+  },
+  {
+   "escalas_detalhe": [
     "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:25 (horário local) – espera 1h40",
     "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 05:55, sai 25/02 08:25 (horário local) – espera 2h30"
    ],
@@ -131,29 +156,6 @@
    "espera_max_h": 2.7,
    "duracao_h": 14.3,
    "preco": 4852
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 07:35, sai 25/02 09:05 (horário local) – espera 1h30"
-   ],
-   "sites": [
-    "American: https://www.aa.com.br",
-    "Gol: https://www.voegol.com.br"
-   ],
-   "companhias": [
-    "American",
-    "Gol"
-   ],
-   "saida": "24/02 21:15",
-   "chegada": "25/02 10:25",
-   "hora_saida": 21,
-   "paradas": 1,
-   "escalas": [
-    "GRU: 1.5h"
-   ],
-   "espera_max_h": 1.5,
-   "duracao_h": 13.2,
-   "preco": 4908
   }
  ],
  "status": "ok",
