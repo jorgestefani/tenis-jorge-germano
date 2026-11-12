@@ -1,0 +1,19 @@
+{
+ "atualizado": "12/11/2026 19:44",
+ "config": {
+  "origem": "FLN",
+  "destino": "MIA",
+  "ida": "2027-02-14",
+  "volta": "2027-02-24",
+  "adultos": 4,
+  "meta_por_pessoa": 8000,
+  "espera_max_horas": 6,
+  "email": "jorge.stefani@gmail.com",
+  "intervalo_horas": 2,
+  "hora_inicio": 0,
+  "hora_fim": 23
+ },
+ "status": "erro",
+ "erro": "FlightsNotFound: no flights found; received error",
+ "detalhe": "Traceback (most recent call last):\n  File \"/home/runner/work/tenis-jorge-germano/tenis-jorge-germano/monitor/buscar.py\", line 126, in main\n    res.update(buscar(cfg))\n               ^^^^^^^^^^^\n  File \"/home/runner/work/tenis-jorge-germano/tenis-jorge-germano/monitor/buscar.py\", line 55, in buscar\n    ida = [fmt(f) for f in get_flights(q)]\n                           ^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/fast_flights/fetcher.py\", line 55, in get_flights\n    return parse(html)\n           ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/fast_flights/parser.py\", line 31, in parse\n    return parse_js(script.text())\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/fast_flights/parser.py\", line 51, in parse_js\n    raise FlightsNotFound(\"no flights found; received error\")\nfast_flights.exceptions.FlightsNotFound: no flights found; received error\n"
+}
