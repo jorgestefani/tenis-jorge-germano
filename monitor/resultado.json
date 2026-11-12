@@ -1,0 +1,119 @@
+{
+ "atualizado": "12/11/2026 19:45",
+ "config": {
+  "origem": "FLN",
+  "destino": "MIA",
+  "ida": "2027-02-14",
+  "volta": "2027-02-24",
+  "adultos": 4,
+  "meta_por_pessoa": 8000,
+  "espera_max_horas": 6,
+  "email": "jorge.stefani@gmail.com",
+  "intervalo_horas": 2,
+  "hora_inicio": 0,
+  "hora_fim": 23
+ },
+ "total_ida": 4,
+ "total_volta": 8,
+ "ida": [
+  {
+   "companhias": [
+    "Gol",
+    "Avianca"
+   ],
+   "saida": "14/02 23:05",
+   "chegada": "15/02 17:00",
+   "hora_saida": 23,
+   "paradas": 2,
+   "escalas": [
+    "COR: 5.8h",
+    "BOG: 1.6h"
+   ],
+   "espera_max_h": 5.8,
+   "duracao_h": 17.9,
+   "preco": 6216
+  },
+  {
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "14/02 05:25",
+   "chegada": "14/02 16:40",
+   "hora_saida": 5,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 3.3h"
+   ],
+   "espera_max_h": 3.3,
+   "duracao_h": 11.2,
+   "preco": 7215
+  },
+  {
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "14/02 08:40",
+   "chegada": "14/02 18:55",
+   "hora_saida": 8,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.4h"
+   ],
+   "espera_max_h": 2.4,
+   "duracao_h": 10.2,
+   "preco": 7215
+  }
+ ],
+ "volta": [
+  {
+   "companhias": [
+    "Avianca",
+    "Gol"
+   ],
+   "saida": "24/02 16:00",
+   "chegada": "25/02 10:00",
+   "hora_saida": 16,
+   "paradas": 2,
+   "escalas": [
+    "BOG: 1.7h",
+    "GIG: 2.5h"
+   ],
+   "espera_max_h": 2.5,
+   "duracao_h": 18.0,
+   "preco": 3216
+  },
+  {
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "24/02 09:20",
+   "chegada": "24/02 23:40",
+   "hora_saida": 9,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.7h"
+   ],
+   "espera_max_h": 2.7,
+   "duracao_h": 14.3,
+   "preco": 4852
+  },
+  {
+   "companhias": [
+    "American",
+    "Gol"
+   ],
+   "saida": "24/02 21:15",
+   "chegada": "25/02 10:25",
+   "hora_saida": 21,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 1.5h"
+   ],
+   "espera_max_h": 1.5,
+   "duracao_h": 13.2,
+   "preco": 4908
+  }
+ ],
+ "status": "ok",
+ "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)"
+}

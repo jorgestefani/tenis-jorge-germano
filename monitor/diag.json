@@ -4,8 +4,7 @@
   "exemplo": "Flights(type='multi', price=732, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Congonhas–Deputado Freitas Nobre Airport', code='CGH'), departure=SimpleDatetime(date=("
  },
  "oneway_FLN_MIA_brl": {
-  "ok": 8,
-  "exemplo": "Flights(type='multi', price=4130, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU'"
+  "erro": "FlightsNotFound: no flights found; received error"
  },
  "roundtrip_basico": {
   "erro": "FlightsNotFound: no flights found; received error"
@@ -15,7 +14,8 @@
   "exemplo": "Flights(type='multi', price=5915, airlines=['Gol', 'Avianca'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim', code='GIG'), dep"
  },
  "oneway_GRU_MIA_marco": {
-  "erro": "FlightsNotFound: no flights found; received error"
+  "ok": 6,
+  "exemplo": "Flights(type='CM', price=509, airlines=['COPA'], flights=[SingleFlight(from_airport=Airport(name='São Paulo/Guarulhos–Governor André Franco Montoro International Airport', code='GRU'), to_airport=Airport(name='Tocumen International Airport Panama', code='PTY'), departure=SimpleDatetime(date=(2027, 3"
  },
  "oneway_JFK_LAX_controle": {
   "erro": "FlightsNotFound: no flights found; received error"
