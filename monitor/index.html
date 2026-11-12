@@ -9,7 +9,7 @@
   @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  main{max-width:560px;margin:0 auto;padding:16px 14px 40px}
+  main{max-width:600px;margin:0 auto;padding:16px 14px 48px}
   h1{font-size:20px;margin:6px 0 2px}
   .sub{color:var(--mut);font-size:14px;margin:0 0 14px}
   section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
@@ -18,7 +18,6 @@
   label{display:block;font-size:13px;color:var(--mut)}
   input,select{width:100%;margin-top:4px;padding:10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
   .full{grid-column:1/-1}
-  .preview{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:8px;margin-top:10px;word-break:break-all}
   .hint{font-size:13px;color:var(--mut);margin-top:6px}
   .btns{display:grid;gap:8px}
   button{font:inherit;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
@@ -26,156 +25,201 @@
   button:disabled{opacity:.55}
   #status{font-size:14px;margin-top:10px;white-space:pre-wrap}
   .ok{color:var(--ok)}.err{color:var(--err)}
+  .opt{border-top:1px solid var(--line);padding:10px 0}
+  .opt:first-child{border-top:0}
+  .preco{font-weight:700;font-size:17px}
+  .tag{display:inline-block;font-size:12px;background:var(--ok);color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px}
+  .esc{font-size:13px;color:var(--mut);margin:2px 0 0 10px}
+  a{color:var(--acc)}
+  details summary{cursor:pointer;color:var(--acc);font-size:14px}
 </style>
 </head>
 <body>
 <main>
   <h1>✈️ Monitor de Passagens</h1>
-  <p class="sub">Defina rota, datas, meta e horários da busca. Os resultados chegam por e-mail.</p>
+  <p class="sub">Busca no Google Flights, rodando no GitHub. Confirme sempre na companhia aérea e no Booking (bagagem e taxas).</p>
 
   <section>
-    <h2>Rota e datas</h2>
-    <div class="grid">
-      <label>Origem (aeroporto)<input id="orig" value="FLN" maxlength="30" autocapitalize="characters"></label>
-      <label>Destino (aeroporto)<input id="dest" value="MIA" maxlength="30" autocapitalize="characters"></label>
-      <label>Ida<input id="ida" type="date" value="2027-02-14"></label>
-      <label>Volta<input id="volta" type="date" value="2027-02-24"></label>
-      <label>Adultos<input id="pax" type="number" min="1" max="9" value="4"></label>
-      <label>Espera máx. na escala (h)<input id="wait" type="number" min="1" max="24" value="6"></label>
-      <label>Meta por pessoa (R$)<input id="meta" type="number" min="0" step="50" value="8000"></label>
-      <label>E-mail dos avisos<input id="mail" type="email" value="jorge.stefani@gmail.com"></label>
+    <h2>Último resultado</h2>
+    <div id="res">Carregando…</div>
+    <div class="btns" style="margin-top:10px">
+      <button id="reload">Atualizar resultado</button>
     </div>
   </section>
 
   <section>
-    <h2>Programação</h2>
+    <h2>Rota e regras</h2>
+    <div class="grid">
+      <label>Origem<input id="origem" maxlength="4" autocapitalize="characters"></label>
+      <label>Destino<input id="destino" maxlength="4" autocapitalize="characters"></label>
+      <label>Ida<input id="ida" type="date"></label>
+      <label>Volta<input id="volta" type="date"></label>
+      <label>Adultos<input id="adultos" type="number" min="1" max="9"></label>
+      <label>Espera máx. (h)<input id="espera_max_horas" type="number" min="1" max="24"></label>
+      <label>Meta por pessoa (R$)<input id="meta_por_pessoa" type="number" min="0" step="50"></label>
+      <label>E-mail<input id="email" type="email"></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Programação (horário de Brasília)</h2>
     <div class="grid">
       <label class="full">Repetir a cada
-        <select id="step">
-          <option value="1">1 hora</option>
-          <option value="2" selected>2 horas</option>
-          <option value="3">3 horas</option>
-          <option value="4">4 horas</option>
-          <option value="6">6 horas</option>
-          <option value="8">8 horas</option>
-          <option value="12">12 horas</option>
-          <option value="24">1 vez por dia</option>
+        <select id="intervalo_horas">
+          <option value="1">1 hora</option><option value="2">2 horas</option><option value="3">3 horas</option>
+          <option value="4">4 horas</option><option value="6">6 horas</option><option value="8">8 horas</option>
+          <option value="12">12 horas</option><option value="24">1 vez por dia</option>
         </select>
       </label>
-      <label>A partir das (h)<input id="h1" type="number" min="0" max="23" value="0"></label>
-      <label>Até às (h)<input id="h2" type="number" min="0" max="23" value="23"></label>
-      <label class="full">Minuto da hora<input id="min" type="number" min="0" max="59" value="7"></label>
+      <label>A partir das (h)<input id="hora_inicio" type="number" min="0" max="23"></label>
+      <label>Até às (h)<input id="hora_fim" type="number" min="0" max="23"></label>
     </div>
-    <div class="preview" id="cron"></div>
-    <div class="hint" id="human"></div>
-    <div class="hint">Horário de Brasília. O sistema aceita no mínimo 1 hora entre buscas.</div>
+    <div class="hint" id="quando"></div>
   </section>
 
   <section>
+    <h2>Ações</h2>
+    <label>Token do GitHub (fica só neste aparelho)
+      <input id="token" type="password" placeholder="github_pat_…" autocomplete="off">
+    </label>
+    <details style="margin:8px 0">
+      <summary>Como criar o token</summary>
+      <div class="hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate. Em "Repository access" escolha só <b>tenis-jorge-germano</b>. Em "Permissions → Repository" deixe <b>Contents: Read and write</b> e <b>Actions: Read and write</b>. Copie e cole acima.</div>
+    </details>
     <div class="btns">
-      <button class="primary" id="save">Salvar programação</button>
-      <button id="run">Buscar agora</button>
-      <button id="copy">Copiar pedido para colar no Claude</button>
+      <button class="primary" id="salvar">Salvar programação</button>
+      <button id="agora">Buscar agora</button>
     </div>
     <div id="status"></div>
   </section>
 </main>
 
 <script>
-const SERVER = "Claude Code Remote";
-const TRIGGER_ID = "trig_01VXzHUMz9KENu7ZH7tY8xwn";
+const REPO = "jorgestefani/tenis-jorge-germano";
+const CAMPOS = ["origem","destino","ida","volta","adultos","espera_max_horas","meta_por_pessoa","email","intervalo_horas","hora_inicio","hora_fim"];
+const NUM = new Set(["adultos","espera_max_horas","meta_por_pessoa","intervalo_horas","hora_inicio","hora_fim"]);
 const $ = id => document.getElementById(id);
-const pad = n => String(n).padStart(2, "0");
-const brDate = s => s ? s.split("-").reverse().join("/") : "";
-const brl = n => Number(n).toLocaleString("pt-BR", {minimumFractionDigits: 2});
+const pad = n => String(n).padStart(2,"0");
+const brl = n => Number(n).toLocaleString("pt-BR");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-function cron(){
-  const step = +$("step").value, h1 = +$("h1").value, h2 = +$("h2").value, m = +$("min").value;
-  let hours;
-  if (step === 24) hours = String(h1);
-  else if (h1 === 0 && h2 === 23) hours = "*/" + step;
-  else hours = h1 + "-" + h2 + "/" + step;
-  return "CRON_TZ=America/Sao_Paulo " + m + " " + hours + " * * *";
-}
-function human(){
-  const step = +$("step").value, h1 = +$("h1").value, h2 = +$("h2").value, m = +$("min").value;
-  if (step === 24) return "Todo dia às " + pad(h1) + ":" + pad(m);
-  const hrs = [];
-  for (let h = h1; h <= h2 && hrs.length < 48; h += step) hrs.push(pad(h) + ":" + pad(m));
-  return "Roda às " + hrs.join(", ");
-}
-function prompt_(){
-  const o = $("orig").value.trim().toUpperCase(), d = $("dest").value.trim().toUpperCase();
-  const ida = brDate($("ida").value), volta = brDate($("volta").value);
-  const pax = $("pax").value, wait = $("wait").value, meta = brl($("meta").value), mail = $("mail").value.trim();
-  return `Monitore passagens aéreas de ida e volta ${o} → ${d}, saída ${ida} e volta ${volta}, ${pax} adultos, em reais (BRL). Pesquise na web (Google Flights, Decolar, Skyscanner, Kayak, companhias aéreas, etc.). Regra obrigatória: nenhuma espera/conexão (layover) pode passar de ${wait} horas, em nenhum trecho; descarte opções com escala mais longa. Meta do Jorge: R$ ${meta} por pessoa (ida e volta) ou menos.
+function say(msg, cls){ const s=$("status"); s.textContent=msg; s.className=cls||""; }
+function getToken(){ try{ return localStorage.getItem("gh_token")||""; }catch(e){ return ""; } }
+function setToken(v){ try{ localStorage.setItem("gh_token", v); }catch(e){} }
+$("token").value = getToken();
+$("token").addEventListener("change", () => setToken($("token").value.trim()));
 
-A CADA execução, envie UM e-mail (Gmail) para ${mail} com o resultado da busca: as 5 melhores opções (no mínimo 5, se existirem) que cumprem a regra das escalas, preferindo horários de voo variados (manhã, tarde, noite, madrugada) e companhias variadas. Para cada opção: companhia, horários de ida e volta, escalas e duração de cada espera, preço por pessoa e total dos ${pax}, e link. Ordene do mais barato ao mais caro. Assunto: 'Passagens ${o}-${d} – menor R$ X por pessoa' (data/hora da busca no corpo). Se alguma opção estiver em R$ ${meta} por pessoa ou menos, comece o assunto com 'URGENTE – NA META:' e destaque essa opção no topo do e-mail. Se houver menos de 5 opções válidas, envie as que achou e diga isso. Envie SOMENTE por e-mail; não envie push, nem WhatsApp. Nunca compre nada; apenas informe. Escreva em português.`;
+function quando(){
+  const p=+$("intervalo_horas").value, a=+$("hora_inicio").value, b=+$("hora_fim").value;
+  if(p===24) return "Roda 1 vez por dia, às "+pad(a)+":00 (Brasília).";
+  const h=[]; for(let x=a;x<=b&&h.length<48;x+=p) h.push(pad(x)+"h");
+  return "Roda às: "+h.join(", ")+" (Brasília).";
 }
-function refresh(){ $("cron").textContent = cron(); $("human").textContent = human(); }
-document.querySelectorAll("input,select").forEach(e => e.addEventListener("input", refresh));
-refresh();
-if (typeof claude === "undefined") {
-  $("save").disabled = true; $("run").disabled = true;
-  $("status").textContent = "Fora do Claude, só o botão “Copiar pedido” funciona: copie e cole no chat do Claude para aplicar.";
-}
+CAMPOS.forEach(k => $(k).addEventListener("input", () => { $("quando").textContent = quando(); }));
 
-function validate(){
-  const o = $("orig").value.trim(), d = $("dest").value.trim();
-  if (!o || !d) return "Preencha origem e destino.";
-  if (!$("ida").value || !$("volta").value) return "Preencha as datas de ida e volta.";
-  if ($("volta").value <= $("ida").value) return "A volta precisa ser depois da ida.";
-  if (!/^\S+@\S+\.\S+$/.test($("mail").value.trim())) return "E-mail inválido.";
-  if (+$("h1").value > +$("h2").value) return "O horário inicial precisa ser menor ou igual ao final.";
-  const m = +$("min").value; if (!(m >= 0 && m <= 59)) return "Minuto entre 0 e 59.";
+function lerForm(){
+  const cfg={};
+  for(const k of CAMPOS){
+    let v=$(k).value.trim();
+    if(NUM.has(k)) v=Number(v);
+    if(k==="origem"||k==="destino") v=v.toUpperCase();
+    cfg[k]=v;
+  }
+  return cfg;
+}
+function validar(c){
+  if(!c.origem||!c.destino) return "Preencha origem e destino.";
+  if(!c.ida||!c.volta) return "Preencha as datas.";
+  if(c.volta<=c.ida) return "A volta precisa ser depois da ida.";
+  if(!/^\S+@\S+\.\S+$/.test(c.email)) return "E-mail inválido.";
+  if(!(c.hora_inicio>=0&&c.hora_fim<=23&&c.hora_inicio<=c.hora_fim)) return "Horário inicial deve ser menor ou igual ao final (0 a 23).";
+  if(!(c.adultos>=1)) return "Informe os adultos.";
   return "";
 }
-function say(msg, cls){ const s = $("status"); s.textContent = msg; s.className = cls || ""; }
 
-const ERR = {
-  not_in_manifest: "Esta página não tem permissão para essa ação. Autorize quando o Claude pedir, ou use o botão de copiar pedido.",
-  approval_required: "É preciso aprovar a ação quando o Claude perguntar. Toque de novo e permita.",
-  server_not_connected: "O conector de tarefas agendadas não está disponível aqui. Use o botão “Copiar pedido” e cole no Claude.",
-  needs_reauth: "Reconecte o conector em claude.ai → Configurações → Conectores, ou use “Copiar pedido”.",
-  tool_error: "O serviço recusou a alteração. Use “Copiar pedido” e cole no Claude.",
-  blocked_by_policy: "Sua organização bloqueou essa ação. Use “Copiar pedido” e cole no Claude.",
-};
-function explain(e){ return (ERR[e && e.code] || "Não consegui concluir (" + (e && e.code || "erro") + "). Use “Copiar pedido” e cole no Claude."); }
-
-async function server(){
-  if (typeof claude === "undefined") throw {code: "server_not_connected"};
-  const mcp = await claude.use("mcp");
-  if (!mcp) throw {code: "server_not_connected"};
-  return mcp.server(SERVER);
+async function carregarConfig(){
+  try{
+    const r=await fetch("config.json?ts="+Date.now(),{cache:"no-store"});
+    const c=await r.json();
+    CAMPOS.forEach(k => { if(c[k]!==undefined) $(k).value=c[k]; });
+  }catch(e){ say("Não consegui carregar a configuração atual.","err"); }
+  $("quando").textContent = quando();
 }
 
-$("save").onclick = async () => {
-  const bad = validate(); if (bad) return say(bad, "err");
-  $("save").disabled = true; say("Salvando…");
-  try {
-    const s = await server();
-    await s.update_trigger({trigger_id: TRIGGER_ID, cron_expression: cron(), prompt: prompt_()});
-    say("Programação salva. " + human() + ".", "ok");
-  } catch (e) { say(explain(e), "err"); }
-  $("save").disabled = false;
+function opcao(x, ehIda, meta, pax){
+  const naMeta = ehIda && x.preco<=meta;
+  let h = '<div class="opt">';
+  if(ehIda) h += '<div class="preco">R$ '+brl(x.preco)+' por pessoa'+(naMeta?'<span class="tag">NA META</span>':'')+'</div>'
+              +  '<div class="hint">Total '+pax+' adultos: R$ '+brl(x.preco*pax)+'</div>';
+  h += '<div>'+esc((x.companhias||[]).join(" + "))+' · sai '+esc(x.saida)+' · chega '+esc(x.chegada)+' · '+x.paradas+' parada(s)</div>';
+  for(const e of (x.escalas_detalhe||[])) h += '<div class="esc">• '+esc(e)+'</div>';
+  if(!(x.escalas_detalhe||[]).length) h += '<div class="esc">• voo direto</div>';
+  for(const s of (x.sites||[])){ const u=s.slice(s.indexOf("http")); h += '<div class="esc">Conferir: <a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(s.split(": ")[0])+'</a></div>'; }
+  return h+'</div>';
+}
+
+async function carregarResultado(){
+  const box=$("res");
+  try{
+    const r=await fetch("resultado.json?ts="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error("sem resultado");
+    const d=await r.json();
+    const pax=(d.config||{}).adultos||1, meta=(d.config||{}).meta_por_pessoa||0;
+    let h='<div class="hint">Atualizado em '+esc(d.atualizado||"?")+' (Brasília)</div>';
+    if(d.status!=="ok"){ box.innerHTML=h+'<div class="err">A última busca falhou: '+esc(d.erro||"erro")+'</div>'; return; }
+    h+='<h2 style="margin-top:10px">Ida (preço de ida e volta)</h2>';
+    h+=(d.ida||[]).map(x=>opcao(x,true,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
+    h+='<h2 style="margin-top:10px">Volta</h2>';
+    h+=(d.volta||[]).map(x=>opcao(x,false,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
+    h+='<div class="hint" style="margin-top:8px"><b>Antes de comprar:</b> confira na companhia aérea e no Booking a bagagem despachada, taxas e o preço final.</div>';
+    if(d.link_google_flights) h+='<div class="hint"><a href="'+esc(d.link_google_flights)+'" target="_blank" rel="noopener">Abrir no Google Flights</a> · <a href="https://www.booking.com/flights" target="_blank" rel="noopener">Booking voos</a></div>';
+    box.innerHTML=h;
+  }catch(e){ box.textContent="Ainda não há resultado salvo."; }
+}
+$("reload").onclick = carregarResultado;
+
+async function gh(path, opts){
+  const t=($("token").value||"").trim();
+  if(!t) throw new Error("Cole o token do GitHub primeiro.");
+  setToken(t);
+  const r=await fetch("https://api.github.com/repos/"+REPO+path, Object.assign({
+    headers:{"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}
+  }, opts||{}));
+  if(!r.ok){
+    let m=""; try{ m=(await r.json()).message; }catch(e){}
+    if(r.status===401) throw new Error("Token inválido ou expirado.");
+    if(r.status===403||r.status===404) throw new Error("O token não tem permissão neste repositório (Contents e Actions: leitura e escrita). "+(m||""));
+    throw new Error("GitHub respondeu "+r.status+". "+(m||""));
+  }
+  return r;
+}
+const b64 = s => btoa(unescape(encodeURIComponent(s)));
+
+$("salvar").onclick = async () => {
+  const cfg=lerForm(); const bad=validar(cfg); if(bad) return say(bad,"err");
+  $("salvar").disabled=true; say("Salvando…");
+  try{
+    const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
+    await gh("/contents/monitor/config.json", {method:"PUT", headers:{
+      "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify({message:"Programação atualizada pelo painel", content:b64(JSON.stringify(cfg,null,2)+"\n"), sha:cur.sha, branch:"main"})});
+    say("Programação salva. "+quando()+"\nA próxima busca já usa os novos dados.","ok");
+  }catch(e){ say(e.message,"err"); }
+  $("salvar").disabled=false;
 };
 
-$("run").onclick = async () => {
-  $("run").disabled = true; say("Disparando busca…");
-  try {
-    const s = await server();
-    await s.fire_trigger({trigger_id: TRIGGER_ID});
-    say("Busca disparada. O resultado chega por e-mail em alguns minutos.", "ok");
-  } catch (e) { say(explain(e), "err"); }
-  $("run").disabled = false;
+$("agora").onclick = async () => {
+  $("agora").disabled=true; say("Disparando busca…");
+  try{
+    await gh("/actions/workflows/monitor.yml/dispatches", {method:"POST", headers:{
+      "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify({ref:"main"})});
+    say("Busca disparada. Espere cerca de 1 a 2 minutos e toque em “Atualizar resultado”.","ok");
+  }catch(e){ say(e.message,"err"); }
+  $("agora").disabled=false;
 };
 
-$("copy").onclick = async () => {
-  const bad = validate(); if (bad) return say(bad, "err");
-  const txt = "Atualize o monitor de passagens (tarefa agendada " + TRIGGER_ID + ") com estes dados.\nProgramação (cron): " + cron() + "\n(" + human() + ")\n\nPrompt:\n" + prompt_();
-  try { await navigator.clipboard.writeText(txt); say("Pedido copiado. Cole no chat do Claude.", "ok"); }
-  catch (e) { say("Não consegui copiar automaticamente. Copie o texto abaixo:\n\n" + txt, "err"); }
-};
+carregarConfig(); carregarResultado();
 </script>
 </body>
 </html>

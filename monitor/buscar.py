@@ -22,11 +22,50 @@ def esperas(segs):
     return out
 
 
+def r(n):
+    return f"{n:,.0f}".replace(",", ".")
+
+
+def hm(h):
+    m = int(round(h * 60))
+    return f"{m // 60}h{m % 60:02d}"
+
+
+def detalhe_escalas(segs):
+    out = []
+    for a, b in zip(segs, segs[1:]):
+        chega, sai = dt(a)[1], dt(b)[0]
+        h = (sai - chega).total_seconds() / 3600
+        ap = a.to_airport
+        out.append(f"{ap.code} – {ap.name}: chega {chega.strftime('%d/%m %H:%M')}, "
+                   f"sai {sai.strftime('%d/%m %H:%M')} (horário local) – espera {hm(h)}")
+    return out
+
+
+SITES = {
+    "latam": "https://www.latamairlines.com/br/pt",
+    "gol": "https://www.voegol.com.br",
+    "azul": "https://www.voeazul.com.br",
+    "american": "https://www.aa.com.br",
+    "avianca": "https://www.avianca.com/br/pt",
+    "copa": "https://www.copaair.com/pt-br",
+    "united": "https://www.united.com/pt/br",
+    "delta": "https://pt.delta.com",
+    "tap": "https://www.flytap.com/pt-br",
+}
+
+
+def sites(airlines):
+    return [f"{a}: {SITES[k]}" for a in airlines for k in SITES if k in a.lower()]
+
+
 def fmt(f):
     segs = f.flights
     ini, fim = dt(segs[0])[0], dt(segs[-1])[1]
     w = esperas(segs)
     return {
+        "escalas_detalhe": detalhe_escalas(segs),
+        "sites": sites(f.airlines),
         "companhias": f.airlines,
         "saida": ini.strftime("%d/%m %H:%M"),
         "chegada": fim.strftime("%d/%m %H:%M"),
@@ -83,7 +122,12 @@ def buscar(cfg):
         if len(top) >= 5: break
         if x not in top: top.append(x)
     top = sorted(top[:5], key=lambda x: x["preco"])
+    try:
+        link = q.url()
+    except Exception:
+        link = f"https://www.google.com/travel/flights?hl=pt-BR&curr=BRL&q=Voos%20{o}%20para%20{d}%20{cfg['ida']}%20{cfg['volta']}"
     return {"total_ida": len(ida), "total_volta": len(volta),
+            "link_google_flights": link,
             "ida": top, "volta": volta_ok[:3]}
 
 
@@ -93,15 +137,26 @@ def corpo(cfg, res):
          f"Atualizado: {res['atualizado']} (Brasília)", ""]
     na_meta = [x for x in res["ida"] if x["preco"] <= cfg["meta_por_pessoa"]]
     if na_meta:
-        L.append(f"*** {len(na_meta)} opção(ões) NA META (até R$ {cfg['meta_por_pessoa']:,.0f} por pessoa) ***\n")
-    L.append("IDA (preço de ida e volta por pessoa):")
+        L.append(f"*** {len(na_meta)} opção(ões) NA META (até R$ {r(cfg['meta_por_pessoa'])} por pessoa) ***\n")
+    L.append("IDA (preço de ida e volta por pessoa, segundo o Google Flights):")
     for i, x in enumerate(res["ida"], 1):
-        L.append(f"{i}. R$ {x['preco']:,.0f}/pessoa · total {pax}: R$ {x['preco']*pax:,.0f} · {', '.join(x['companhias'])}\n"
-                 f"   sai {x['saida']} chega {x['chegada']} · {x['paradas']} parada(s) · esperas: {'; '.join(x['escalas']) or 'voo direto'}")
+        L.append(f"{i}. R$ {r(x['preco'])}/pessoa · total {pax}: R$ {r(x['preco']*pax)} · {', '.join(x['companhias'])}\n"
+                 f"   sai {x['saida']} chega {x['chegada']} · {x['paradas']} parada(s)")
+        for e in x["escalas_detalhe"] or ["voo direto"]:
+            L.append(f"   • {e}")
+        for s_ in x["sites"]:
+            L.append(f"   Conferir: {s_}")
     L.append("\nVOLTA (opções com espera dentro do limite):")
     for x in res["volta"]:
-        L.append(f"- {', '.join(x['companhias'])} · sai {x['saida']} chega {x['chegada']} · esperas: {'; '.join(x['escalas']) or 'direto'}")
-    L.append("\nPreço do Google Flights; confirme no site antes de comprar.")
+        L.append(f"- {', '.join(x['companhias'])} · sai {x['saida']} chega {x['chegada']}")
+        for e in x["escalas_detalhe"] or ["voo direto"]:
+            L.append(f"   • {e}")
+    L.append("\nANTES DE COMPRAR, CONFIRME DIRETO NA COMPANHIA AÉREA E NO BOOKING:")
+    L.append("- bagagem despachada incluída? taxa de bagagem e de marcação de assento")
+    L.append("- preço final com taxas para os " + str(pax) + " adultos")
+    L.append("- regras de remarcação/cancelamento e se as conexões são no mesmo bilhete")
+    L.append("Google Flights: " + res.get("link_google_flights", ""))
+    L.append("Booking.com voos: https://www.booking.com/flights")
     return "\n".join(L)
 
 
@@ -112,7 +167,7 @@ def enviar(cfg, res):
     menor = min((x["preco"] for x in res["ida"]), default=None)
     na_meta = menor is not None and menor <= cfg["meta_por_pessoa"]
     assunto = ("URGENTE – NA META: " if na_meta else "") + \
-        f"Passagens {cfg['origem']}-{cfg['destino']} – menor R$ {menor:,.0f} por pessoa" if menor else "Passagens: nenhuma opção válida"
+        f"Passagens {cfg['origem']}-{cfg['destino']} – menor R$ {r(menor)} por pessoa" if menor else "Passagens: nenhuma opção válida"
     m = MIMEText(corpo(cfg, res), "plain", "utf-8")
     m["Subject"], m["From"], m["To"] = assunto, user, cfg["email"]
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
