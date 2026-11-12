@@ -4,7 +4,7 @@ on:
     - cron: "7 * * * *"      # toda hora; o script respeita monitor/config.json
   workflow_dispatch:
   push:
-    paths: ["monitor/buscar.py", ".github/workflows/monitor.yml"]
+    paths: ["monitor/buscar.py", "monitor/diag.py", ".github/workflows/monitor.yml"]
 permissions:
   contents: write
 concurrency: monitor
@@ -20,9 +20,10 @@ jobs:
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      - run: python monitor/diag.py || true
       - name: Salvar resultado
         run: |
           git config user.name "monitor-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add monitor/resultado.json
+          git add monitor/resultado.json monitor/diag.json
           git diff --cached --quiet || (git commit -m "Resultado da busca" && git pull --rebase -q && git push)
