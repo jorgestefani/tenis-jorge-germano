@@ -44,7 +44,18 @@ def periodo(h):
 
 
 def buscar(cfg):
-    from fast_flights import FlightQuery, Passengers, create_query, get_flights
+    import time
+    from fast_flights import FlightQuery, Passengers, create_query, get_flights as _gf
+
+    def get_flights(q, tentativas=6):
+        # o Google responde com erro de forma intermitente; tenta de novo
+        for i in range(tentativas):
+            try:
+                return _gf(q)
+            except Exception:
+                if i == tentativas - 1:
+                    raise
+                time.sleep(4 + 3 * i)
     o, d = cfg["origem"], cfg["destino"]
     # preço por pessoa: consulta com 1 adulto (ida e volta)
     q = create_query(
