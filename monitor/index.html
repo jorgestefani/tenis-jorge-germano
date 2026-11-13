@@ -32,12 +32,18 @@
   .esc{font-size:13px;color:var(--mut);margin:2px 0 0 10px}
   a{color:var(--acc)}
   details summary{cursor:pointer;color:var(--acc);font-size:14px}
+  .tab{width:100%;border-collapse:collapse;font-size:14px}
+  .tab th,.tab td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+  .tab th:first-child,.tab td:first-child{text-align:left}
+  .tab th{font-size:12px;color:var(--mut);font-weight:600}
+  .cias{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
 <main>
   <h1>✈️ Monitor de Passagens</h1>
-  <p class="sub">Busca no Google Flights, rodando no GitHub. Confirme sempre na companhia aérea e no Booking (bagagem e taxas).</p>
+  <p class="sub">Busca automática no Google Flights. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
 
   <section>
     <h2>Último resultado</h2>
@@ -188,6 +194,34 @@ function opcao(x, ehIda, meta, pax){
   return h+'</div>';
 }
 
+// Mala despachada (1 x 23 kg, ida e volta) por pessoa: LATAM tarifa Standard e Copa tarifa Classic
+// conferidas em 13/11/2026; demais companhias = estimativa.
+const MALA = [["latam",533,true],["copa",1033,true]];
+function mala(cias){
+  const s=(cias||[]).join(" ").toLowerCase();
+  for(const [k,v] of MALA) if(s.includes(k)) return [v,true];
+  return [800,false];
+}
+function linksCias(c){
+  const ida=c.ida, volta=c.volta, o=c.origem, d=c.destino;
+  return [
+    ["LATAM","https://www.latamairlines.com/br/pt/oferta-voos?origin="+o+"&outbound="+ida+"T12%3A00%3A00.000Z&destination="+d+"&inbound="+volta+"T12%3A00%3A00.000Z&adt=2&chd=0&inf=0&trip=RT&cabin=Economy&redemption=false&sort=RECOMMENDED"],
+    ["Copa","https://shopping.copaair.com/?roundtrip=true&adults=2&children=0&infants=0&date1="+ida+"&date2="+volta+"&area1="+o+"&area2="+d+"&flexible_dates_v2=false&langid=pt"],
+    ["Decolar","https://www.decolar.com/shop/flights/results/roundtrip/"+o+"/"+d+"/"+ida+"/"+volta+"/2/0/0"]
+  ];
+}
+function col(s,n,dir){ s=String(s); if(s.length>=n) return s.slice(0,n); const f=" ".repeat(n-s.length); return dir==="r"? f+s : s+f; }
+function textoWhats(d){
+  const c=d.config||{};
+  const L=["✈️ *"+c.origem+" → "+c.destino+"*","Ida "+br(c.ida)+" · Volta "+br(c.volta),"Preço por CASAL, ida e volta","","```",col("CIA",12)+" "+col("SAI",5)+" "+col("TEMPO",6)+" "+col("S/MALA",6,"r")+" "+col("C/MALA",6,"r")];
+  for(const x of (d.ida||[])){
+    const [m]=mala(x.companhias), casal=x.preco*2;
+    const cia=(x.companhias||[]).join("+").replace(/ Airlines?/g,"");
+    L.push(col(cia,12)+" "+col((x.saida||"").slice(-5),5)+" "+col(String(x.duracao_h).replace(".",",")+"h",6)+" "+col(brl(casal),6,"r")+" "+col(brl(casal+2*m),6,"r"));
+  }
+  L.push("```","","C/MALA = 1 mala de 23 kg por pessoa","(LATAM e Copa: valor da tarifa com mala; demais: estimativa)","Preços de "+(d.atualizado||"")+", podem mudar.");
+  return L.join("\n");
+}
 async function carregarResultado(){
   const box=$("res");
   try{
@@ -197,13 +231,29 @@ async function carregarResultado(){
     const pax=(d.config||{}).adultos||1, meta=(d.config||{}).meta_por_pessoa||0;
     let h='<div class="hint">Atualizado em '+esc(d.atualizado||"?")+' (Brasília)</div>';
     if(d.status!=="ok"){ box.innerHTML=h+'<div class="err">A última busca falhou: '+esc(d.erro||"erro")+'</div>'; return; }
+    const c=d.config||{};
+    h+='<h2 style="margin-top:10px">Por casal, ida e volta</h2><table class="tab"><tr><th>Cia</th><th>Sai</th><th>Tempo</th><th>S/ mala</th><th>C/ mala</th></tr>';
+    for(const x of (d.ida||[])){
+      const [m,ok]=mala(x.companhias), casal=x.preco*2;
+      h+='<tr><td>'+esc((x.companhias||[]).join(" + "))+'</td><td>'+esc((x.saida||"").slice(-5))+'</td><td>'+esc(String(x.duracao_h).replace(".",","))+'h</td><td>'+brl(casal)+'</td><td>'+(ok?"":"~")+brl(casal+2*m)+'</td></tr>';
+    }
+    h+='</table><div class="hint">C/ mala = 1 mala de 23 kg por pessoa. LATAM (Standard) e Copa (Classic) com o valor da tarifa; "~" = estimativa.</div>';
+    h+='<div class="btns" style="margin-top:8px"><button id="copiaWhats">📋 Copiar tabela para o WhatsApp</button></div>';
+    h+='<h2 style="margin-top:12px">Ver preço oficial (2 adultos, já preenchido)</h2><div class="cias">'+linksCias(c).map(([n,u])=>'<a class="cia" href="'+esc(u)+'" target="_blank" rel="noopener">'+n+'</a>').join("")+'</div>';
+    h+='<details style="margin-top:12px"><summary>Detalhes dos voos (escalas e volta)</summary>';
     h+='<h2 style="margin-top:10px">Ida (preço de ida e volta)</h2>';
     h+=(d.ida||[]).map(x=>opcao(x,true,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
     h+='<h2 style="margin-top:10px">Volta</h2>';
     h+=(d.volta||[]).map(x=>opcao(x,false,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
     h+='<div class="hint" style="margin-top:8px"><b>Antes de comprar:</b> confira na companhia aérea e no Booking a bagagem despachada, taxas e o preço final.</div>';
     if(d.link_google_flights) h+='<div class="hint"><a href="'+esc(d.link_google_flights)+'" target="_blank" rel="noopener">Abrir no Google Flights</a> · <a href="https://www.booking.com/flights" target="_blank" rel="noopener">Booking voos</a></div>';
+    h+='</details>';
     box.innerHTML=h;
+    $("copiaWhats").onclick=async()=>{
+      const t=textoWhats(d);
+      try{ await navigator.clipboard.writeText(t); $("copiaWhats").textContent="✅ Copiado! Cole no WhatsApp"; }
+      catch(e){ prompt("Copie o texto:", t); }
+    };
   }catch(e){ box.textContent="Ainda não há resultado salvo."; }
 }
 $("reload").onclick = carregarResultado;
