@@ -204,6 +204,21 @@ def alerta_telegram(cfg, res, anterior):
     return "alerta enviado"
 
 
+def gravar_historico(res):
+    """Guarda o menor preço de cada busca (últimas 500) para o gráfico do painel."""
+    if not res.get("ida"):
+        return
+    arq = HERE / "historico.json"
+    try:
+        hist = json.loads(arq.read_text(encoding="utf-8"))
+    except Exception:
+        hist = []
+    c, x = res["config"], min(res["ida"], key=lambda y: y["preco"])
+    hist.append({"t": res["atualizado"], "menor": x["preco"], "cia": " + ".join(x["companhias"]),
+                 "rota": f"{c['origem']}-{c['destino']} {c['ida']} {c['volta']}"})
+    arq.write_text(json.dumps(hist[-500:], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
 def busca_ativa(cfg):
     """ativo=false -> cancelada; ate='AAAA-MM-DD' -> busca até esse dia; ate vazio -> sem prazo."""
     if cfg.get("ativo") is False:
@@ -238,6 +253,8 @@ def main():
             ant = {}
         try: res["alerta"] = alerta_telegram(cfg, res, ant)
         except Exception as e: res["alerta"] = f"falha no alerta: {type(e).__name__}"
+        try: gravar_historico(res)
+        except Exception as e: res["historico"] = f"falha no histórico: {type(e).__name__}"
     except Exception as e:
         res["status"] = "erro"; res["erro"] = f"{type(e).__name__}: {str(e)[:400]}"
         res["detalhe"] = traceback.format_exc()[-1200:]
