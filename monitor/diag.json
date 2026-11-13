@@ -1,11 +1,9 @@
 {
  "oneway_FLN_MIA_basico": {
-  "ok": 8,
-  "exemplo": "Flights(type='multi', price=732, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Congonhas–Deputado Freitas Nobre Airport', code='CGH'), departure=SimpleDatetime(date=("
+  "erro": "FlightsNotFound: no flights found; received error"
  },
  "oneway_FLN_MIA_brl": {
-  "ok": 8,
-  "exemplo": "Flights(type='multi', price=4130, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU'"
+  "erro": "FlightsNotFound: no flights found; received error"
  },
  "roundtrip_basico": {
   "ok": 4,
