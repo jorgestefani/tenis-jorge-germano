@@ -82,15 +82,64 @@ def periodo(h):
     return "madrugada" if h < 6 else "manhã" if h < 12 else "tarde" if h < 18 else "noite"
 
 
+def ler_voos(html):
+    """Lê os voos da página do Google Flights: as DUAS listas ("melhores" e "outros").
+
+    O leitor da biblioteca só devolvia a segunda lista e deixava de fora justamente
+    os mais baratos (ex.: Copa), então o "menor preço" saía bem acima do real.
+    """
+    from types import SimpleNamespace as NS
+    from selectolax.lexbor import LexborHTMLParser
+    no = LexborHTMLParser(html).css_first(r"script.ds\:1")
+    if no is None:
+        raise RuntimeError("página do Google sem os dados dos voos")
+    data = no.text().split("data:", 1)[1].rsplit(",", 1)[0]
+    if data.endswith("errorHasStatus: true"):
+        raise RuntimeError("o Google devolveu erro")
+    p = json.loads(data)
+
+    def hora(v):
+        v = list(v or []) + [None, None]
+        return (v[0] or 0, v[1] or 0)
+
+    voos = []
+    for sec in p[2:4]:
+        for k in ((sec[0] if sec else None) or []):
+            tarifa = k[1][0] if k[1] else []
+            preco = tarifa[1] if tarifa and len(tarifa) > 1 else None
+            if not preco:
+                continue  # itinerário sem tarifa disponível
+            v = k[0]
+            segs = [NS(from_airport=NS(code=s[3], name=s[4]), to_airport=NS(code=s[6], name=s[5]),
+                       departure=NS(date=tuple(s[20]), time=hora(s[8])),
+                       arrival=NS(date=tuple(s[21]), time=hora(s[10]))) for s in v[2]]
+            voos.append(NS(price=preco, airlines=list(v[1]), flights=segs))
+    return voos
+
+
+def sem_repetir(voos):
+    """Mesmo voo nas duas listas: fica o de menor preço."""
+    m = {}
+    for x in voos:
+        k = (x["saida"], x["chegada"], tuple(x["companhias"]))
+        if k not in m or x["preco"] < m[k]["preco"]:
+            m[k] = x
+    return list(m.values())
+
+
 def buscar(cfg):
     import time
-    from fast_flights import FlightQuery, Passengers, create_query, get_flights as _gf
+    from fast_flights import FlightQuery, Passengers, create_query
+    from fast_flights.fetcher import fetch_flights_html
 
     def get_flights(q, tentativas=6):
         # o Google responde com erro de forma intermitente; tenta de novo
         for i in range(tentativas):
             try:
-                return _gf(q)
+                voos = ler_voos(fetch_flights_html(q))
+                if not voos:
+                    raise RuntimeError("nenhum voo com preço")
+                return voos
             except Exception:
                 if i == tentativas - 1:
                     raise
@@ -102,13 +151,13 @@ def buscar(cfg):
                  FlightQuery(date=cfg["volta"], from_airport=d, to_airport=o)],
         trip="round-trip", passengers=Passengers(adults=1),
         language="pt-BR", currency="BRL")
-    ida = [fmt(f) for f in get_flights(q)]
+    ida = sem_repetir([fmt(f) for f in get_flights(q)])
     # voos de volta (só para checar horários e esperas)
     qv = create_query(
         flights=[FlightQuery(date=cfg["volta"], from_airport=d, to_airport=o)],
         trip="one-way", passengers=Passengers(adults=1),
         language="pt-BR", currency="BRL")
-    volta = [fmt(f) for f in get_flights(qv)]
+    volta = sem_repetir([fmt(f) for f in get_flights(qv)])
     lim = cfg["espera_max_horas"]
     ida_ok = sorted([x for x in ida if x["espera_max_h"] < lim], key=lambda x: x["preco"])
     volta_ok = sorted([x for x in volta if x["espera_max_h"] < lim], key=lambda x: x["preco"])
@@ -140,7 +189,7 @@ def corpo(cfg, res):
         L.append(f"*** {len(na_meta)} opção(ões) NA META (até R$ {r(cfg['meta_por_pessoa'])} por pessoa) ***\n")
     L.append("IDA (preço de ida e volta por pessoa, segundo o Google Flights):")
     for i, x in enumerate(res["ida"], 1):
-        L.append(f"{i}. R$ {r(x['preco'])}/pessoa · total {pax}: R$ {r(x['preco']*pax)} · {', '.join(x['companhias'])}\n"
+        L.append(f"{i}. R$ {r(x['preco']*2)} por casal (R$ {r(x['preco'])}/pessoa · total {pax}: R$ {r(x['preco']*pax)}) · {', '.join(x['companhias'])}\n"
                  f"   sai {x['saida']} chega {x['chegada']} · {x['paradas']} parada(s)")
         for e in x["escalas_detalhe"] or ["voo direto"]:
             L.append(f"   • {e}")
@@ -167,7 +216,7 @@ def enviar(cfg, res):
     menor = min((x["preco"] for x in res["ida"]), default=None)
     na_meta = menor is not None and menor <= cfg["meta_por_pessoa"]
     assunto = ("URGENTE – NA META: " if na_meta else "") + \
-        f"Passagens {cfg['origem']}-{cfg['destino']} – menor R$ {r(menor)} por pessoa" if menor else "Passagens: nenhuma opção válida"
+        f"Passagens {cfg['origem']}-{cfg['destino']} – menor R$ {r(menor * 2)} por casal" if menor else "Passagens: nenhuma opção válida"
     m = MIMEText(corpo(cfg, res), "plain", "utf-8")
     m["Subject"], m["From"], m["To"] = assunto, user, cfg["email"]
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
@@ -194,7 +243,7 @@ def alerta_telegram(cfg, res, anterior):
         return "alerta não configurado (faltam TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID)"
     x = min(res["ida"], key=lambda y: y["preco"])
     txt = (f"✈️ Preço caiu! {cfg['origem']}→{cfg['destino']} {cfg['ida']} a {cfg['volta']}\n"
-           f"R$ {r(menor)} por pessoa · R$ {r(menor * 2)} por casal\n"
+           f"R$ {r(menor * 2)} por casal · R$ {r(menor)} por pessoa\n"
            f"{' + '.join(x['companhias'])} · sai {x['saida']}\n"
            f"Motivo: {'; '.join(motivo)}\n"
            "Painel: https://jorgestefani.github.io/tenis-jorge-germano/monitor/")
