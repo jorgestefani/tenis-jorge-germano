@@ -1,0 +1,113 @@
+{
+ "conferido": "13/11/2026",
+ "fonte": "Decolar",
+ "origem": "FLN",
+ "destino": "MIA",
+ "ida": "2027-02-14",
+ "volta": "2027-02-24",
+ "pessoas": 2,
+ "noites": 10,
+ "link": "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/2027-02-14/2027-02-24/CIT_4544/2027-02-14/2027-02-24/2?from=PSB&nw=true",
+ "link_hoteis": "https://www.decolar.com/accommodations/results/CIT_4544/2027-02-14/2027-02-24/2",
+ "voo": {
+  "cia": "Copa Airlines",
+  "ida": "14/02 01:40 → 11:25 (1 parada)",
+  "volta": "24/02 11:21 → 25/02 00:40 (1 parada)",
+  "avulso_casal": 10277,
+  "taxas_casal": 1092
+ },
+ "melhor_avulsa": {
+  "cia": "LATAM",
+  "casal": 8425
+ },
+ "pacotes": [
+  {
+   "hotel": "La Quinta Inn & Suites Miami Airport East",
+   "curto": "La Quinta Aerop.",
+   "nota": 6.4,
+   "regiao": "Aeroporto · café da manhã",
+   "pacote": 16596,
+   "hotel_sozinho": 8448
+  },
+  {
+   "hotel": "Kompose Boutique Hotel Miami Airport",
+   "curto": "Kompose Aerop.",
+   "nota": 9.2,
+   "regiao": "Aeroporto",
+   "pacote": 17190,
+   "hotel_sozinho": 10376
+  },
+  {
+   "hotel": "Spark by Hilton Miami Doral",
+   "curto": "Spark Hilton",
+   "nota": 8.6,
+   "regiao": "Doral, 14 km do centro · café da manhã",
+   "pacote": 17266,
+   "hotel_sozinho": 10692
+  },
+  {
+   "hotel": "Palm Tree Club Miami",
+   "curto": "Palm Tree Club",
+   "nota": 8.1,
+   "regiao": "10 km do centro",
+   "pacote": 18088,
+   "hotel_sozinho": 8966
+  },
+  {
+   "hotel": "The Palms Inn & Suites",
+   "curto": "Palms Inn",
+   "nota": 8.8,
+   "regiao": "Perto de shopping",
+   "pacote": 18510,
+   "hotel_sozinho": 10902
+  },
+  {
+   "hotel": "Hyatt Place Miami Airport West/Doral",
+   "curto": "Hyatt Place Doral",
+   "nota": 8.4,
+   "regiao": "Doral, 10 km do centro",
+   "pacote": 20432,
+   "hotel_sozinho": 16818
+  },
+  {
+   "hotel": "Holiday Inn Express & Suites Miami Airport 36th St",
+   "curto": "Holiday Inn 36th",
+   "nota": 9.8,
+   "regiao": "Aeroporto, 7 km do centro · café da manhã",
+   "pacote": 21750,
+   "hotel_sozinho": 19408
+  },
+  {
+   "hotel": "Holiday Inn Express Doral Miami",
+   "curto": "Holiday Inn Doral",
+   "nota": 9.2,
+   "regiao": "Doral, perto do Dolphin Mall · café da manhã",
+   "pacote": 22128,
+   "hotel_sozinho": 15392
+  },
+  {
+   "hotel": "Brickell Condos by Vibras Concierge",
+   "curto": "Brickell Condos",
+   "nota": 9.0,
+   "regiao": "Downtown, 4 km do centro · café da manhã",
+   "pacote": 22934,
+   "hotel_sozinho": 18404
+  },
+  {
+   "hotel": "Miami Marriott Biscayne Bay",
+   "curto": "Marriott Biscayne",
+   "nota": 8.8,
+   "regiao": "Midtown, 4 km do centro",
+   "pacote": 26248,
+   "hotel_sozinho": 20094
+  },
+  {
+   "hotel": "The Elser Hotel Miami",
+   "curto": "The Elser",
+   "nota": 9.0,
+   "regiao": "Perto de Bayside (centro)",
+   "pacote": 29000,
+   "hotel_sozinho": 25360
+  }
+ ]
+}
