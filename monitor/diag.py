@@ -1,12 +1,13 @@
-"""Diagnóstico: compara o que o Google devolve com parâmetros diferentes.
+"""Diagnóstico: compara a resposta normal do Google com a lista completa (tfu).
 
-A busca no servidor do GitHub (fora do Brasil) vinha sem as tarifas mais baratas
-(Copa, Avianca). Testa pedir o mercado do Brasil (gl=BR) e a lista completa (tfu).
+A busca no servidor do GitHub vinha sem as tarifas mais baratas (Copa, Avianca).
+Aqui a página é lida com um leitor próprio, que aceita seções vazias.
 """
 import json, time
 from pathlib import Path
-import fast_flights
-from fast_flights import FlightQuery, Passengers, create_query, get_flights
+from fast_flights import FlightQuery, Passengers, create_query
+from fast_flights.fetcher import fetch_flights_html
+from selectolax.lexbor import LexborHTMLParser
 
 AQUI = Path(__file__).parent
 cfg = json.loads((AQUI / "config.json").read_text(encoding="utf-8"))
@@ -19,24 +20,35 @@ def consulta(extra):
         trip="round-trip", passengers=Passengers(adults=1), language="pt-BR", currency="BRL")
     base = q.params()
     q.params = lambda: {**base, **extra}
-    return q, sorted(base)
+    return q
 
 
-out = {"quando_utc": time.strftime("%d/%m/%Y %H:%M", time.gmtime()),
-       "versao": getattr(fast_flights, "__version__", "?"), "testes": {}}
-VARIANTES = {"padrao": {}, "gl_BR": {"gl": "BR"}, "tfu": {"tfu": "EgQIABABIgA"},
-             "gl_BR_tfu": {"gl": "BR", "tfu": "EgQIABABIgA"}}
-for nome, extra in VARIANTES.items():
-    q, chaves = consulta(extra)
-    out["parametros_padrao"] = chaves
-    res = []
-    for i in range(2):
+def lista(html):
+    js = LexborHTMLParser(html).css_first(r"script.ds\:1").text()
+    data = js.split("data:", 1)[1].rsplit(",", 1)[0]
+    if data.endswith("errorHasStatus: true"):
+        raise RuntimeError("o Google devolveu erro")
+    p = json.loads(data)
+    forma = [(len(x) if isinstance(x, list) else type(x).__name__) for x in p[:5]]
+    v = []
+    for i, sec in enumerate(p[2:4]):
+        for k in ((sec[0] if sec else None) or []):
+            fare = k[1][0] if k[1] else []
+            preco = fare[1] if fare and len(fare) > 1 else 0
+            voo = k[0]
+            t = list(voo[2][0][8] or []) + [None, None]
+            v.append([preco or 0, "+".join(voo[1]), "%02d:%02d" % (t[0] or 0, t[1] or 0), len(voo[2]) - 1,
+                      "melhores" if i == 0 else "outros"])
+    return sorted(v), forma
+
+
+out = {"quando_utc": time.strftime("%d/%m/%Y %H:%M", time.gmtime()), "testes": {}}
+for nome, extra in {"padrao": {}, "tfu": {"tfu": "EgQIABABIgA"}}.items():
+    q, res = consulta(extra), []
+    for i in range(4):
         try:
-            r = get_flights(q)
-            voos = sorted(
-                [[f.price or 0, "+".join(f.airlines), "%02d:%02d" % tuple(f.flights[0].departure.time), len(f.flights) - 1]
-                 for f in r], key=lambda v: v[0])
-            res.append({"voos": len(voos), "menor": voos[0][0] if voos else None, "lista": voos})
+            voos, forma = lista(fetch_flights_html(q))
+            res.append({"voos": len(voos), "menor": min([x[0] for x in voos if x[0]] or [None]), "forma": forma, "lista": voos})
         except Exception as e:
             res.append({"erro": f"{type(e).__name__}: {str(e)[:120]}"})
         time.sleep(6)
