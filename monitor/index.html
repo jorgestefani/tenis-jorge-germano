@@ -80,7 +80,7 @@
       <label>Adultos<input id="adultos" type="number" min="1" max="9"></label>
       <label>Espera máx. (h)<input id="espera_max_horas" type="number" min="1" max="24"></label>
       <label>Meta por pessoa (R$)<input id="meta_por_pessoa" type="number" min="0" step="50"></label>
-      <label>E-mail<input id="email" type="email"></label>
+      <label class="full">E-mails (separe por vírgula)<input id="email" type="text" inputmode="email" autocapitalize="off" autocomplete="off" spellcheck="false"></label>
     </div>
   </section>
 
@@ -182,7 +182,7 @@ function validar(c){
   if(!c.origem||!c.destino) return "Preencha origem e destino.";
   if(!c.ida||!c.volta) return "Preencha as datas.";
   if(c.volta<=c.ida) return "A volta precisa ser depois da ida.";
-  if(!/^\S+@\S+\.\S+$/.test(c.email)) return "E-mail inválido.";
+  const mails=c.email.split(/[,;\s]+/).filter(Boolean); if(!mails.length||!mails.every(m=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m))) return "E-mail inválido (separe os endereços por vírgula)."; c.email=mails.join(", ");
   if(!(c.hora_inicio>=0&&c.hora_fim<=23&&c.hora_inicio<=c.hora_fim)) return "Horário inicial deve ser menor ou igual ao final (0 a 23).";
   if(!(c.adultos>=1)) return "Informe os adultos.";
   if($("duracao").value==="data" && !(c.ate>=hoje())) return "Escolha a data final da busca (hoje ou depois).";
