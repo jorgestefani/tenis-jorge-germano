@@ -175,9 +175,19 @@ def enviar(cfg, res):
     return "e-mail enviado"
 
 
+def busca_ativa(cfg):
+    """ativo=false -> cancelada; ate='AAAA-MM-DD' -> busca até esse dia; ate vazio -> sem prazo."""
+    if cfg.get("ativo") is False:
+        return False
+    ate = (cfg.get("ate") or "").strip()
+    return not ate or datetime.now(BRT).strftime("%Y-%m-%d") <= ate
+
+
 def deve_rodar(cfg):
     if os.getenv("GITHUB_EVENT_NAME") != "schedule":
         return True
+    if not busca_ativa(cfg):
+        return False
     h = datetime.now(BRT).hour
     ini, fim, passo = cfg["hora_inicio"], cfg["hora_fim"], max(1, cfg["intervalo_horas"])
     return ini <= h <= fim and (h - ini) % passo == 0
@@ -186,7 +196,7 @@ def deve_rodar(cfg):
 def main():
     cfg = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
     if not deve_rodar(cfg):
-        print("Fora do horário programado; nada a fazer."); return
+        print("Busca cancelada, prazo encerrado ou fora do horário; nada a fazer."); return
     res = {"atualizado": datetime.now(BRT).strftime("%d/%m/%Y %H:%M"), "config": cfg}
     try:
         res.update(buscar(cfg))
