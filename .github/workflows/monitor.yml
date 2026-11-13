@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }   # sempre a ponta do main, para o push do resultado não conflitar
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install fast-flights typing_extensions
