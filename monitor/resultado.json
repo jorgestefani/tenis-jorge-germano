@@ -1,5 +1,5 @@
 {
- "atualizado": "12/11/2026 21:31",
+ "atualizado": "12/11/2026 21:39",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -7,11 +7,13 @@
   "volta": "2027-02-24",
   "adultos": 4,
   "espera_max_horas": 6,
-  "meta_por_pessoa": 8000,
+  "meta_por_pessoa": 3500,
   "email": "jorge.stefani@gmail.com",
   "intervalo_horas": 2,
   "hora_inicio": 0,
-  "hora_fim": 23
+  "hora_fim": 23,
+  "ate": "",
+  "ativo": true
  },
  "total_ida": 4,
  "total_volta": 9,
