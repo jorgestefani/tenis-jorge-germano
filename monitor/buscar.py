@@ -175,6 +175,35 @@ def enviar(cfg, res):
     return "e-mail enviado"
 
 
+def alerta_telegram(cfg, res, anterior):
+    """Avisa no Telegram (iPhone) se o menor preço ficou na meta ou abaixo do menor já visto."""
+    tok, chat = os.getenv("TELEGRAM_BOT_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
+    menor = min((x["preco"] for x in res.get("ida", [])), default=None)
+    visto = anterior.get("menor_visto")
+    res["menor_visto"] = min(v for v in (menor, visto) if v is not None) if (menor or visto) else None
+    if menor is None:
+        return "sem preço"
+    motivo = []
+    if menor <= cfg["meta_por_pessoa"]:
+        motivo.append(f"na meta (até R$ {r(cfg['meta_por_pessoa'])} por pessoa)")
+    if visto is not None and menor < visto:
+        motivo.append(f"menor que o anterior (R$ {r(visto)})")
+    if not motivo:
+        return "sem queda"
+    if not (tok and chat):
+        return "alerta não configurado (faltam TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID)"
+    x = min(res["ida"], key=lambda y: y["preco"])
+    txt = (f"✈️ Preço caiu! {cfg['origem']}→{cfg['destino']} {cfg['ida']} a {cfg['volta']}\n"
+           f"R$ {r(menor)} por pessoa · R$ {r(menor * 2)} por casal\n"
+           f"{' + '.join(x['companhias'])} · sai {x['saida']}\n"
+           f"Motivo: {'; '.join(motivo)}\n"
+           "Painel: https://jorgestefani.github.io/tenis-jorge-germano/monitor/")
+    import urllib.request, urllib.parse
+    dados = urllib.parse.urlencode({"chat_id": chat, "text": txt}).encode()
+    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", dados, timeout=20).read()
+    return "alerta enviado"
+
+
 def busca_ativa(cfg):
     """ativo=false -> cancelada; ate='AAAA-MM-DD' -> busca até esse dia; ate vazio -> sem prazo."""
     if cfg.get("ativo") is False:
@@ -203,6 +232,12 @@ def main():
         res["status"] = "ok"
         try: res["email"] = enviar(cfg, res)
         except Exception as e: res["email"] = f"falha no e-mail: {e}"
+        try:
+            ant = json.loads((HERE / "resultado.json").read_text(encoding="utf-8"))
+        except Exception:
+            ant = {}
+        try: res["alerta"] = alerta_telegram(cfg, res, ant)
+        except Exception as e: res["alerta"] = f"falha no alerta: {type(e).__name__}"
     except Exception as e:
         res["status"] = "erro"; res["erro"] = f"{type(e).__name__}: {str(e)[:400]}"
         res["detalhe"] = traceback.format_exc()[-1200:]
