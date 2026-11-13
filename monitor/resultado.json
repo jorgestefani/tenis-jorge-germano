@@ -1,5 +1,5 @@
 {
- "atualizado": "12/11/2026 21:39",
+ "atualizado": "13/11/2026 00:22",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -15,14 +15,14 @@
   "ate": "",
   "ativo": true
  },
- "total_ida": 4,
+ "total_ida": 6,
  "total_volta": 9,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
    "escalas_detalhe": [
-    "COR – Ingeniero Aeronáutico Ambrosio L.V. Taravella International Airport: chega 15/02 01:50, sai 15/02 07:40 (horário local) – espera 5h50",
-    "BOG – El Dorado International Airport: chega 15/02 11:25, sai 15/02 13:00 (horário local) – espera 1h35"
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
+    "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
    ],
    "sites": [
     "Gol: https://www.voegol.com.br",
@@ -32,21 +32,69 @@
     "Gol",
     "Avianca"
    ],
-   "saida": "14/02 23:05",
-   "chegada": "15/02 17:00",
-   "hora_saida": 23,
+   "saida": "14/02 18:55",
+   "chegada": "15/02 11:40",
+   "hora_saida": 18,
    "paradas": 2,
    "escalas": [
-    "COR: 5.8h",
-    "BOG: 1.6h"
+    "GRU: 4.1h",
+    "BOG: 3.2h"
    ],
-   "espera_max_h": 5.8,
-   "duracao_h": 17.9,
-   "preco": 6216
+   "espera_max_h": 4.1,
+   "duracao_h": 16.8,
+   "preco": 4909
   },
   {
    "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 14/02 21:15, sai 15/02 01:40 (horário local) – espera 4h25",
+    "BOG – El Dorado International Airport: chega 15/02 06:00, sai 15/02 07:40 (horário local) – espera 1h40"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "Avianca: https://www.avianca.com/br/pt"
+   ],
+   "companhias": [
+    "Gol",
+    "Avianca"
+   ],
+   "saida": "14/02 19:45",
+   "chegada": "15/02 11:40",
+   "hora_saida": 19,
+   "paradas": 2,
+   "escalas": [
+    "GIG: 4.4h",
+    "BOG: 1.7h"
+   ],
+   "espera_max_h": 4.4,
+   "duracao_h": 15.9,
+   "preco": 5437
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 14/02 22:35 (horário local) – espera 2h15"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "American: https://www.aa.com.br"
+   ],
+   "companhias": [
+    "Gol",
+    "American"
+   ],
+   "saida": "14/02 18:55",
+   "chegada": "15/02 05:00",
+   "hora_saida": 18,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.2h"
+   ],
+   "espera_max_h": 2.2,
+   "duracao_h": 10.1,
+   "preco": 6722
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 21:40, sai 14/02 23:00 (horário local) – espera 1h20"
    ],
    "sites": [
     "LATAM: https://www.latamairlines.com/br/pt"
@@ -54,37 +102,16 @@
    "companhias": [
     "LATAM"
    ],
-   "saida": "14/02 05:25",
-   "chegada": "14/02 16:40",
-   "hora_saida": 5,
+   "saida": "14/02 20:10",
+   "chegada": "15/02 05:25",
+   "hora_saida": 20,
    "paradas": 1,
    "escalas": [
-    "GRU: 3.3h"
+    "GRU: 1.3h"
    ],
-   "espera_max_h": 3.3,
-   "duracao_h": 11.2,
-   "preco": 7215
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 10:10, sai 14/02 12:35 (horário local) – espera 2h25"
-   ],
-   "sites": [
-    "LATAM: https://www.latamairlines.com/br/pt"
-   ],
-   "companhias": [
-    "LATAM"
-   ],
-   "saida": "14/02 08:40",
-   "chegada": "14/02 18:55",
-   "hora_saida": 8,
-   "paradas": 1,
-   "escalas": [
-    "GRU: 2.4h"
-   ],
-   "espera_max_h": 2.4,
-   "duracao_h": 10.2,
-   "preco": 7215
+   "espera_max_h": 1.3,
+   "duracao_h": 9.2,
+   "preco": 7160
   }
  ],
  "volta": [
@@ -157,7 +184,7 @@
    ],
    "espera_max_h": 2.7,
    "duracao_h": 14.3,
-   "preco": 4852
+   "preco": 4853
   }
  ],
  "status": "ok",
