@@ -1,23 +1,221 @@
 {
- "oneway_FLN_MIA_basico": {
-  "erro": "FlightsNotFound: no flights found; received error"
- },
- "oneway_FLN_MIA_brl": {
-  "ok": 8,
-  "exemplo": "Flights(type='multi', price=2950, airlines=['Gol', 'Avianca'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU')"
- },
- "roundtrip_basico": {
-  "ok": 5,
-  "exemplo": "Flights(type='multi', price=1264, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Congonhas–Deputado Freitas Nobre Airport', code='CGH'), departure=SimpleDatetime(date="
- },
- "roundtrip_brl": {
-  "erro": "FlightsNotFound: no flights found; received error"
- },
- "oneway_GRU_MIA_marco": {
-  "ok": 5,
-  "exemplo": "Flights(type='AR', price=454, airlines=['Aerolineas Argentinas'], flights=[SingleFlight(from_airport=Airport(name='São Paulo/Guarulhos–Governor André Franco Montoro International Airport', code='GRU'), to_airport=Airport(name='Aeroparque Internacional Jorge Newbery', code='AEP'), departure=SimpleDat"
- },
- "oneway_JFK_LAX_controle": {
-  "erro": "FlightsNotFound: no flights found; received error"
- }
+ "quando_utc": "13/11/2026 13:11",
+ "tentativas": [
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  },
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  },
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  },
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  },
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  },
+  {
+   "voos": 5,
+   "menor": 7132,
+   "lista": [
+    [
+     7132,
+     "Gol+American",
+     "09:55",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "05:25",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "08:40",
+     1
+    ],
+    [
+     7809,
+     "LATAM",
+     "20:45",
+     1
+    ],
+    [
+     8041,
+     "LATAM",
+     "20:50",
+     1
+    ]
+   ]
+  }
+ ]
 }
