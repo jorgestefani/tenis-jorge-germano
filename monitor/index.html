@@ -203,8 +203,8 @@ async function carregarConfig(){
 function opcao(x, ehIda, meta, pax){
   const naMeta = ehIda && x.preco<=meta;
   let h = '<div class="opt">';
-  if(ehIda) h += '<div class="preco">R$ '+brl(x.preco)+' por pessoa'+(naMeta?'<span class="tag">NA META</span>':'')+'</div>'
-              +  '<div class="hint">Total '+pax+' adultos: R$ '+brl(x.preco*pax)+'</div>';
+  if(ehIda) h += '<div class="preco">R$ '+brl(x.preco*2)+' por casal'+(naMeta?'<span class="tag">NA META</span>':'')+'</div>'
+              +  '<div class="hint">R$ '+brl(x.preco)+' por pessoa'+(pax!==2?' · total '+pax+' adultos: R$ '+brl(x.preco*pax):'')+'</div>';
   h += '<div>'+esc((x.companhias||[]).join(" + "))+' · sai '+esc(x.saida)+' · chega '+esc(x.chegada)+' · '+x.paradas+' parada(s)</div>';
   for(const e of (x.escalas_detalhe||[])) h += '<div class="esc">• '+esc(e)+'</div>';
   if(!(x.escalas_detalhe||[]).length) h += '<div class="esc">• voo direto</div>';
@@ -277,27 +277,30 @@ async function carregarResultado(){
 // ---- Histórico do menor preço (historico.json, gravado a cada busca) ----
 const quandoMs = t => { const m=/(\d+)\/(\d+)\/(\d+) (\d+):(\d+)/.exec(t||""); return m? Date.UTC(+m[3],m[2]-1,+m[1],+m[4],+m[5]) : 0; };
 const curto = t => (t||"").replace(/\/\d{4}/,"");
+// Até 13/11/2026 10:28 a busca lia só parte da lista do Google (faltavam os mais baratos, como a Copa);
+// essas buscas ficam fora do gráfico para não comparar preços que não eram o menor de verdade.
+const HIST_DESDE = Date.UTC(2026,10,13,10,28);
 async function carregarHistorico(){
   const box=$("hist");
   try{
     const r=await fetch("historico.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
     const rota=CFG.origem+"-"+CFG.destino+" "+CFG.ida+" "+CFG.volta;
-    const H=(await r.json()).filter(e=>e.rota===rota && e.menor>0).map(e=>Object.assign({ms:quandoMs(e.t)},e)).sort((a,b)=>a.ms-b.ms);
+    const H=(await r.json()).filter(e=>e.rota===rota && e.menor>0).map(e=>Object.assign({ms:quandoMs(e.t)},e)).filter(e=>e.ms>=HIST_DESDE).sort((a,b)=>a.ms-b.ms);
     if(!H.length){ box.innerHTML=""; return; }
     const ult=H[H.length-1], min=H.reduce((a,b)=>b.menor<a.menor?b:a), max=Math.max(...H.map(e=>e.menor));
     let ant=null; for(let i=H.length-2;i>=0;i--) if(H[i].menor!==ult.menor){ ant=H[i]; break; }
     let delta='<span class="hint">sem mudança desde a primeira busca</span>';
-    if(ant){ const d=ult.menor-ant.menor; delta='<span class="'+(d<0?"ok":"err")+'">'+(d<0?"▼ caiu":"▲ subiu")+' R$ '+brl(Math.abs(d))+'</span> <span class="hint" style="display:inline">em relação a '+esc(curto(ant.t))+'</span>'; }
-    let h='<div class="hint">Menor preço por pessoa, ida e volta</div><div class="num">R$ '+brl(ult.menor)+'</div><div style="font-size:14px">'+delta+'</div>';
-    h+='<div class="hint">Menor já visto: <b>R$ '+brl(min.menor)+'</b> em '+esc(curto(min.t))+' ('+esc(min.cia||"")+')'+(ult.menor>min.menor?' · hoje está R$ '+brl(ult.menor-min.menor)+' acima':' · é o de agora')+'</div>';
+    if(ant){ const d=(ult.menor-ant.menor)*2; delta='<span class="'+(d<0?"ok":"err")+'">'+(d<0?"▼ caiu":"▲ subiu")+' R$ '+brl(Math.abs(d))+'</span> <span class="hint" style="display:inline">em relação a '+esc(curto(ant.t))+'</span>'; }
+    let h='<div class="hint">Menor preço por casal, ida e volta</div><div class="num">R$ '+brl(ult.menor*2)+'</div><div class="hint">R$ '+brl(ult.menor)+' por pessoa · '+esc(ult.cia||"")+'</div><div style="font-size:14px">'+delta+'</div>';
+    h+='<div class="hint">Menor já visto: <b>R$ '+brl(min.menor*2)+'</b> por casal em '+esc(curto(min.t))+' ('+esc(min.cia||"")+')'+(ult.menor>min.menor?' · hoje está R$ '+brl((ult.menor-min.menor)*2)+' acima':' · é o de agora')+'</div>';
     if(H.length>1){
       const t0=H[0].ms, t1=ult.ms||1, lo=min.menor, hi=max, fx=e=>t1>t0?(e.ms-t0)/(t1-t0)*100:50, fy=e=>hi>lo?8+(hi-e.menor)/(hi-lo)*84:50;
-      h+='<div class="graf" id="graf" role="img" aria-label="Menor preço em cada busca, de '+esc(curto(H[0].t))+' a '+esc(curto(ult.t))+'"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="'+H.map((e,i)=>(i?"L":"M")+fx(e).toFixed(2)+" "+fy(e).toFixed(2)).join(" ")+'"/></svg><u id="grafLin" style="display:none"></u><i id="grafPt"></i></div>';
+      h+='<div class="graf" id="graf" role="img" aria-label="Menor preço por casal em cada busca, de '+esc(curto(H[0].t))+' a '+esc(curto(ult.t))+'"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="'+H.map((e,i)=>(i?"L":"M")+fx(e).toFixed(2)+" "+fy(e).toFixed(2)).join(" ")+'"/></svg><u id="grafLin" style="display:none"></u><i id="grafPt"></i></div>';
       h+='<div class="eixo"><span>'+esc(curto(H[0].t))+'</span><span id="grafTxt"></span><span>'+esc(curto(ult.t))+'</span></div>';
-      h+='<details style="margin-top:6px"><summary>Ver as '+H.length+' buscas</summary><table class="tab"><tr><th>Quando</th><th>Cia</th><th>Por pessoa</th></tr>'+H.slice().reverse().slice(0,60).map(e=>'<tr><td>'+esc(curto(e.t))+'</td><td>'+esc(e.cia||"")+'</td><td>'+brl(e.menor)+'</td></tr>').join("")+'</table></details>';
+      h+='<details style="margin-top:6px"><summary>Ver as '+H.length+' buscas</summary><table class="tab"><tr><th>Quando</th><th>Cia</th><th>Por casal</th></tr>'+H.slice().reverse().slice(0,60).map(e=>'<tr><td>'+esc(curto(e.t))+'</td><td>'+esc(e.cia||"")+'</td><td>'+brl(e.menor*2)+'</td></tr>').join("")+'</table></details>';
       box.innerHTML=h+'<div class="hint" style="margin-bottom:10px">🔔 O alerta no Telegram avisa quando ficar abaixo do menor já visto ou na meta.</div>';
       const g=$("graf"), pt=$("grafPt"), lin=$("grafLin"), txt=$("grafTxt");
-      const mostra=(e,fixo)=>{ pt.style.left=fx(e)+"%"; pt.style.top=fy(e)+"%"; lin.style.left=fx(e)+"%"; lin.style.display=fixo?"none":""; txt.textContent=fixo?"":curto(e.t).slice(0,11)+" · R$ "+brl(e.menor); };
+      const mostra=(e,fixo)=>{ pt.style.left=fx(e)+"%"; pt.style.top=fy(e)+"%"; lin.style.left=fx(e)+"%"; lin.style.display=fixo?"none":""; txt.textContent=fixo?"":curto(e.t).slice(0,11)+" · R$ "+brl(e.menor*2); };
       const perto=ev=>{ const b=g.getBoundingClientRect(), x=(ev.clientX-b.left)/b.width*100; mostra(H.reduce((a,e)=>Math.abs(fx(e)-x)<Math.abs(fx(a)-x)?e:a)); };
       g.addEventListener("pointermove",perto); g.addEventListener("pointerdown",perto);
       g.addEventListener("pointerleave",()=>mostra(ult,true));
