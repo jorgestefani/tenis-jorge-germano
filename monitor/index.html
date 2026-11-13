@@ -75,6 +75,16 @@
       <label>Até às (h)<input id="hora_fim" type="number" min="0" max="23"></label>
     </div>
     <div class="hint" id="quando"></div>
+    <label style="margin-top:10px">Buscar durante
+      <select id="duracao">
+        <option value="0">Sem prazo (até eu cancelar)</option>
+        <option value="1">1 dia</option><option value="3">3 dias</option><option value="7">7 dias</option>
+        <option value="15">15 dias</option><option value="30">30 dias</option>
+        <option value="data">Até uma data…</option>
+      </select>
+    </label>
+    <label id="ateBox" style="display:none;margin-top:8px">Buscar até o dia<input id="ate" type="date"></label>
+    <div class="hint" id="estado"></div>
   </section>
 
   <section>
@@ -87,8 +97,9 @@
       <div class="hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate. Em "Repository access" escolha só <b>tenis-jorge-germano</b>. Em "Permissions → Repository" deixe <b>Contents: Read and write</b> e <b>Actions: Read and write</b>. Copie e cole acima.</div>
     </details>
     <div class="btns">
-      <button class="primary" id="salvar">Salvar programação</button>
+      <button class="primary" id="salvar">Salvar e ativar busca</button>
       <button id="agora">Buscar agora</button>
+      <button id="cancelar" style="color:var(--err)">⛔ Cancelar busca</button>
     </div>
     <div id="status"></div>
   </section>
@@ -117,14 +128,30 @@ function quando(){
 }
 CAMPOS.forEach(k => $(k).addEventListener("input", () => { $("quando").textContent = quando(); }));
 
+let CFG = {};
+const hoje = () => { const d=new Date(Date.now()-3*3600e3); return d.toISOString().slice(0,10); }; // data de Brasília
+const somaDias = n => { const d=new Date(Date.now()-3*3600e3); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); };
+const br = s => s.split("-").reverse().join("/");
+function estado(c){
+  if(c.ativo===false) return "⛔ Busca cancelada. Para voltar, toque em “Salvar e ativar busca”.";
+  if(c.ate && c.ate < hoje()) return "⏹️ Prazo encerrado em "+br(c.ate)+". Para voltar, escolha um novo prazo e salve.";
+  if(c.ate) return "✅ Busca ativa até "+br(c.ate)+".";
+  return "✅ Busca ativa, sem prazo — continua até você tocar em “Cancelar busca”.";
+}
+function mostraEstado(){ $("estado").textContent = estado(CFG); }
+$("duracao").addEventListener("change", () => { $("ateBox").style.display = $("duracao").value==="data" ? "" : "none"; });
+
 function lerForm(){
-  const cfg={};
+  const cfg=Object.assign({}, CFG);
   for(const k of CAMPOS){
     let v=$(k).value.trim();
     if(NUM.has(k)) v=Number(v);
     if(k==="origem"||k==="destino") v=v.toUpperCase();
     cfg[k]=v;
   }
+  const dur=$("duracao").value;
+  cfg.ate = dur==="0" ? "" : dur==="data" ? $("ate").value : somaDias(+dur);
+  cfg.ativo = true;
   return cfg;
 }
 function validar(c){
@@ -134,16 +161,19 @@ function validar(c){
   if(!/^\S+@\S+\.\S+$/.test(c.email)) return "E-mail inválido.";
   if(!(c.hora_inicio>=0&&c.hora_fim<=23&&c.hora_inicio<=c.hora_fim)) return "Horário inicial deve ser menor ou igual ao final (0 a 23).";
   if(!(c.adultos>=1)) return "Informe os adultos.";
+  if($("duracao").value==="data" && !(c.ate>=hoje())) return "Escolha a data final da busca (hoje ou depois).";
   return "";
 }
 
 async function carregarConfig(){
   try{
     const r=await fetch("config.json?ts="+Date.now(),{cache:"no-store"});
-    const c=await r.json();
+    const c=await r.json(); CFG=c;
     CAMPOS.forEach(k => { if(c[k]!==undefined) $(k).value=c[k]; });
+    if(c.ate){ $("duracao").value="data"; $("ate").value=c.ate; $("ateBox").style.display=""; }
+    else $("duracao").value="0";
   }catch(e){ say("Não consegui carregar a configuração atual.","err"); }
-  $("quando").textContent = quando();
+  $("quando").textContent = quando(); mostraEstado();
 }
 
 function opcao(x, ehIda, meta, pax){
@@ -195,17 +225,33 @@ async function gh(path, opts){
 }
 const b64 = s => btoa(unescape(encodeURIComponent(s)));
 
+async function gravar(cfg, msg){
+  const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
+  await gh("/contents/monitor/config.json", {method:"PUT", headers:{
+    "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
+    body:JSON.stringify({message:msg, content:b64(JSON.stringify(cfg,null,2)+"\n"), sha:cur.sha, branch:"main"})});
+  CFG=cfg; mostraEstado();
+}
+
 $("salvar").onclick = async () => {
   const cfg=lerForm(); const bad=validar(cfg); if(bad) return say(bad,"err");
   $("salvar").disabled=true; say("Salvando…");
   try{
-    const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
-    await gh("/contents/monitor/config.json", {method:"PUT", headers:{
-      "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
-      body:JSON.stringify({message:"Programação atualizada pelo painel", content:b64(JSON.stringify(cfg,null,2)+"\n"), sha:cur.sha, branch:"main"})});
-    say("Programação salva. "+quando()+"\nA próxima busca já usa os novos dados.","ok");
+    await gravar(cfg, "Programação atualizada pelo painel");
+    say("Programação salva. "+quando()+"\n"+estado(cfg),"ok");
   }catch(e){ say(e.message,"err"); }
   $("salvar").disabled=false;
+};
+
+let cancelarT=0;
+$("cancelar").onclick = async () => {
+  if(Date.now()-cancelarT > 4000){ cancelarT=Date.now(); return say("Toque de novo em “Cancelar busca” para confirmar.","err"); }
+  cancelarT=0; $("cancelar").disabled=true; say("Cancelando…");
+  try{
+    await gravar(Object.assign({}, CFG, {ativo:false}), "Busca cancelada pelo painel");
+    say("Busca cancelada. Não haverá novas buscas nem e-mails.","ok");
+  }catch(e){ say(e.message,"err"); }
+  $("cancelar").disabled=false;
 };
 
 $("agora").onclick = async () => {
