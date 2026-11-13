@@ -1,5 +1,5 @@
 {
- "atualizado": "13/11/2026 10:23",
+ "atualizado": "13/11/2026 10:30",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -15,13 +15,78 @@
   "ate": "",
   "ativo": true
  },
- "total_ida": 5,
- "total_volta": 8,
+ "total_ida": 9,
+ "total_volta": 11,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
    "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
+    "PTY – Aeroporto Internacional Tocumen: chega 14/02 06:43, sai 14/02 12:33 (horário local) – espera 5h50"
+   ],
+   "sites": [
+    "COPA: https://www.copaair.com/pt-br"
+   ],
+   "companhias": [
+    "COPA"
+   ],
+   "saida": "14/02 01:40",
+   "chegada": "14/02 15:41",
+   "hora_saida": 1,
+   "paradas": 1,
+   "escalas": [
+    "PTY: 5.8h"
+   ],
+   "espera_max_h": 5.8,
+   "duracao_h": 14.0,
+   "preco": 4465
+  },
+  {
+   "escalas_detalhe": [
+    "PTY – Aeroporto Internacional Tocumen: chega 14/02 06:43, sai 14/02 08:16 (horário local) – espera 1h33"
+   ],
+   "sites": [
+    "COPA: https://www.copaair.com/pt-br"
+   ],
+   "companhias": [
+    "COPA"
+   ],
+   "saida": "14/02 01:40",
+   "chegada": "14/02 11:25",
+   "hora_saida": 1,
+   "paradas": 1,
+   "escalas": [
+    "PTY: 1.6h"
+   ],
+   "espera_max_h": 1.6,
+   "duracao_h": 9.8,
+   "preco": 5139
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 14/02 22:35 (horário local) – espera 2h15"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "American: https://www.aa.com.br"
+   ],
+   "companhias": [
+    "Gol",
+    "American"
+   ],
+   "saida": "14/02 18:55",
+   "chegada": "15/02 05:00",
+   "hora_saida": 18,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.2h"
+   ],
+   "espera_max_h": 2.2,
+   "duracao_h": 10.1,
+   "preco": 6722
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 21:40, sai 14/02 23:00 (horário local) – espera 1h20"
    ],
    "sites": [
     "LATAM: https://www.latamairlines.com/br/pt"
@@ -29,16 +94,16 @@
    "companhias": [
     "LATAM"
    ],
-   "saida": "14/02 05:25",
-   "chegada": "14/02 16:40",
-   "hora_saida": 5,
+   "saida": "14/02 20:10",
+   "chegada": "15/02 05:25",
+   "hora_saida": 20,
    "paradas": 1,
    "escalas": [
-    "GRU: 3.3h"
+    "GRU: 1.3h"
    ],
-   "espera_max_h": 3.3,
-   "duracao_h": 11.2,
-   "preco": 7809
+   "espera_max_h": 1.3,
+   "duracao_h": 9.2,
+   "preco": 7124
   },
   {
    "escalas_detalhe": [
@@ -65,8 +130,54 @@
  "volta": [
   {
    "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:25 (horário local) – espera 1h40",
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 05:55, sai 25/02 08:25 (horário local) – espera 2h30"
+    "PTY – Aeroporto Internacional Tocumen: chega 24/02 14:30, sai 24/02 15:32 (horário local) – espera 1h02"
+   ],
+   "sites": [
+    "COPA: https://www.copaair.com/pt-br"
+   ],
+   "companhias": [
+    "COPA"
+   ],
+   "saida": "24/02 11:21",
+   "chegada": "25/02 00:40",
+   "hora_saida": 11,
+   "paradas": 1,
+   "escalas": [
+    "PTY: 1.0h"
+   ],
+   "espera_max_h": 1.0,
+   "duracao_h": 13.3,
+   "preco": 2198
+  },
+  {
+   "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 24/02 05:15, sai 24/02 07:10 (horário local) – espera 1h55",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/02 15:45, sai 24/02 18:00 (horário local) – espera 2h15"
+   ],
+   "sites": [
+    "Avianca: https://www.avianca.com/br/pt",
+    "Gol: https://www.voegol.com.br"
+   ],
+   "companhias": [
+    "Avianca",
+    "Gol"
+   ],
+   "saida": "24/02 01:35",
+   "chegada": "24/02 19:35",
+   "hora_saida": 1,
+   "paradas": 2,
+   "escalas": [
+    "BOG: 1.9h",
+    "GIG: 2.2h"
+   ],
+   "espera_max_h": 2.2,
+   "duracao_h": 18.0,
+   "preco": 2493
+  },
+  {
+   "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:45 (horário local) – espera 2h00",
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 06:05, sai 25/02 09:05 (horário local) – espera 3h00"
    ],
    "sites": [
     "Avianca: https://www.avianca.com/br/pt",
@@ -77,62 +188,20 @@
     "Gol"
    ],
    "saida": "24/02 16:00",
-   "chegada": "25/02 10:00",
+   "chegada": "25/02 10:25",
    "hora_saida": 16,
    "paradas": 2,
    "escalas": [
-    "BOG: 1.7h",
-    "GIG: 2.5h"
-   ],
-   "espera_max_h": 2.5,
-   "duracao_h": 18.0,
-   "preco": 3223
-  },
-  {
-   "escalas_detalhe": [
-    "SCL – Arturo Merino Benitez International Airport: chega 25/02 07:00, sai 25/02 10:00 (horário local) – espera 3h00"
-   ],
-   "sites": [
-    "LATAM: https://www.latamairlines.com/br/pt"
-   ],
-   "companhias": [
-    "LATAM"
-   ],
-   "saida": "24/02 20:35",
-   "chegada": "25/02 13:20",
-   "hora_saida": 20,
-   "paradas": 1,
-   "escalas": [
-    "SCL: 3.0h"
+    "BOG: 2.0h",
+    "GRU: 3.0h"
    ],
    "espera_max_h": 3.0,
-   "duracao_h": 16.8,
-   "preco": 4826
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 19:45, sai 24/02 22:25 (horário local) – espera 2h40"
-   ],
-   "sites": [
-    "LATAM: https://www.latamairlines.com/br/pt"
-   ],
-   "companhias": [
-    "LATAM"
-   ],
-   "saida": "24/02 09:20",
-   "chegada": "24/02 23:40",
-   "hora_saida": 9,
-   "paradas": 1,
-   "escalas": [
-    "GRU: 2.7h"
-   ],
-   "espera_max_h": 2.7,
-   "duracao_h": 14.3,
-   "preco": 4862
+   "duracao_h": 18.4,
+   "preco": 2493
   }
  ],
  "status": "ok",
  "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)",
- "menor_visto": 7809,
- "alerta": "sem queda"
+ "menor_visto": 4465,
+ "alerta": "alerta não configurado (faltam TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID)"
 }

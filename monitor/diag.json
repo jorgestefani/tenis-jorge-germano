@@ -1,14 +1,8 @@
 {
- "quando_utc": "13/11/2026 13:23",
+ "quando_utc": "13/11/2026 13:30",
  "testes": {
   "padrao": [
    {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
     "voos": 9,
     "menor": 4465,
     "forma": [
@@ -159,6 +153,12 @@
       "outros"
      ]
     ]
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
    }
   ],
   "tfu": [
@@ -603,12 +603,6 @@
     ]
    },
    {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
     "voos": 61,
     "menor": 4465,
     "forma": [
@@ -1047,6 +1041,12 @@
       "outros"
      ]
     ]
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
    }
   ]
  }
