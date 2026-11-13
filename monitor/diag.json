@@ -1,221 +1,109 @@
 {
- "quando_utc": "13/11/2026 13:11",
- "tentativas": [
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
+ "quando_utc": "13/11/2026 13:19",
+ "versao": "?",
+ "testes": {
+  "padrao": [
+   {
+    "voos": 5,
+    "menor": 7132,
+    "lista": [
+     [
+      7132,
+      "Gol+American",
+      "09:55",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "05:25",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "08:40",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "20:45",
+      1
+     ],
+     [
+      8041,
+      "LATAM",
+      "20:50",
+      1
+     ]
     ]
-   ]
-  },
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
+   },
+   {
+    "erro": "FlightsNotFound: no flights found; received error"
+   }
+  ],
+  "gl_BR": [
+   {
+    "erro": "FlightsNotFound: no flights found; received error"
+   },
+   {
+    "voos": 5,
+    "menor": 7132,
+    "lista": [
+     [
+      7132,
+      "Gol+American",
+      "09:55",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "05:25",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "08:40",
+      1
+     ],
+     [
+      7809,
+      "LATAM",
+      "20:45",
+      1
+     ],
+     [
+      8041,
+      "LATAM",
+      "20:50",
+      1
+     ]
     ]
-   ]
-  },
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
-    ]
-   ]
-  },
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
-    ]
-   ]
-  },
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
-    ]
-   ]
-  },
-  {
-   "voos": 5,
-   "menor": 7132,
-   "lista": [
-    [
-     7132,
-     "Gol+American",
-     "09:55",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "05:25",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "08:40",
-     1
-    ],
-    [
-     7809,
-     "LATAM",
-     "20:45",
-     1
-    ],
-    [
-     8041,
-     "LATAM",
-     "20:50",
-     1
-    ]
-   ]
-  }
+   }
+  ],
+  "tfu": [
+   {
+    "erro": "IndexError: list index out of range"
+   },
+   {
+    "erro": "IndexError: list index out of range"
+   }
+  ],
+  "gl_BR_tfu": [
+   {
+    "erro": "FlightsNotFound: no flights found; received error"
+   },
+   {
+    "erro": "FlightsNotFound: no flights found; received error"
+   }
+  ]
+ },
+ "parametros_padrao": [
+  "curr",
+  "hl",
+  "tfs"
  ]
 }
