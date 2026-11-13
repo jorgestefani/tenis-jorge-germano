@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Monitor de Passagens</title>
 <style>
-  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#64707f;--line:#dfe3e8;--acc:#0b6bcb;--ok:#13795b;--err:#b3261e}
-  @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80}}
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#64707f;--line:#dfe3e8;--acc:#0b6bcb;--ok:#13795b;--err:#b3261e;--graf:#0b6bcb}
+  @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80;--graf:#3987e5}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
   main{max-width:600px;margin:0 auto;padding:16px 14px 48px}
@@ -37,20 +37,37 @@
   .tab th:first-child,.tab td:first-child{text-align:left}
   .tab th{font-size:12px;color:var(--mut);font-weight:600}
   .cias{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .num{font-size:26px;font-weight:700;line-height:1.15}
+  .graf{position:relative;height:64px;margin:8px 0 2px;touch-action:pan-y}
+  .graf svg{display:block;width:100%;height:100%;overflow:visible}
+  .graf path{fill:none;stroke:var(--graf);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+  .graf i{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--graf);box-shadow:0 0 0 2px var(--card);pointer-events:none}
+  .graf u{position:absolute;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none}
+  .eixo{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
+  .dest{border-left:3px solid var(--ok);padding:2px 0 2px 10px;margin:8px 0;font-size:14px}
+  .tab td small{display:block;color:var(--mut);font-size:12px;font-weight:400}
+  .tab td b.bom{color:var(--ok)}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
 <main>
   <h1>✈️ Monitor de Passagens</h1>
-  <p class="sub">Busca automática no Google Flights. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
+  <p class="sub">Busca automática no Google Flights, com histórico de preços e pacotes com hotel. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
 
   <section>
     <h2>Último resultado</h2>
+    <div id="hist"></div>
     <div id="res">Carregando…</div>
     <div class="btns" style="margin-top:10px">
       <button id="reload">Atualizar resultado</button>
     </div>
+  </section>
+
+  <section id="secPac" style="display:none">
+    <h2>Pacotes voo + hotel (casal, 10 noites)</h2>
+    <div id="pac"></div>
   </section>
 
   <section>
@@ -256,7 +273,84 @@ async function carregarResultado(){
     };
   }catch(e){ box.textContent="Ainda não há resultado salvo."; }
 }
-$("reload").onclick = carregarResultado;
+// ---- Histórico do menor preço (historico.json, gravado a cada busca) ----
+const quandoMs = t => { const m=/(\d+)\/(\d+)\/(\d+) (\d+):(\d+)/.exec(t||""); return m? Date.UTC(+m[3],m[2]-1,+m[1],+m[4],+m[5]) : 0; };
+const curto = t => (t||"").replace(/\/\d{4}/,"");
+async function carregarHistorico(){
+  const box=$("hist");
+  try{
+    const r=await fetch("historico.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
+    const rota=CFG.origem+"-"+CFG.destino+" "+CFG.ida+" "+CFG.volta;
+    const H=(await r.json()).filter(e=>e.rota===rota && e.menor>0).map(e=>Object.assign({ms:quandoMs(e.t)},e)).sort((a,b)=>a.ms-b.ms);
+    if(!H.length){ box.innerHTML=""; return; }
+    const ult=H[H.length-1], min=H.reduce((a,b)=>b.menor<a.menor?b:a), max=Math.max(...H.map(e=>e.menor));
+    let ant=null; for(let i=H.length-2;i>=0;i--) if(H[i].menor!==ult.menor){ ant=H[i]; break; }
+    let delta='<span class="hint">sem mudança desde a primeira busca</span>';
+    if(ant){ const d=ult.menor-ant.menor; delta='<span class="'+(d<0?"ok":"err")+'">'+(d<0?"▼ caiu":"▲ subiu")+' R$ '+brl(Math.abs(d))+'</span> <span class="hint" style="display:inline">em relação a '+esc(curto(ant.t))+'</span>'; }
+    let h='<div class="hint">Menor preço por pessoa, ida e volta</div><div class="num">R$ '+brl(ult.menor)+'</div><div style="font-size:14px">'+delta+'</div>';
+    h+='<div class="hint">Menor já visto: <b>R$ '+brl(min.menor)+'</b> em '+esc(curto(min.t))+' ('+esc(min.cia||"")+')'+(ult.menor>min.menor?' · hoje está R$ '+brl(ult.menor-min.menor)+' acima':' · é o de agora')+'</div>';
+    if(H.length>1){
+      const t0=H[0].ms, t1=ult.ms||1, lo=min.menor, hi=max, fx=e=>t1>t0?(e.ms-t0)/(t1-t0)*100:50, fy=e=>hi>lo?8+(hi-e.menor)/(hi-lo)*84:50;
+      h+='<div class="graf" id="graf" role="img" aria-label="Menor preço em cada busca, de '+esc(curto(H[0].t))+' a '+esc(curto(ult.t))+'"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="'+H.map((e,i)=>(i?"L":"M")+fx(e).toFixed(2)+" "+fy(e).toFixed(2)).join(" ")+'"/></svg><u id="grafLin" style="display:none"></u><i id="grafPt"></i></div>';
+      h+='<div class="eixo"><span>'+esc(curto(H[0].t))+'</span><span id="grafTxt"></span><span>'+esc(curto(ult.t))+'</span></div>';
+      h+='<details style="margin-top:6px"><summary>Ver as '+H.length+' buscas</summary><table class="tab"><tr><th>Quando</th><th>Cia</th><th>Por pessoa</th></tr>'+H.slice().reverse().slice(0,60).map(e=>'<tr><td>'+esc(curto(e.t))+'</td><td>'+esc(e.cia||"")+'</td><td>'+brl(e.menor)+'</td></tr>').join("")+'</table></details>';
+      box.innerHTML=h+'<div class="hint" style="margin-bottom:10px">🔔 O alerta no Telegram avisa quando ficar abaixo do menor já visto ou na meta.</div>';
+      const g=$("graf"), pt=$("grafPt"), lin=$("grafLin"), txt=$("grafTxt");
+      const mostra=(e,fixo)=>{ pt.style.left=fx(e)+"%"; pt.style.top=fy(e)+"%"; lin.style.left=fx(e)+"%"; lin.style.display=fixo?"none":""; txt.textContent=fixo?"":curto(e.t).slice(0,11)+" · R$ "+brl(e.menor); };
+      const perto=ev=>{ const b=g.getBoundingClientRect(), x=(ev.clientX-b.left)/b.width*100; mostra(H.reduce((a,e)=>Math.abs(fx(e)-x)<Math.abs(fx(a)-x)?e:a)); };
+      g.addEventListener("pointermove",perto); g.addEventListener("pointerdown",perto);
+      g.addEventListener("pointerleave",()=>mostra(ult,true));
+      mostra(ult,true);
+    } else box.innerHTML=h+'<div class="hint" style="margin-bottom:10px">O gráfico aparece a partir da segunda busca.</div>';
+  }catch(e){ box.innerHTML=""; }
+}
+
+// ---- Pacotes voo + hotel (pacotes.json, conferido à mão na Decolar) ----
+function contasPacote(p){
+  const tx=(p.voo||{}).taxas_casal||0, av=(p.melhor_avulsa||{}).casal||0;
+  return (p.pacotes||[]).map(x=>Object.assign({}, x, {
+    total:x.pacote+tx,                         // pacote com as taxas do voo
+    separado:av+x.hotel_sozinho,               // melhor passagem avulsa + mesmo hotel
+    passagem:x.pacote+tx-x.hotel_sozinho       // quanto sai a passagem dentro do pacote
+  })).map(x=>Object.assign(x,{economia:x.separado-x.total}));
+}
+function textoPacotes(p){
+  const av=(p.melhor_avulsa||{}).casal||0;
+  const L=["🏨 *Pacotes voo + hotel · "+p.origem+" → "+p.destino+"*","Ida "+br(p.ida)+" · Volta "+br(p.volta)+" · casal, "+p.noites+" noites","","```",col("HOTEL",17)+" "+col("PACOTE",6,"r")+" "+col("PASSAG",6,"r")];
+  for(const x of contasPacote(p)) L.push(col(x.curto||x.hotel,17)+" "+col(brl(x.pacote),6,"r")+" "+col(brl(x.passagem),6,"r"));
+  L.push("```","","PASSAG = quanto sai a passagem dentro do pacote (pacote + taxas do voo − hotel sozinho)","Passagem avulsa mais barata: R$ "+brl(av)+" ("+p.melhor_avulsa.cia+")","Decolar, "+p.conferido+". Pacote sem impostos e taxas.");
+  return L.join("\n");
+}
+async function carregarPacotes(){
+  try{
+    const r=await fetch("pacotes.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
+    const p=await r.json();
+    if(p.origem!==CFG.origem||p.destino!==CFG.destino||p.ida!==CFG.ida||p.volta!==CFG.volta) return;
+    const X=contasPacote(p); if(!X.length) return;
+    const av=p.melhor_avulsa.casal, tx=p.voo.taxas_casal;
+    const barato=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
+    const vale=X.reduce((a,b)=>b.economia>a.economia?b:a);
+    const nBom=X.filter(x=>x.passagem<av).length;
+    let h='<div class="dest"><b>Resumo:</b> em '+nBom+' de '+X.length+' hotéis a passagem dentro do pacote sai mais barata que a avulsa (R$ '+brl(av)+', '+esc(p.melhor_avulsa.cia)+').</div>';
+    h+='<div class="dest">🏆 <b>Viagem mais barata:</b> '+esc(barato.hotel)+' — '+(barato.separado<=barato.total?'comprando separado: R$ '+brl(barato.separado)+' (pacote: ~R$ '+brl(barato.total)+')':'no pacote: ~R$ '+brl(barato.total)+' (separado: R$ '+brl(barato.separado)+')')+'</div>';
+    if(vale.economia>0) h+='<div class="dest">💡 <b>Onde o pacote mais compensa:</b> '+esc(vale.hotel)+' (nota '+String(vale.nota).replace(".",",")+') — economiza ~R$ '+brl(vale.economia)+' contra comprar separado.</div>';
+    h+='<table class="tab"><tr><th>Hotel</th><th>Pacote</th><th>Hotel só</th><th>Passagem</th></tr>';
+    for(const x of X) h+='<tr><td>'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao||"")+'</small></td><td>'+brl(x.pacote)+'</td><td>'+brl(x.hotel_sozinho)+'</td><td>'+(x.passagem<av?'<b class="bom">✅ '+brl(x.passagem)+'</b>':brl(x.passagem))+'</td></tr>';
+    h+='</table>';
+    h+='<div class="hint"><b>Passagem</b> = quanto sai a passagem dentro do pacote: pacote + R$ '+brl(tx)+' de taxas do voo − hotel sozinho. ✅ = mais barata que a avulsa.</div>';
+    h+='<div class="hint">Voo do pacote: '+esc(p.voo.cia)+' · ida '+esc(p.voo.ida)+' · volta '+esc(p.voo.volta)+'. O mesmo voo avulso: R$ '+brl(p.voo.avulso_casal)+' por casal.</div>';
+    h+='<div class="hint">Conferido na '+esc(p.fonte)+' em '+esc(p.conferido)+'. O pacote aparece <b>sem impostos e taxas</b> (o valor final só sai na tela de pagamento); o hotel sozinho já inclui impostos. O quarto do pacote pode ser diferente. Confira bagagem e preço final antes de comprar.</div>';
+    h+='<div class="btns" style="margin-top:8px"><button id="copiaPac">📋 Copiar pacotes para o WhatsApp</button></div>';
+    h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(p.link)+'" target="_blank" rel="noopener">Pacotes na Decolar</a><a class="cia" href="'+esc(p.link_hoteis)+'" target="_blank" rel="noopener">Só hotéis</a></div>';
+    $("pac").innerHTML=h; $("secPac").style.display="";
+    $("copiaPac").onclick=async()=>{
+      const t=textoPacotes(p);
+      try{ await navigator.clipboard.writeText(t); $("copiaPac").textContent="✅ Copiado! Cole no WhatsApp"; }
+      catch(e){ prompt("Copie o texto:", t); }
+    };
+  }catch(e){}
+}
+$("reload").onclick = () => { carregarResultado(); carregarHistorico(); };
 
 async function gh(path, opts){
   const t=($("token").value||"").trim();
@@ -315,7 +409,7 @@ $("agora").onclick = async () => {
   $("agora").disabled=false;
 };
 
-carregarConfig(); carregarResultado();
+carregarConfig().then(() => { carregarHistorico(); carregarPacotes(); }); carregarResultado();
 </script>
 </body>
 </html>
