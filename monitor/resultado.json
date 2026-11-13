@@ -1,5 +1,5 @@
 {
- "atualizado": "13/11/2026 10:30",
+ "atualizado": "13/11/2026 11:51",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -8,7 +8,7 @@
   "adultos": 4,
   "espera_max_horas": 6,
   "meta_por_pessoa": 3500,
-  "email": "jorge.stefani@gmail.com",
+  "email": "jorge.stefani@gmail.com, venilton61@gmail.com",
   "intervalo_horas": 2,
   "hora_inicio": 0,
   "hora_fim": 23,
@@ -147,7 +147,7 @@
    ],
    "espera_max_h": 1.0,
    "duracao_h": 13.3,
-   "preco": 2198
+   "preco": 2201
   },
   {
    "escalas_detalhe": [
@@ -172,7 +172,7 @@
    ],
    "espera_max_h": 2.2,
    "duracao_h": 18.0,
-   "preco": 2493
+   "preco": 2496
   },
   {
    "escalas_detalhe": [
@@ -197,11 +197,11 @@
    ],
    "espera_max_h": 3.0,
    "duracao_h": 18.4,
-   "preco": 2493
+   "preco": 2496
   }
  ],
  "status": "ok",
  "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)",
  "menor_visto": 4465,
- "alerta": "alerta não configurado (faltam TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID)"
+ "alerta": "sem queda"
 }
