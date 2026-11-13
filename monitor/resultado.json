@@ -1,5 +1,5 @@
 {
- "atualizado": "13/11/2026 00:22",
+ "atualizado": "13/11/2026 09:04",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -15,86 +15,13 @@
   "ate": "",
   "ativo": true
  },
- "total_ida": 6,
- "total_volta": 9,
+ "total_ida": 5,
+ "total_volta": 8,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
    "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
-    "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "14/02 18:55",
-   "chegada": "15/02 11:40",
-   "hora_saida": 18,
-   "paradas": 2,
-   "escalas": [
-    "GRU: 4.1h",
-    "BOG: 3.2h"
-   ],
-   "espera_max_h": 4.1,
-   "duracao_h": 16.8,
-   "preco": 4909
-  },
-  {
-   "escalas_detalhe": [
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 14/02 21:15, sai 15/02 01:40 (horário local) – espera 4h25",
-    "BOG – El Dorado International Airport: chega 15/02 06:00, sai 15/02 07:40 (horário local) – espera 1h40"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "14/02 19:45",
-   "chegada": "15/02 11:40",
-   "hora_saida": 19,
-   "paradas": 2,
-   "escalas": [
-    "GIG: 4.4h",
-    "BOG: 1.7h"
-   ],
-   "espera_max_h": 4.4,
-   "duracao_h": 15.9,
-   "preco": 5437
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 14/02 22:35 (horário local) – espera 2h15"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "American: https://www.aa.com.br"
-   ],
-   "companhias": [
-    "Gol",
-    "American"
-   ],
-   "saida": "14/02 18:55",
-   "chegada": "15/02 05:00",
-   "hora_saida": 18,
-   "paradas": 1,
-   "escalas": [
-    "GRU: 2.2h"
-   ],
-   "espera_max_h": 2.2,
-   "duracao_h": 10.1,
-   "preco": 6722
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 21:40, sai 14/02 23:00 (horário local) – espera 1h20"
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
    ],
    "sites": [
     "LATAM: https://www.latamairlines.com/br/pt"
@@ -102,44 +29,40 @@
    "companhias": [
     "LATAM"
    ],
-   "saida": "14/02 20:10",
-   "chegada": "15/02 05:25",
-   "hora_saida": 20,
+   "saida": "14/02 05:25",
+   "chegada": "14/02 16:40",
+   "hora_saida": 5,
    "paradas": 1,
    "escalas": [
-    "GRU: 1.3h"
+    "GRU: 3.3h"
    ],
-   "espera_max_h": 1.3,
-   "duracao_h": 9.2,
-   "preco": 7160
+   "espera_max_h": 3.3,
+   "duracao_h": 11.2,
+   "preco": 7809
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 10:10, sai 14/02 12:35 (horário local) – espera 2h25"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "14/02 08:40",
+   "chegada": "14/02 18:55",
+   "hora_saida": 8,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.4h"
+   ],
+   "espera_max_h": 2.4,
+   "duracao_h": 10.2,
+   "preco": 7809
   }
  ],
  "volta": [
-  {
-   "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 24/02 17:10, sai 24/02 21:25 (horário local) – espera 4h15",
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 05:55, sai 25/02 08:25 (horário local) – espera 2h30"
-   ],
-   "sites": [
-    "Avianca: https://www.avianca.com/br/pt",
-    "Gol: https://www.voegol.com.br"
-   ],
-   "companhias": [
-    "Avianca",
-    "Gol"
-   ],
-   "saida": "24/02 13:20",
-   "chegada": "25/02 10:00",
-   "hora_saida": 13,
-   "paradas": 2,
-   "escalas": [
-    "BOG: 4.2h",
-    "GIG: 2.5h"
-   ],
-   "espera_max_h": 4.2,
-   "duracao_h": 20.7,
-   "preco": 2489
-  },
   {
    "escalas_detalhe": [
     "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:25 (horário local) – espera 1h40",
@@ -167,6 +90,27 @@
   },
   {
    "escalas_detalhe": [
+    "SCL – Arturo Merino Benitez International Airport: chega 25/02 07:00, sai 25/02 10:00 (horário local) – espera 3h00"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "24/02 20:35",
+   "chegada": "25/02 13:20",
+   "hora_saida": 20,
+   "paradas": 1,
+   "escalas": [
+    "SCL: 3.0h"
+   ],
+   "espera_max_h": 3.0,
+   "duracao_h": 16.8,
+   "preco": 4816
+  },
+  {
+   "escalas_detalhe": [
     "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 19:45, sai 24/02 22:25 (horário local) – espera 2h40"
    ],
    "sites": [
@@ -184,9 +128,11 @@
    ],
    "espera_max_h": 2.7,
    "duracao_h": 14.3,
-   "preco": 4853
+   "preco": 4852
   }
  ],
  "status": "ok",
- "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)"
+ "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)",
+ "menor_visto": 7809,
+ "alerta": "sem queda"
 }

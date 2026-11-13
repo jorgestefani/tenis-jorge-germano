@@ -1,21 +1,22 @@
 {
  "oneway_FLN_MIA_basico": {
   "ok": 7,
-  "exemplo": "Flights(type='multi', price=735, airlines=['Gol', 'United'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Guarulhos–Governor André Franco Montoro International Airport', code='GRU'), departure=Si"
+  "exemplo": "Flights(type='multi', price=511, airlines=['Gol', 'Avianca'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Guarulhos–Governor André Franco Montoro International Airport', code='GRU'), departure=S"
  },
  "oneway_FLN_MIA_brl": {
-  "ok": 7,
-  "exemplo": "Flights(type='multi', price=4168, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU'"
+  "ok": 8,
+  "exemplo": "Flights(type='multi', price=2883, airlines=['Gol', 'Avianca'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU')"
  },
  "roundtrip_basico": {
-  "erro": "FlightsNotFound: no flights found; received error"
+  "ok": 5,
+  "exemplo": "Flights(type='multi', price=1264, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Florianópolis International Airport – Hercílio Luz', code='FLN'), to_airport=Airport(name='São Paulo/Congonhas–Deputado Freitas Nobre Airport', code='CGH'), departure=SimpleDatetime(date="
  },
  "roundtrip_brl": {
-  "ok": 6,
-  "exemplo": "Flights(type='multi', price=4909, airlines=['Gol', 'Avianca'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro', code='GRU')"
+  "ok": 5,
+  "exemplo": "Flights(type='multi', price=7132, airlines=['Gol', 'American'], flights=[SingleFlight(from_airport=Airport(name='Aeroporto Internacional de Florianópolis - Hercílio Luz', code='FLN'), to_airport=Airport(name='Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre', code='CGH'), departure=SimpleDate"
  },
  "oneway_GRU_MIA_marco": {
-  "ok": 7,
+  "ok": 5,
   "exemplo": "Flights(type='AR', price=454, airlines=['Aerolineas Argentinas'], flights=[SingleFlight(from_airport=Airport(name='São Paulo/Guarulhos–Governor André Franco Montoro International Airport', code='GRU'), to_airport=Airport(name='Aeroparque Internacional Jorge Newbery', code='AEP'), departure=SimpleDat"
  },
  "oneway_JFK_LAX_controle": {
