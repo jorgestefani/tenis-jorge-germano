@@ -1,5 +1,5 @@
 {
- "atualizado": "14/11/2026 16:52",
+ "atualizado": "14/11/2026 20:51",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -42,31 +42,6 @@
   },
   {
    "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
-    "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "14/02 18:55",
-   "chegada": "15/02 11:40",
-   "hora_saida": 18,
-   "paradas": 2,
-   "escalas": [
-    "GRU: 4.1h",
-    "BOG: 3.2h"
-   ],
-   "espera_max_h": 4.1,
-   "duracao_h": 16.8,
-   "preco": 4997
-  },
-  {
-   "escalas_detalhe": [
     "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 12:25, sai 14/02 17:25 (horário local) – espera 5h00",
     "BOG – El Dorado International Airport: chega 14/02 21:30, sai 14/02 23:00 (horário local) – espera 1h30"
    ],
@@ -88,7 +63,7 @@
    ],
    "espera_max_h": 5.0,
    "duracao_h": 15.8,
-   "preco": 4997
+   "preco": 5054
   },
   {
    "escalas_detalhe": [
@@ -110,6 +85,29 @@
    "espera_max_h": 1.6,
    "duracao_h": 9.8,
    "preco": 5173
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 14/02 22:35 (horário local) – espera 2h15"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "American: https://www.aa.com.br"
+   ],
+   "companhias": [
+    "Gol",
+    "American"
+   ],
+   "saida": "14/02 18:55",
+   "chegada": "15/02 05:00",
+   "hora_saida": 18,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 2.2h"
+   ],
+   "espera_max_h": 2.2,
+   "duracao_h": 10.1,
+   "preco": 6766
   },
   {
    "escalas_detalhe": [
