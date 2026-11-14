@@ -48,13 +48,21 @@
   .tab td small{display:block;color:var(--mut);font-size:12px;font-weight:400}
   .tab td b.bom{color:var(--ok)}
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .rec{font-size:15px;margin:6px 0}
+  b.v{font-size:26px;display:block;margin:2px 0 6px}
+  .mud{font-size:14px;margin:3px 0}
   .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
 <main>
   <h1>✈️ Monitor de Passagens</h1>
-  <p class="sub">Busca automática no Google Flights, com histórico de preços e pacotes com hotel. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
+  <p class="sub">Busca automática no Google Flights, com histórico de preços, pacotes com hotel e aluguel de carro. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
+
+  <section id="secRec" style="display:none;border:2px solid var(--ok)">
+    <h2>⭐ Minha recomendação (voo + hotel + carro)</h2>
+    <div id="rec"></div>
+  </section>
 
   <section>
     <h2>Último resultado</h2>
@@ -68,6 +76,11 @@
   <section id="secPac" style="display:none">
     <h2>Pacotes voo + hotel (casal, 10 noites)</h2>
     <div id="pac"></div>
+  </section>
+
+  <section id="secCar" style="display:none">
+    <h2>🚐 Aluguel de carro · Chrysler Pacifica</h2>
+    <div id="car"></div>
   </section>
 
   <section>
@@ -289,6 +302,7 @@ async function carregarHistorico(){
     if(!H.length){ box.innerHTML=""; return; }
     const ult=H[H.length-1], min=H.reduce((a,b)=>b.menor<a.menor?b:a), max=Math.max(...H.map(e=>e.menor));
     let ant=null; for(let i=H.length-2;i>=0;i--) if(H[i].menor!==ult.menor){ ant=H[i]; break; }
+    ST.hist={ult, ant, prev:H.length>1?H[H.length-2]:null}; recomendar();
     let delta='<span class="hint">sem mudança desde a primeira busca</span>';
     if(ant){ const d=(ult.menor-ant.menor)*2; delta='<span class="'+(d<0?"ok":"err")+'">'+(d<0?"▼ caiu":"▲ subiu")+' R$ '+brl(Math.abs(d))+'</span> <span class="hint" style="display:inline">em relação a '+esc(curto(ant.t))+'</span>'; }
     let h='<div class="hint">Menor preço por casal, ida e volta</div><div class="num">R$ '+brl(ult.menor*2)+'</div><div class="hint">R$ '+brl(ult.menor)+' por pessoa · '+esc(ult.cia||"")+'</div><div style="font-size:14px">'+delta+'</div>';
@@ -331,6 +345,7 @@ async function carregarPacotes(){
     const p=await r.json();
     if(p.origem!==CFG.origem||p.destino!==CFG.destino||p.ida!==CFG.ida||p.volta!==CFG.volta) return;
     const X=contasPacote(p); if(!X.length) return;
+    ST.pac=p; recomendar();
     const av=p.melhor_avulsa.casal, tx=p.voo.taxas_casal;
     const barato=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
     const vale=X.reduce((a,b)=>b.economia>a.economia?b:a);
@@ -354,7 +369,64 @@ async function carregarPacotes(){
     };
   }catch(e){}
 }
-$("reload").onclick = () => { carregarResultado(); carregarHistorico(); };
+
+// ---- Aluguel de carro (carros.json, conferido à mão na Booking) ----
+const ST={};
+function melhoresCarros(c){
+  const O=(c.ofertas||[]).slice().sort((a,b)=>a.preco-b.preco);
+  const barato=O[0];
+  const balcao=O.filter(o=>o.retirada==="balcão");
+  // escolha: a mais barata no balcão do aeroporto com nota 8 ou mais; senão, a mais barata no balcão
+  const escolha=balcao.find(o=>o.nota>=8)||balcao[0]||barato;
+  return {O, barato, balcaoBarato:balcao[0], escolha};
+}
+async function carregarCarros(){
+  try{
+    const r=await fetch("carros.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
+    const c=await r.json(); const M=melhoresCarros(c); if(!M.O.length) return;
+    ST.car=c; recomendar();
+    const cas=c.casais||2;
+    let h='<div class="dest">💰 <b>Mais barata:</b> '+esc(M.barato.locadora)+' — R$ '+brl(M.barato.preco)+' por '+c.dias+' dias'+(M.barato.retirada!=="balcão"?' (retirada com <b>transfer</b>: ônibus até a locadora; nota '+String(M.barato.nota).replace(".",",")+')':'')+'</div>';
+    if(M.balcaoBarato && M.balcaoBarato!==M.barato) h+='<div class="dest">📍 <b>Mais barata no balcão do aeroporto:</b> '+esc(M.balcaoBarato.locadora)+' — R$ '+brl(M.balcaoBarato.preco)+' (nota '+String(M.balcaoBarato.nota).replace(".",",")+')</div>';
+    if(M.escolha!==M.balcaoBarato) h+='<div class="dest">⭐ <b>Melhor custo-benefício:</b> '+esc(M.escolha.locadora)+' — R$ '+brl(M.escolha.preco)+' (nota '+String(M.escolha.nota).replace(".",",")+(M.escolha.inclui&&M.escolha.inclui!=="—"?'; '+esc(M.escolha.inclui):'')+')</div>';
+    h+='<table class="tab"><tr><th>Locadora</th><th>10 dias</th><th>Por casal</th></tr>';
+    for(const o of M.O) h+='<tr><td>'+esc(o.locadora)+(o===M.escolha?' ⭐':'')+'<small>★ '+String(o.nota).replace(".",",")+' · '+(o.retirada==="balcão"?'balcão no aeroporto':'transfer até a locadora')+(o.inclui&&o.inclui!=="—"?' · '+esc(o.inclui):'')+'</small></td><td>'+(o===M.barato?'<b class="bom">'+brl(o.preco)+'</b>':brl(o.preco))+'</td><td>'+brl(Math.round(o.preco/cas))+'</td></tr>';
+    h+='</table>';
+    h+='<div class="hint"><b>Seguro:</b> '+esc(c.protecao)+'. Antes de reservar, confirme na tela da locadora o <b>seguro de terceiros (SLI)</b>, que pode ser cobrado à parte no balcão.</div>';
+    h+='<div class="hint">'+esc(c.modelo)+' ('+esc(c.detalhes)+'). Retirada '+esc(c.retirada)+' e devolução '+esc(c.devolucao)+' no '+esc(c.local)+'. "Por casal" = dividido entre '+cas+' casais. Conferido na '+esc(c.fonte)+' em '+esc(c.conferido)+'.</div>';
+    h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(c.link)+'" target="_blank" rel="noopener">Ver na Booking</a><a class="cia" href="https://www.booking.com/cars/index.pt-br.html" target="_blank" rel="noopener">Booking carros</a></div>';
+    $("car").innerHTML=h; $("secCar").style.display="";
+  }catch(e){}
+}
+
+// ---- Recomendação no topo: soma voo + hotel + carro e diz o que mudou ----
+function recomendar(){
+  const p=ST.pac, c=ST.car, H=ST.hist; if(!p||!c||!H) return;
+  const X=contasPacote(p), M=melhoresCarros(c), cas=c.casais||2;
+  // hotel: entre os de nota 8,5 ou mais, a forma mais barata (pacote ou separado)
+  const bons=X.filter(x=>x.nota>=8.5); const cand=(bons.length?bons:X);
+  const hv=cand.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
+  const noPacote=hv.total<=hv.separado, vh=Math.min(hv.total,hv.separado);
+  const carroCasal=Math.round(M.escolha.preco/cas), total=vh+carroCasal;
+  // a mais barata de todas, sem olhar nota
+  const hb=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
+  const totalBarato=Math.min(hb.total,hb.separado)+Math.round(M.barato.preco/cas);
+  let h='<div class="rec">Para cada casal, 10 noites em Miami:</div><b class="v">R$ '+brl(total)+' por casal</b>';
+  h+='<div class="rec">✈️🏨 '+(noPacote?'<b>Pacote Decolar</b> com o hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'; '+esc(hv.regiao||"")+') e voo '+esc(p.voo.cia)+': R$ '+brl(vh):'<b>Passagem avulsa</b> ('+esc(p.melhor_avulsa.cia)+', R$ '+brl(p.melhor_avulsa.casal)+') + hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'): R$ '+brl(vh))+'</div>';
+  h+='<div class="rec">🚐 Pacifica na <b>'+esc(M.escolha.locadora)+'</b>, balcão no aeroporto, proteção total franquia R$ 0: R$ '+brl(M.escolha.preco)+' (R$ '+brl(carroCasal)+' por casal)</div>';
+  h+='<div class="hint"><b>Por quê:</b> hotel bem avaliado (nota ≥ 8,5) pelo menor preço'+(noPacote?' — no pacote sai R$ '+brl(hv.separado-hv.total)+' mais barato que comprar separado':'')+'; carro retirado no balcão do aeroporto, sem ônibus, com a melhor nota entre os mais baratos. Mais barato possível, sem olhar avaliação: R$ '+brl(totalBarato)+' por casal ('+esc(hb.curto||hb.hotel)+' nota '+String(hb.nota).replace(".",",")+' + '+esc(M.barato.locadora)+').</div>';
+  // o que mudou
+  const mud=[];
+  if(H.prev && H.prev.menor!==H.ult.menor){ const d=(H.ult.menor-H.prev.menor)*2; mud.push((d<0?'✈️ <span class="ok">Passagem caiu R$ '+brl(-d)+'</span>':'✈️ <span class="err">Passagem subiu R$ '+brl(d)+'</span>')+' por casal desde a busca de '+esc(curto(H.prev.t))); }
+  else mud.push('✈️ Passagem: <b>nada mudou</b> desde a busca anterior'+(H.prev?' ('+esc(curto(H.prev.t))+')':'')+' — menor R$ '+brl(H.ult.menor*2)+' por casal ('+esc(H.ult.cia||"")+').');
+  const CH=c.historico||[];
+  if(CH.length>1){ const a=CH[CH.length-2], u=CH[CH.length-1], d=u.menor-a.menor; mud.push(d? (d<0?'🚐 <span class="ok">Carro caiu R$ '+brl(-d)+'</span>':'🚐 <span class="err">Carro subiu R$ '+brl(d)+'</span>')+' desde '+esc(a.t):'🚐 Carro: <b>nada mudou</b> desde '+esc(a.t)+'.'); }
+  else mud.push('🚐 Carro: primeira conferência ('+esc(c.conferido)+'), ainda sem comparação.');
+  mud.push('🏨 Pacotes: conferidos em '+esc(p.conferido)+'.');
+  h+='<h2 style="margin-top:12px">Desde a última busca</h2>'+mud.map(m=>'<div class="mud">'+m+'</div>').join("");
+  $("rec").innerHTML=h; $("secRec").style.display="";
+}
+$("reload").onclick = () => { carregarResultado(); carregarHistorico(); carregarCarros(); };
 
 async function gh(path, opts){
   const t=($("token").value||"").trim();
@@ -413,7 +485,7 @@ $("agora").onclick = async () => {
   $("agora").disabled=false;
 };
 
-carregarConfig().then(() => { carregarHistorico(); carregarPacotes(); }); carregarResultado();
+carregarConfig().then(() => { carregarHistorico(); carregarPacotes(); carregarCarros(); }); carregarResultado();
 </script>
 </body>
 </html>
