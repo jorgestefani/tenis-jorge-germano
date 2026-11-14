@@ -1,5 +1,5 @@
 {
- "atualizado": "14/11/2026 04:32",
+ "atualizado": "14/11/2026 16:52",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -63,7 +63,7 @@
    ],
    "espera_max_h": 4.1,
    "duracao_h": 16.8,
-   "preco": 4884
+   "preco": 4997
   },
   {
    "escalas_detalhe": [
