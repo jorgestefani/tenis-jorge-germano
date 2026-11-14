@@ -1,0 +1,122 @@
+{
+ "conferido": "13/11/2026 15:55",
+ "fonte": "Booking.com (aluguel de carros)",
+ "modelo": "Chrysler Pacifica ou similar",
+ "detalhes": "minivan, 7 lugares, 4 malas, automática, quilometragem livre",
+ "local": "Aeroporto de Miami (MIA)",
+ "retirada": "14/02/2027 17:00",
+ "devolucao": "24/02/2027 08:00",
+ "dias": 10,
+ "casais": 2,
+ "protecao": "Isenção de danos por colisão e proteção contra roubo com franquia R$ 0 (conferido nas ofertas da Europcar, Budget e Avis)",
+ "link": "https://cars.booking.com/search-results?cor=br&prefcurrency=BRL&preflang=br&locationName=Miami+International+Airport&locationIata=MIA&dropLocationName=Miami+International+Airport&dropLocationIata=MIA&coordinates=25.79509925842285%2C-80.277099609375&dropCoordinates=25.79509925842285%2C-80.277099609375&driversAge=40&puDay=14&puMonth=2&puYear=2027&puMinute=0&puHour=17&doDay=24&doMonth=2&doYear=2027&doMinute=0&doHour=8&ftsType=A&dropFtsType=A&filterCriteria_carCategory=carriers",
+ "ofertas": [
+  {
+   "locadora": "Europcar",
+   "preco": 2892,
+   "nota": 6.5,
+   "retirada": "transfer",
+   "inclui": "—"
+  },
+  {
+   "locadora": "Budget",
+   "preco": 3302,
+   "nota": 7.7,
+   "retirada": "balcão",
+   "inclui": "—"
+  },
+  {
+   "locadora": "Avis",
+   "preco": 3356,
+   "nota": 8.1,
+   "retirada": "balcão",
+   "inclui": "1 condutor adicional"
+  },
+  {
+   "locadora": "Budget",
+   "preco": 3535,
+   "nota": 7.7,
+   "retirada": "balcão",
+   "inclui": "GPS + condutor adicional"
+  },
+  {
+   "locadora": "Dollar",
+   "preco": 3537,
+   "nota": 7.7,
+   "retirada": "balcão",
+   "inclui": "1 condutor adicional"
+  },
+  {
+   "locadora": "Thrifty",
+   "preco": 3537,
+   "nota": 7.6,
+   "retirada": "balcão",
+   "inclui": "1 condutor adicional"
+  },
+  {
+   "locadora": "Avis",
+   "preco": 3589,
+   "nota": 8.1,
+   "retirada": "balcão",
+   "inclui": "GPS + condutor adicional"
+  },
+  {
+   "locadora": "Avis",
+   "preco": 3899,
+   "nota": 8.1,
+   "retirada": "balcão",
+   "inclui": "condutores adicionais"
+  },
+  {
+   "locadora": "Avis",
+   "preco": 4093,
+   "nota": 8.1,
+   "retirada": "balcão",
+   "inclui": "tanque cheio, GPS e até 3 condutores"
+  },
+  {
+   "locadora": "Alamo",
+   "preco": 4457,
+   "nota": 9.3,
+   "retirada": "balcão",
+   "inclui": "—"
+  },
+  {
+   "locadora": "National",
+   "preco": 4535,
+   "nota": 8.8,
+   "retirada": "balcão",
+   "inclui": "—"
+  },
+  {
+   "locadora": "Hertz",
+   "preco": 4642,
+   "nota": 8.2,
+   "retirada": "balcão",
+   "inclui": "1 condutor adicional"
+  },
+  {
+   "locadora": "Alamo",
+   "preco": 4734,
+   "nota": 9.3,
+   "retirada": "balcão",
+   "inclui": "GPS"
+  },
+  {
+   "locadora": "Alamo",
+   "preco": 5287,
+   "nota": 9.3,
+   "retirada": "balcão",
+   "inclui": "condutor adicional + tanque cheio"
+  }
+ ],
+ "historico": [
+  {
+   "t": "13/11/2026 15:55",
+   "menor": 2892,
+   "locadora": "Europcar",
+   "menor_balcao": 3302,
+   "locadora_balcao": "Budget"
+  }
+ ]
+}
