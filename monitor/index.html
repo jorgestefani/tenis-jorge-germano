@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Monitor de Passagens</title>
+<title>Souzastur · Viagens e Turismo</title>
 <style>
   :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#64707f;--line:#dfe3e8;--acc:#0b6bcb;--ok:#13795b;--err:#b3261e;--graf:#0b6bcb}
   @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80;--graf:#3987e5}}
@@ -51,12 +51,24 @@
   .rec{font-size:15px;margin:6px 0}
   b.v{font-size:26px;display:block;margin:2px 0 6px}
   .mud{font-size:14px;margin:3px 0}
+  .marca{margin:-16px -14px 14px;padding:22px 18px 18px;color:#fff;border-radius:0 0 18px 18px;background:linear-gradient(135deg,#0a4f8f 0%,#0b6bcb 55%,#13a3a0 100%)}
+  .marca .logo{display:flex;align-items:center;gap:10px}
+  .marca .sol{font-size:34px;line-height:1}
+  .marca .nome{font-size:30px;font-weight:800;letter-spacing:.5px;line-height:1}
+  .marca .nome span{color:#ffd166}
+  .marca .slogan{font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.9;margin-top:4px}
+  .marca .viagem{margin-top:12px;font-size:16px;font-weight:600}
+  .marca .viagem small{display:block;font-weight:400;opacity:.9;font-size:13px}
   .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
 </style>
 </head>
 <body>
 <main>
-  <h1>✈️ Monitor de Passagens</h1>
+  <header class="marca">
+    <div class="logo"><div class="sol">🌴</div><div><div class="nome">Souzas<span>tur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
+    <div class="viagem">✈️ Florianópolis → Miami<small>14 a 24 de fevereiro de 2027 · 2 casais</small></div>
+  </header>
+  <h1>Monitor de Passagens</h1>
   <p class="sub">Busca automática no Google Flights, com histórico de preços, pacotes com hotel e aluguel de carro. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
 
   <section id="secRec" style="display:none;border:2px solid var(--ok)">
