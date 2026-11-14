@@ -1,5 +1,5 @@
 {
- "atualizado": "13/11/2026 16:36",
+ "atualizado": "13/11/2026 21:16",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -19,27 +19,6 @@
  "total_volta": 11,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
-  {
-   "escalas_detalhe": [
-    "PTY – Aeroporto Internacional Tocumen: chega 14/02 06:43, sai 14/02 12:33 (horário local) – espera 5h50"
-   ],
-   "sites": [
-    "COPA: https://www.copaair.com/pt-br"
-   ],
-   "companhias": [
-    "COPA"
-   ],
-   "saida": "14/02 01:40",
-   "chegada": "14/02 15:41",
-   "hora_saida": 1,
-   "paradas": 1,
-   "escalas": [
-    "PTY: 5.8h"
-   ],
-   "espera_max_h": 5.8,
-   "duracao_h": 14.0,
-   "preco": 4465
-  },
   {
    "escalas_detalhe": [
     "PTY – Aeroporto Internacional Tocumen: chega 14/02 06:43, sai 14/02 08:16 (horário local) – espera 1h33"
@@ -125,6 +104,27 @@
    "espera_max_h": 2.4,
    "duracao_h": 10.2,
    "preco": 7809
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
+   ],
+   "sites": [
+    "LATAM: https://www.latamairlines.com/br/pt"
+   ],
+   "companhias": [
+    "LATAM"
+   ],
+   "saida": "14/02 05:25",
+   "chegada": "14/02 16:40",
+   "hora_saida": 5,
+   "paradas": 1,
+   "escalas": [
+    "GRU: 3.3h"
+   ],
+   "espera_max_h": 3.3,
+   "duracao_h": 11.2,
+   "preco": 7809
   }
  ],
  "volta": [
@@ -147,7 +147,7 @@
    ],
    "espera_max_h": 1.0,
    "duracao_h": 13.3,
-   "preco": 2197
+   "preco": 2203
   },
   {
    "escalas_detalhe": [
@@ -172,7 +172,7 @@
    ],
    "espera_max_h": 2.2,
    "duracao_h": 18.0,
-   "preco": 2492
+   "preco": 2499
   },
   {
    "escalas_detalhe": [
@@ -197,7 +197,7 @@
    ],
    "espera_max_h": 3.0,
    "duracao_h": 18.4,
-   "preco": 2492
+   "preco": 2499
   }
  ],
  "status": "ok",
