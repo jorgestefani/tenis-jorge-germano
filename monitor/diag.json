@@ -1,9 +1,9 @@
 {
- "quando_utc": "15/11/2026 06:14",
+ "quando_utc": "15/11/2026 14:41",
  "testes": {
   "padrao": [
    {
-    "voos": 8,
+    "voos": 9,
     "menor": 4494,
     "forma": [
      5,
@@ -21,11 +21,25 @@
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "melhores"
+     ],
+     [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
       5053,
       "Gol+Avianca",
       "11:00",
       2,
-      "melhores"
+      "outros"
      ],
      [
       5173,
@@ -39,19 +53,12 @@
       "Gol+American",
       "18:55",
       1,
-      "melhores"
-     ],
-     [
-      7843,
-      "LATAM",
-      "14:25",
-      1,
       "outros"
      ],
      [
-      7861,
-      "LATAM",
-      "05:25",
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
       1,
       "outros"
      ],
@@ -67,12 +74,15 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
      ]
     ]
    },
    {
-    "voos": 8,
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
+   {
+    "voos": 9,
     "menor": 4494,
     "forma": [
      5,
@@ -90,11 +100,25 @@
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "melhores"
+     ],
+     [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
       5053,
       "Gol+Avianca",
       "11:00",
       2,
-      "melhores"
+      "outros"
      ],
      [
       5173,
@@ -108,19 +132,12 @@
       "Gol+American",
       "18:55",
       1,
-      "melhores"
-     ],
-     [
-      7843,
-      "LATAM",
-      "14:25",
-      1,
       "outros"
      ],
      [
-      7861,
-      "LATAM",
-      "05:25",
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
       1,
       "outros"
      ],
@@ -136,12 +153,12 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
      ]
     ]
    },
    {
-    "voos": 8,
+    "voos": 9,
     "menor": 4494,
     "forma": [
      5,
@@ -159,11 +176,25 @@
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "melhores"
+     ],
+     [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
       5053,
       "Gol+Avianca",
       "11:00",
       2,
-      "melhores"
+      "outros"
      ],
      [
       5173,
@@ -177,19 +208,12 @@
       "Gol+American",
       "18:55",
       1,
-      "melhores"
-     ],
-     [
-      7843,
-      "LATAM",
-      "14:25",
-      1,
       "outros"
      ],
      [
-      7861,
-      "LATAM",
-      "05:25",
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
       1,
       "outros"
      ],
@@ -205,83 +229,14 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
-     ]
-    ]
-   },
-   {
-    "voos": 8,
-    "menor": 4494,
-    "forma": [
-     5,
-     2,
-     5,
-     5,
-     "NoneType"
-    ],
-    "lista": [
-     [
-      4494,
-      "COPA",
-      "01:40",
-      1,
-      "melhores"
-     ],
-     [
-      5053,
-      "Gol+Avianca",
-      "11:00",
-      2,
-      "melhores"
-     ],
-     [
-      5173,
-      "COPA",
-      "01:40",
-      1,
-      "melhores"
-     ],
-     [
-      6766,
-      "Gol+American",
-      "18:55",
-      1,
-      "melhores"
-     ],
-     [
-      7843,
-      "LATAM",
-      "14:25",
-      1,
       "outros"
-     ],
-     [
-      7861,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      7861,
-      "LATAM",
-      "08:40",
-      1,
-      "outros"
-     ],
-     [
-      7861,
-      "LATAM",
-      "20:10",
-      1,
-      "melhores"
      ]
     ]
    }
   ],
   "tfu": [
    {
-    "voos": 60,
+    "voos": 58,
     "menor": 4494,
     "forma": [
      5,
@@ -314,15 +269,8 @@
      ],
      [
       0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
+      "LATAM+Aeromexico",
+      "05:25",
       2,
       "outros"
      ],
@@ -369,13 +317,27 @@
       "outros"
      ],
      [
-      5053,
+      4941,
       "Gol+Avianca",
-      "11:00",
+      "18:55",
       2,
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
+      5053,
+      "Gol+Avianca",
+      "11:00",
+      2,
+      "outros"
+     ],
+     [
       5173,
       "COPA",
       "01:40",
@@ -397,39 +359,25 @@
       "outros"
      ],
      [
-      5472,
+      6320,
+      "Gol+Avianca",
+      "19:45",
+      2,
+      "outros"
+     ],
+     [
+      6659,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
       6766,
       "Gol+American",
       "18:55",
       1,
-      "melhores"
+      "outros"
      ],
      [
       6766,
@@ -492,6 +440,20 @@
       "Gol+American",
       "13:00",
       1,
+      "outros"
+     ],
+     [
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
+      1,
+      "outros"
+     ],
+     [
+      7402,
+      "Gol+United",
+      "18:55",
+      2,
       "outros"
      ],
      [
@@ -569,12 +531,40 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
      ],
      [
       7879,
       "LATAM",
       "17:55",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "08:40",
       1,
       "outros"
      ],
@@ -593,52 +583,10 @@
       "outros"
      ],
      [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
       8058,
       "Gol+United",
       "18:55",
       2,
-      "outros"
-     ],
-     [
-      8067,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
       "outros"
      ],
      [
@@ -649,28 +597,28 @@
       "outros"
      ],
      [
-      8207,
+      8171,
       "LATAM",
       "20:10",
       2,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "13:25",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "15:15",
       1,
@@ -691,13 +639,6 @@
       "outros"
      ],
      [
-      10217,
-      "Gol+Air Canada",
-      "11:00",
-      2,
-      "outros"
-     ],
-     [
       10229,
       "Gol+Air Canada",
       "11:00",
@@ -705,16 +646,16 @@
       "outros"
      ],
      [
-      13458,
-      "Gol+Avianca",
-      "19:45",
+      12739,
+      "Gol+Air Canada",
+      "10:40",
       2,
       "outros"
      ]
     ]
    },
    {
-    "voos": 60,
+    "voos": 58,
     "menor": 4494,
     "forma": [
      5,
@@ -747,15 +688,8 @@
      ],
      [
       0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
+      "LATAM+Aeromexico",
+      "05:25",
       2,
       "outros"
      ],
@@ -802,13 +736,27 @@
       "outros"
      ],
      [
-      5053,
+      4941,
       "Gol+Avianca",
-      "11:00",
+      "18:55",
       2,
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
+      5053,
+      "Gol+Avianca",
+      "11:00",
+      2,
+      "outros"
+     ],
+     [
       5173,
       "COPA",
       "01:40",
@@ -830,39 +778,25 @@
       "outros"
      ],
      [
-      5472,
+      6320,
+      "Gol+Avianca",
+      "19:45",
+      2,
+      "outros"
+     ],
+     [
+      6659,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
       6766,
       "Gol+American",
       "18:55",
       1,
-      "melhores"
+      "outros"
      ],
      [
       6766,
@@ -925,6 +859,20 @@
       "Gol+American",
       "13:00",
       1,
+      "outros"
+     ],
+     [
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
+      1,
+      "outros"
+     ],
+     [
+      7402,
+      "Gol+United",
+      "18:55",
+      2,
       "outros"
      ],
      [
@@ -1002,12 +950,40 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
      ],
      [
       7879,
       "LATAM",
       "17:55",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "08:40",
       1,
       "outros"
      ],
@@ -1026,52 +1002,10 @@
       "outros"
      ],
      [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
       8058,
       "Gol+United",
       "18:55",
       2,
-      "outros"
-     ],
-     [
-      8067,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
       "outros"
      ],
      [
@@ -1082,28 +1016,28 @@
       "outros"
      ],
      [
-      8207,
+      8171,
       "LATAM",
       "20:10",
       2,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "13:25",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "15:15",
       1,
@@ -1124,13 +1058,6 @@
       "outros"
      ],
      [
-      10217,
-      "Gol+Air Canada",
-      "11:00",
-      2,
-      "outros"
-     ],
-     [
       10229,
       "Gol+Air Canada",
       "11:00",
@@ -1138,16 +1065,16 @@
       "outros"
      ],
      [
-      13458,
-      "Gol+Avianca",
-      "19:45",
+      12739,
+      "Gol+Air Canada",
+      "10:40",
       2,
       "outros"
      ]
     ]
    },
    {
-    "voos": 60,
+    "voos": 58,
     "menor": 4494,
     "forma": [
      5,
@@ -1180,15 +1107,8 @@
      ],
      [
       0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
+      "LATAM+Aeromexico",
+      "05:25",
       2,
       "outros"
      ],
@@ -1235,13 +1155,27 @@
       "outros"
      ],
      [
-      5053,
+      4941,
       "Gol+Avianca",
-      "11:00",
+      "18:55",
       2,
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
+      5053,
+      "Gol+Avianca",
+      "11:00",
+      2,
+      "outros"
+     ],
+     [
       5173,
       "COPA",
       "01:40",
@@ -1263,39 +1197,25 @@
       "outros"
      ],
      [
-      5472,
+      6320,
+      "Gol+Avianca",
+      "19:45",
+      2,
+      "outros"
+     ],
+     [
+      6659,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
       6766,
       "Gol+American",
       "18:55",
       1,
-      "melhores"
+      "outros"
      ],
      [
       6766,
@@ -1358,6 +1278,20 @@
       "Gol+American",
       "13:00",
       1,
+      "outros"
+     ],
+     [
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
+      1,
+      "outros"
+     ],
+     [
+      7402,
+      "Gol+United",
+      "18:55",
+      2,
       "outros"
      ],
      [
@@ -1435,12 +1369,40 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
      ],
      [
       7879,
       "LATAM",
       "17:55",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "08:40",
       1,
       "outros"
      ],
@@ -1459,52 +1421,10 @@
       "outros"
      ],
      [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
       8058,
       "Gol+United",
       "18:55",
       2,
-      "outros"
-     ],
-     [
-      8067,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
       "outros"
      ],
      [
@@ -1515,28 +1435,28 @@
       "outros"
      ],
      [
-      8207,
+      8171,
       "LATAM",
       "20:10",
       2,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "13:25",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "15:15",
       1,
@@ -1557,13 +1477,6 @@
       "outros"
      ],
      [
-      10217,
-      "Gol+Air Canada",
-      "11:00",
-      2,
-      "outros"
-     ],
-     [
       10229,
       "Gol+Air Canada",
       "11:00",
@@ -1571,16 +1484,16 @@
       "outros"
      ],
      [
-      13458,
-      "Gol+Avianca",
-      "19:45",
+      12739,
+      "Gol+Air Canada",
+      "10:40",
       2,
       "outros"
      ]
     ]
    },
    {
-    "voos": 60,
+    "voos": 58,
     "menor": 4494,
     "forma": [
      5,
@@ -1613,15 +1526,8 @@
      ],
      [
       0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
+      "LATAM+Aeromexico",
+      "05:25",
       2,
       "outros"
      ],
@@ -1668,13 +1574,27 @@
       "outros"
      ],
      [
-      5053,
+      4941,
       "Gol+Avianca",
-      "11:00",
+      "18:55",
       2,
       "melhores"
      ],
      [
+      4941,
+      "Gol+Avianca",
+      "18:55",
+      2,
+      "outros"
+     ],
+     [
+      5053,
+      "Gol+Avianca",
+      "11:00",
+      2,
+      "outros"
+     ],
+     [
       5173,
       "COPA",
       "01:40",
@@ -1696,39 +1616,25 @@
       "outros"
      ],
      [
-      5472,
+      6320,
+      "Gol+Avianca",
+      "19:45",
+      2,
+      "outros"
+     ],
+     [
+      6659,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
-      6316,
-      "Gol+Avianca",
-      "23:05",
-      2,
-      "outros"
-     ],
-     [
       6766,
       "Gol+American",
       "18:55",
       1,
-      "melhores"
+      "outros"
      ],
      [
       6766,
@@ -1791,6 +1697,20 @@
       "Gol+American",
       "13:00",
       1,
+      "outros"
+     ],
+     [
+      7401,
+      "Aerolineas Argentinas",
+      "22:05",
+      1,
+      "outros"
+     ],
+     [
+      7402,
+      "Gol+United",
+      "18:55",
+      2,
       "outros"
      ],
      [
@@ -1868,12 +1788,40 @@
       "LATAM",
       "20:10",
       1,
-      "melhores"
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      7861,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
      ],
      [
       7879,
       "LATAM",
       "17:55",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      7896,
+      "LATAM",
+      "08:40",
       1,
       "outros"
      ],
@@ -1892,52 +1840,10 @@
       "outros"
      ],
      [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "18:25",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      7896,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
       8058,
       "Gol+United",
       "18:55",
       2,
-      "outros"
-     ],
-     [
-      8067,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
       "outros"
      ],
      [
@@ -1948,28 +1854,28 @@
       "outros"
      ],
      [
-      8207,
+      8171,
       "LATAM",
       "20:10",
       2,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "13:25",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      8435,
+      8492,
       "Aerolineas Argentinas",
       "15:15",
       1,
@@ -1990,13 +1896,6 @@
       "outros"
      ],
      [
-      10217,
-      "Gol+Air Canada",
-      "11:00",
-      2,
-      "outros"
-     ],
-     [
       10229,
       "Gol+Air Canada",
       "11:00",
@@ -2004,9 +1903,9 @@
       "outros"
      ],
      [
-      13458,
-      "Gol+Avianca",
-      "19:45",
+      12739,
+      "Gol+Air Canada",
+      "10:40",
       2,
       "outros"
      ]
