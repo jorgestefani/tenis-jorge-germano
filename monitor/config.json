@@ -1,8 +1,21 @@
 {
   "origem": "FLN",
   "destino": "MIA",
-  "ida": "2027-02-14",
-  "volta": "2027-02-24",
+  "ida": "2027-02-16",
+  "volta": "2027-02-25",
+  "datas": {
+    "idas": [
+      "2027-02-16",
+      "2027-02-17",
+      "2027-02-18"
+    ],
+    "volta": "2027-02-25",
+    "semanas": [
+      0,
+      1,
+      2
+    ]
+  },
   "adultos": 4,
   "espera_max_horas": 6,
   "meta_por_pessoa": 3500,
