@@ -60,19 +60,29 @@
   .marca .viagem{margin-top:12px;font-size:16px;font-weight:600}
   .marca .viagem small{display:block;font-weight:400;opacity:.9;font-size:13px}
   .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
+  .best{background:color-mix(in srgb,var(--ok) 12%,var(--card));border-radius:10px;padding:12px;margin-bottom:10px}
+  .best .t{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ok)}
+  .best .d{font-size:21px;font-weight:800;margin:2px 0}
+  .best .p{font-size:16px}
+  .tab tr.eu td{background:color-mix(in srgb,var(--ok) 14%,transparent)}
+  .lk a{display:inline-block;margin:2px 6px 2px 0;font-size:13px}
 </style>
 </head>
 <body>
 <main>
   <header class="marca">
     <div class="logo"><div class="sol">🌴</div><div><div class="nome">Souzas<span>tur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
-    <div class="viagem">✈️ Florianópolis → Miami<small>14 a 24 de fevereiro de 2027 · 2 casais</small></div>
+    <div class="viagem">✈️ Florianópolis → Miami<small>Ida terça, quarta ou quinta (semana de 16/02, +1 ou +2 semanas) · volta na quinta seguinte · 2 casais</small></div>
   </header>
   <h1>Monitor de Passagens</h1>
   <p class="sub">Busca automática no Google Flights, com histórico de preços, pacotes com hotel e aluguel de carro. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
 
+  <section id="secMelhor" style="display:none;border:2px solid var(--ok)">
+    <div id="melhor"></div>
+  </section>
+
   <section id="secRec" style="display:none;border:2px solid var(--ok)">
-    <h2>⭐ Minha recomendação (voo + hotel + carro)</h2>
+    <h2>⭐ Recomendação voo + hotel + carro (hotel e carro conferidos à mão)</h2>
     <div id="rec"></div>
   </section>
 
@@ -271,6 +281,7 @@ async function carregarResultado(){
     const r=await fetch("resultado.json?ts="+Date.now(),{cache:"no-store"});
     if(!r.ok) throw new Error("sem resultado");
     const d=await r.json();
+    try{ mostrarDatas(d); }catch(e){}
     const pax=(d.config||{}).adultos||1, meta=(d.config||{}).meta_por_pessoa||0;
     let h='<div class="hint">Atualizado em '+esc(d.atualizado||"?")+' (Brasília)</div>';
     if(d.status!=="ok"){ box.innerHTML=h+'<div class="err">A última busca falhou: '+esc(d.erro||"erro")+'</div>'; return; }
@@ -298,6 +309,52 @@ async function carregarResultado(){
       catch(e){ prompt("Copie o texto:", t); }
     };
   }catch(e){ box.textContent="Ainda não há resultado salvo."; }
+}
+
+// ---- Várias datas (15/11/2026): melhor opção no topo + comparação por semana + links por data ----
+const DIA3 = s => (s||"").slice(0,3);
+const dmy = iso => iso.slice(8)+"/"+iso.slice(5,7);
+const horaDe = s => (s||"").split(" ").pop();
+function linksData(i,v){
+  const [yi,mi,di]=i.split("-"), [yv,mv,dv]=v.split("-");
+  return [["Pacote Decolar","https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/"+i+"/"+v+"/CIT_4544/"+i+"/"+v+"/2?from=PSB&nw=true"],
+    ["Voo Decolar","https://www.decolar.com/shop/flights/results/roundtrip/FLN/MIA/"+i+"/"+v+"/2/0/0"],
+    ["Hotéis Decolar","https://www.decolar.com/accommodations/results/CIT_4544/"+i+"/"+v+"/2"],
+    ["Hotéis Booking","https://www.booking.com/searchresults.pt-br.html?ss=Miami&checkin="+i+"&checkout="+v+"&group_adults=2&no_rooms=1"],
+    ["Carro Booking","https://cars.booking.com/search-results?cor=br&prefcurrency=BRL&preflang=br&locationName=Miami+International+Airport&locationIata=MIA&dropLocationName=Miami+International+Airport&dropLocationIata=MIA&driversAge=40&puDay="+(+di)+"&puMonth="+(+mi)+"&puYear="+yi+"&puMinute=0&puHour=17&doDay="+(+dv)+"&doMonth="+(+mv)+"&doYear="+yv+"&doMinute=0&doHour=8&ftsType=A&dropFtsType=A&filterCriteria_carCategory=carriers"]];
+}
+function mostrarDatas(d){
+  const D=(d.datas||[]).filter(x=>x.status==="ok"&&x.menor); const m=d.melhor;
+  if(!D.length||!m){ $("secMelhor").style.display="none"; return; }
+  const cia=x=>(x.companhias||[]).join(" + "), best=m.preco, pax=(d.config||{}).adultos||4;
+  const emp=D.filter(x=>x.menor===best&&x.ida!==m.ida);
+  let h='<div class="best"><div class="t">✅ MELHOR OPÇÃO</div><div class="d">'+esc(m.dia_ida[0].toUpperCase()+m.dia_ida.slice(1))+' '+dmy(m.ida)+' → '+esc(m.dia_volta)+' '+dmy(m.volta)+'</div>'
+    +'<div class="p"><b>'+esc(cia(m))+'</b>, saída às <b>'+esc(horaDe(m.saida))+'</b> · <b class="bom">R$ '+brl(best*2)+' por casal</b></div>'
+    +'<div class="hint">R$ '+brl(best)+' por pessoa · '+m.paradas+' parada(s) · '+Math.round(m.duracao_h)+'h de viagem · '+m.noites+' noites · '+pax+' adultos: R$ '+brl(best*pax)+'</div>'
+    +(emp.length?'<div class="hint">Mesmo preço também em: <b>'+emp.map(x=>esc(x.dia_ida)+' '+dmy(x.ida)).join(", ")+'</b></div>':'')+'</div>';
+  // semanas
+  const S={}; D.forEach(x=>{ if(!S[x.semana]||x.menor<S[x.semana].menor) S[x.semana]=x; });
+  const ks=Object.keys(S).map(Number).sort((a,b)=>a-b), s0=S[0];
+  if(s0&&ks.length>1){
+    const nome={0:"Semana original",1:"+1 semana",2:"+2 semanas"};
+    h+='<h2 style="margin-top:6px">Vale a pena adiar?</h2><table class="tab"><tr><th>Semana</th><th>Melhor dia</th><th>Por casal</th><th>vs. original</th></tr>';
+    let menorDif=0, semDif=0;
+    for(const k of ks){ const x=S[k], o=x.opcoes.reduce((a,b)=>b.preco<a.preco?b:a), dif=(x.menor-s0.menor)*2;
+      if(dif<menorDif){menorDif=dif; semDif=k;}
+      h+='<tr><td>'+(nome[k]||("+"+k+" semanas"))+'</td><td>'+esc(DIA3(x.dia_ida))+' '+dmy(x.ida)+'<small>'+esc(cia(o))+' '+esc(horaDe(o.saida))+'</small></td><td><b>R$ '+brl(x.menor*2)+'</b></td><td>'+(k===0?'—':dif===0?'igual':dif<0?'<b class="bom">−R$ '+brl(-dif)+'</b>':'+R$ '+brl(dif))+'</td></tr>'; }
+    h+='</table><div class="dest">👉 '+(menorDif<0?'Compensa adiar '+semDif+' semana(s): economia de R$ '+brl(-menorDif)+' por casal.':'Não compensa adiar: a semana original já tem o menor preço.')+'</div>';
+  }
+  // todas as datas
+  h+='<h2 style="margin-top:10px">Todas as datas (por casal, ida e volta)</h2><table class="tab"><tr><th>Ida → volta</th><th>Noites</th><th>Cia · sai</th><th>Por casal</th></tr>';
+  for(const x of D){ const o=x.opcoes.reduce((a,b)=>b.preco<a.preco?b:a), dif=(x.menor-best)*2;
+    h+='<tr'+(x.ida===m.ida?' class="eu"':'')+'><td><b>'+esc(DIA3(x.dia_ida))+' '+dmy(x.ida)+'</b> → '+esc(DIA3(x.dia_volta))+' '+dmy(x.volta)+'</td><td>'+x.noites+'</td><td>'+esc(cia(o))+'<small>sai '+esc(horaDe(o.saida))+' · '+o.paradas+' parada(s)</small></td><td><b>R$ '+brl(x.menor*2)+'</b><small>'+(x.ida===m.ida?'⭐ melhor':dif?'+R$ '+brl(dif):'mesmo preço')+'</small></td></tr>'; }
+  h+='</table>';
+  // links
+  h+='<details style="margin-top:10px"><summary>Pacotes, hotéis e carro por data (links já preenchidos)</summary>';
+  for(const x of D){ const L=linksData(x.ida,x.volta); if(x.link_google_flights) L.unshift(["Google Flights",x.link_google_flights]);
+    h+='<div class="lk" style="margin-top:6px"><b>'+dmy(x.ida)+' → '+dmy(x.volta)+(x.ida===m.ida?' ⭐':'')+'</b><br>'+L.map(([n,u])=>'<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(n)+'</a>').join("")+'</div>'; }
+  h+='</details><div class="hint">Busca de '+esc(d.atualizado||"?")+' no Google Flights. Pacotes da Decolar, hotéis e carros não têm busca automática (os sites bloqueiam robôs): use os links.</div>';
+  $("melhor").innerHTML=h; $("secMelhor").style.display="";
 }
 // ---- Histórico do menor preço (historico.json, gravado a cada busca) ----
 const quandoMs = t => { const m=/(\d+)\/(\d+)\/(\d+) (\d+):(\d+)/.exec(t||""); return m? Date.UTC(+m[3],m[2]-1,+m[1],+m[4],+m[5]) : 0; };
@@ -355,7 +412,8 @@ async function carregarPacotes(){
   try{
     const r=await fetch("pacotes.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
     const p=await r.json();
-    if(p.origem!==CFG.origem||p.destino!==CFG.destino||p.ida!==CFG.ida||p.volta!==CFG.volta) return;
+    if(p.origem!==CFG.origem||p.destino!==CFG.destino) return;
+    const velho=(p.ida!==CFG.ida||p.volta!==CFG.volta);
     const X=contasPacote(p); if(!X.length) return;
     ST.pac=p; recomendar();
     const av=p.melhor_avulsa.casal, tx=p.voo.taxas_casal;
@@ -373,6 +431,7 @@ async function carregarPacotes(){
     h+='<div class="hint">Conferido na '+esc(p.fonte)+' em '+esc(p.conferido)+'. O pacote aparece <b>sem impostos e taxas</b> (o valor final só sai na tela de pagamento); o hotel sozinho já inclui impostos. O quarto do pacote pode ser diferente. Confira bagagem e preço final antes de comprar.</div>';
     h+='<div class="btns" style="margin-top:8px"><button id="copiaPac">📋 Copiar pacotes para o WhatsApp</button></div>';
     h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(p.link)+'" target="_blank" rel="noopener">Pacotes na Decolar</a><a class="cia" href="'+esc(p.link_hoteis)+'" target="_blank" rel="noopener">Só hotéis</a></div>';
+    if(velho) h='<div class="dest">⚠️ Valores conferidos à mão em '+esc(p.conferido)+' para '+dmy(p.ida)+' a '+dmy(p.volta)+'. Nas novas datas o preço muda: confira pelos links de cada data no topo.</div>'+h;
     $("pac").innerHTML=h; $("secPac").style.display="";
     $("copiaPac").onclick=async()=>{
       const t=textoPacotes(p);
