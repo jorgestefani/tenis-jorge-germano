@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Busca passagens no Google Flights (fast-flights), filtra esperas longas,
+"""Busca passagens no Google Flights (fast-flights) em várias datas (config "datas"), filtra esperas longas,
 grava monitor/resultado.json e (opcional) envia e-mail com as 5 melhores."""
 import json, os, sys, smtplib, traceback
 from datetime import datetime, timedelta, timezone
@@ -127,8 +127,9 @@ def sem_repetir(voos):
     return list(m.values())
 
 
-def buscar(cfg):
+def buscar(cfg, ida_d=None, volta_d=None):
     import time
+    ida_d, volta_d = ida_d or cfg["ida"], volta_d or cfg["volta"]
     from fast_flights import FlightQuery, Passengers, create_query
     from fast_flights.fetcher import fetch_flights_html
 
@@ -147,14 +148,14 @@ def buscar(cfg):
     o, d = cfg["origem"], cfg["destino"]
     # preço por pessoa: consulta com 1 adulto (ida e volta)
     q = create_query(
-        flights=[FlightQuery(date=cfg["ida"], from_airport=o, to_airport=d),
-                 FlightQuery(date=cfg["volta"], from_airport=d, to_airport=o)],
+        flights=[FlightQuery(date=ida_d, from_airport=o, to_airport=d),
+                 FlightQuery(date=volta_d, from_airport=d, to_airport=o)],
         trip="round-trip", passengers=Passengers(adults=1),
         language="pt-BR", currency="BRL")
     ida = sem_repetir([fmt(f) for f in get_flights(q)])
     # voos de volta (só para checar horários e esperas)
     qv = create_query(
-        flights=[FlightQuery(date=cfg["volta"], from_airport=d, to_airport=o)],
+        flights=[FlightQuery(date=volta_d, from_airport=d, to_airport=o)],
         trip="one-way", passengers=Passengers(adults=1),
         language="pt-BR", currency="BRL")
     volta = sem_repetir([fmt(f) for f in get_flights(qv)])
@@ -174,10 +175,60 @@ def buscar(cfg):
     try:
         link = q.url()
     except Exception:
-        link = f"https://www.google.com/travel/flights?hl=pt-BR&curr=BRL&q=Voos%20{o}%20para%20{d}%20{cfg['ida']}%20{cfg['volta']}"
-    return {"total_ida": len(ida), "total_volta": len(volta),
+        link = f"https://www.google.com/travel/flights?hl=pt-BR&curr=BRL&q=Voos%20{o}%20para%20{d}%20{ida_d}%20{volta_d}"
+    return {"ida_data": ida_d, "volta_data": volta_d,
+            "total_ida": len(ida), "total_volta": len(volta),
             "link_google_flights": link,
             "ida": top, "volta": volta_ok[:3]}
+
+
+DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
+
+
+def combinacoes(cfg):
+    """Datas a pesquisar. config "datas": {"idas": [...], "volta": "AAAA-MM-DD", "semanas": [0, 1, 2]}
+    -> cada ida com a mesma volta, repetido nas semanas seguintes (+7 dias por semana)."""
+    dd = cfg.get("datas") or {}
+    idas, volta = dd.get("idas") or [cfg["ida"]], dd.get("volta") or cfg["volta"]
+    out = []
+    for sem in dd.get("semanas") or [0]:
+        for ida in idas:
+            mais = lambda x: (datetime.strptime(x, "%Y-%m-%d") + timedelta(days=7 * sem)).strftime("%Y-%m-%d")
+            i, v = mais(ida), mais(volta)
+            out.append({"semana": sem, "ida": i, "volta": v,
+                        "dia_ida": DIAS[datetime.strptime(i, "%Y-%m-%d").weekday()],
+                        "dia_volta": DIAS[datetime.strptime(v, "%Y-%m-%d").weekday()],
+                        "noites": (datetime.strptime(v, "%Y-%m-%d") - datetime.strptime(i, "%Y-%m-%d")).days})
+    return out
+
+
+def buscar_todas(cfg):
+    """Busca cada combinação; a melhor (menor preço) vira o resultado principal."""
+    import time
+    datas, melhor = [], None
+    for c in combinacoes(cfg):
+        item = dict(c)
+        try:
+            r_ = buscar(cfg, c["ida"], c["volta"])
+            item.update({"status": "ok", "menor": min((x["preco"] for x in r_["ida"]), default=None),
+                         "opcoes": r_["ida"], "volta_opcoes": r_["volta"],
+                         "link_google_flights": r_["link_google_flights"]})
+            if item["menor"] is not None and (melhor is None or item["menor"] < melhor[0]["menor"]):
+                melhor = (item, r_)
+        except Exception as e:
+            item.update({"status": "erro", "erro": f"{type(e).__name__}: {str(e)[:200]}"})
+        datas.append(item)
+        time.sleep(3)  # não martelar o Google
+    if melhor is None:
+        raise RuntimeError("nenhuma data trouxe preço: " + "; ".join(d.get("erro", "") for d in datas)[:300])
+    m, r_ = melhor
+    x = min(m["opcoes"], key=lambda y: y["preco"])
+    res = dict(r_)
+    res["datas"] = datas
+    res["melhor"] = {"ida": m["ida"], "volta": m["volta"], "dia_ida": m["dia_ida"], "dia_volta": m["dia_volta"],
+                     "semana": m["semana"], "noites": m["noites"], "preco": x["preco"], "companhias": x["companhias"],
+                     "saida": x["saida"], "chegada": x["chegada"], "paradas": x["paradas"], "duracao_h": x["duracao_h"]}
+    return res
 
 
 def corpo(cfg, res):
@@ -263,7 +314,9 @@ def gravar_historico(res):
     except Exception:
         hist = []
     c, x = res["config"], min(res["ida"], key=lambda y: y["preco"])
+    m = res.get("melhor") or {}
     hist.append({"t": res["atualizado"], "menor": x["preco"], "cia": " + ".join(x["companhias"]),
+                 "ida": m.get("ida"), "volta": m.get("volta"),
                  "rota": f"{c['origem']}-{c['destino']} {c['ida']} {c['volta']}"})
     arq.write_text(json.dumps(hist[-500:], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -292,7 +345,7 @@ def main():
         print("Busca cancelada, prazo encerrado ou fora do horário; nada a fazer."); return
     res = {"atualizado": datetime.now(BRT).strftime("%d/%m/%Y %H:%M"), "config": cfg}
     try:
-        res.update(buscar(cfg))
+        res.update(buscar_todas(cfg))
         res["status"] = "ok"
         try: res["email"] = enviar(cfg, res)
         except Exception as e: res["email"] = f"falha no e-mail: {e}"
