@@ -96,7 +96,7 @@
   </section>
 
   <section id="secPac" style="display:none">
-    <h2>Pacotes voo + hotel (casal, 10 noites)</h2>
+    <h2>Pacotes voo + hotel (casal)</h2>
     <div id="pac"></div>
   </section>
 
@@ -431,7 +431,7 @@ async function carregarPacotes(){
     h+='<div class="hint">Conferido na '+esc(p.fonte)+' em '+esc(p.conferido)+'. O pacote aparece <b>sem impostos e taxas</b> (o valor final só sai na tela de pagamento); o hotel sozinho já inclui impostos. O quarto do pacote pode ser diferente. Confira bagagem e preço final antes de comprar.</div>';
     h+='<div class="btns" style="margin-top:8px"><button id="copiaPac">📋 Copiar pacotes para o WhatsApp</button></div>';
     h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(p.link)+'" target="_blank" rel="noopener">Pacotes na Decolar</a><a class="cia" href="'+esc(p.link_hoteis)+'" target="_blank" rel="noopener">Só hotéis</a></div>';
-    if(velho) h='<div class="dest">⚠️ Valores conferidos à mão em '+esc(p.conferido)+' para '+dmy(p.ida)+' a '+dmy(p.volta)+'. Nas novas datas o preço muda: confira pelos links de cada data no topo.</div>'+h;
+    h='<div class="dest">📅 Conferido à mão na Decolar em '+esc(p.conferido)+' para '+dmy(p.ida)+' a '+dmy(p.volta)+' ('+p.noites+' noites). Para outras datas, use os links de cada data no topo.</div>'+h;
     $("pac").innerHTML=h; $("secPac").style.display="";
     $("copiaPac").onclick=async()=>{
       const t=textoPacotes(p);
@@ -482,7 +482,7 @@ function recomendar(){
   // a mais barata de todas, sem olhar nota
   const hb=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
   const totalBarato=Math.min(hb.total,hb.separado)+Math.round(M.barato.preco/cas);
-  let h='<div class="rec">Para cada casal, 10 noites em Miami:</div><b class="v">R$ '+brl(total)+' por casal</b>';
+  let h='<div class="rec">Para cada casal, '+(p.noites||'')+' noites em Miami ('+dmy(p.ida)+' a '+dmy(p.volta)+'):</div><b class="v">R$ '+brl(total)+' por casal</b>';
   h+='<div class="rec">✈️🏨 '+(noPacote?'<b>Pacote Decolar</b> com o hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'; '+esc(hv.regiao||"")+') e voo '+esc(p.voo.cia)+': R$ '+brl(vh):'<b>Passagem avulsa</b> ('+esc(p.melhor_avulsa.cia)+', R$ '+brl(p.melhor_avulsa.casal)+') + hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'): R$ '+brl(vh))+'</div>';
   h+='<div class="rec">🚐 Pacifica na <b>'+esc(M.escolha.locadora)+'</b>, balcão no aeroporto, proteção total franquia R$ 0: R$ '+brl(M.escolha.preco)+' (R$ '+brl(carroCasal)+' por casal)</div>';
   h+='<div class="hint"><b>Por quê:</b> hotel bem avaliado (nota ≥ 8,5) pelo menor preço'+(noPacote?' — no pacote sai R$ '+brl(hv.separado-hv.total)+' mais barato que comprar separado':'')+'; carro retirado no balcão do aeroporto, sem ônibus, com a melhor nota entre os mais baratos. Mais barato possível, sem olhar avaliação: R$ '+brl(totalBarato)+' por casal ('+esc(hb.curto||hb.hotel)+' nota '+String(hb.nota).replace(".",",")+' + '+esc(M.barato.locadora)+').</div>';
