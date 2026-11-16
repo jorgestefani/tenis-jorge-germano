@@ -186,7 +186,8 @@ DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
 
 
 def combinacoes(cfg):
-    """Datas a pesquisar. config "datas": {"idas": [...], "volta": "AAAA-MM-DD", "semanas": [0, 1, 2]}
+    """Datas a pesquisar. config "datas": {"idas": [...], "volta": "AAAA-MM-DD", "semanas": [0, 1, 2],
+    "extras": [{"ida": "AAAA-MM-DD", "volta": "AAAA-MM-DD"}]}
     -> cada ida com a mesma volta, repetido nas semanas seguintes (+7 dias por semana)."""
     dd = cfg.get("datas") or {}
     idas, volta = dd.get("idas") or [cfg["ida"]], dd.get("volta") or cfg["volta"]
@@ -199,6 +200,16 @@ def combinacoes(cfg):
                         "dia_ida": DIAS[datetime.strptime(i, "%Y-%m-%d").weekday()],
                         "dia_volta": DIAS[datetime.strptime(v, "%Y-%m-%d").weekday()],
                         "noites": (datetime.strptime(v, "%Y-%m-%d") - datetime.strptime(i, "%Y-%m-%d")).days})
+    # combinações avulsas fora da regra (ex.: domingo 14/02 -> terça 23/02, pedido de 16/11/2026); contam como semana original
+    for ex in dd.get("extras") or []:
+        i, v = ex["ida"], ex["volta"]
+        if any(o["ida"] == i and o["volta"] == v for o in out):
+            continue
+        out.append({"semana": ex.get("semana", 0), "ida": i, "volta": v,
+                    "dia_ida": DIAS[datetime.strptime(i, "%Y-%m-%d").weekday()],
+                    "dia_volta": DIAS[datetime.strptime(v, "%Y-%m-%d").weekday()],
+                    "noites": (datetime.strptime(v, "%Y-%m-%d") - datetime.strptime(i, "%Y-%m-%d")).days})
+    out.sort(key=lambda o: (o["ida"], o["volta"]))
     return out
 
 
