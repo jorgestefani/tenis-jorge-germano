@@ -1,5 +1,5 @@
 {
- "atualizado": "16/11/2026 18:49",
+ "atualizado": "17/11/2026 08:41",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -37,7 +37,7 @@
  "ida_data": "2027-02-14",
  "volta_data": "2027-02-23",
  "total_ida": 9,
- "total_volta": 12,
+ "total_volta": 10,
  "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTIzagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
@@ -59,32 +59,7 @@
    ],
    "espera_max_h": 5.8,
    "duracao_h": 14.0,
-   "preco": 4494
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
-    "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "14/02 18:55",
-   "chegada": "15/02 11:40",
-   "hora_saida": 18,
-   "paradas": 2,
-   "escalas": [
-    "GRU: 4.1h",
-    "BOG: 3.2h"
-   ],
-   "espera_max_h": 4.1,
-   "duracao_h": 16.8,
-   "preco": 4884
+   "preco": 4557
   },
   {
    "escalas_detalhe": [
@@ -109,7 +84,32 @@
    ],
    "espera_max_h": 5.0,
    "duracao_h": 15.8,
-   "preco": 4941
+   "preco": 5066
+  },
+  {
+   "escalas_detalhe": [
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
+    "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
+   ],
+   "sites": [
+    "Gol: https://www.voegol.com.br",
+    "Avianca: https://www.avianca.com/br/pt"
+   ],
+   "companhias": [
+    "Gol",
+    "Avianca"
+   ],
+   "saida": "14/02 18:55",
+   "chegada": "15/02 11:40",
+   "hora_saida": 18,
+   "paradas": 2,
+   "escalas": [
+    "GRU: 4.1h",
+    "BOG: 3.2h"
+   ],
+   "espera_max_h": 4.1,
+   "duracao_h": 16.8,
+   "preco": 5066
   },
   {
    "escalas_detalhe": [
@@ -130,7 +130,7 @@
    ],
    "espera_max_h": 1.6,
    "duracao_h": 9.8,
-   "preco": 5173
+   "preco": 5245
   },
   {
    "escalas_detalhe": [
@@ -151,7 +151,7 @@
    ],
    "espera_max_h": 5.1,
    "duracao_h": 15.4,
-   "preco": 7687
+   "preco": 7800
   }
  ],
  "volta": [
@@ -174,7 +174,7 @@
    ],
    "espera_max_h": 1.0,
    "duracao_h": 13.3,
-   "preco": 2251
+   "preco": 2246
   },
   {
    "escalas_detalhe": [
@@ -199,7 +199,7 @@
    ],
    "espera_max_h": 3.0,
    "duracao_h": 18.4,
-   "preco": 2553
+   "preco": 2547
   },
   {
    "escalas_detalhe": [
@@ -224,7 +224,7 @@
    ],
    "espera_max_h": 2.2,
    "duracao_h": 18.0,
-   "preco": 2553
+   "preco": 2548
   }
  ],
  "datas": [
@@ -236,7 +236,7 @@
    "dia_volta": "terça",
    "noites": 9,
    "status": "ok",
-   "menor": 4494,
+   "menor": 4557,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -257,32 +257,7 @@
      ],
      "espera_max_h": 5.8,
      "duracao_h": 14.0,
-     "preco": 4494
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
-      "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "14/02 18:55",
-     "chegada": "15/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.1h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.1,
-     "duracao_h": 16.8,
-     "preco": 4884
+     "preco": 4557
     },
     {
      "escalas_detalhe": [
@@ -307,7 +282,32 @@
      ],
      "espera_max_h": 5.0,
      "duracao_h": 15.8,
-     "preco": 4941
+     "preco": 5066
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 15/02 00:25 (horário local) – espera 4h05",
+      "BOG – El Dorado International Airport: chega 15/02 04:25, sai 15/02 07:40 (horário local) – espera 3h15"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "14/02 18:55",
+     "chegada": "15/02 11:40",
+     "hora_saida": 18,
+     "paradas": 2,
+     "escalas": [
+      "GRU: 4.1h",
+      "BOG: 3.2h"
+     ],
+     "espera_max_h": 4.1,
+     "duracao_h": 16.8,
+     "preco": 5066
     },
     {
      "escalas_detalhe": [
@@ -328,7 +328,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 9.8,
-     "preco": 5173
+     "preco": 5245
     },
     {
      "escalas_detalhe": [
@@ -349,7 +349,7 @@
      ],
      "espera_max_h": 5.1,
      "duracao_h": 15.4,
-     "preco": 7687
+     "preco": 7800
     }
    ],
    "volta_opcoes": [
@@ -372,7 +372,7 @@
      ],
      "espera_max_h": 1.0,
      "duracao_h": 13.3,
-     "preco": 2251
+     "preco": 2246
     },
     {
      "escalas_detalhe": [
@@ -397,7 +397,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -422,7 +422,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2548
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTIzagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -435,8 +435,58 @@
    "dia_volta": "quinta",
    "noites": 9,
    "status": "ok",
-   "menor": 5669,
+   "menor": 4946,
    "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 16/02 21:45, sai 17/02 01:40 (horário local) – espera 3h55",
+      "BOG – El Dorado International Airport: chega 17/02 06:00, sai 17/02 07:40 (horário local) – espera 1h40"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "16/02 20:15",
+     "chegada": "17/02 11:40",
+     "hora_saida": 20,
+     "paradas": 2,
+     "escalas": [
+      "GIG: 3.9h",
+      "BOG: 1.7h"
+     ],
+     "espera_max_h": 3.9,
+     "duracao_h": 15.4,
+     "preco": 4946
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/02 12:30, sai 16/02 17:25 (horário local) – espera 4h55",
+      "BOG – El Dorado International Airport: chega 16/02 21:30, sai 16/02 23:00 (horário local) – espera 1h30"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "16/02 11:05",
+     "chegada": "17/02 02:50",
+     "hora_saida": 11,
+     "paradas": 2,
+     "escalas": [
+      "GRU: 4.9h",
+      "BOG: 1.5h"
+     ],
+     "espera_max_h": 4.9,
+     "duracao_h": 15.8,
+     "preco": 4951
+    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/02 20:25, sai 16/02 22:35 (horário local) – espera 2h10"
@@ -458,12 +508,11 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 10.2,
-     "preco": 5669
+     "preco": 5748
     },
     {
      "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 17/02 00:30, sai 17/02 05:40 (horário local) – espera 5h10",
-      "PUJ – Aeroporto Internacional de Punta Cana: chega 17/02 12:35, sai 17/02 14:10 (horário local) – espera 1h35"
+      "SCL – Arturo Merino Benitez International Airport: chega 16/02 21:35, sai 16/02 23:10 (horário local) – espera 1h35"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -471,17 +520,16 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "16/02 20:50",
-     "chegada": "17/02 15:55",
-     "hora_saida": 20,
-     "paradas": 2,
+     "saida": "16/02 17:55",
+     "chegada": "17/02 05:50",
+     "hora_saida": 17,
+     "paradas": 1,
      "escalas": [
-      "SCL: 5.2h",
-      "PUJ: 1.6h"
+      "SCL: 1.6h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 19.1,
-     "preco": 6053
+     "espera_max_h": 1.6,
+     "duracao_h": 11.9,
+     "preco": 6138
     },
     {
      "escalas_detalhe": [
@@ -502,54 +550,35 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6071
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/02 21:40, sai 16/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/02 20:10",
-     "chegada": "17/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 6071
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 16/02 20:20, sai 16/02 22:25 (horário local) – espera 2h05"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "16/02 18:55",
-     "chegada": "17/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.1h"
-     ],
-     "espera_max_h": 2.1,
-     "duracao_h": 10.1,
-     "preco": 6111
+     "preco": 6155
     }
    ],
    "volta_opcoes": [
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 05:55, sai 26/02 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "25/02 16:00",
+     "chegada": "26/02 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
+    },
     {
      "escalas_detalhe": [
       "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:45 (horário local) – espera 2h00",
@@ -573,7 +602,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -598,28 +627,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 18.0,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 25/02 14:30, sai 25/02 15:32 (horário local) – espera 1h02"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "25/02 11:21",
-     "chegada": "26/02 00:40",
-     "hora_saida": 11,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.0h"
-     ],
-     "espera_max_h": 1.0,
-     "duracao_h": 13.3,
-     "preco": 3114
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTZqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -632,7 +640,7 @@
    "dia_volta": "quinta",
    "noites": 8,
    "status": "ok",
-   "menor": 4636,
+   "menor": 4700,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -653,32 +661,7 @@
      ],
      "espera_max_h": 5.8,
      "duracao_h": 14.0,
-     "preco": 4636
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/02 12:30, sai 17/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 17/02 21:30, sai 17/02 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "17/02 11:05",
-     "chegada": "18/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4714
+     "preco": 4700
     },
     {
      "escalas_detalhe": [
@@ -699,32 +682,51 @@
      ],
      "espera_max_h": 3.7,
      "duracao_h": 11.8,
-     "preco": 4749
+     "preco": 4815
     },
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 17/02 21:45, sai 18/02 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 18/02 06:00, sai 18/02 07:40 (horário local) – espera 1h40"
+      "PTY – Aeroporto Internacional Tocumen: chega 17/02 06:43, sai 17/02 08:16 (horário local) – espera 1h33"
+     ],
+     "sites": [
+      "COPA: https://www.copaair.com/pt-br"
+     ],
+     "companhias": [
+      "COPA"
+     ],
+     "saida": "17/02 01:40",
+     "chegada": "17/02 11:25",
+     "hora_saida": 1,
+     "paradas": 1,
+     "escalas": [
+      "PTY: 1.6h"
+     ],
+     "espera_max_h": 1.6,
+     "duracao_h": 9.8,
+     "preco": 4987
+    },
+    {
+     "escalas_detalhe": [
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 17/02 20:20, sai 17/02 22:25 (horário local) – espera 2h05"
      ],
      "sites": [
       "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
+      "American: https://www.aa.com.br"
      ],
      "companhias": [
       "Gol",
-      "Avianca"
+      "American"
      ],
-     "saida": "17/02 20:15",
-     "chegada": "18/02 11:40",
-     "hora_saida": 20,
-     "paradas": 2,
+     "saida": "17/02 18:55",
+     "chegada": "18/02 05:00",
+     "hora_saida": 18,
+     "paradas": 1,
      "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
+      "GIG: 2.1h"
      ],
-     "espera_max_h": 3.9,
-     "duracao_h": 15.4,
-     "preco": 4766
+     "espera_max_h": 2.1,
+     "duracao_h": 10.1,
+     "preco": 5743
     },
     {
      "escalas_detalhe": [
@@ -745,10 +747,35 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6053
+     "preco": 6138
     }
    ],
    "volta_opcoes": [
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 05:55, sai 26/02 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "25/02 16:00",
+     "chegada": "26/02 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
+    },
     {
      "escalas_detalhe": [
       "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:45 (horário local) – espera 2h00",
@@ -772,7 +799,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -797,28 +824,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 18.0,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 25/02 14:30, sai 25/02 15:32 (horário local) – espera 1h02"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "25/02 11:21",
-     "chegada": "26/02 00:40",
-     "hora_saida": 11,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.0h"
-     ],
-     "espera_max_h": 1.0,
-     "duracao_h": 13.3,
-     "preco": 3114
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTdqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -831,8 +837,33 @@
    "dia_volta": "quinta",
    "noites": 7,
    "status": "ok",
-   "menor": 5664,
+   "menor": 5009,
    "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 12:30, sai 18/02 17:25 (horário local) – espera 4h55",
+      "BOG – El Dorado International Airport: chega 18/02 21:30, sai 18/02 23:00 (horário local) – espera 1h30"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "18/02 11:05",
+     "chegada": "19/02 02:50",
+     "hora_saida": 11,
+     "paradas": 2,
+     "escalas": [
+      "GRU: 4.9h",
+      "BOG: 1.5h"
+     ],
+     "espera_max_h": 4.9,
+     "duracao_h": 15.8,
+     "preco": 5009
+    },
     {
      "escalas_detalhe": [
       "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 18/02 20:20, sai 18/02 22:25 (horário local) – espera 2h05"
@@ -854,7 +885,7 @@
      ],
      "espera_max_h": 2.1,
      "duracao_h": 10.1,
-     "preco": 5664
+     "preco": 5743
     },
     {
      "escalas_detalhe": [
@@ -877,7 +908,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 10.4,
-     "preco": 5664
+     "preco": 5743
     },
     {
      "escalas_detalhe": [
@@ -898,7 +929,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6053
+     "preco": 6138
     },
     {
      "escalas_detalhe": [
@@ -919,31 +950,35 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6071
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 10:10, sai 18/02 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "18/02 08:40",
-     "chegada": "18/02 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "preco": 6071
+     "preco": 6155
     }
    ],
    "volta_opcoes": [
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 05:55, sai 26/02 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "25/02 16:00",
+     "chegada": "26/02 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
+    },
     {
      "escalas_detalhe": [
       "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:45 (horário local) – espera 2h00",
@@ -967,7 +1002,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -992,28 +1027,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 18.0,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 25/02 14:30, sai 25/02 15:32 (horário local) – espera 1h02"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "25/02 11:21",
-     "chegada": "26/02 00:40",
-     "hora_saida": 11,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.0h"
-     ],
-     "espera_max_h": 1.0,
-     "duracao_h": 13.3,
-     "preco": 3114
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMThqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -1026,7 +1040,7 @@
    "dia_volta": "quinta",
    "noites": 9,
    "status": "ok",
-   "menor": 5218,
+   "menor": 5290,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1049,7 +1063,7 @@
      ],
      "espera_max_h": 2.1,
      "duracao_h": 10.1,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
@@ -1072,7 +1086,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 10.4,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
@@ -1093,7 +1107,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6018
+     "preco": 6102
     },
     {
      "escalas_detalhe": [
@@ -1116,7 +1130,7 @@
      ],
      "espera_max_h": 5.2,
      "duracao_h": 19.1,
-     "preco": 6018
+     "preco": 6102
     },
     {
      "escalas_detalhe": [
@@ -1137,7 +1151,7 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6035
+     "preco": 6119
     }
    ],
    "volta_opcoes": [
@@ -1160,7 +1174,32 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 04/03 19:45, sai 04/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 05/03 05:55, sai 05/03 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "04/03 16:00",
+     "chegada": "05/03 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -1185,32 +1224,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 04/03 05:15, sai 04/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 04/03 15:45, sai 04/03 18:00 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "04/03 01:35",
-     "chegada": "04/03 19:35",
-     "hora_saida": 1,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -1223,7 +1237,7 @@
    "dia_volta": "quinta",
    "noites": 8,
    "status": "ok",
-   "menor": 4494,
+   "menor": 4557,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1244,7 +1258,7 @@
      ],
      "espera_max_h": 3.7,
      "duracao_h": 11.8,
-     "preco": 4494
+     "preco": 4557
     },
     {
      "escalas_detalhe": [
@@ -1269,7 +1283,7 @@
      ],
      "espera_max_h": 4.7,
      "duracao_h": 16.2,
-     "preco": 4709
+     "preco": 4774
     },
     {
      "escalas_detalhe": [
@@ -1294,32 +1308,28 @@
      ],
      "espera_max_h": 3.9,
      "duracao_h": 15.4,
-     "preco": 4709
+     "preco": 4774
     },
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 12:30, sai 24/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 24/02 21:30, sai 24/02 23:00 (horário local) – espera 1h30"
+      "PTY – Aeroporto Internacional Tocumen: chega 24/02 06:43, sai 24/02 08:16 (horário local) – espera 1h33"
      ],
      "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
+      "COPA: https://www.copaair.com/pt-br"
      ],
      "companhias": [
-      "Gol",
-      "Avianca"
+      "COPA"
      ],
-     "saida": "24/02 11:05",
-     "chegada": "25/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
+     "saida": "24/02 01:40",
+     "chegada": "24/02 11:25",
+     "hora_saida": 1,
+     "paradas": 1,
      "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
+      "PTY: 1.6h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4714
+     "espera_max_h": 1.6,
+     "duracao_h": 9.8,
+     "preco": 4815
     },
     {
      "escalas_detalhe": [
@@ -1340,7 +1350,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6018
+     "preco": 6102
     }
    ],
    "volta_opcoes": [
@@ -1363,7 +1373,32 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 04/03 19:45, sai 04/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 05/03 05:55, sai 05/03 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "04/03 16:00",
+     "chegada": "05/03 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -1388,32 +1423,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 04/03 05:15, sai 04/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 04/03 15:45, sai 04/03 18:00 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "04/03 01:35",
-     "chegada": "04/03 19:35",
-     "hora_saida": 1,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -1426,7 +1436,7 @@
    "dia_volta": "quinta",
    "noites": 7,
    "status": "ok",
-   "menor": 4494,
+   "menor": 4557,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1447,12 +1457,12 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 9.8,
-     "preco": 4494
+     "preco": 4557
     },
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 12:30, sai 25/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 25/02 21:30, sai 25/02 23:00 (horário local) – espera 1h30"
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 12:10, sai 25/02 16:50 (horário local) – espera 4h40",
+      "BOG – El Dorado International Airport: chega 25/02 21:10, sai 25/02 23:00 (horário local) – espera 1h50"
      ],
      "sites": [
       "Gol: https://www.voegol.com.br",
@@ -1462,17 +1472,17 @@
       "Gol",
       "Avianca"
      ],
-     "saida": "25/02 11:05",
+     "saida": "25/02 10:40",
      "chegada": "26/02 02:50",
-     "hora_saida": 11,
+     "hora_saida": 10,
      "paradas": 2,
      "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
+      "GIG: 4.7h",
+      "BOG: 1.8h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4658
+     "espera_max_h": 4.7,
+     "duracao_h": 16.2,
+     "preco": 4709
     },
     {
      "escalas_detalhe": [
@@ -1497,7 +1507,7 @@
      ],
      "espera_max_h": 3.9,
      "duracao_h": 15.4,
-     "preco": 4709
+     "preco": 4766
     },
     {
      "escalas_detalhe": [
@@ -1520,7 +1530,7 @@
      ],
      "espera_max_h": 2.1,
      "duracao_h": 10.1,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
@@ -1541,7 +1551,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6018
+     "preco": 6053
     }
    ],
    "volta_opcoes": [
@@ -1564,7 +1574,32 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 04/03 19:45, sai 04/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 05/03 05:55, sai 05/03 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "04/03 16:00",
+     "chegada": "05/03 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
@@ -1589,32 +1624,7 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 04/03 05:15, sai 04/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 04/03 15:45, sai 04/03 18:00 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "04/03 01:35",
-     "chegada": "04/03 19:35",
-     "hora_saida": 1,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2547
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjVqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -1627,7 +1637,7 @@
    "dia_volta": "quinta",
    "noites": 9,
    "status": "ok",
-   "menor": 5218,
+   "menor": 5290,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1650,7 +1660,7 @@
      ],
      "espera_max_h": 2.1,
      "duracao_h": 10.1,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
@@ -1673,7 +1683,7 @@
      ],
      "espera_max_h": 2.2,
      "duracao_h": 10.4,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
@@ -1694,7 +1704,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6018
+     "preco": 6053
     },
     {
      "escalas_detalhe": [
@@ -1715,7 +1725,7 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6035
+     "preco": 6071
     },
     {
      "escalas_detalhe": [
@@ -1736,7 +1746,7 @@
      ],
      "espera_max_h": 1.3,
      "duracao_h": 9.2,
-     "preco": 6035
+     "preco": 6071
     }
    ],
    "volta_opcoes": [
@@ -1759,7 +1769,7 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
     },
     {
      "escalas_detalhe": [
@@ -1784,12 +1794,12 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 11/03 05:15, sai 11/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/03 15:45, sai 11/03 18:00 (horário local) – espera 2h15"
+      "BOG – El Dorado International Airport: chega 11/03 19:45, sai 11/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 12/03 05:55, sai 12/03 08:25 (horário local) – espera 2h30"
      ],
      "sites": [
       "Avianca: https://www.avianca.com/br/pt",
@@ -1799,17 +1809,17 @@
       "Avianca",
       "Gol"
      ],
-     "saida": "11/03 01:35",
-     "chegada": "11/03 19:35",
-     "hora_saida": 1,
+     "saida": "11/03 16:00",
+     "chegada": "12/03 10:00",
+     "hora_saida": 16,
      "paradas": 2,
      "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
+      "BOG: 1.7h",
+      "GIG: 2.5h"
      ],
-     "espera_max_h": 2.2,
+     "espera_max_h": 2.5,
      "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2548
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTExagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -1822,7 +1832,7 @@
    "dia_volta": "quinta",
    "noites": 8,
    "status": "ok",
-   "menor": 4494,
+   "menor": 4557,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1843,57 +1853,7 @@
      ],
      "espera_max_h": 2.9,
      "duracao_h": 11.1,
-     "preco": 4494
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 12:10, sai 03/03 16:50 (horário local) – espera 4h40",
-      "BOG – El Dorado International Airport: chega 03/03 21:10, sai 03/03 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "03/03 10:40",
-     "chegada": "04/03 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.7h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.7,
-     "duracao_h": 16.2,
-     "preco": 4709
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 21:45, sai 04/03 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 04/03 06:00, sai 04/03 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "03/03 20:15",
-     "chegada": "04/03 11:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 15.4,
-     "preco": 4709
+     "preco": 4557
     },
     {
      "escalas_detalhe": [
@@ -1918,6 +1878,54 @@
     },
     {
      "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/03 12:30, sai 03/03 17:25 (horário local) – espera 4h55",
+      "BOG – El Dorado International Airport: chega 03/03 21:30, sai 03/03 23:00 (horário local) – espera 1h30"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "03/03 11:05",
+     "chegada": "04/03 02:50",
+     "hora_saida": 11,
+     "paradas": 2,
+     "escalas": [
+      "GRU: 4.9h",
+      "BOG: 1.5h"
+     ],
+     "espera_max_h": 4.9,
+     "duracao_h": 15.8,
+     "preco": 4827
+    },
+    {
+     "escalas_detalhe": [
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 20:20, sai 03/03 22:25 (horário local) – espera 2h05"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "American: https://www.aa.com.br"
+     ],
+     "companhias": [
+      "Gol",
+      "American"
+     ],
+     "saida": "03/03 18:55",
+     "chegada": "04/03 05:00",
+     "hora_saida": 18,
+     "paradas": 1,
+     "escalas": [
+      "GIG: 2.1h"
+     ],
+     "espera_max_h": 2.1,
+     "duracao_h": 10.1,
+     "preco": 5290
+    },
+    {
+     "escalas_detalhe": [
       "SCL – Arturo Merino Benitez International Airport: chega 03/03 21:35, sai 03/03 23:10 (horário local) – espera 1h35"
      ],
      "sites": [
@@ -1935,7 +1943,7 @@
      ],
      "espera_max_h": 1.6,
      "duracao_h": 11.9,
-     "preco": 6018
+     "preco": 6053
     }
    ],
    "volta_opcoes": [
@@ -1958,7 +1966,7 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
     },
     {
      "escalas_detalhe": [
@@ -1983,12 +1991,12 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 11/03 05:15, sai 11/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/03 15:45, sai 11/03 18:00 (horário local) – espera 2h15"
+      "BOG – El Dorado International Airport: chega 11/03 19:45, sai 11/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 12/03 05:55, sai 12/03 08:25 (horário local) – espera 2h30"
      ],
      "sites": [
       "Avianca: https://www.avianca.com/br/pt",
@@ -1998,17 +2006,17 @@
       "Avianca",
       "Gol"
      ],
-     "saida": "11/03 01:35",
-     "chegada": "11/03 19:35",
-     "hora_saida": 1,
+     "saida": "11/03 16:00",
+     "chegada": "12/03 10:00",
+     "hora_saida": 16,
      "paradas": 2,
      "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
+      "BOG: 1.7h",
+      "GIG: 2.5h"
      ],
-     "espera_max_h": 2.2,
+     "espera_max_h": 2.5,
      "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2548
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTExagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -2021,7 +2029,7 @@
    "dia_volta": "quinta",
    "noites": 7,
    "status": "ok",
-   "menor": 4494,
+   "menor": 4557,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -2042,32 +2050,7 @@
      ],
      "espera_max_h": 1.4,
      "duracao_h": 9.6,
-     "preco": 4494
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 12:30, sai 04/03 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 04/03 21:30, sai 04/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "04/03 11:05",
-     "chegada": "05/03 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4827
+     "preco": 4557
     },
     {
      "escalas_detalhe": [
@@ -2092,7 +2075,32 @@
      ],
      "espera_max_h": 3.9,
      "duracao_h": 15.4,
-     "preco": 4879
+     "preco": 4709
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 12:30, sai 04/03 17:25 (horário local) – espera 4h55",
+      "BOG – El Dorado International Airport: chega 04/03 21:30, sai 04/03 23:00 (horário local) – espera 1h30"
+     ],
+     "sites": [
+      "Gol: https://www.voegol.com.br",
+      "Avianca: https://www.avianca.com/br/pt"
+     ],
+     "companhias": [
+      "Gol",
+      "Avianca"
+     ],
+     "saida": "04/03 11:05",
+     "chegada": "05/03 02:50",
+     "hora_saida": 11,
+     "paradas": 2,
+     "escalas": [
+      "GRU: 4.9h",
+      "BOG: 1.5h"
+     ],
+     "espera_max_h": 4.9,
+     "duracao_h": 15.8,
+     "preco": 4714
     },
     {
      "escalas_detalhe": [
@@ -2115,28 +2123,30 @@
      ],
      "espera_max_h": 2.1,
      "duracao_h": 10.1,
-     "preco": 5218
+     "preco": 5290
     },
     {
      "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 04/03 21:35, sai 04/03 23:10 (horário local) – espera 1h35"
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 04/03 21:45, sai 04/03 23:55 (horário local) – espera 2h10"
      ],
      "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
+      "Gol: https://www.voegol.com.br",
+      "American: https://www.aa.com.br"
      ],
      "companhias": [
-      "LATAM"
+      "Gol",
+      "American"
      ],
-     "saida": "04/03 17:55",
-     "chegada": "05/03 05:50",
-     "hora_saida": 17,
+     "saida": "04/03 20:15",
+     "chegada": "05/03 06:40",
+     "hora_saida": 20,
      "paradas": 1,
      "escalas": [
-      "SCL: 1.6h"
+      "GIG: 2.2h"
      ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 6018
+     "espera_max_h": 2.2,
+     "duracao_h": 10.4,
+     "preco": 5290
     }
    ],
    "volta_opcoes": [
@@ -2159,7 +2169,7 @@
      ],
      "espera_max_h": 0.7,
      "duracao_h": 12.9,
-     "preco": 2251
+     "preco": 2246
     },
     {
      "escalas_detalhe": [
@@ -2184,12 +2194,12 @@
      ],
      "espera_max_h": 3.0,
      "duracao_h": 18.4,
-     "preco": 2553
+     "preco": 2547
     },
     {
      "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 11/03 05:15, sai 11/03 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/03 15:45, sai 11/03 18:00 (horário local) – espera 2h15"
+      "BOG – El Dorado International Airport: chega 11/03 19:45, sai 11/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 12/03 05:55, sai 12/03 08:25 (horário local) – espera 2h30"
      ],
      "sites": [
       "Avianca: https://www.avianca.com/br/pt",
@@ -2199,17 +2209,17 @@
       "Avianca",
       "Gol"
      ],
-     "saida": "11/03 01:35",
-     "chegada": "11/03 19:35",
-     "hora_saida": 1,
+     "saida": "11/03 16:00",
+     "chegada": "12/03 10:00",
+     "hora_saida": 16,
      "paradas": 2,
      "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
+      "BOG: 1.7h",
+      "GIG: 2.5h"
      ],
-     "espera_max_h": 2.2,
+     "espera_max_h": 2.5,
      "duracao_h": 18.0,
-     "preco": 2553
+     "preco": 2548
     }
    ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTExagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
@@ -2222,7 +2232,7 @@
   "dia_volta": "terça",
   "semana": 0,
   "noites": 9,
-  "preco": 4494,
+  "preco": 4557,
   "companhias": [
    "COPA"
   ],
