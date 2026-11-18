@@ -683,6 +683,46 @@ function falar(t){
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/R\$ ?([\d.]+)/g,"$1 reais"));u.lang="pt-BR";u.rate=1.15;
     const v=speechSynthesis.getVoices().find(v=>/pt[-_]BR/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
 }
+const txtOpc=id=>{const e=$(id);return e&&e.selectedIndex>=0?e.options[e.selectedIndex].text:""};
+const GUIA_CAMPOS={
+  origem:{foco:"Origem: digite a sigla do aeroporto de saída, por exemplo F L N.",muda:e=>"Origem "+e.value.split("").join(" ")+". Agora confira o destino."},
+  destino:{foco:"Destino: digite a sigla do aeroporto de chegada, por exemplo M I A.",muda:e=>"Destino "+e.value.split("").join(" ")+". Agora escolha a data de ida."},
+  ida:{foco:"Escolha o dia da ida."},volta:{foco:"Escolha o dia da volta."},
+  hIda:{foco:"Escolha o horário de saída do voo de ida.",muda:()=>"Ida: "+txtOpc("hIda")+". Agora escolha o horário da volta."},
+  hVolta:{foco:"Escolha o horário de saída do voo de volta.",muda:()=>"Volta: "+txtOpc("hVolta")+". Agora toque em Buscar voos."},
+  pessoas:{foco:"Escolha quantas pessoas vão viajar.",muda:()=>txtOpc("pessoas")+". Os valores foram recalculados."},
+  aIntervalo:{foco:"Escolha de quanto em quanto tempo a busca automática procura passagens.",muda:()=>"A cada "+txtOpc("aIntervalo")+". Agora escolha a partir de que horas."},
+  aIni:{foco:"Escolha a hora em que a busca começa no dia.",muda:()=>"A partir das "+txtOpc("aIni")+". Agora escolha até que horas."},
+  aFim:{foco:"Escolha a última hora de busca no dia.",muda:()=>"Até as "+txtOpc("aFim")+". Agora escolha o período da busca."},
+  aPeriodo:{foco:"Escolha por quanto tempo a busca automática vai continuar.",muda:()=>txtOpc("aPeriodo")+($("aPeriodo").value==="data"?". Escolha o último dia.":". Toque em Salvar horários para valer.")},
+  aAte:{foco:"Escolha o último dia da busca.",muda:()=>"Escolhido. Toque em Salvar horários para valer."},
+  aIncluir:{muda:e=>e.checked?"As datas do passo um entram na busca automática quando salvar.":"As datas do passo um não serão incluídas."},
+  aRota:{muda:e=>e.checked?"A rota vai mudar quando salvar.":"A rota continua a mesma."},
+  aQuem:{foco:"Digite seu nome, para aparecer em quem mudou."},
+  dolar:{foco:"Cotação do dólar, usada para Uber, gasolina e ônibus.",muda:e=>"Dólar a "+e.value.replace(".",",")+" reais. Os valores foram recalculados."},
+  nNome:{foco:"Digite o nome do hotel que encontrou."},nPreco:{foco:"Digite o preço total da estadia, em reais, para o quarto do casal."},
+  nNota:{foco:"Nota do hotel, de zero a dez. Pode deixar em branco."},
+  nBairro:{foco:"Escolha o bairro do hotel. Ele serve para calcular os deslocamentos.",muda:()=>"Bairro "+txtOpc("nBairro")+". Agora escolha o site."},
+  nSite:{foco:"Escolha em que site encontrou o hotel.",muda:()=>txtOpc("nSite")+". Agora diga se o café da manhã está incluído."},
+  nCafe:{foco:"O café da manhã está incluído?",muda:()=>"Café: "+txtOpc("nCafe")+". Agora o estacionamento."},
+  nEstac:{foco:"Estacionamento por noite, em dólares. Zero se for grátis; em branco se não souber.",muda:()=>"Pronto. Toque em Adicionar e escolher este hotel."}
+};
+const GUIA_BOTOES={
+  aSalvar:"Salvando os horários.",aAgora:"Pedindo uma busca agora. Os preços novos chegam em até meia hora.",
+  btSim:"Simulação do dia. Acompanhe o relógio e a soma dos tempos.",simDias:"Simulando dividido em dias.",
+  barraX:"Barra fechada. Ela volta quando marcar ou desmarcar um passeio.",simX:"Simulação fechada. Confira o roteiro e o resumo.",
+  simPP:()=>SIM.pausa?"Continuando.":"Pausado.",simV:()=>"Velocidade "+(SIM.vel===1?2:SIM.vel===2?4:1)+" vezes.",
+  barraDia:"Indo para o roteiro sugerido.",verVideo:""
+};
+document.addEventListener("focusin",e=>{const g=GUIA_CAMPOS[e.target.id];if(g&&g.foco)falar(g.foco)});
+document.addEventListener("change",e=>{const g=GUIA_CAMPOS[e.target.id];if(g&&g.muda)setTimeout(()=>falar(g.muda(e.target)),60)});
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button,a,summary");if(!b)return;
+  if(b.id&&b.id in GUIA_BOTOES){const t=GUIA_BOTOES[b.id];const x=typeof t==="function"?t():t;if(x)falar(x);return}
+  if(b.tagName==="SUMMARY"&&b.closest("#addBox"))return falar(b.parentNode.open?"Formulário fechado.":"Preencha os dados do hotel que encontrou e toque em Adicionar.");
+  if(b.tagName==="A"&&b.target==="_blank")return falar("Abrindo "+b.textContent.trim()+" em outra aba. Compare o preço e volte para esta página.");
+  if(b.tagName==="A"&&b.getAttribute("href")==="painel.html")return falar("Abrindo o painel completo de preços.");
+},true);
 function guiaBt(){$("guiaBt").textContent=GUIA?"🔊 Guia por voz: ligado":"🔇 Guia por voz: desligado"}
 const proxDepoisHotel=()=>ST.pontos?"Agora marque os passeios que querem fazer.":"Agora toque em Pesquisar melhores pontos turísticos.";
 const falaComp=()=>{const u=ST.ultComp;if(!u)return"";return u.tipo==="atual"?"A escolha atual foi melhor: "+reaisF(u.dif)+" mais barato. ":u.tipo==="anterior"?"A escolha anterior foi melhor: era "+reaisF(u.dif)+" mais barato. ":"As duas custam quase o mesmo. "};
@@ -772,9 +812,10 @@ function simular(){
   simUI();$("simBox").style.display="flex";SIM.pausa=false;$("simPP").textContent="⏸ Pausar";
   const dias=P.fim<=DIA_FIM?null:dividirDias(r,pos);
   rodarDia(h0,pos,r,"Tentativa: tudo em um dia",()=>{
-    if(!dias){$("simMais").innerHTML='<div class="msg">✅ Tudo cabe em um dia: volta ao hotel às <b>'+hm(P.fim)+'</b>.</div>';return}
+    if(!dias){$("simMais").innerHTML='<div class="msg">✅ Tudo cabe em um dia: volta ao hotel às <b>'+hm(P.fim)+'</b>.</div>';falar("Tudo cabe em um dia. Voltam ao hotel às "+hm(P.fim)+". Feche a simulação e confira o resumo no fim da página.");return}
+    falar("Em um dia só não dá: terminaria às "+hm(P.fim)+". Toque em Simular em "+dias.length+" dias.");
     $("simMais").innerHTML='<div class="msg pior">⚠️ Em um dia só não dá: terminaria às <b>'+hm(P.fim)+'</b>. Dividindo em <b>'+dias.length+' dias</b>, cabe.</div><button class="btSim" id="simDias">▶ Simular em '+dias.length+' dias</button>';
-    $("simDias").onclick=()=>{let k=0;const prox=()=>{if(k>=dias.length){$("simMais").innerHTML='<div class="msg">✅ Em '+dias.length+' dias tudo cabe entre 8h e 20h.</div>';return}const d=dias[k++];rodarDia(h0,pos,d,"Dia "+k+" de "+dias.length,prox)};prox()};
+    $("simDias").onclick=()=>{let k=0;const prox=()=>{if(k>=dias.length){$("simMais").innerHTML='<div class="msg">✅ Em '+dias.length+' dias tudo cabe entre 8h e 20h.</div>';falar("Em "+dias.length+" dias tudo cabe entre oito e vinte horas. Feche a simulação e confira o resumo.");return}const d=dias[k++];rodarDia(h0,pos,d,"Dia "+k+" de "+dias.length,prox)};prox()};
   });
 }
 function rodarDia(h0,pos,r,titulo,fim){
