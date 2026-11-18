@@ -1,7 +1,7 @@
 name: Monitor de passagens
 on:
   schedule:
-    - cron: "7 * * * *"      # toda hora; o script respeita monitor/config.json
+    - cron: "7,37 * * * *"   # 2x por hora; o script respeita a programação (página inicial / config.json) e atende "Buscar agora"
   workflow_dispatch:
   push:
     paths: ["monitor/buscar.py", "monitor/diag.py", ".github/workflows/monitor.yml"]
