@@ -5,52 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Souzastur · Viagens e Turismo</title>
 <style>
-  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#64707f;--line:#dfe3e8;--acc:#0b6bcb;--ok:#13795b;--err:#b3261e;--graf:#0b6bcb}
-  @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80;--graf:#3987e5}}
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#64707f;--line:#dfe3e8;--acc:#0b6bcb;--ok:#13795b;--err:#b3261e;--warn:#9a5b00;--sel:#e8f1fc}
+  @media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b222b;--ink:#e7ebf0;--mut:#93a0b0;--line:#2c3643;--acc:#4ea1ff;--ok:#4cc9a0;--err:#ff8a80;--warn:#ffb74d;--sel:#1d2e44}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  main{max-width:600px;margin:0 auto;padding:16px 14px 48px}
-  h1{font-size:20px;margin:6px 0 2px}
-  .sub{color:var(--mut);font-size:14px;margin:0 0 14px}
+  main{max-width:640px;margin:0 auto;padding:16px 14px 48px}
   section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
-  h2{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+  h2{font-size:15px;margin:0 0 10px;display:flex;gap:8px;align-items:center}
+  h2 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font-size:13px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .full{grid-column:1/-1}
+  .grid>*{min-width:0}
+  select{text-overflow:ellipsis}
+  .hotel>*{min-width:0}
   label{display:block;font-size:13px;color:var(--mut)}
   input,select{width:100%;margin-top:4px;padding:10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
-  .full{grid-column:1/-1}
-  .hint{font-size:13px;color:var(--mut);margin-top:6px}
-  .btns{display:grid;gap:8px}
-  button{font:inherit;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+  button{font:inherit;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;width:100%}
   button.primary{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
-  button:disabled{opacity:.55}
-  #status{font-size:14px;margin-top:10px;white-space:pre-wrap}
-  .ok{color:var(--ok)}.err{color:var(--err)}
-  .opt{border-top:1px solid var(--line);padding:10px 0}
-  .opt:first-child{border-top:0}
-  .preco{font-weight:700;font-size:17px}
-  .tag{display:inline-block;font-size:12px;background:var(--ok);color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px}
-  .esc{font-size:13px;color:var(--mut);margin:2px 0 0 10px}
+  .hint{font-size:13px;color:var(--mut);margin-top:6px}
   a{color:var(--acc)}
-  details summary{cursor:pointer;color:var(--acc);font-size:14px}
   .tab{width:100%;border-collapse:collapse;font-size:14px}
-  .tab th,.tab td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+  .tab th,.tab td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
   .tab th:first-child,.tab td:first-child{text-align:left}
   .tab th{font-size:12px;color:var(--mut);font-weight:600}
-  .cias{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-  .num{font-size:26px;font-weight:700;line-height:1.15}
-  .graf{position:relative;height:64px;margin:8px 0 2px;touch-action:pan-y}
-  .graf svg{display:block;width:100%;height:100%;overflow:visible}
-  .graf path{fill:none;stroke:var(--graf);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-  .graf i{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--graf);box-shadow:0 0 0 2px var(--card);pointer-events:none}
-  .graf u{position:absolute;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none}
-  .eixo{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
-  .dest{border-left:3px solid var(--ok);padding:2px 0 2px 10px;margin:8px 0;font-size:14px}
-  .tab td small{display:block;color:var(--mut);font-size:12px;font-weight:400}
-  .tab td b.bom{color:var(--ok)}
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .rec{font-size:15px;margin:6px 0}
-  b.v{font-size:26px;display:block;margin:2px 0 6px}
-  .mud{font-size:14px;margin:3px 0}
+  .tab td small{display:block;color:var(--mut);font-size:12px}
+  .tab tr.tot td{font-weight:700;border-bottom:0}
+  .tab b.bom{color:var(--ok)}
+  .rolar{overflow-x:auto}
+  .modos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .modo,.hotel{display:block;border:1px solid var(--line);border-radius:10px;padding:10px;cursor:pointer;color:var(--ink)}
+  .modo input,.hotel input{display:none}
+  .modo:has(input:checked),.hotel:has(input:checked){border-color:var(--acc);background:var(--sel);box-shadow:0 0 0 1px var(--acc)}
+  .modo .ic{font-size:24px}
+  .modo b{display:block;font-size:14px}
+  .modo small{display:block;font-size:12px;color:var(--mut)}
+  .hoteis{display:grid;gap:8px}
+  .hotel{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center}
+  .hotel .pos{font-weight:700;color:var(--mut);text-align:center}
+  .hotel .nm{font-weight:600;font-size:15px}
+  .hotel .nm small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+  .hotel .pr{text-align:right;font-weight:700}
+  .hotel .pr small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+  .msg{border-left:4px solid var(--ok);background:var(--sel);border-radius:8px;padding:10px 12px;margin:10px 0 0;font-size:15px}
+  .msg.pior{border-color:var(--warn)}
+  .opt{border-top:1px solid var(--line);padding:9px 0;font-size:14px}
+  .opt:first-of-type{border-top:0}
+  .opt b.p{font-size:16px}
+  .tag{display:inline-block;font-size:12px;background:var(--ok);color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .links a{flex:1 1 140px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;text-decoration:none;font-size:14px}
+  .resumo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .resumo div{background:var(--bg);border-radius:10px;padding:10px}
+  .resumo small{display:block;color:var(--mut);font-size:12px}
+  .resumo b{font-size:18px}
+  .resumo .tt{grid-column:1/-1;background:var(--acc);color:#fff}
+  .resumo .tt small{color:#fff;opacity:.85}
+  .resumo .tt b{font-size:24px}
   .marca{margin:-16px -14px 14px;padding:22px 18px 18px;color:#fff;border-radius:0 0 18px 18px;background:linear-gradient(135deg,#0a4f8f 0%,#0b6bcb 55%,#13a3a0 100%)}
   .marca .logo{display:flex;align-items:center;gap:10px}
   .marca .sol{font-size:34px;line-height:1}
@@ -58,505 +68,363 @@
   .marca .nome span{color:#ffd166}
   .marca .slogan{font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.9;margin-top:4px}
   .marca .viagem{margin-top:12px;font-size:16px;font-weight:600}
-  .marca .viagem small{display:block;font-weight:400;opacity:.9;font-size:13px}
-  .cia{display:block;text-align:center;padding:12px 4px;border:1px solid var(--acc);border-radius:10px;text-decoration:none;font-weight:600}
-  .best{background:color-mix(in srgb,var(--ok) 12%,var(--card));border-radius:10px;padding:12px;margin-bottom:10px}
-  .best .t{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ok)}
-  .best .d{font-size:21px;font-weight:800;margin:2px 0}
-  .best .p{font-size:16px}
-  .tab tr.eu td{background:color-mix(in srgb,var(--ok) 14%,transparent)}
-  .lk a{display:inline-block;margin:2px 6px 2px 0;font-size:13px}
+  .marca button{margin-top:12px;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);color:#fff;font-weight:600}
+  #intro{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+  #intro .cx{width:100%;max-width:420px;display:grid;gap:8px}
+  #intro video{width:100%;max-height:72vh;border-radius:14px;background:#000}
+  #intro .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  #intro label{color:#ddd;display:flex;gap:8px;align-items:center;justify-content:center}
+  #intro label input{width:auto;margin:0}
+  footer{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}
+  @media (max-width:520px){.modos{grid-template-columns:1fr}.modo{display:grid;grid-template-columns:34px 1fr;align-items:center}.modo small{grid-column:2}}
 </style>
 </head>
 <body>
+<div id="intro" role="dialog" aria-label="Vídeo explicativo">
+  <div class="cx">
+    <video id="vid" src="intro.mp4" playsinline muted preload="auto"></video>
+    <div class="duo"><button class="primary" id="som">🔊 Ouvir a explicação</button><button id="pular">Pular ▶︎</button></div>
+    <label><input type="checkbox" id="naoMostrar"> Não mostrar ao abrir</label>
+  </div>
+</div>
 <main>
-  <header class="marca">
-    <div class="logo"><div class="sol">🌴</div><div><div class="nome">Souzas<span>tur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
-    <div class="viagem">✈️ Florianópolis → Miami<small>Ida terça, quarta ou quinta (semana de 16/02, +1 ou +2 semanas) · volta na quinta seguinte · 2 casais</small></div>
-  </header>
-  <h1>Monitor de Passagens</h1>
-  <p class="sub">Busca automática no Google Flights, com histórico de preços, pacotes com hotel e aluguel de carro. Toque em LATAM, Copa ou Decolar para ver o preço oficial.</p>
+  <div class="marca">
+    <div class="logo"><span class="sol">☀️</span><div><div class="nome">Souza<span>stur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
+    <div class="viagem">Monte a viagem: voo, locomoção, hotel e passeios</div>
+    <button id="verVideo">▶︎ Ver o vídeo explicativo</button>
+  </div>
 
-  <section id="secMelhor" style="display:none;border:2px solid var(--ok)">
-    <div id="melhor"></div>
-  </section>
-
-  <section id="secRec" style="display:none;border:2px solid var(--ok)">
-    <h2>⭐ Recomendação voo + hotel + carro (hotel e carro conferidos à mão)</h2>
-    <div id="rec"></div>
-  </section>
-
-  <section>
-    <h2>Último resultado</h2>
-    <div id="hist"></div>
-    <div id="res">Carregando…</div>
-    <div class="btns" style="margin-top:10px">
-      <button id="reload">Atualizar resultado</button>
-    </div>
-  </section>
-
-  <section id="secPac" style="display:none">
-    <h2>Pacotes voo + hotel (casal)</h2>
-    <div id="pac"></div>
-  </section>
-
-  <section id="secCar" style="display:none">
-    <h2>🚐 Aluguel de carro · Chrysler Pacifica</h2>
-    <div id="car"></div>
-  </section>
-
-  <section>
-    <h2>Rota e regras</h2>
+  <!-- 1. VOO -->
+  <section id="secVoo">
+    <h2><span class="n">1</span> Voo: origem, destino, datas e horário</h2>
     <div class="grid">
-      <label>Origem<input id="origem" maxlength="4" autocapitalize="characters"></label>
-      <label>Destino<input id="destino" maxlength="4" autocapitalize="characters"></label>
-      <label>Ida<input id="ida" type="date"></label>
-      <label>Volta<input id="volta" type="date"></label>
-      <label>Adultos<input id="adultos" type="number" min="1" max="9"></label>
-      <label>Espera máx. (h)<input id="espera_max_horas" type="number" min="1" max="24"></label>
-      <label>Meta por pessoa (R$)<input id="meta_por_pessoa" type="number" min="0" step="50"></label>
-      <label class="full">E-mails (separe por vírgula)<input id="email" type="text" inputmode="email" autocapitalize="off" autocomplete="off" spellcheck="false"></label>
+      <label>Origem<input id="origem" list="aeros" value="FLN" autocapitalize="characters"></label>
+      <label>Destino<input id="destino" list="aeros" value="MIA" autocapitalize="characters"></label>
+      <label class="full">Datas<select id="datas"></select></label>
+      <label id="lIda" style="display:none">Ida<input type="date" id="ida"></label>
+      <label id="lVolta" style="display:none">Volta<input type="date" id="volta"></label>
+      <label>Horário da ida<select id="hIda"></select></label>
+      <label>Horário da volta<select id="hVolta"></select></label>
+      <label class="full">Pessoas<select id="pessoas"><option value="4">2 casais (4 pessoas)</option><option value="2">1 casal (2 pessoas)</option></select></label>
     </div>
+    <datalist id="aeros"><option value="FLN">Florianópolis</option><option value="GRU">São Paulo – Guarulhos</option><option value="POA">Porto Alegre</option><option value="CWB">Curitiba</option><option value="NVT">Navegantes</option><option value="MIA">Miami</option><option value="FLL">Fort Lauderdale</option><option value="MCO">Orlando</option></datalist>
+    <button class="primary" id="buscarVoo" style="margin-top:12px">✈️ Buscar voos</button>
+    <div id="voos"></div>
   </section>
 
-  <section>
-    <h2>Programação (horário de Brasília)</h2>
-    <div class="grid">
-      <label class="full">Repetir a cada
-        <select id="intervalo_horas">
-          <option value="1">1 hora</option><option value="2">2 horas</option><option value="3">3 horas</option>
-          <option value="4">4 horas</option><option value="6">6 horas</option><option value="8">8 horas</option>
-          <option value="12">12 horas</option><option value="24">1 vez por dia</option>
-        </select>
-      </label>
-      <label>A partir das (h)<input id="hora_inicio" type="number" min="0" max="23"></label>
-      <label>Até às (h)<input id="hora_fim" type="number" min="0" max="23"></label>
+  <!-- 2. LOCOMOÇÃO -->
+  <section id="secMov">
+    <h2><span class="n">2</span> Como andar em Miami</h2>
+    <div class="modos">
+      <label class="modo"><input type="radio" name="modo" value="carro" checked><span class="ic">🚗</span><b>Carro alugado</b><small id="mCarro">…</small></label>
+      <label class="modo"><input type="radio" name="modo" value="uber"><span class="ic">🚕</span><b>Uber</b><small>UberX nos passeios, UberXL com malas</small></label>
+      <label class="modo"><input type="radio" name="modo" value="coletivo"><span class="ic">🚌</span><b>Ônibus e gratuitos</b><small>Metromover, trolleys grátis, Metrorail</small></label>
     </div>
-    <div class="hint" id="quando"></div>
-    <label style="margin-top:10px">Buscar durante
-      <select id="duracao">
-        <option value="0">Sem prazo (até eu cancelar)</option>
-        <option value="1">1 dia</option><option value="3">3 dias</option><option value="7">7 dias</option>
-        <option value="15">15 dias</option><option value="30">30 dias</option>
-        <option value="data">Até uma data…</option>
-      </select>
-    </label>
-    <label id="ateBox" style="display:none;margin-top:8px">Buscar até o dia<input id="ate" type="date"></label>
-    <div class="hint" id="estado"></div>
+    <div id="movInfo" class="hint"></div>
+    <div id="msgMov"></div>
   </section>
 
-  <section>
-    <h2>Ações</h2>
-    <label>Token do GitHub (fica só neste aparelho)
-      <input id="token" type="password" placeholder="github_pat_…" autocomplete="off">
-    </label>
-    <details style="margin:8px 0">
-      <summary>Como criar o token</summary>
-      <div class="hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate. Em "Repository access" escolha só <b>tenis-jorge-germano</b>. Em "Permissions → Repository" deixe <b>Contents: Read and write</b> e <b>Actions: Read and write</b>. Copie e cole acima.</div>
-    </details>
-    <div class="btns">
-      <button class="primary" id="salvar">Salvar e ativar busca</button>
-      <button id="agora">Buscar agora</button>
-      <button id="cancelar" style="color:var(--err)">⛔ Cancelar busca</button>
-    </div>
-    <div id="status"></div>
+  <!-- 3. HOTEL -->
+  <section id="secHotel">
+    <h2><span class="n">3</span> Hotel em Miami · os 10 mais em conta</h2>
+    <div class="hint" id="hotInfo" style="margin:-4px 0 10px"></div>
+    <div class="hoteis" id="hoteis"></div>
+    <div id="msgHotel"></div>
   </section>
-  <p class="sub" style="text-align:center;margin:18px 0 0">Desenvolvido por Jorge Stefani</p>
+
+  <!-- 4. PASSEIOS -->
+  <section id="secPontos">
+    <h2><span class="n">4</span> Pontos turísticos a partir do hotel</h2>
+    <button class="primary" id="pesquisar">🔎 Pesquisar melhores pontos turísticos</button>
+    <div id="pontos"></div>
+  </section>
+
+  <!-- RESUMO -->
+  <section id="secResumo">
+    <h2><span class="n">✓</span> Resumo da viagem (por casal)</h2>
+    <div class="resumo" id="resumo"></div>
+    <label style="margin-top:12px">Dólar (R$ por US$ 1) para converter Uber, gasolina e ônibus<input id="dolar" type="number" step="0.01" min="3" max="10" value="5.50"></label>
+    <div class="hint">Uber, gasolina, estacionamento e ônibus são <b>estimativas</b> (preços médios de Miami em dólar). Hotel e carro foram conferidos à mão; confira o preço final antes de comprar.</div>
+  </section>
+
+  <div class="links"><a href="painel.html">📊 Painel completo de preços</a></div>
+  <footer>Souzastur · Desenvolvido por Jorge Stefani</footer>
 </main>
 
 <script>
-const REPO = "jorgestefani/tenis-jorge-germano";
-const CAMPOS = ["origem","destino","ida","volta","adultos","espera_max_horas","meta_por_pessoa","email","intervalo_horas","hora_inicio","hora_fim"];
-const NUM = new Set(["adultos","espera_max_horas","meta_por_pessoa","intervalo_horas","hora_inicio","hora_fim"]);
-const $ = id => document.getElementById(id);
-const pad = n => String(n).padStart(2,"0");
-const brl = n => Number(n).toLocaleString("pt-BR");
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const brl=n=>Math.round(n).toLocaleString("pt-BR");
+const R=n=>"R$ "+brl(n);
+const dmy=s=>s?s.slice(8,10)+"/"+s.slice(5,7):"";
+const SEM=["dom","seg","ter","qua","qui","sex","sáb"];
+const dia=s=>SEM[new Date(s+"T12:00").getDay()];
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const DEMO=new URLSearchParams(location.search).get("demo");
 
-function say(msg, cls){ const s=$("status"); s.textContent=msg; s.className=cls||""; }
-function getToken(){ try{ return localStorage.getItem("gh_token")||""; }catch(e){ return ""; } }
-function setToken(v){ try{ localStorage.setItem("gh_token", v); }catch(e){} }
-$("token").value = getToken();
-$("token").addEventListener("change", () => setToken($("token").value.trim()));
+// ---------- dados fixos (coordenadas aproximadas) ----------
+const AEROPORTO={lat:25.7959,lng:-80.2870};
+const COORD={
+  "Spark Hilton":[25.8095,-80.3360,"médio","Doral Trolley grátis até a estação Palmetto (Metrorail)"],
+  "Palms Inn":[25.6870,-80.3830,"ruim","Kendall: pouco ônibus; Uber até Dadeland (Metrorail)"],
+  "Palm Tree Club":[25.8480,-80.1550,"médio","Ônibus 79 e 120 na porta (Miami Beach e Downtown)"],
+  "La Quinta Aerop.":[25.8050,-80.2620,"médio","Perto do Miami Intermodal Center (Metrorail)"],
+  "Comfort Kendall":[25.7330,-80.3810,"ruim","Kendall: ônibus 137/104; Uber até Dadeland (Metrorail)"],
+  "Element Doral":[25.8050,-80.3800,"médio","Doral Trolley grátis; ao lado do Dolphin Mall"],
+  "Hyatt Place Doral":[25.8080,-80.3300,"médio","Doral Trolley grátis até a estação Palmetto"],
+  "Hilton Blue Lagoon":[25.7760,-80.2780,"médio","Ônibus até o Miami Intermodal Center (Metrorail)"],
+  "Brickell Condos":[25.7620,-80.1950,"bom","Metromover grátis a poucos passos"],
+  "Tru Hilton Brickell":[25.7670,-80.2010,"bom","Metromover e Miami Trolley grátis perto"],
+  "The Elser":[25.7780,-80.1880,"bom","Metromover grátis na porta (Downtown)"]
+};
+// estac = estacionamento US$ por visita; col = ônibus por pessoa ida+volta (US$), null = não há
+const PONTOS=[
+  {n:"South Beach e Ocean Drive",d:"Praia, Art Déco, Lincoln Road",lat:25.7826,lng:-80.1341,estac:30,col:4.5,ct:"Ônibus 120 Beach MAX (US$ 2,25) + South Beach Trolley grátis"},
+  {n:"Wynwood Walls",d:"Grafites, cafés e galerias",lat:25.8010,lng:-80.1994,estac:20,col:0,ct:"Miami Trolley grátis (rota Wynwood)"},
+  {n:"Bayside Marketplace",d:"Compras e passeio de barco na baía",lat:25.7785,lng:-80.1867,estac:20,col:0,ct:"Metromover grátis (estação College/Bayside)"},
+  {n:"Little Havana · Calle Ocho",d:"Cultura cubana, Domino Park",lat:25.7656,lng:-80.2190,estac:10,col:0,ct:"Miami Trolley grátis (rota Little Havana)"},
+  {n:"Brickell City Centre",d:"Shopping a céu aberto",lat:25.7670,lng:-80.1933,estac:15,col:0,ct:"Metromover grátis (estação Eighth Street)"},
+  {n:"Museu e Jardins Vizcaya",d:"Mansão histórica à beira-mar",lat:25.7443,lng:-80.2105,estac:15,col:4.5,ct:"Metrorail, estação Vizcaya (US$ 2,25)"},
+  {n:"Key Biscayne · Bill Baggs",d:"Praia tranquila e farol",lat:25.6730,lng:-80.1570,estac:8,col:4.5,ct:"Ônibus 102 a partir de Brickell (US$ 2,25)"},
+  {n:"Dolphin Mall",d:"Outlet, preços baixos",lat:25.7880,lng:-80.3810,estac:0,col:4.5,ct:"Ônibus 36 até Dolphin Station; de Doral, Trolley grátis"},
+  {n:"Aventura Mall",d:"Shopping grande, lojas de marca",lat:25.9567,lng:-80.1424,estac:0,col:4.5,ct:"Ônibus 3 ou E (US$ 2,25), viagem longa"},
+  {n:"Sawgrass Mills",d:"Maior outlet da Flórida",lat:26.1519,lng:-80.3218,estac:0,col:9,ct:"Difícil: 2 ou mais conduções"},
+  {n:"Everglades · airboat",d:"Passeio de barco no pântano",lat:25.7580,lng:-80.5740,estac:0,col:null,ct:"Sem transporte coletivo"},
+  {n:"Fort Lauderdale Beach",d:"Praia e canais",lat:26.1220,lng:-80.1040,estac:15,col:12,ct:"Tri-Rail ou Brightline + ônibus"}
+];
+const HORARIOS=[["qualquer","Qualquer horário",0,24],["madrugada","Madrugada (0h–6h)",0,6],["manha","Manhã (6h–12h)",6,12],["tarde","Tarde (12h–18h)",12,18],["noite","Noite (18h–24h)",18,24]];
 
-function quando(){
-  const p=+$("intervalo_horas").value, a=+$("hora_inicio").value, b=+$("hora_fim").value;
-  if(p===24) return "Roda 1 vez por dia, às "+pad(a)+":00 (Brasília).";
-  const h=[]; for(let x=a;x<=b&&h.length<48;x+=p) h.push(pad(x)+"h");
-  return "Roda às: "+h.join(", ")+" (Brasília).";
+const ST={res:null,pac:null,car:null,hoteis:[],modo:"carro",hotel:null,pontos:false,sel:new Set(PONTOS.map((p,i)=>i).filter(i=>i<8)),voo:null};
+
+// ---------- contas ----------
+function km(a,b){const r=Math.PI/180,dl=(b.lat-a.lat)*r,dg=(b.lng-a.lng)*r;const x=Math.sin(dl/2)**2+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dg/2)**2;return 6371*2*Math.asin(Math.sqrt(x))*1.35}
+const minutos=k=>Math.round(k/38*60+6);
+const uberUSD=(k,xl)=>(5.5+1.0*k+0.30*minutos(k))*(xl?1.6:1);
+const gasUSD=k=>k/9*0.9;            // minivan ~9 km/l, gasolina ~US$ 0,90/l
+const dolar=()=>Math.max(3,+$("dolar").value||5.5);
+const pessoas=()=>+$("pessoas").value||4;
+const casais=()=>pessoas()/2;
+function hotelPos(h){const c=COORD[h.curto];return c?{lat:c[0],lng:c[1],acesso:c[2],dica:c[3]}:{lat:25.79,lng:-80.25,acesso:"médio",dica:""}}
+function carroEscolhido(){
+  if(!ST.car) return null;
+  const O=(ST.car.ofertas||[]).slice().sort((a,b)=>a.preco-b.preco);
+  return O.find(o=>o.retirada==="balcão"&&o.nota>=8)||O[0];
 }
-CAMPOS.forEach(k => $(k).addEventListener("input", () => { $("quando").textContent = quando(); }));
-
-let CFG = {};
-const hoje = () => { const d=new Date(Date.now()-3*3600e3); return d.toISOString().slice(0,10); }; // data de Brasília
-const somaDias = n => { const d=new Date(Date.now()-3*3600e3); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); };
-const br = s => s.split("-").reverse().join("/");
-function estado(c){
-  if(c.ativo===false) return "⛔ Busca cancelada. Para voltar, toque em “Salvar e ativar busca”.";
-  if(c.ate && c.ate < hoje()) return "⏹️ Prazo encerrado em "+br(c.ate)+". Para voltar, escolha um novo prazo e salve.";
-  if(c.ate) return "✅ Busca ativa até "+br(c.ate)+".";
-  return "✅ Busca ativa, sem prazo — continua até você tocar em “Cancelar busca”.";
+// custo de um ponto (ida+volta), em R$ por casal
+function custoPonto(p,pos,modo){
+  const k=km(pos,p),c=casais(),D=dolar();
+  if(modo==="uber") return {v:uberUSD(k,pessoas()>4)*2*D/c,t:minutos(k)};
+  if(modo==="carro") return {v:(gasUSD(k*2)+p.estac)*D/c,t:minutos(k)};
+  if(p.col==null) return {v:null,t:null};
+  const extra=pos.acesso==="ruim"?uberUSD(6,false)*2*D/c:0;            // Uber curto até a estação
+  const f=pos.acesso==="bom"?1.6:pos.acesso==="médio"?2.3:2.8;
+  return {v:p.col*2*D+extra,t:Math.round(minutos(k)*f)};
 }
-function mostraEstado(){ $("estado").textContent = estado(CFG); }
-$("duracao").addEventListener("change", () => { $("ateBox").style.display = $("duracao").value==="data" ? "" : "none"; });
-
-function lerForm(){
-  const cfg=Object.assign({}, CFG);
-  for(const k of CAMPOS){
-    let v=$(k).value.trim();
-    if(NUM.has(k)) v=Number(v);
-    if(k==="origem"||k==="destino") v=v.toUpperCase();
-    cfg[k]=v;
-  }
-  const dur=$("duracao").value;
-  cfg.ate = dur==="0" ? "" : dur==="data" ? $("ate").value : somaDias(+dur);
-  cfg.ativo = true;
-  return cfg;
+// aeroporto ida+volta e base do modo, em R$ por casal
+function custoBase(h,modo){
+  const pos=hotelPos(h),k=km(AEROPORTO,pos),c=casais(),D=dolar();
+  if(modo==="carro"){const o=carroEscolhido();return (o?o.preco/c:0)+gasUSD(k*2)*D/c}
+  if(modo==="uber") return uberUSD(k,true)*2*D/c;
+  return pos.acesso==="bom"||pos.acesso==="médio"?2.25*2*2*D:uberUSD(k,true)*2*D/c;   // Metrorail com malas ou UberXL
 }
-function validar(c){
-  if(!c.origem||!c.destino) return "Preencha origem e destino.";
-  if(!c.ida||!c.volta) return "Preencha as datas.";
-  if(c.volta<=c.ida) return "A volta precisa ser depois da ida.";
-  const mails=c.email.split(/[,;\s]+/).filter(Boolean); if(!mails.length||!mails.every(m=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m))) return "E-mail inválido (separe os endereços por vírgula)."; c.email=mails.join(", ");
-  if(!(c.hora_inicio>=0&&c.hora_fim<=23&&c.hora_inicio<=c.hora_fim)) return "Horário inicial deve ser menor ou igual ao final (0 a 23).";
-  if(!(c.adultos>=1)) return "Informe os adultos.";
-  if($("duracao").value==="data" && !(c.ate>=hoje())) return "Escolha a data final da busca (hoje ou depois).";
-  return "";
+function custoMov(h,modo){
+  const pos=hotelPos(h);let t=custoBase(h,modo),sem=0;
+  for(const i of ST.sel){const c=custoPonto(PONTOS[i],pos,modo);if(c.v==null){sem++;t+=custoPonto(PONTOS[i],pos,"uber").v}else t+=c.v}
+  return {v:t,sem};
 }
+const totalHotel=(h,modo)=>h.hotel_sozinho+custoMov(h,modo).v;
 
-async function carregarConfig(){
-  try{
-    const r=await fetch("config.json?ts="+Date.now(),{cache:"no-store"});
-    const c=await r.json(); CFG=c;
-    CAMPOS.forEach(k => { if(c[k]!==undefined) $(k).value=c[k]; });
-    if(c.ate){ $("duracao").value="data"; $("ate").value=c.ate; $("ateBox").style.display=""; }
-    else $("duracao").value="0";
-  }catch(e){ say("Não consegui carregar a configuração atual.","err"); }
-  $("quando").textContent = quando(); mostraEstado();
+// ---------- 1. voos ----------
+function preencherDatas(){
+  const s=$("datas");let h="";
+  const D=(ST.res&&ST.res.datas||[]).filter(d=>d.status==="ok");
+  for(const d of D) h+='<option value="'+d.ida+'|'+d.volta+'">'+dmy(d.ida)+' ('+dia(d.ida)+') → '+dmy(d.volta)+' ('+dia(d.volta)+') · '+d.noites+' noites · desde '+R(d.menor*2)+'/casal</option>';
+  h+='<option value="outra">📅 Escolher outras datas…</option>';
+  s.innerHTML=h;
+  const m=ST.res&&ST.res.melhor; if(m) s.value=m.ida+"|"+m.volta;
+  if(!D.length) s.value="outra";
+  trocaDatas();
 }
-
-function opcao(x, ehIda, meta, pax){
-  const naMeta = ehIda && x.preco<=meta;
-  let h = '<div class="opt">';
-  if(ehIda) h += '<div class="preco">R$ '+brl(x.preco*2)+' por casal'+(naMeta?'<span class="tag">NA META</span>':'')+'</div>'
-              +  '<div class="hint">R$ '+brl(x.preco)+' por pessoa'+(pax!==2?' · total '+pax+' adultos: R$ '+brl(x.preco*pax):'')+'</div>';
-  h += '<div>'+esc((x.companhias||[]).join(" + "))+' · sai '+esc(x.saida)+' · chega '+esc(x.chegada)+' · '+x.paradas+' parada(s)</div>';
-  for(const e of (x.escalas_detalhe||[])) h += '<div class="esc">• '+esc(e)+'</div>';
-  if(!(x.escalas_detalhe||[]).length) h += '<div class="esc">• voo direto</div>';
-  for(const s of (x.sites||[])){ const u=s.slice(s.indexOf("http")); h += '<div class="esc">Conferir: <a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(s.split(": ")[0])+'</a></div>'; }
+function trocaDatas(){
+  const o=$("datas").value==="outra";$("lIda").style.display=o?"":"none";$("lVolta").style.display=o?"":"none";
+  if(o&&!$("ida").value){$("ida").value="2027-02-17";$("volta").value="2027-02-25"}
+}
+function datasEscolhidas(){const v=$("datas").value;return v==="outra"?[$("ida").value,$("volta").value]:v.split("|")}
+function linksVoo(o,d,i,v){
+  const q=encodeURIComponent("Voos de "+o+" para "+d+" em "+i+" volta "+v);
+  return [["Google Flights","https://www.google.com/travel/flights?hl=pt-BR&curr=BRL&q="+q],
+    ["Decolar","https://www.decolar.com/shop/flights/results/roundtrip/"+o+"/"+d+"/"+i+"/"+v+"/2/0/0"],
+    ["Kayak","https://www.kayak.com.br/flights/"+o+"-"+d+"/"+i+"/"+v+"/2adults"]];
+}
+const naFaixa=(o,f)=>{const H=HORARIOS.find(x=>x[0]===f)||HORARIOS[0];return o.hora_saida>=H[2]&&o.hora_saida<H[3]};
+function opcaoHTML(o,comPreco,melhor){
+  let h='<div class="opt">'+(comPreco?'<b class="p">'+R(o.preco*2)+'</b> por casal'+(melhor?'<span class="tag">mais barato</span>':'')+'<br>':'');
+  h+='<b>'+esc(o.saida)+' → '+esc(o.chegada)+'</b> · '+esc((o.companhias||[]).join(" + "))+' · '+(o.paradas?o.paradas+(o.paradas>1?' paradas':' parada'):'direto')+' · '+String(o.duracao_h).replace(".",",")+' h';
+  if(o.escalas&&o.escalas.length) h+='<div class="hint">Conexão: '+esc(o.escalas.join(", "))+'</div>';
   return h+'</div>';
 }
-
-// Mala despachada (1 x 23 kg, ida e volta) por pessoa: LATAM tarifa Standard e Copa tarifa Classic
-// conferidas em 13/11/2026; demais companhias = estimativa.
-const MALA = [["latam",533,true],["copa",1033,true]];
-function mala(cias){
-  const s=(cias||[]).join(" ").toLowerCase();
-  for(const [k,v] of MALA) if(s.includes(k)) return [v,true];
-  return [800,false];
-}
-function linksCias(c){
-  const ida=c.ida, volta=c.volta, o=c.origem, d=c.destino;
-  return [
-    ["LATAM","https://www.latamairlines.com/br/pt/oferta-voos?origin="+o+"&outbound="+ida+"T12%3A00%3A00.000Z&destination="+d+"&inbound="+volta+"T12%3A00%3A00.000Z&adt=2&chd=0&inf=0&trip=RT&cabin=Economy&redemption=false&sort=RECOMMENDED"],
-    ["Copa","https://shopping.copaair.com/?roundtrip=true&adults=2&children=0&infants=0&date1="+ida+"&date2="+volta+"&area1="+o+"&area2="+d+"&flexible_dates_v2=false&langid=pt"],
-    ["Decolar","https://www.decolar.com/shop/flights/results/roundtrip/"+o+"/"+d+"/"+ida+"/"+volta+"/2/0/0"]
-  ];
-}
-function col(s,n,dir){ s=String(s); if(s.length>=n) return s.slice(0,n); const f=" ".repeat(n-s.length); return dir==="r"? f+s : s+f; }
-function textoWhats(d){
-  const c=d.config||{};
-  const L=["✈️ *"+c.origem+" → "+c.destino+"*","Ida "+br(c.ida)+" · Volta "+br(c.volta),"Preço por CASAL, ida e volta","","```",col("CIA",12)+" "+col("SAI",5)+" "+col("TEMPO",6)+" "+col("S/MALA",6,"r")+" "+col("C/MALA",6,"r")];
-  for(const x of (d.ida||[])){
-    const [m]=mala(x.companhias), casal=x.preco*2;
-    const cia=(x.companhias||[]).join("+").replace(/ Airlines?/g,"");
-    L.push(col(cia,12)+" "+col((x.saida||"").slice(-5),5)+" "+col(String(x.duracao_h).replace(".",",")+"h",6)+" "+col(brl(casal),6,"r")+" "+col(brl(casal+2*m),6,"r"));
+function buscarVoos(){
+  const o=$("origem").value.trim().toUpperCase()||"FLN",d=$("destino").value.trim().toUpperCase()||"MIA";
+  const [i,v]=datasEscolhidas();
+  if(!i||!v||v<=i){$("voos").innerHTML='<div class="msg pior">Escolha a data de ida e uma volta depois da ida.</div>';return}
+  const hi=$("hIda").value,hv=$("hVolta").value;
+  let h="";
+  const D=(o==="FLN"&&d==="MIA"&&ST.res)?(ST.res.datas||[]).find(x=>x.ida===i&&x.volta===v&&x.status==="ok"):null;
+  if(D){
+    const ida=(D.opcoes||[]).filter(x=>naFaixa(x,hi)).sort((a,b)=>a.preco-b.preco);
+    const vol=(D.volta_opcoes||[]).filter(x=>naFaixa(x,hv));
+    h+='<div class="msg">✈️ <b>'+o+' → '+d+'</b> · ida '+dmy(i)+' ('+dia(i)+') · volta '+dmy(v)+' ('+dia(v)+')<br>Busca automática de '+esc(ST.res.atualizado)+'. Preço ida e volta, com o valor de 1 pessoa × 2.</div>';
+    h+='<h3 style="font-size:14px;margin:12px 0 0">Ida · '+esc(HORARIOS.find(x=>x[0]===hi)[1])+'</h3>';
+    h+=ida.length?ida.map((x,k)=>opcaoHTML(x,true,k===0)).join(""):'<div class="hint">Nenhum voo nesse horário. Mais barato em qualquer horário: '+R(D.menor*2)+' por casal.</div>';
+    h+='<h3 style="font-size:14px;margin:12px 0 0">Volta · '+esc(HORARIOS.find(x=>x[0]===hv)[1])+'</h3>';
+    h+=vol.length?vol.map(x=>opcaoHTML(x,false)).join(""):'<div class="hint">Nenhum voo de volta nesse horário na última busca.</div>';
+    if(ida.length) ST.voo=ida[0].preco*2;
+  }else{
+    h+='<div class="msg">✈️ <b>'+esc(o)+' → '+esc(d)+'</b> · ida '+dmy(i)+' · volta '+dmy(v)+'<br>Essa combinação não está na busca automática (ela acompanha FLN → MIA nas datas do grupo). Abra os sites abaixo para ver os preços.</div>';
+    ST.voo=null;
   }
-  L.push("```","","C/MALA = 1 mala de 23 kg por pessoa","(LATAM e Copa: valor da tarifa com mala; demais: estimativa)","Preços de "+(d.atualizado||"")+", podem mudar.");
-  return L.join("\n");
-}
-async function carregarResultado(){
-  const box=$("res");
-  try{
-    const r=await fetch("resultado.json?ts="+Date.now(),{cache:"no-store"});
-    if(!r.ok) throw new Error("sem resultado");
-    const d=await r.json();
-    try{ mostrarDatas(d); }catch(e){}
-    const pax=(d.config||{}).adultos||1, meta=(d.config||{}).meta_por_pessoa||0;
-    let h='<div class="hint">Atualizado em '+esc(d.atualizado||"?")+' (Brasília)</div>';
-    if(d.status!=="ok"){ box.innerHTML=h+'<div class="err">A última busca falhou: '+esc(d.erro||"erro")+'</div>'; return; }
-    const c=d.config||{};
-    h+='<h2 style="margin-top:10px">Por casal, ida e volta</h2><table class="tab"><tr><th>Cia</th><th>Sai</th><th>Tempo</th><th>S/ mala</th><th>C/ mala</th></tr>';
-    for(const x of (d.ida||[])){
-      const [m,ok]=mala(x.companhias), casal=x.preco*2;
-      h+='<tr><td>'+esc((x.companhias||[]).join(" + "))+'</td><td>'+esc((x.saida||"").slice(-5))+'</td><td>'+esc(String(x.duracao_h).replace(".",","))+'h</td><td>'+brl(casal)+'</td><td>'+(ok?"":"~")+brl(casal+2*m)+'</td></tr>';
-    }
-    h+='</table><div class="hint">C/ mala = 1 mala de 23 kg por pessoa. LATAM (Standard) e Copa (Classic) com o valor da tarifa; "~" = estimativa.</div>';
-    h+='<div class="btns" style="margin-top:8px"><button id="copiaWhats">📋 Copiar tabela para o WhatsApp</button></div>';
-    h+='<h2 style="margin-top:12px">Ver preço oficial (2 adultos, já preenchido)</h2><div class="cias">'+linksCias(c).map(([n,u])=>'<a class="cia" href="'+esc(u)+'" target="_blank" rel="noopener">'+n+'</a>').join("")+'</div>';
-    h+='<details style="margin-top:12px"><summary>Detalhes dos voos (escalas e volta)</summary>';
-    h+='<h2 style="margin-top:10px">Ida (preço de ida e volta)</h2>';
-    h+=(d.ida||[]).map(x=>opcao(x,true,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
-    h+='<h2 style="margin-top:10px">Volta</h2>';
-    h+=(d.volta||[]).map(x=>opcao(x,false,meta,pax)).join("")||'<div class="hint">Nenhuma opção com espera dentro do limite.</div>';
-    h+='<div class="hint" style="margin-top:8px"><b>Antes de comprar:</b> confira na companhia aérea e no Booking a bagagem despachada, taxas e o preço final.</div>';
-    if(d.link_google_flights) h+='<div class="hint"><a href="'+esc(d.link_google_flights)+'" target="_blank" rel="noopener">Abrir no Google Flights</a> · <a href="https://www.booking.com/flights" target="_blank" rel="noopener">Booking voos</a></div>';
-    h+='</details>';
-    box.innerHTML=h;
-    $("copiaWhats").onclick=async()=>{
-      const t=textoWhats(d);
-      try{ await navigator.clipboard.writeText(t); $("copiaWhats").textContent="✅ Copiado! Cole no WhatsApp"; }
-      catch(e){ prompt("Copie o texto:", t); }
-    };
-  }catch(e){ box.textContent="Ainda não há resultado salvo."; }
+  h+='<div class="links">'+linksVoo(o,d,i,v).map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+l[0]+'</a>').join("")+'</div>';
+  $("voos").innerHTML=h;resumo();
 }
 
-// ---- Várias datas (15/11/2026): melhor opção no topo + comparação por semana + links por data ----
-const DIA3 = s => (s||"").slice(0,3);
-const dmy = iso => iso.slice(8)+"/"+iso.slice(5,7);
-const horaDe = s => (s||"").split(" ").pop();
-function linksData(i,v){
-  const [yi,mi,di]=i.split("-"), [yv,mv,dv]=v.split("-");
-  return [["Pacote Decolar","https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/"+i+"/"+v+"/CIT_4544/"+i+"/"+v+"/2?from=PSB&nw=true"],
-    ["Voo Decolar","https://www.decolar.com/shop/flights/results/roundtrip/FLN/MIA/"+i+"/"+v+"/2/0/0"],
-    ["Hotéis Decolar","https://www.decolar.com/accommodations/results/CIT_4544/"+i+"/"+v+"/2"],
-    ["Hotéis Booking","https://www.booking.com/searchresults.pt-br.html?ss=Miami&checkin="+i+"&checkout="+v+"&group_adults=2&no_rooms=1"],
-    ["Carro Booking","https://cars.booking.com/search-results?cor=br&prefcurrency=BRL&preflang=br&locationName=Miami+International+Airport&locationIata=MIA&dropLocationName=Miami+International+Airport&dropLocationIata=MIA&driversAge=40&puDay="+(+di)+"&puMonth="+(+mi)+"&puYear="+yi+"&puMinute=0&puHour=17&doDay="+(+dv)+"&doMonth="+(+mv)+"&doYear="+yv+"&doMinute=0&doHour=8&ftsType=A&dropFtsType=A&filterCriteria_carCategory=carriers"]];
+// ---------- 2. locomoção ----------
+function infoMov(){
+  const m=ST.modo,o=carroEscolhido();
+  const t={carro:o?'🚗 '+esc(ST.car.modelo)+' na '+esc(o.locadora)+' (nota '+String(o.nota).replace(".",",")+', retirada no balcão do aeroporto): '+R(o.preco)+' pelos '+ST.car.dias+' dias = <b>'+R(o.preco/casais())+' por casal</b>. Some gasolina e estacionamento (na tabela dos passeios). <a href="'+esc(ST.car.link)+'" target="_blank" rel="noopener">Ver na Booking</a>':'Carregando ofertas de carro…',
+    uber:'🚕 Uber do aeroporto ao hotel com UberXL (cabem as malas) e UberX nos passeios. O preço muda com o horário e o trânsito; os valores são estimativas.',
+    coletivo:'🚌 Em Miami há transporte <b>grátis</b>: <b>Metromover</b> (Downtown e Brickell), <b>Miami Trolley</b> (Wynwood, Little Havana, Coconut Grove), <b>Doral Trolley</b> e <b>South Beach Trolley</b>. Metrorail e ônibus custam US$ 2,25 por trecho (cartão EASY ou celular). Do aeroporto sai o Metrorail (linha Orange). Funciona melhor com hotel em Brickell ou Downtown.'}[m];
+  $("movInfo").innerHTML=t;
 }
-function mostrarDatas(d){
-  const D=(d.datas||[]).filter(x=>x.status==="ok"&&x.menor); const m=d.melhor;
-  if(!D.length||!m){ $("secMelhor").style.display="none"; return; }
-  const cia=x=>(x.companhias||[]).join(" + "), best=m.preco, pax=(d.config||{}).adultos||4;
-  const emp=D.filter(x=>x.menor===best&&x.ida!==m.ida);
-  let h='<div class="best"><div class="t">✅ MELHOR OPÇÃO</div><div class="d">'+esc(m.dia_ida[0].toUpperCase()+m.dia_ida.slice(1))+' '+dmy(m.ida)+' → '+esc(m.dia_volta)+' '+dmy(m.volta)+'</div>'
-    +'<div class="p"><b>'+esc(cia(m))+'</b>, saída às <b>'+esc(horaDe(m.saida))+'</b> · <b class="bom">R$ '+brl(best*2)+' por casal</b></div>'
-    +'<div class="hint">R$ '+brl(best)+' por pessoa · '+m.paradas+' parada(s) · '+Math.round(m.duracao_h)+'h de viagem · '+m.noites+' noites · '+pax+' adultos: R$ '+brl(best*pax)+'</div>'
-    +(emp.length?'<div class="hint">Mesmo preço também em: <b>'+emp.map(x=>esc(x.dia_ida)+' '+dmy(x.ida)).join(", ")+'</b></div>':'')+'</div>';
-  // semanas
-  const S={}; D.forEach(x=>{ if(!S[x.semana]||x.menor<S[x.semana].menor) S[x.semana]=x; });
-  const ks=Object.keys(S).map(Number).sort((a,b)=>a-b), s0=S[0];
-  if(s0&&ks.length>1){
-    const nome={0:"Semana original",1:"+1 semana",2:"+2 semanas"};
-    h+='<h2 style="margin-top:6px">Vale a pena adiar?</h2><table class="tab"><tr><th>Semana</th><th>Melhor dia</th><th>Por casal</th><th>vs. original</th></tr>';
-    let menorDif=0, semDif=0;
-    for(const k of ks){ const x=S[k], o=x.opcoes.reduce((a,b)=>b.preco<a.preco?b:a), dif=(x.menor-s0.menor)*2;
-      if(dif<menorDif){menorDif=dif; semDif=k;}
-      h+='<tr><td>'+(nome[k]||("+"+k+" semanas"))+'</td><td>'+esc(DIA3(x.dia_ida))+' '+dmy(x.ida)+'<small>'+esc(cia(o))+' '+esc(horaDe(o.saida))+'</small></td><td><b>R$ '+brl(x.menor*2)+'</b></td><td>'+(k===0?'—':dif===0?'igual':dif<0?'<b class="bom">−R$ '+brl(-dif)+'</b>':'+R$ '+brl(dif))+'</td></tr>'; }
-    h+='</table><div class="dest">👉 '+(menorDif<0?'Compensa adiar '+semDif+' semana(s): economia de R$ '+brl(-menorDif)+' por casal.':'Não compensa adiar: a semana original já tem o menor preço.')+'</div>';
+const NOME_MODO={carro:"Carro alugado",uber:"Uber",coletivo:"Ônibus e gratuitos"};
+
+// ---------- 3. hotéis ----------
+function listaHoteis(){
+  const D=ST.pac?Math.round((new Date(ST.pac.volta)-new Date(ST.pac.ida))/864e5):8;
+  $("hotInfo").innerHTML='Preço do hotel sozinho para '+D+' noites ('+dmy(ST.pac.ida)+' a '+dmy(ST.pac.volta)+'), quarto para 1 casal, conferido na '+esc(ST.pac.fonte)+' em '+esc(ST.pac.conferido)+'. Embaixo: total por casal com a locomoção escolhida.';
+  let h="";
+  ST.hoteis.forEach((x,k)=>{
+    const mv=custoMov(x,ST.modo);
+    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small></span><span class="pr">'+R(x.hotel_sozinho)+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+R(x.hotel_sozinho+mv.v)+'</small></span></label>';
+  });
+  $("hoteis").innerHTML=h;
+  document.querySelectorAll('input[name=hotel]').forEach(r=>r.onchange=()=>escolherHotel(r.value));
+}
+const hotelDe=c=>ST.hoteis.find(x=>x.curto===c);
+function comparar(alvo,anteriorNome,atualNome,vAnt,vAtu,extraAnt,extraAtu){
+  const dif=Math.abs(vAnt-vAtu);
+  let t,pior=false;
+  if(dif<50){
+    t='⚖️ <b>Empate:</b> a escolha atual (<b>'+esc(atualNome)+'</b>) e a anterior (<b>'+esc(anteriorNome)+'</b>) custam quase o mesmo ('+R(vAtu)+' por casal).';
+    if(extraAtu!=null&&extraAnt!=null&&extraAtu!==extraAnt){const m=extraAtu>extraAnt;pior=!m;t+=' Desempate pela nota: '+(m?'a <b>atual</b> foi melhor':'a <b>anterior</b> foi melhor')+' (★ '+String(m?extraAtu:extraAnt).replace(".",",")+').'}
+  }else if(vAtu<vAnt){
+    t='✅ <b>A escolha atual foi melhor:</b> '+esc(atualNome)+' sai <b>'+R(dif)+' mais barato</b> por casal que a anterior ('+esc(anteriorNome)+'): '+R(vAtu)+' contra '+R(vAnt)+'.';
+    if(extraAtu!=null&&extraAnt!=null&&extraAtu<extraAnt) t+=' Atenção: a nota é menor (★ '+String(extraAtu).replace(".",",")+' contra '+String(extraAnt).replace(".",",")+').';
+  }else{
+    pior=true;
+    t='⚠️ <b>A escolha anterior foi melhor:</b> '+esc(anteriorNome)+' sai <b>'+R(dif)+' mais barato</b> por casal que a atual ('+esc(atualNome)+'): '+R(vAnt)+' contra '+R(vAtu)+'.';
+    if(extraAtu!=null&&extraAnt!=null&&extraAtu>extraAnt) t+=' Em compensação, a atual tem nota maior (★ '+String(extraAtu).replace(".",",")+' contra '+String(extraAnt).replace(".",",")+').';
   }
-  // todas as datas
-  h+='<h2 style="margin-top:10px">Todas as datas (por casal, ida e volta)</h2><table class="tab"><tr><th>Ida → volta</th><th>Noites</th><th>Cia · sai</th><th>Por casal</th></tr>';
-  for(const x of D){ const o=x.opcoes.reduce((a,b)=>b.preco<a.preco?b:a), dif=(x.menor-best)*2;
-    h+='<tr'+(x.ida===m.ida?' class="eu"':'')+'><td><b>'+esc(DIA3(x.dia_ida))+' '+dmy(x.ida)+'</b> → '+esc(DIA3(x.dia_volta))+' '+dmy(x.volta)+'</td><td>'+x.noites+'</td><td>'+esc(cia(o))+'<small>sai '+esc(horaDe(o.saida))+' · '+o.paradas+' parada(s)</small></td><td><b>R$ '+brl(x.menor*2)+'</b><small>'+(x.ida===m.ida?'⭐ melhor':dif?'+R$ '+brl(dif):'mesmo preço')+'</small></td></tr>'; }
-  h+='</table>';
-  // links
-  h+='<details style="margin-top:10px"><summary>Pacotes, hotéis e carro por data (links já preenchidos)</summary>';
-  for(const x of D){ const L=linksData(x.ida,x.volta); if(x.link_google_flights) L.unshift(["Google Flights",x.link_google_flights]);
-    h+='<div class="lk" style="margin-top:6px"><b>'+dmy(x.ida)+' → '+dmy(x.volta)+(x.ida===m.ida?' ⭐':'')+'</b><br>'+L.map(([n,u])=>'<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(n)+'</a>').join("")+'</div>'; }
-  h+='</details><div class="hint">Busca de '+esc(d.atualizado||"?")+' no Google Flights. Pacotes da Decolar, hotéis e carros não têm busca automática (os sites bloqueiam robôs): use os links.</div>';
-  $("melhor").innerHTML=h; $("secMelhor").style.display="";
+  $(alvo).innerHTML='<div class="msg'+(pior?' pior':'')+'">'+t+'<div class="hint">Compara hotel + locomoção (aeroporto e os passeios marcados) por casal.</div></div>';
 }
-// ---- Histórico do menor preço (historico.json, gravado a cada busca) ----
-const quandoMs = t => { const m=/(\d+)\/(\d+)\/(\d+) (\d+):(\d+)/.exec(t||""); return m? Date.UTC(+m[3],m[2]-1,+m[1],+m[4],+m[5]) : 0; };
-const curto = t => (t||"").replace(/\/\d{4}/,"");
-// Até 13/11/2026 10:28 a busca lia só parte da lista do Google (faltavam os mais baratos, como a Copa);
-// essas buscas ficam fora do gráfico para não comparar preços que não eram o menor de verdade.
-const HIST_DESDE = Date.UTC(2026,10,13,10,28);
-async function carregarHistorico(){
-  const box=$("hist");
-  try{
-    const r=await fetch("historico.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
-    const rota=CFG.origem+"-"+CFG.destino+" "+CFG.ida+" "+CFG.volta;
-    const H=(await r.json()).filter(e=>e.rota===rota && e.menor>0).map(e=>Object.assign({ms:quandoMs(e.t)},e)).filter(e=>e.ms>=HIST_DESDE).sort((a,b)=>a.ms-b.ms);
-    if(!H.length){ box.innerHTML=""; return; }
-    const ult=H[H.length-1], min=H.reduce((a,b)=>b.menor<a.menor?b:a), max=Math.max(...H.map(e=>e.menor));
-    let ant=null; for(let i=H.length-2;i>=0;i--) if(H[i].menor!==ult.menor){ ant=H[i]; break; }
-    ST.hist={ult, ant, prev:H.length>1?H[H.length-2]:null}; recomendar();
-    let delta='<span class="hint">sem mudança desde a primeira busca</span>';
-    if(ant){ const d=(ult.menor-ant.menor)*2; delta='<span class="'+(d<0?"ok":"err")+'">'+(d<0?"▼ caiu":"▲ subiu")+' R$ '+brl(Math.abs(d))+'</span> <span class="hint" style="display:inline">em relação a '+esc(curto(ant.t))+'</span>'; }
-    let h='<div class="hint">Menor preço por casal, ida e volta</div><div class="num">R$ '+brl(ult.menor*2)+'</div><div class="hint">R$ '+brl(ult.menor)+' por pessoa · '+esc(ult.cia||"")+'</div><div style="font-size:14px">'+delta+'</div>';
-    h+='<div class="hint">Menor já visto: <b>R$ '+brl(min.menor*2)+'</b> por casal em '+esc(curto(min.t))+' ('+esc(min.cia||"")+')'+(ult.menor>min.menor?' · hoje está R$ '+brl((ult.menor-min.menor)*2)+' acima':' · é o de agora')+'</div>';
-    if(H.length>1){
-      const t0=H[0].ms, t1=ult.ms||1, lo=min.menor, hi=max, fx=e=>t1>t0?(e.ms-t0)/(t1-t0)*100:50, fy=e=>hi>lo?8+(hi-e.menor)/(hi-lo)*84:50;
-      h+='<div class="graf" id="graf" role="img" aria-label="Menor preço por casal em cada busca, de '+esc(curto(H[0].t))+' a '+esc(curto(ult.t))+'"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="'+H.map((e,i)=>(i?"L":"M")+fx(e).toFixed(2)+" "+fy(e).toFixed(2)).join(" ")+'"/></svg><u id="grafLin" style="display:none"></u><i id="grafPt"></i></div>';
-      h+='<div class="eixo"><span>'+esc(curto(H[0].t))+'</span><span id="grafTxt"></span><span>'+esc(curto(ult.t))+'</span></div>';
-      h+='<details style="margin-top:6px"><summary>Ver as '+H.length+' buscas</summary><table class="tab"><tr><th>Quando</th><th>Cia</th><th>Por casal</th></tr>'+H.slice().reverse().slice(0,60).map(e=>'<tr><td>'+esc(curto(e.t))+'</td><td>'+esc(e.cia||"")+'</td><td>'+brl(e.menor*2)+'</td></tr>').join("")+'</table></details>';
-      box.innerHTML=h+'<div class="hint" style="margin-bottom:10px">🔔 O alerta no Telegram avisa quando ficar abaixo do menor já visto ou na meta.</div>';
-      const g=$("graf"), pt=$("grafPt"), lin=$("grafLin"), txt=$("grafTxt");
-      const mostra=(e,fixo)=>{ pt.style.left=fx(e)+"%"; pt.style.top=fy(e)+"%"; lin.style.left=fx(e)+"%"; lin.style.display=fixo?"none":""; txt.textContent=fixo?"":curto(e.t).slice(0,11)+" · R$ "+brl(e.menor*2); };
-      const perto=ev=>{ const b=g.getBoundingClientRect(), x=(ev.clientX-b.left)/b.width*100; mostra(H.reduce((a,e)=>Math.abs(fx(e)-x)<Math.abs(fx(a)-x)?e:a)); };
-      g.addEventListener("pointermove",perto); g.addEventListener("pointerdown",perto);
-      g.addEventListener("pointerleave",()=>mostra(ult,true));
-      mostra(ult,true);
-    } else box.innerHTML=h+'<div class="hint" style="margin-bottom:10px">O gráfico aparece a partir da segunda busca.</div>';
-  }catch(e){ box.innerHTML=""; }
+function escolherHotel(c,silencio){
+  const ant=ST.hotel;ST.hotel=c;ls.set("st_hotel",c);
+  const a=hotelDe(ant),b=hotelDe(c);
+  if(!silencio&&a&&b&&ant!==c) comparar("msgHotel",a.hotel,b.hotel,totalHotel(a,ST.modo),totalHotel(b,ST.modo),a.nota,b.nota);
+  else if(!silencio&&b&&!a) $("msgHotel").innerHTML='<div class="msg">🏨 Escolhido: <b>'+esc(b.hotel)+'</b>. Ao trocar de hotel, eu digo se a escolha anterior ou a atual foi melhor.</div>';
+  if(ST.pontos) tabelaPontos();
+  resumo();
+}
+function escolherModo(m,silencio){
+  const ant=ST.modo;ST.modo=m;ls.set("st_modo",m);infoMov();listaHoteis();
+  const h=hotelDe(ST.hotel);
+  if(!silencio&&ant!==m&&h) comparar("msgMov",NOME_MODO[ant],NOME_MODO[m],custoMov(h,ant).v,custoMov(h,m).v);
+  if(ST.pontos) tabelaPontos();
+  resumo();
 }
 
-// ---- Pacotes voo + hotel (pacotes.json, conferido à mão na Decolar) ----
-function contasPacote(p){
-  const tx=(p.voo||{}).taxas_casal||0, av=(p.melhor_avulsa||{}).casal||0;
-  return (p.pacotes||[]).map(x=>Object.assign({}, x, {
-    total:x.pacote+tx,                         // pacote com as taxas do voo
-    separado:av+x.hotel_sozinho,               // melhor passagem avulsa + mesmo hotel
-    passagem:x.pacote+tx-x.hotel_sozinho       // quanto sai a passagem dentro do pacote
-  })).map(x=>Object.assign(x,{economia:x.separado-x.total}));
-}
-function textoPacotes(p){
-  const av=(p.melhor_avulsa||{}).casal||0;
-  const L=["🏨 *Pacotes voo + hotel · "+p.origem+" → "+p.destino+"*","Ida "+br(p.ida)+" · Volta "+br(p.volta)+" · casal, "+p.noites+" noites","","```",col("HOTEL",17)+" "+col("PACOTE",6,"r")+" "+col("PASSAG",6,"r")];
-  for(const x of contasPacote(p)) L.push(col(x.curto||x.hotel,17)+" "+col(brl(x.pacote),6,"r")+" "+col(brl(x.passagem),6,"r"));
-  L.push("```","","PASSAG = quanto sai a passagem dentro do pacote (pacote + taxas do voo − hotel sozinho)","Passagem avulsa mais barata: R$ "+brl(av)+" ("+p.melhor_avulsa.cia+")","Decolar, "+p.conferido+". Pacote sem impostos e taxas.");
-  return L.join("\n");
-}
-async function carregarPacotes(){
-  try{
-    const r=await fetch("pacotes.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
-    const p=await r.json();
-    if(p.origem!==CFG.origem||p.destino!==CFG.destino) return;
-    const velho=(p.ida!==CFG.ida||p.volta!==CFG.volta);
-    const X=contasPacote(p); if(!X.length) return;
-    ST.pac=p; recomendar();
-    const av=p.melhor_avulsa.casal, tx=p.voo.taxas_casal;
-    const barato=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
-    const vale=X.reduce((a,b)=>b.economia>a.economia?b:a);
-    const nBom=X.filter(x=>x.passagem<av).length;
-    let h='<div class="dest"><b>Resumo:</b> em '+nBom+' de '+X.length+' hotéis a passagem dentro do pacote sai mais barata que a avulsa (R$ '+brl(av)+', '+esc(p.melhor_avulsa.cia)+').</div>';
-    h+='<div class="dest">🏆 <b>Viagem mais barata:</b> '+esc(barato.hotel)+' — '+(barato.separado<=barato.total?'comprando separado: R$ '+brl(barato.separado)+' (pacote: ~R$ '+brl(barato.total)+')':'no pacote: ~R$ '+brl(barato.total)+' (separado: R$ '+brl(barato.separado)+')')+'</div>';
-    if(vale.economia>0) h+='<div class="dest">💡 <b>Onde o pacote mais compensa:</b> '+esc(vale.hotel)+' (nota '+String(vale.nota).replace(".",",")+') — economiza ~R$ '+brl(vale.economia)+' contra comprar separado.</div>';
-    h+='<table class="tab"><tr><th>Hotel</th><th>Pacote</th><th>Hotel só</th><th>Passagem</th></tr>';
-    for(const x of X) h+='<tr><td>'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao||"")+'</small></td><td>'+brl(x.pacote)+'</td><td>'+brl(x.hotel_sozinho)+'</td><td>'+(x.passagem<av?'<b class="bom">✅ '+brl(x.passagem)+'</b>':brl(x.passagem))+'</td></tr>';
-    h+='</table>';
-    h+='<div class="hint"><b>Passagem</b> = quanto sai a passagem dentro do pacote: pacote + R$ '+brl(tx)+' de taxas do voo − hotel sozinho. ✅ = mais barata que a avulsa.</div>';
-    h+='<div class="hint">Voo do pacote: '+esc(p.voo.cia)+' · ida '+esc(p.voo.ida)+' · volta '+esc(p.voo.volta)+'. O mesmo voo avulso: R$ '+brl(p.voo.avulso_casal)+' por casal.</div>';
-    h+='<div class="hint">Conferido na '+esc(p.fonte)+' em '+esc(p.conferido)+'. O pacote aparece <b>sem impostos e taxas</b> (o valor final só sai na tela de pagamento); o hotel sozinho já inclui impostos. O quarto do pacote pode ser diferente. Confira bagagem e preço final antes de comprar.</div>';
-    h+='<div class="btns" style="margin-top:8px"><button id="copiaPac">📋 Copiar pacotes para o WhatsApp</button></div>';
-    h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(p.link)+'" target="_blank" rel="noopener">Pacotes na Decolar</a><a class="cia" href="'+esc(p.link_hoteis)+'" target="_blank" rel="noopener">Só hotéis</a></div>';
-    h='<div class="dest">📅 Conferido à mão na Decolar em '+esc(p.conferido)+' para '+dmy(p.ida)+' a '+dmy(p.volta)+' ('+p.noites+' noites). Para outras datas, use os links de cada data no topo.</div>'+h;
-    $("pac").innerHTML=h; $("secPac").style.display="";
-    $("copiaPac").onclick=async()=>{
-      const t=textoPacotes(p);
-      try{ await navigator.clipboard.writeText(t); $("copiaPac").textContent="✅ Copiado! Cole no WhatsApp"; }
-      catch(e){ prompt("Copie o texto:", t); }
-    };
-  }catch(e){}
+// ---------- 4. pontos turísticos ----------
+function tabelaPontos(){
+  ST.pontos=true;
+  const h0=hotelDe(ST.hotel);
+  if(!h0){$("pontos").innerHTML='<div class="msg pior">Escolha um hotel no passo 3 para eu calcular os preços a partir dele.</div>';return}
+  const pos=hotelPos(h0);
+  let h='<div class="msg">📍 Saindo do <b>'+esc(h0.hotel)+'</b>. Valores <b>ida e volta, por casal</b>. Marque os passeios que vão fazer: o total e a comparação de hotéis usam só os marcados.</div>';
+  h+='<div class="rolar"><table class="tab"><tr><th>✓ Passeio</th><th>Dist.</th><th>🚕 Uber</th><th>🚗 Carro</th><th>🚌 Ônibus</th></tr>';
+  const T={uber:0,carro:0,coletivo:0};
+  PONTOS.forEach((p,i)=>{
+    const k=km(pos,p),u=custoPonto(p,pos,"uber"),c=custoPonto(p,pos,"carro"),o=custoPonto(p,pos,"coletivo"),on=ST.sel.has(i);
+    if(on){T.uber+=u.v;T.carro+=c.v;T.coletivo+=(o.v==null?u.v:o.v)}
+    const vals=[["uber",u.v],["carro",c.v],["coletivo",o.v]].filter(x=>x[1]!=null),min=Math.min(...vals.map(x=>x[1]));
+    const cel=(m,x,extra)=>'<td>'+(x.v==null?'—<small>sem linha</small>':(Math.abs(x.v-min)<1?'<b class="bom">'+R(x.v)+'</b>':R(x.v))+'<small>'+x.t+' min'+(extra||'')+'</small>')+'</td>';
+    h+='<tr><td><label style="color:var(--ink);font-size:14px;display:flex;gap:6px;align-items:flex-start"><input type="checkbox" data-p="'+i+'"'+(on?' checked':'')+' style="width:auto;margin:3px 0 0"><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+'</small><small>🚌 '+esc(p.ct)+'</small></span></label></td><td>'+Math.round(k)+' km</td>'+cel("uber",u)+cel("carro",c,p.estac?' · estac. US$ '+p.estac:'')+cel("coletivo",o)+'</tr>';
+  });
+  const base={uber:custoBase(h0,"uber"),carro:custoBase(h0,"carro"),coletivo:custoBase(h0,"coletivo")};
+  h+='<tr><td>Aeroporto ↔ hotel<small>'+(ST.car?'carro: aluguel '+ST.car.dias+' dias + gasolina':'')+'</small></td><td>'+Math.round(km(AEROPORTO,pos))+' km</td><td>'+R(base.uber)+'</td><td>'+R(base.carro)+'</td><td>'+R(base.coletivo)+'</td></tr>';
+  h+='<tr class="tot"><td>Total ('+ST.sel.size+' passeios)</td><td></td><td>'+R(T.uber+base.uber)+'</td><td>'+R(T.carro+base.carro)+'</td><td>'+R(T.coletivo+base.coletivo)+'</td></tr></table></div>';
+  const tot={uber:T.uber+base.uber,carro:T.carro+base.carro,coletivo:T.coletivo+base.coletivo};
+  const best=Object.keys(tot).sort((a,b)=>tot[a]-tot[b])[0];
+  h+='<div class="msg">💡 Com esse hotel e esses passeios, o mais em conta é <b>'+NOME_MODO[best]+'</b> ('+R(tot[best])+' por casal).'+(best!==ST.modo?' Você escolheu '+NOME_MODO[ST.modo]+': '+R(tot[ST.modo]-tot[best])+' a mais.':' É a sua escolha atual.')+'</div>';
+  h+='<div class="hint">Verde = mais barato naquele passeio. Uber: UberX estimado (US$ 5,50 + US$ 1/km + US$ 0,30/min). Carro: gasolina da minivan + estacionamento no local; o estacionamento do hotel não está incluído. Ônibus: US$ 2,25 por trecho por pessoa; Metromover e trolleys são grátis. Onde não há linha, o total usa Uber.</div>';
+  h+='<div class="links"><a href="https://www.google.com/search?q='+encodeURIComponent("melhores pontos turísticos de Miami")+'" target="_blank" rel="noopener">Mais pontos no Google</a><a href="https://www.tripadvisor.com.br/Attractions-g34438-Activities-Miami_Florida.html" target="_blank" rel="noopener">Tripadvisor Miami</a><a href="https://www.google.com/maps/search/'+encodeURIComponent("pontos turísticos perto de "+h0.hotel+" Miami")+'" target="_blank" rel="noopener">Ver no mapa</a></div>';
+  $("pontos").innerHTML=h;
+  document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
 }
 
-// ---- Aluguel de carro (carros.json, conferido à mão na Booking) ----
-const ST={};
-function melhoresCarros(c){
-  const O=(c.ofertas||[]).slice().sort((a,b)=>a.preco-b.preco);
-  const barato=O[0];
-  const balcao=O.filter(o=>o.retirada==="balcão");
-  // escolha: a mais barata no balcão do aeroporto com nota 8 ou mais; senão, a mais barata no balcão
-  const escolha=balcao.find(o=>o.nota>=8)||balcao[0]||barato;
-  return {O, barato, balcaoBarato:balcao[0], escolha};
-}
-async function carregarCarros(){
-  try{
-    const r=await fetch("carros.json?ts="+Date.now(),{cache:"no-store"}); if(!r.ok) return;
-    const c=await r.json(); const M=melhoresCarros(c); if(!M.O.length) return;
-    ST.car=c; recomendar();
-    const cas=c.casais||2;
-    let h='<div class="dest">💰 <b>Mais barata:</b> '+esc(M.barato.locadora)+' — R$ '+brl(M.barato.preco)+' por '+c.dias+' dias'+(M.barato.retirada!=="balcão"?' (retirada com <b>transfer</b>: ônibus até a locadora; nota '+String(M.barato.nota).replace(".",",")+')':'')+'</div>';
-    if(M.balcaoBarato && M.balcaoBarato!==M.barato) h+='<div class="dest">📍 <b>Mais barata no balcão do aeroporto:</b> '+esc(M.balcaoBarato.locadora)+' — R$ '+brl(M.balcaoBarato.preco)+' (nota '+String(M.balcaoBarato.nota).replace(".",",")+')</div>';
-    if(M.escolha!==M.balcaoBarato) h+='<div class="dest">⭐ <b>Melhor custo-benefício:</b> '+esc(M.escolha.locadora)+' — R$ '+brl(M.escolha.preco)+' (nota '+String(M.escolha.nota).replace(".",",")+(M.escolha.inclui&&M.escolha.inclui!=="—"?'; '+esc(M.escolha.inclui):'')+')</div>';
-    h+='<table class="tab"><tr><th>Locadora</th><th>10 dias</th><th>Por casal</th></tr>';
-    for(const o of M.O) h+='<tr><td>'+esc(o.locadora)+(o===M.escolha?' ⭐':'')+'<small>★ '+String(o.nota).replace(".",",")+' · '+(o.retirada==="balcão"?'balcão no aeroporto':'transfer até a locadora')+(o.inclui&&o.inclui!=="—"?' · '+esc(o.inclui):'')+'</small></td><td>'+(o===M.barato?'<b class="bom">'+brl(o.preco)+'</b>':brl(o.preco))+'</td><td>'+brl(Math.round(o.preco/cas))+'</td></tr>';
-    h+='</table>';
-    h+='<div class="hint"><b>Seguro:</b> '+esc(c.protecao)+'. Antes de reservar, confirme na tela da locadora o <b>seguro de terceiros (SLI)</b>, que pode ser cobrado à parte no balcão.</div>';
-    h+='<div class="hint">'+esc(c.modelo)+' ('+esc(c.detalhes)+'). Retirada '+esc(c.retirada)+' e devolução '+esc(c.devolucao)+' no '+esc(c.local)+'. "Por casal" = dividido entre '+cas+' casais. Conferido na '+esc(c.fonte)+' em '+esc(c.conferido)+'.</div>';
-    h+='<div class="duo" style="margin-top:8px"><a class="cia" href="'+esc(c.link)+'" target="_blank" rel="noopener">Ver na Booking</a><a class="cia" href="https://www.booking.com/cars/index.pt-br.html" target="_blank" rel="noopener">Booking carros</a></div>';
-    $("car").innerHTML=h; $("secCar").style.display="";
-  }catch(e){}
+// ---------- resumo ----------
+function resumo(){
+  const h=hotelDe(ST.hotel);
+  const voo=ST.voo!=null?ST.voo:(ST.res&&ST.res.melhor?ST.res.melhor.preco*2:null);
+  const mv=h?custoMov(h,ST.modo):null;
+  let t='<div><small>✈️ Voo (ida e volta)</small><b>'+(voo!=null?R(voo):'—')+'</b></div>';
+  t+='<div><small>🏨 Hotel</small><b>'+(h?R(h.hotel_sozinho):'escolha')+'</b>'+(h?'<small>'+esc(h.curto)+'</small>':'')+'</div>';
+  t+='<div><small>'+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+NOME_MODO[ST.modo]+'</small><b>'+(mv?R(mv.v):'—')+'</b><small>aeroporto + '+ST.sel.size+' passeios</small></div>';
+  const tot=(voo||0)+(h?h.hotel_sozinho+mv.v:0);
+  t+='<div><small>📅 Datas do voo</small><b style="font-size:15px">'+(()=>{const [i,v]=datasEscolhidas();return i?dmy(i)+' a '+dmy(v):'—'})()+'</b></div>';
+  t+='<div class="tt"><small>Total estimado por casal</small><b>'+(h&&voo!=null?R(tot):'escolha voo e hotel')+'</b></div>';
+  $("resumo").innerHTML=t;
 }
 
-// ---- Recomendação no topo: soma voo + hotel + carro e diz o que mudou ----
-function recomendar(){
-  const p=ST.pac, c=ST.car, H=ST.hist; if(!p||!c||!H) return;
-  const X=contasPacote(p), M=melhoresCarros(c), cas=c.casais||2;
-  // hotel: entre os de nota 8,5 ou mais, a forma mais barata (pacote ou separado)
-  const bons=X.filter(x=>x.nota>=8.5); const cand=(bons.length?bons:X);
-  const hv=cand.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
-  const noPacote=hv.total<=hv.separado, vh=Math.min(hv.total,hv.separado);
-  const carroCasal=Math.round(M.escolha.preco/cas), total=vh+carroCasal;
-  // a mais barata de todas, sem olhar nota
-  const hb=X.reduce((a,b)=>Math.min(b.total,b.separado)<Math.min(a.total,a.separado)?b:a);
-  const totalBarato=Math.min(hb.total,hb.separado)+Math.round(M.barato.preco/cas);
-  let h='<div class="rec">Para cada casal, '+(p.noites||'')+' noites em Miami ('+dmy(p.ida)+' a '+dmy(p.volta)+'):</div><b class="v">R$ '+brl(total)+' por casal</b>';
-  h+='<div class="rec">✈️🏨 '+(noPacote?'<b>Pacote Decolar</b> com o hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'; '+esc(hv.regiao||"")+') e voo '+esc(p.voo.cia)+': R$ '+brl(vh):'<b>Passagem avulsa</b> ('+esc(p.melhor_avulsa.cia)+', R$ '+brl(p.melhor_avulsa.casal)+') + hotel <b>'+esc(hv.hotel)+'</b> (nota '+String(hv.nota).replace(".",",")+'): R$ '+brl(vh))+'</div>';
-  h+='<div class="rec">🚐 Pacifica na <b>'+esc(M.escolha.locadora)+'</b>, balcão no aeroporto, proteção total franquia R$ 0: R$ '+brl(M.escolha.preco)+' (R$ '+brl(carroCasal)+' por casal)</div>';
-  h+='<div class="hint"><b>Por quê:</b> hotel bem avaliado (nota ≥ 8,5) pelo menor preço'+(noPacote?' — no pacote sai R$ '+brl(hv.separado-hv.total)+' mais barato que comprar separado':'')+'; carro retirado no balcão do aeroporto, sem ônibus, com a melhor nota entre os mais baratos. Mais barato possível, sem olhar avaliação: R$ '+brl(totalBarato)+' por casal ('+esc(hb.curto||hb.hotel)+' nota '+String(hb.nota).replace(".",",")+' + '+esc(M.barato.locadora)+').</div>';
-  // o que mudou
-  const mud=[];
-  if(H.prev && H.prev.menor!==H.ult.menor){ const d=(H.ult.menor-H.prev.menor)*2; mud.push((d<0?'✈️ <span class="ok">Passagem caiu R$ '+brl(-d)+'</span>':'✈️ <span class="err">Passagem subiu R$ '+brl(d)+'</span>')+' por casal desde a busca de '+esc(curto(H.prev.t))); }
-  else mud.push('✈️ Passagem: <b>nada mudou</b> desde a busca anterior'+(H.prev?' ('+esc(curto(H.prev.t))+')':'')+' — menor R$ '+brl(H.ult.menor*2)+' por casal ('+esc(H.ult.cia||"")+').');
-  const CH=c.historico||[];
-  if(CH.length>1){ const a=CH[CH.length-2], u=CH[CH.length-1], d=u.menor-a.menor; mud.push(d? (d<0?'🚐 <span class="ok">Carro caiu R$ '+brl(-d)+'</span>':'🚐 <span class="err">Carro subiu R$ '+brl(d)+'</span>')+' desde '+esc(a.t):'🚐 Carro: <b>nada mudou</b> desde '+esc(a.t)+'.'); }
-  else mud.push('🚐 Carro: primeira conferência ('+esc(c.conferido)+'), ainda sem comparação.');
-  mud.push('🏨 Pacotes: conferidos em '+esc(p.conferido)+'.');
-  h+='<h2 style="margin-top:12px">Desde a última busca</h2>'+mud.map(m=>'<div class="mud">'+m+'</div>').join("");
-  $("rec").innerHTML=h; $("secRec").style.display="";
+// ---------- vídeo ----------
+function abrirVideo(){
+  const v=$("vid");$("intro").style.display="flex";
+  v.currentTime=0;v.muted=true;$("som").textContent="🔊 Ouvir a explicação";
+  v.play().catch(()=>{});
 }
-$("reload").onclick = () => { carregarResultado(); carregarHistorico(); carregarCarros(); };
+function fecharVideo(){$("vid").pause();$("intro").style.display="none"}
+$("som").onclick=()=>{const v=$("vid");if(v.muted){v.muted=false;v.currentTime=0;v.play();$("som").textContent="🔇 Tirar o som"}else{v.muted=true;$("som").textContent="🔊 Ouvir a explicação"}};
+$("pular").onclick=fecharVideo;
+$("vid").onended=fecharVideo;
+$("verVideo").onclick=()=>{abrirVideo();$("vid").muted=false;$("vid").play().catch(()=>{});$("som").textContent="🔇 Tirar o som"};
+$("naoMostrar").onchange=e=>ls.set("st_semvideo",e.target.checked?"1":"");
 
-async function gh(path, opts){
-  const t=($("token").value||"").trim();
-  if(!t) throw new Error("Cole o token do GitHub primeiro.");
-  setToken(t);
-  const r=await fetch("https://api.github.com/repos/"+REPO+path, Object.assign({
-    headers:{"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}
-  }, opts||{}));
-  if(!r.ok){
-    let m=""; try{ m=(await r.json()).message; }catch(e){}
-    if(r.status===401) throw new Error("Token inválido ou expirado.");
-    if(r.status===403||r.status===404) throw new Error("O token não tem permissão neste repositório (Contents e Actions: leitura e escrita). "+(m||""));
-    throw new Error("GitHub respondeu "+r.status+". "+(m||""));
+// ---------- início ----------
+async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-store"});return r.ok?await r.json():null}catch(e){return null}}
+(async function(){
+  $("hIda").innerHTML=$("hVolta").innerHTML=HORARIOS.map(h=>'<option value="'+h[0]+'">'+h[1]+'</option>').join("");
+  const d=ls.get("st_dolar");if(d)$("dolar").value=d;
+  const sel=ls.get("st_sel");if(sel!=null)ST.sel=new Set(sel.split(",").filter(Boolean).map(Number).filter(i=>i<PONTOS.length));
+  if(!DEMO&&ls.get("st_semvideo")!=="1") abrirVideo();
+  $("naoMostrar").checked=ls.get("st_semvideo")==="1";
+  [ST.res,ST.pac,ST.car]=await Promise.all([json("resultado.json"),json("pacotes.json"),json("carros.json")]);
+  preencherDatas();
+  const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+R(o.preco/casais())+' por casal':'Minivan no aeroporto';
+  ST.hoteis=(ST.pac&&ST.pac.pacotes||[]).slice().sort((a,b)=>a.hotel_sozinho-b.hotel_sozinho).slice(0,10);
+  const m=ls.get("st_modo");if(m&&NOME_MODO[m])ST.modo=m;
+  document.querySelectorAll('input[name=modo]').forEach(r=>{r.checked=r.value===ST.modo;r.onchange=()=>escolherModo(r.value)});
+  const hs=ls.get("st_hotel");ST.hotel=hotelDe(hs)?hs:null;
+  infoMov();listaHoteis();resumo();
+  $("datas").onchange=()=>{trocaDatas();resumo()};
+  $("ida").onchange=$("volta").onchange=resumo;
+  $("buscarVoo").onclick=buscarVoos;
+  $("pesquisar").onclick=()=>{tabelaPontos();$("pontos").scrollIntoView({behavior:"smooth",block:"start"})};
+  $("dolar").onchange=()=>{ls.set("st_dolar",$("dolar").value);listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
+  $("pessoas").onchange=()=>{const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+R(o.preco/casais())+' por casal':'';infoMov();listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
+  if(DEMO){ // usado só para gravar o vídeo
+    if(!ST.hotel&&ST.hoteis[1]){ST.hotel=ST.hoteis[0].curto;escolherHotel(ST.hoteis[1].curto)}
+    buscarVoos();tabelaPontos();
+    if(DEMO!=="1"){for(const s of document.querySelectorAll("main>section,main>.links,footer"))s.style.display=s.id===DEMO?"":"none";document.querySelector(".marca").style.display=DEMO==="topo"?"":"none";if(DEMO==="topo")$("secVoo").style.display=""}
   }
-  return r;
-}
-const b64 = s => btoa(unescape(encodeURIComponent(s)));
-
-async function gravar(cfg, msg){
-  const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
-  await gh("/contents/monitor/config.json", {method:"PUT", headers:{
-    "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
-    body:JSON.stringify({message:msg, content:b64(JSON.stringify(cfg,null,2)+"\n"), sha:cur.sha, branch:"main"})});
-  CFG=cfg; mostraEstado();
-}
-
-$("salvar").onclick = async () => {
-  const cfg=lerForm(); const bad=validar(cfg); if(bad) return say(bad,"err");
-  $("salvar").disabled=true; say("Salvando…");
-  try{
-    await gravar(cfg, "Programação atualizada pelo painel");
-    say("Programação salva. "+quando()+"\n"+estado(cfg),"ok");
-  }catch(e){ say(e.message,"err"); }
-  $("salvar").disabled=false;
-};
-
-let cancelarT=0;
-$("cancelar").onclick = async () => {
-  if(Date.now()-cancelarT > 4000){ cancelarT=Date.now(); return say("Toque de novo em “Cancelar busca” para confirmar.","err"); }
-  cancelarT=0; $("cancelar").disabled=true; say("Cancelando…");
-  try{
-    await gravar(Object.assign({}, CFG, {ativo:false}), "Busca cancelada pelo painel");
-    say("Busca cancelada. Não haverá novas buscas nem e-mails.","ok");
-  }catch(e){ say(e.message,"err"); }
-  $("cancelar").disabled=false;
-};
-
-$("agora").onclick = async () => {
-  $("agora").disabled=true; say("Disparando busca…");
-  try{
-    await gh("/actions/workflows/monitor.yml/dispatches", {method:"POST", headers:{
-      "Authorization":"Bearer "+getToken(),"Accept":"application/vnd.github+json","Content-Type":"application/json"},
-      body:JSON.stringify({ref:"main"})});
-    say("Busca disparada. Espere cerca de 1 a 2 minutos e toque em “Atualizar resultado”.","ok");
-  }catch(e){ say(e.message,"err"); }
-  $("agora").disabled=false;
-};
-
-carregarConfig().then(() => { carregarHistorico(); carregarPacotes(); carregarCarros(); }); carregarResultado();
+})();
 </script>
 </body>
 </html>
