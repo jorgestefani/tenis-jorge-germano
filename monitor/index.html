@@ -58,6 +58,15 @@
   .unid label{display:inline-block;border:1px solid var(--line);border-radius:16px;padding:5px 12px;cursor:pointer;color:var(--ink);font-size:14px}
   .unid input{display:none}
   .unid label:has(input:checked){background:var(--acc);border-color:var(--acc);color:#fff}
+  .sites{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0 12px}
+  .sites a{text-align:center;border:1px solid var(--line);border-radius:10px;padding:9px 4px;text-decoration:none;font-size:14px;font-weight:600}
+  .meu{font-size:11px;background:var(--warn);color:#fff;border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+  .tira{width:auto;padding:2px 8px;font-size:12px;margin-left:6px;border-radius:8px}
+  details.add{margin-top:12px;border:1px dashed var(--line);border-radius:10px;padding:10px}
+  details.add summary{cursor:pointer;color:var(--acc);font-weight:600}
+  .chk{display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:14px;margin-top:10px}
+  .chk input{width:auto;margin:3px 0 0}
+  .btns2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
   .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .links a{flex:1 1 140px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;text-decoration:none;font-size:14px}
   .resumo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -135,9 +144,24 @@
   <!-- 3. HOTEL -->
   <section id="secHotel">
     <h2><span class="n">3</span> Hotel em Miami · os 10 mais em conta</h2>
-    <div class="hint" id="hotInfo" style="margin:-4px 0 10px"></div>
+    <div class="hint" style="margin:-4px 0 4px">🔎 Pesquisar hotel separado, já com Miami e as datas do passo 1:</div>
+    <div class="sites" id="sitesHotel"></div>
+    <div class="hint" id="hotInfo" style="margin:0 0 10px"></div>
     <div class="hoteis" id="hoteis"></div>
+    <div id="msgHotelSites"></div>
     <div id="msgHotel"></div>
+    <details class="add" id="addBox">
+      <summary>➕ Achei um hotel num desses sites: adicionar</summary>
+      <div class="grid" style="margin-top:10px">
+        <label class="full">Nome do hotel<input id="nNome" placeholder="Ex.: Hampton Inn Miami Brickell"></label>
+        <label>Preço total da estadia (R$, quarto do casal)<input id="nPreco" type="number" min="0" step="1" inputmode="numeric"></label>
+        <label>Nota (opcional)<input id="nNota" type="number" min="0" max="10" step="0.1" inputmode="decimal"></label>
+        <label>Bairro<select id="nBairro"></select></label>
+        <label>Site<select id="nSite"></select></label>
+      </div>
+      <button class="primary" id="nAdd" style="margin-top:10px">Adicionar e escolher este hotel</button>
+      <div class="hint">Fica salvo só neste aparelho. A tabela de deslocamento usa o bairro para calcular Uber, carro e ônibus.</div>
+    </details>
   </section>
 
   <!-- 4. PASSEIOS -->
@@ -145,6 +169,24 @@
     <h2><span class="n">4</span> Pontos turísticos a partir do hotel</h2>
     <button class="primary" id="pesquisar">🔎 Pesquisar melhores pontos turísticos</button>
     <div id="pontos"></div>
+  </section>
+
+  <!-- 5. BUSCA AUTOMÁTICA -->
+  <section id="secAuto">
+    <h2><span class="n">5</span> Busca automática de voos: horários e período</h2>
+    <div class="grid">
+      <label class="full">Pesquisar a cada<select id="aIntervalo"><option value="1">1 hora</option><option value="2">2 horas</option><option value="3">3 horas</option><option value="4">4 horas</option><option value="6">6 horas</option><option value="8">8 horas</option><option value="12">12 horas</option><option value="24">1 vez por dia</option></select></label>
+      <label>A partir das<select id="aIni"></select></label>
+      <label>Até as<select id="aFim"></select></label>
+      <label class="full">Período da busca<select id="aPeriodo"><option value="0">Sem prazo (até cancelar)</option><option value="1">1 dia</option><option value="3">3 dias</option><option value="7">7 dias</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option><option value="data">Até uma data…</option></select></label>
+      <label class="full" id="aAteBox" style="display:none">Pesquisar até o dia<input type="date" id="aAte"></label>
+    </div>
+    <div class="hint" id="aQuando"></div>
+    <label class="chk"><input type="checkbox" id="aIncluir"><span id="aIncluirTxt">Incluir as datas do passo 1 na busca automática</span></label>
+    <div class="hint" id="aEstado"></div>
+    <label id="aTokBox" style="display:none;margin-top:10px">Token do GitHub (fica só neste aparelho)<input id="aToken" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+    <div class="btns2"><button class="primary" id="aSalvar">💾 Salvar horários</button><button id="aAgora">🔄 Buscar agora</button></div>
+    <div id="aMsg"></div>
   </section>
 
   <!-- RESUMO -->
@@ -190,6 +232,30 @@ const COORD={
   "The Elser":[25.7780,-80.1880,"bom","Metromover grátis na porta (Downtown)"]
 };
 // estac = estacionamento US$ por visita; col = ônibus por pessoa ida+volta (US$), null = não há
+const BAIRROS={
+  "Brickell":[25.7617,-80.1918,"bom","Metromover grátis"],
+  "Downtown":[25.7781,-80.1918,"bom","Metromover grátis"],
+  "Wynwood / Midtown":[25.8060,-80.1930,"bom","Miami Trolley grátis"],
+  "Coconut Grove":[25.7280,-80.2410,"bom","Metrorail e Trolley grátis"],
+  "Miami Beach (South Beach)":[25.7826,-80.1341,"médio","South Beach Trolley grátis; ônibus 120"],
+  "Miami Beach (North Beach)":[25.8550,-80.1210,"médio","Ônibus 79 e 120"],
+  "Coral Gables":[25.7490,-80.2630,"médio","Trolley grátis até o Metrorail"],
+  "Aeroporto":[25.7950,-80.2870,"médio","Metrorail no Miami Intermodal Center"],
+  "Doral":[25.8100,-80.3550,"médio","Doral Trolley grátis até o Metrorail"],
+  "Hialeah":[25.8570,-80.2780,"médio","Metrorail e Tri-Rail"],
+  "Kendall":[25.7000,-80.3700,"ruim","Pouco ônibus; Uber até o Metrorail"],
+  "Aventura / Sunny Isles":[25.9400,-80.1250,"médio","Ônibus 3 e E"],
+  "Fort Lauderdale":[26.1200,-80.1400,"ruim","Brightline/Tri-Rail; longe de Miami"]
+};
+function sitesHotel(i,v,nome){
+  const q=encodeURIComponent((nome?nome+" ":"")+"Miami");
+  return [["Decolar","https://www.decolar.com/accommodations/results/CIT_4544/"+i+"/"+v+"/2"],
+    ["LATAM Travel","https://www.latamairlines.com/br/pt/hoteis/hoteis-miami"],
+    ["Trivago","https://www.trivago.com.br/pt-BR/srl?search=Miami&query="+q+"&dr="+i.replace(/-/g,"")+"-"+v.replace(/-/g,"")+"&rms=2"],
+    ["Hotels.com","https://pt.hotels.com/Hotel-Search?destination="+q+"&startDate="+i+"&endDate="+v+"&adults=2&rooms=1"],
+    ["Kayak","https://www.kayak.com.br/hotels/"+encodeURIComponent((nome?nome+", ":"")+"Miami")+"/"+i+"/"+v+"/2adults"],
+    ["Skyscanner","https://www.skyscanner.com.br/hoteis/search?entity_id=27536644&checkin="+i+"&checkout="+v+"&adults=2&rooms=1"]];
+}
 const PONTOS=[
   {n:"South Beach e Ocean Drive",d:"Praia, Art Déco, Lincoln Road",lat:25.7826,lng:-80.1341,estac:30,col:4.5,ct:"Ônibus 120 Beach MAX (US$ 2,25) + South Beach Trolley grátis"},
   {n:"Wynwood Walls",d:"Grafites, cafés e galerias",lat:25.8010,lng:-80.1994,estac:20,col:0,ct:"Miami Trolley grátis (rota Wynwood)"},
@@ -216,7 +282,7 @@ const gasUSD=k=>k/9*0.9;            // minivan ~9 km/l, gasolina ~US$ 0,90/l
 const dolar=()=>Math.max(3,+$("dolar").value||5.5);
 const pessoas=()=>+$("pessoas").value||4;
 const casais=()=>pessoas()/2;
-function hotelPos(h){const c=COORD[h.curto];return c?{lat:c[0],lng:c[1],acesso:c[2],dica:c[3]}:{lat:25.79,lng:-80.25,acesso:"médio",dica:""}}
+function hotelPos(h){const c=h.bairro?BAIRROS[h.bairro]:COORD[h.curto];return c?{lat:c[0],lng:c[1],acesso:c[2],dica:c[3]}:{lat:25.79,lng:-80.25,acesso:"médio",dica:""}}
 function carroEscolhido(){
   if(!ST.car) return null;
   const O=(ST.car.ofertas||[]).slice().sort((a,b)=>a.preco-b.preco);
@@ -261,7 +327,7 @@ function datasEscolhidas(){return [$("ida").value,$("volta").value]}
 function noites(){const [i,v]=datasEscolhidas();if(!i||!v)return 0;const n=Math.round((new Date(v+"T12:00")-new Date(i+"T12:00"))/864e5);return n>0?n:0}
 const noitesBase=()=>ST.pac?Math.round((new Date(ST.pac.volta+"T12:00")-new Date(ST.pac.ida+"T12:00"))/864e5):8;
 const fator=()=>(noites()||noitesBase())/noitesBase();
-const hotelPreco=h=>h.hotel_sozinho*fator();
+const hotelPreco=h=>h.fixo?h.hotel_sozinho:h.hotel_sozinho*fator();
 const carroPreco=o=>o.preco/(ST.car.dias||8)*(noites()||ST.car.dias||8);
 function mostraNoites(){
   const n=noites(),[i,v]=datasEscolhidas();
@@ -270,7 +336,7 @@ function mostraNoites(){
 function mudouDatas(){
   ls.set("st_datas",datasEscolhidas().join("|"));ST.voo=null;$("voos").innerHTML="";mostraNoites();
   const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+Pc(carroPreco(o)/casais())+' '+UN()+'':'';
-  infoMov();listaHoteis();if(ST.pontos)tabelaPontos();resumo();
+  infoMov();listaHoteis();if(ST.pontos)tabelaPontos();resumo();if(CFG)aAtualiza();
 }
 function linksVoo(o,d,i,v){
   const q=encodeURIComponent("Voos de "+o+" para "+d+" em "+i+" volta "+v);
@@ -323,15 +389,27 @@ const NOME_MODO={carro:"Carro alugado",uber:"Uber",coletivo:"Ônibus e gratuitos
 function listaHoteis(){
   const D=noitesBase(),N=noites()||D;
   $("hotInfo").innerHTML='Preço do hotel sozinho para <b>'+N+' noites</b>, quarto para 1 casal.'+(N!==D?' Estimado pela diária conferida na '+esc(ST.pac.fonte)+' em '+esc(ST.pac.conferido)+' ('+dmy(ST.pac.ida)+' a '+dmy(ST.pac.volta)+'); o preço real muda com as datas.':' Conferido na '+esc(ST.pac.fonte)+' em '+esc(ST.pac.conferido)+'.')+' Embaixo: total '+UN()+' com a locomoção escolhida.';
+  const [di,dv]=datasEscolhidas();
+  if(di&&dv) $("sitesHotel").innerHTML=sitesHotel(di,dv).map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+l[0]+'</a>').join("");
   let h="";
-  ST.hoteis.forEach((x,k)=>{
-    const mv=custoMov(x,ST.modo);
-    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small></span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
+  todos().forEach((x,k)=>{
+    const mv=custoMov(x,ST.modo),meu=!!x.fixo,pos=meu?'★':(k-MEUS.length+1)+'º';
+    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+pos+'</span><span class="nm">'+esc(x.hotel)+(meu?'<span class="meu">seu · '+esc(x.site)+'</span><button type="button" class="tira" data-tira="'+esc(x.curto)+'">✕</button>':'')+'<small>'+(x.nota?'★ '+String(x.nota).replace(".",",")+' · ':'')+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small></span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
   });
   $("hoteis").innerHTML=h;
   document.querySelectorAll('input[name=hotel]').forEach(r=>r.onchange=()=>escolherHotel(r.value));
+  document.querySelectorAll('[data-tira]').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();
+    MEUS=MEUS.filter(x=>x.curto!==b.dataset.tira);ls.set("st_meus",JSON.stringify(MEUS));
+    if(ST.hotel===b.dataset.tira){ST.hotel=null;$("pontos").innerHTML="";ST.pontos=false}
+    listaHoteis();resumo()});
+  const h0=hotelDe(ST.hotel);
+  if(h0){const l=sitesHotel(di,dv,h0.hotel).filter(x=>["Hotels.com","Kayak","Trivago"].includes(x[0]));
+    $("msgHotelSites").innerHTML='<div class="hint">Conferir o preço de <b>'+esc(h0.hotel)+'</b> em: '+l.map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(" · ")+' · <a href="https://www.google.com/travel/search?q='+encodeURIComponent(h0.hotel+" Miami")+'" target="_blank" rel="noopener">Google Hotéis</a></div>'}
+  else $("msgHotelSites").innerHTML="";
 }
-const hotelDe=c=>ST.hoteis.find(x=>x.curto===c);
+let MEUS=[];try{MEUS=JSON.parse(ls.get("st_meus")||"[]")}catch(e){MEUS=[]}
+const todos=()=>MEUS.concat(ST.hoteis);
+const hotelDe=c=>todos().find(x=>x.curto===c);
 function comparar(alvo,anteriorNome,atualNome,vAnt,vAtu,extraAnt,extraAtu){
   const dif=Math.abs(vAnt-vAtu);
   let t,pior=false;
@@ -353,7 +431,7 @@ function escolherHotel(c,silencio){
   const a=hotelDe(ant),b=hotelDe(c);
   if(!silencio&&a&&b&&ant!==c) comparar("msgHotel",a.hotel,b.hotel,totalHotel(a,ST.modo),totalHotel(b,ST.modo),a.nota,b.nota);
   else if(!silencio&&b&&!a) $("msgHotel").innerHTML='<div class="msg">🏨 Escolhido: <b>'+esc(b.hotel)+'</b>. Ao trocar de hotel, eu digo se a escolha anterior ou a atual foi melhor.</div>';
-  if(ST.pontos) tabelaPontos();
+  tabelaPontos();listaHoteis();
   resumo();
 }
 function escolherModo(m,silencio){
@@ -390,6 +468,90 @@ function tabelaPontos(){
   h+='<div class="links"><a href="https://www.google.com/search?q='+encodeURIComponent("melhores pontos turísticos de Miami")+'" target="_blank" rel="noopener">Mais pontos no Google</a><a href="https://www.tripadvisor.com.br/Attractions-g34438-Activities-Miami_Florida.html" target="_blank" rel="noopener">Tripadvisor Miami</a><a href="https://www.google.com/maps/search/'+encodeURIComponent("pontos turísticos perto de "+h0.hotel+" Miami")+'" target="_blank" rel="noopener">Ver no mapa</a></div>';
   $("pontos").innerHTML=h;
   document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
+}
+
+function adicionarHotel(){
+  const nome=$("nNome").value.trim(),preco=+$("nPreco").value,nota=+$("nNota").value||0,b=$("nBairro").value,site=$("nSite").value;
+  if(!nome||!(preco>0)){$("msgHotel").innerHTML='<div class="msg pior">Preencha o nome e o preço total da estadia.</div>';return}
+  const [i,v]=datasEscolhidas();
+  const x={curto:"meu:"+Date.now(),hotel:nome,hotel_sozinho:preco,nota:nota,bairro:b,regiao:b+' · '+dmy(i)+' a '+dmy(v),site:site,fixo:true};
+  MEUS.push(x);ls.set("st_meus",JSON.stringify(MEUS));
+  $("nNome").value=$("nPreco").value=$("nNota").value="";$("addBox").open=false;
+  listaHoteis();escolherHotel(x.curto);
+  $("secHotel").scrollIntoView({behavior:"smooth"});
+}
+
+// ---------- 5. busca automática ----------
+let CFG=null;
+const pad=n=>String(n).padStart(2,"0");
+const hojeBR=()=>new Date(Date.now()-3*3600e3).toISOString().slice(0,10);
+const somaDias=n=>{const d=new Date(Date.now()-3*3600e3);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
+const tok=()=>($("aToken").value.trim()||ls.get("gh_token")||"");
+function aQuando(){
+  const p=+$("aIntervalo").value,a=+$("aIni").value,b=+$("aFim").value;
+  if(a>b) return '<span style="color:var(--err)">O horário inicial precisa ser antes do final.</span>';
+  if(p===24) return "🕒 Pesquisa 1 vez por dia, às "+pad(a)+":00 (Brasília).";
+  const h=[];for(let x=a;x<=b&&h.length<48;x+=p)h.push(pad(x)+"h");
+  return "🕒 Pesquisa às: "+h.join(", ")+" (horário de Brasília).";
+}
+function aEstado(c){
+  if(!c) return "";
+  if(c.ativo===false) return "⛔ Busca automática cancelada. Salve para ligar de novo.";
+  if(c.ate&&c.ate<hojeBR()) return "⏹️ Período encerrado em "+dmy(c.ate)+"/"+c.ate.slice(0,4)+". Escolha um novo período e salve.";
+  return "✅ Busca ligada"+(c.ate?" até "+dmy(c.ate)+"/"+c.ate.slice(0,4):", sem prazo")+". Datas acompanhadas: "+((ST.res&&ST.res.datas)||[]).length+".";
+}
+function jaAcompanha(i,v){const c=CFG&&CFG.datas||{};return ((ST.res&&ST.res.datas)||[]).some(d=>d.ida===i&&d.volta===v)||(c.extras||[]).some(e=>e.ida===i&&e.volta===v)}
+function aAtualiza(){
+  $("aQuando").innerHTML=aQuando();$("aAteBox").style.display=$("aPeriodo").value==="data"?"":"none";
+  const [i,v]=datasEscolhidas(),ja=i&&v&&jaAcompanha(i,v);
+  $("aIncluirTxt").innerHTML=i&&v?(ja?'✅ '+dmy(i)+' → '+dmy(v)+' já está na busca automática':'Incluir também <b>'+dmy(i)+' → '+dmy(v)+'</b> (datas do passo 1) na busca automática'):'Escolha as datas no passo 1';
+  $("aIncluir").disabled=!!ja||!(i&&v);if(ja)$("aIncluir").checked=false;
+  $("aTokBox").style.display=ls.get("gh_token")?"none":"";
+}
+async function carregaCfg(){
+  CFG=await json("config.json");if(!CFG)return;
+  $("aIntervalo").value=String(CFG.intervalo_horas||2);$("aIni").value=String(CFG.hora_inicio||0);$("aFim").value=String(CFG.hora_fim==null?23:CFG.hora_fim);
+  if(CFG.ate){$("aPeriodo").value="data";$("aAte").value=CFG.ate}else $("aPeriodo").value="0";
+  $("aEstado").textContent=aEstado(CFG);aAtualiza();
+}
+async function gh(path,opts){
+  const t=tok();if(!t)throw new Error("Cole o token do GitHub (o mesmo do painel completo).");
+  ls.set("gh_token",t);
+  const r=await fetch("https://api.github.com/repos/jorgestefani/tenis-jorge-germano"+path,Object.assign({},opts||{},{headers:{"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json","Content-Type":"application/json"}}));
+  if(!r.ok){let m="";try{m=(await r.json()).message}catch(e){}
+    if(r.status===401)throw new Error("Token inválido ou vencido.");
+    if(r.status===403||r.status===404)throw new Error("O token não tem permissão (Contents e Actions: leitura e escrita). "+m);
+    throw new Error("O GitHub respondeu "+r.status+". "+m)}
+  return r;
+}
+const aMsg=(t,ok)=>$("aMsg").innerHTML='<div class="msg'+(ok?'':' pior')+'">'+t+'</div>';
+async function aSalvar(){
+  const a=+$("aIni").value,b=+$("aFim").value,per=$("aPeriodo").value;
+  if(a>b)return aMsg("O horário inicial precisa ser antes do final.");
+  if(per==="data"&&!($("aAte").value>=hojeBR()))return aMsg("Escolha o último dia da busca (hoje ou depois).");
+  $("aSalvar").disabled=true;aMsg("Salvando…",true);
+  try{
+    const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
+    const c=JSON.parse(decodeURIComponent(escape(atob(cur.content.replace(/\n/g,"")))));
+    c.intervalo_horas=+$("aIntervalo").value;c.hora_inicio=a;c.hora_fim=b;c.ativo=true;
+    c.ate=per==="0"?"":per==="data"?$("aAte").value:somaDias(+per);
+    let extra="";
+    const [i,v]=datasEscolhidas();
+    if($("aIncluir").checked&&i&&v&&v>i){c.datas=c.datas||{};c.datas.extras=c.datas.extras||[];
+      if(!c.datas.extras.some(e=>e.ida===i&&e.volta===v)){c.datas.extras.push({ida:i,volta:v});extra=" Datas "+dmy(i)+" → "+dmy(v)+" incluídas."}}
+    const txt=JSON.stringify(c,null,2)+"\n";
+    await gh("/contents/monitor/config.json",{method:"PUT",body:JSON.stringify({message:"Horários da busca atualizados pela página inicial",content:btoa(unescape(encodeURIComponent(txt))),sha:cur.sha,branch:"main"})});
+    CFG=c;$("aIncluir").checked=false;$("aEstado").textContent=aEstado(c);aAtualiza();
+    aMsg("✅ Salvo. "+aQuando().replace("🕒 ","")+extra+(extra?" Toque em “Buscar agora” para pesquisar já.":""),true);
+  }catch(e){aMsg(esc(e.message))}
+  $("aSalvar").disabled=false;
+}
+async function aAgora(){
+  $("aAgora").disabled=true;aMsg("Disparando a busca…",true);
+  try{await gh("/actions/workflows/monitor.yml/dispatches",{method:"POST",body:JSON.stringify({ref:"main"})});
+    aMsg("✅ Busca disparada. Em 2 a 5 minutos os preços novos aparecem (recarregue a página).",true)}
+  catch(e){aMsg(esc(e.message))}
+  $("aAgora").disabled=false;
 }
 
 // ---------- resumo ----------
@@ -439,6 +601,14 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   $("ida").onchange=()=>{if($("ida").value&&$("volta").value<=$("ida").value){const d=new Date($("ida").value+"T12:00");d.setDate(d.getDate()+8);$("volta").value=d.toISOString().slice(0,10)}mudouDatas()};
   $("volta").onchange=mudouDatas;
   $("buscarVoo").onclick=buscarVoos;
+  $("nBairro").innerHTML=Object.keys(BAIRROS).map(b=>'<option>'+b+'</option>').join("");
+  $("nSite").innerHTML=["Decolar","LATAM Travel","Trivago","Hotels.com","Kayak","Skyscanner","Booking","Outro"].map(b=>'<option>'+b+'</option>').join("");
+  $("nAdd").onclick=adicionarHotel;
+  const hh=[...Array(24).keys()].map(h=>'<option value="'+h+'">'+pad(h)+':00</option>').join("");$("aIni").innerHTML=$("aFim").innerHTML=hh;
+  ["aIntervalo","aIni","aFim","aPeriodo"].forEach(k=>$(k).onchange=aAtualiza);
+  $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;
+  carregaCfg();
+  if(hotelDe(ST.hotel)) tabelaPontos();
   $("pesquisar").onclick=()=>{tabelaPontos();$("pontos").scrollIntoView({behavior:"smooth",block:"start"})};
   $("dolar").onchange=()=>{ls.set("st_dolar",$("dolar").value);listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
   document.querySelectorAll('input[name=unid]').forEach(r=>{r.checked=r.value===UNID;r.onchange=()=>{
