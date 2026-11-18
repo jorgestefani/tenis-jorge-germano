@@ -149,7 +149,7 @@
     <div class="logo"><span class="sol">☀️</span><div><div class="nome">Souza<span>stur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
     <div class="viagem">Monte a viagem: voo, locomoção, hotel e passeios</div>
     <div class="hint" id="topoBusca" style="color:#fff;opacity:.92;margin-top:8px"></div>
-    <button id="verVideo">▶︎ Ver o vídeo explicativo</button>
+    <div class="btns2" style="margin-top:12px"><button id="verVideo" style="margin:0">▶︎ Vídeo explicativo</button><button id="guiaBt" style="margin:0">🔊 Guia por voz: ligado</button></div>
   </div>
 
   <!-- 5. BUSCA AUTOMÁTICA -->
@@ -429,6 +429,7 @@ function mudouDatas(){
   ls.set("st_datas",datasEscolhidas().join("|"));ST.voo=null;$("voos").innerHTML="";mostraNoites();
   const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+Pc(carroPreco(o)/casais())+' '+UN()+'':'';
   infoMov();listaHoteis();if(ST.pontos)tabelaPontos();resumo();if(CFG)aAtualiza();
+  if(noites())falar(noites()+" noites. Agora toque em Buscar voos.");
 }
 function linksVoo(o,d,i,v){
   const q=encodeURIComponent("Voos de "+o+" para "+d+" em "+i+" volta "+v);
@@ -465,6 +466,7 @@ function buscarVoos(){
   }
   h+='<div class="links">'+linksVoo(o,d,i,v).map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+l[0]+'</a>').join("")+'</div>';
   $("voos").innerHTML=h;resumo();
+  if(!window.SEM_FALA)falar(ST.voo!=null?"O voo mais barato nesse horário sai "+reaisF(ST.voo/div())+" "+UN()+". Agora escolha como vão andar em Miami.":"Essas datas não estão na busca automática. Abra os sites abaixo para ver o preço. Depois, escolha como vão andar em Miami.");
 }
 
 // ---------- 2. locomoção ----------
@@ -506,6 +508,7 @@ const hotelDe=c=>todos().find(x=>x.curto===c)||((ST.pac&&ST.pac.pacotes)||[]).fi
 let PESQ="separado";
 function comparar(alvo,anteriorNome,atualNome,vAnt,vAtu,extraAnt,extraAtu){
   const dif=Math.abs(vAnt-vAtu);
+  ST.ultComp={tipo:dif<50?'empate':vAtu<vAnt?'atual':'anterior',dif:dif/div()};
   let t,pior=false;
   if(dif<50){
     t='⚖️ <b>Empate:</b> a escolha atual (<b>'+esc(atualNome)+'</b>) e a anterior (<b>'+esc(anteriorNome)+'</b>) custam quase o mesmo ('+Pc(vAtu)+' '+UN()+').';
@@ -528,6 +531,7 @@ function escolherHotel(c,silencio){
   if(!silencio&&b&&$("msgHotel").firstChild) $("msgHotel").firstChild.insertAdjacentHTML("beforeend",'<div class="hint" style="color:var(--ink)">'+txtInclui(b)+'</div>');
   tabelaPontos();listaHoteis();
   resumo();
+  if(!silencio&&b)falar("Hotel "+b.hotel+". "+(a&&ant!==c?falaComp():"")+falaInclui(b)+proxDepoisHotel());
 }
 function escolherModo(m,silencio){
   const ant=ST.modo;ST.modo=m;ls.set("st_modo",m);infoMov();listaHoteis();
@@ -535,6 +539,7 @@ function escolherModo(m,silencio){
   if(!silencio&&ant!==m&&h) comparar("msgMov",NOME_MODO[ant],NOME_MODO[m],custoMov(h,ant).v,custoMov(h,m).v);
   if(ST.pontos) tabelaPontos();
   resumo();
+  if(!silencio)falar(NOME_MODO[m]+". "+(h&&ant!==m?falaComp().replace("escolha","opção"):"")+(m==="carro"&&h?falaInclui(h).replace(/Café da manhã (não )?incluído\. /,""):"")+(PESQ==="pacote"?"Agora escolha um pacote na lista.":ST.hotel?proxDepoisHotel():"Agora escolha o hotel."));
 }
 
 // ---------- 4. pontos turísticos ----------
@@ -564,7 +569,11 @@ function tabelaPontos(){
   const rt=roteiro(),k=h.lastIndexOf('<div class="links">');h=h.slice(0,k)+rt+h.slice(k);
   $("pontos").innerHTML=h;
   if($("btSim"))$("btSim").onclick=()=>simular();
-  document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ST.barraFechada=false;ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
+  document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ST.barraFechada=false;ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo();
+    const p=PONTOS[i],h0=hotelDe(ST.hotel);if(!h0)return;
+    if(!ST.sel.size)return falar("Nenhum passeio marcado.");
+    const P=planoDia(melhorOrdem([...ST.sel],hotelPos(h0)),hotelPos(h0),DIA_INI);
+    falar((c.checked?p.n.split(" · ")[0]+": "+horasF(p.h*60)+" de visita. ":"Tirei "+p.n.split(" · ")[0]+". ")+"Total do dia: "+horasF(P.total)+". "+(P.fim<=DIA_FIM?(DIA_FIM-P.fim>=90?"Cabe no dia, e ainda sobra tempo para mais um passeio.":"Cabe no dia, no limite."):"Não cabe em um dia só. Toque em Ver simulação do dia para ver o roteiro."))});
 }
 
 function adicionarHotel(){
@@ -653,7 +662,7 @@ async function aSalvar(){
     const d=await enviar({acao:"salvar",cfg:c,buscar:!!extra});
     CFG=Object.assign({},CFG,d.cfg);REM=Object.assign({},REM||{},{pedido:d.pedido});
     $("aIncluir").checked=$("aRota").checked=false;$("aEstado").innerHTML=aEstado(CFG);aAtualiza();topoBusca();
-    aMsg("✅ Salvo para todos que usam a página. "+aQuando().replace("🕒 ","")+extra+(extra?" Já pedi uma busca: os preços novos aparecem em até 30 minutos.":""),true);
+    falar("Horários da busca salvos.");aMsg("✅ Salvo para todos que usam a página. "+aQuando().replace("🕒 ","")+extra+(extra?" Já pedi uma busca: os preços novos aparecem em até 30 minutos.":""),true);
   }catch(e){aMsg(esc(e.message))}
   $("aSalvar").disabled=false;
 }
@@ -664,6 +673,20 @@ async function aAgora(){
   catch(e){aMsg(esc(e.message))}
   $("aAgora").disabled=false;
 }
+
+// ---------- guia por voz: a cada escolha, diz o resultado e o próximo passo ----------
+let GUIA=ls.get("st_guia")!=="0";
+const reaisF=n=>Math.round(n).toLocaleString("pt-BR")+" reais";
+const horasF=m=>{m=Math.round(m);const h=Math.floor(m/60),r=m%60;return (h?h+(h>1?" horas":" hora"):"")+(h&&r?" e ":"")+(r?r+" minutos":"")||"0 minutos"};
+function falar(t){
+  if(!GUIA||window.TOURING||!("speechSynthesis" in window))return;
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/R\$ ?([\d.]+)/g,"$1 reais"));u.lang="pt-BR";u.rate=1.15;
+    const v=speechSynthesis.getVoices().find(v=>/pt[-_]BR/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
+}
+function guiaBt(){$("guiaBt").textContent=GUIA?"🔊 Guia por voz: ligado":"🔇 Guia por voz: desligado"}
+const proxDepoisHotel=()=>ST.pontos?"Agora marque os passeios que querem fazer.":"Agora toque em Pesquisar melhores pontos turísticos.";
+const falaComp=()=>{const u=ST.ultComp;if(!u)return"";return u.tipo==="atual"?"A escolha atual foi melhor: "+reaisF(u.dif)+" mais barato. ":u.tipo==="anterior"?"A escolha anterior foi melhor: era "+reaisF(u.dif)+" mais barato. ":"As duas custam quase o mesmo. "};
+const falaInclui=h=>{const x=inclui(h);return (x.cafe===true?"Café da manhã incluído. ":x.cafe===false?"Café da manhã não incluído. ":"")+(ST.modo==="carro"?(x.estac===0?"Estacionamento grátis. ":x.estac?"Estacionamento de "+x.estac+" dólares por noite. ":""):"")};
 
 // ---------- roteiro do dia ----------
 const hm=m=>{m=Math.round(m);return pad(Math.floor(m/60)%24)+":"+pad(m%60)+(m>=1440?" (+1 dia)":"")};
@@ -821,7 +844,7 @@ const PASSOS_TOUR=[
   async()=>{await tocar("#btSim");SIM.vel=3;await dorme(5200);fecharSim()},
   async()=>{await tocar("#secResumo",()=>{});await dorme(400)}
 ];
-async function tour(durs){   // durs = segundos mínimos de cada passo (tamanho da narração)
+async function tour(durs){window.TOURING=true;   // durs = segundos mínimos de cada passo (tamanho da narração)
   const T=[];for(let i=0;i<PASSOS_TOUR.length;i++){const t0=performance.now();await PASSOS_TOUR[i]();
     const resto=(durs[i]||0)*1000-(performance.now()-t0);if(resto>0)await dorme(resto);T.push(Math.round(performance.now()-t0))}
   const d=$("dedo");if(d)d.style.display="none";window.TOUR_T=T;return T;
@@ -856,11 +879,13 @@ function escolherPacote(c){
   else if(b) $("msgPac").innerHTML='<div class="msg">📦 Escolhido: <b>'+esc(b.hotel)+'</b> · '+Pc(b.total)+' completo '+UN()+'. Ao trocar de pacote, eu digo se a escolha anterior ou a atual foi melhor.</div>';
   if(b&&$("msgPac").firstChild) $("msgPac").firstChild.insertAdjacentHTML("beforeend",'<div class="hint" style="color:var(--ink)">'+txtInclui(b)+'</div>');
   tabelaPontos();resumo();
+  if(b)falar("Pacote com "+b.hotel+", "+reaisF(b.total/div())+" "+UN()+", completo. "+(a&&a.curto!==b.curto?falaComp():"")+falaInclui(b)+proxDepoisHotel());
 }
 function aplicaPesq(m,silencio){
   PESQ=m;ls.set("st_pesq",m);document.body.dataset.pesq=m;
   document.querySelectorAll('input[name=pesq]').forEach(r=>r.checked=r.value===m);
   renderPacotes();resumo();
+  if(!silencio)falar(m==="pacote"?"Só pacotes completos. Confira as datas, escolha como vão andar em Miami e depois toque no pacote que preferir.":"Tudo em separado. Agora escolha as datas e o horário, e toque em Buscar voos.");
 }
 
 // ---------- resumo ----------
@@ -890,7 +915,7 @@ function abrirVideo(){
   v.currentTime=0;v.muted=true;$("som").textContent="🔊 Ouvir a explicação";
   v.play().catch(()=>{});
 }
-function fecharVideo(){$("vid").pause();$("intro").style.display="none"}
+function fecharVideo(){$("vid").pause();$("intro").style.display="none";falar("Vamos começar. Escolha como pesquisar: tudo em separado, ou só pacotes completos.")}
 $("som").onclick=()=>{const v=$("vid");if(v.muted){v.muted=false;v.currentTime=0;v.play();$("som").textContent="🔇 Tirar o som"}else{v.muted=true;$("som").textContent="🔊 Ouvir a explicação"}};
 $("pular").onclick=fecharVideo;
 $("vid").onended=fecharVideo;
@@ -920,6 +945,7 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   $("nBairro").innerHTML=Object.keys(BAIRROS).map(b=>'<option>'+b+'</option>').join("");
   $("nSite").innerHTML=["Decolar","LATAM Travel","Trivago","Hotels.com","Kayak","Skyscanner","Booking","Outro"].map(b=>'<option>'+b+'</option>').join("");
   $("nAdd").onclick=adicionarHotel;
+  guiaBt();$("guiaBt").onclick=()=>{GUIA=!GUIA;ls.set("st_guia",GUIA?"1":"0");guiaBt();if(GUIA)falar("Guia por voz ligado. A cada escolha eu digo o próximo passo.");else try{speechSynthesis.cancel()}catch(e){}};
   const hh=[...Array(24).keys()].map(h=>'<option value="'+h+'">'+pad(h)+':00</option>').join("");$("aIni").innerHTML=$("aFim").innerHTML=hh;
   ["aIntervalo","aIni","aFim","aPeriodo"].forEach(k=>$(k).onchange=aAtualiza);
   $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;$("aQuem").value=ls.get("st_quem")||"";
@@ -928,10 +954,10 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   document.querySelectorAll('input[name=pesq]').forEach(r=>r.onchange=()=>aplicaPesq(r.value));
   aplicaPesq(ls.get("st_pesq")==="pacote"?"pacote":"separado",true);
   if(hotelDe(ST.hotel)) tabelaPontos();
-  $("pesquisar").onclick=()=>{tabelaPontos();$("pontos").scrollIntoView({behavior:"smooth",block:"start"})};
+  $("pesquisar").onclick=()=>{tabelaPontos();falar(hotelDe(ST.hotel)?"Aqui estão os passeios, com o preço de Uber, carro e ônibus a partir do hotel. Marque os que querem fazer, e eu somo o tempo do dia.":"Primeiro escolha um hotel.");$("pontos").scrollIntoView({behavior:"smooth",block:"start"})};
   $("dolar").onchange=()=>{ls.set("st_dolar",$("dolar").value);listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
   document.querySelectorAll('input[name=unid]').forEach(r=>{r.checked=r.value===UNID;r.onchange=()=>{
-    UNID=r.value;ls.set("st_unid",UNID);$("unTit").textContent=UN();$("msgHotel").innerHTML=$("msgMov").innerHTML="";
+    UNID=r.value;ls.set("st_unid",UNID);falar("Valores "+UN()+".");$("unTit").textContent=UN();$("msgHotel").innerHTML=$("msgMov").innerHTML="";
     const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+Pc(carroPreco(o)/casais())+' '+UN():'';
     infoMov();listaHoteis();if(ST.pontos)tabelaPontos();if($("voos").innerHTML)buscarVoos();resumo();
   }});
