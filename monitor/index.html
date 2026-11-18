@@ -782,11 +782,19 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   }});
   $("unTit").textContent=UN();
   $("pessoas").onchange=()=>{const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+Pc(carroPreco(o)/casais())+' '+UN()+'':'';infoMov();listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
-  if(DEMO){ // usado só para gravar o vídeo
+  if(DEMO){ // usado só para gravar o vídeo (?demo=<id da seção>|topo|roteiro)
+    if(DEMO==="secPacote") aplicaPesq("pacote");
     if(!ST.hotel&&ST.hoteis[1]){ST.hotel=ST.hoteis[0].curto;escolherHotel(ST.hoteis[1].curto)}
     buscarVoos();tabelaPontos();
-    if(DEMO!=="1"){for(const s of document.querySelectorAll("main>section,main>.links,footer"))s.style.display=s.id===DEMO?"":"none";document.querySelector(".marca").style.display=DEMO==="topo"?"":"none";if(DEMO==="topo")$("secVoo").style.display=""}
+    if(DEMO==="secPacote"){const r=document.querySelectorAll("input[name=pac]");if(r[2]){r[0].click();r[2].click()}}
+    if(DEMO==="roteiro"){escolherHotel("Tru Hilton Brickell");ST.sel=new Set([0,1,2,3,4,5,6,7]);tabelaPontos();
+      const rt=$("roteiro");$("pesquisar").style.display="none";for(const e of [...$("pontos").children]){if(e===rt)break;e.style.display="none"}}
+    if(DEMO!=="1"){const alvo=DEMO==="roteiro"?"secPontos":DEMO==="topo"?"secAuto":DEMO;
+      for(const s of document.querySelectorAll("main>section,main>.links,footer"))s.style.display=s.id===alvo?"":"none";
+      document.querySelector(".marca").style.display=DEMO==="topo"?"":"none";
+      if(DEMO!=="roteiro")$("barraDia").style.display="none"}
   }
+
 })();
 </script>
 </body>
