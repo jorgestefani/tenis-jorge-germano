@@ -78,6 +78,29 @@
   #barraDia.estoura .tr i{background:var(--err)}
   #barraDia.estoura b.st{color:var(--err)}
   body.comBarra main{padding-bottom:110px}
+  #barraX{position:absolute;right:6px;top:6px;width:30px;height:30px;padding:0;border-radius:50%;font-size:14px;line-height:1;z-index:2}
+  #barraDia .in{padding-right:34px}
+  .btSim{margin-top:10px;background:var(--ok);border-color:var(--ok);color:#fff;font-weight:700}
+  #simBox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:10px}
+  #simBox .cx{background:var(--card);border-radius:14px;width:100%;max-width:520px;max-height:96vh;overflow:auto;padding:12px}
+  #simBox .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  #simBox .top b{font-size:16px}
+  #simBox .top button{width:auto;padding:6px 12px}
+  #simCv{width:100%;height:auto;display:block;border-radius:10px;background:#0d1b2a;margin-top:8px}
+  #simRel{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px}
+  #simRel .hora{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+  #simSt{font-size:14px;margin-top:2px;min-height:20px}
+  #simSt.err{color:var(--err);font-weight:700}
+  .simTr{position:relative;height:14px;border-radius:7px;background:var(--line);overflow:hidden;margin-top:8px}
+  .simTr i{position:absolute;left:0;top:0;bottom:0;background:var(--ok)}
+  .simTr u{position:absolute;top:0;bottom:0;width:2px;background:var(--err)}
+  .simEixo{display:flex;justify-content:space-between;font-size:11px;color:var(--mut)}
+  #simLog{font-size:13px;margin-top:8px;max-height:150px;overflow:auto}
+  #simLog div{border-top:1px solid var(--line);padding:3px 0;display:flex;justify-content:space-between;gap:8px}
+  #simCtl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  #dedo{position:fixed;left:0;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:rgba(255,255,255,.55);border:3px solid #ffd166;box-shadow:0 2px 10px rgba(0,0,0,.5);z-index:100;pointer-events:none;transition:transform .55s cubic-bezier(.4,.1,.2,1);display:none}
+  #dedo.toque{animation:toque .35s}
+  @keyframes toque{50%{scale:.7;background:rgba(255,209,102,.9)}}
   .rot{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
   .rot td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top}
   .rot td.h{white-space:nowrap;color:var(--mut);font-variant-numeric:tabular-nums;width:92px}
@@ -229,7 +252,7 @@
 
   <!-- RESUMO -->
   <section id="secResumo">
-    <h2><span class="n">✓</span> Resumo da viagem (<span id="unTit">por casal</span>)</h2>
+    <h2><span class="n">✓</span> <span>Resumo da viagem (<span id="unTit">por casal</span>)</span></h2>
     <div class="resumo" id="resumo"></div>
     <label style="margin-top:12px">Dólar (R$ por US$ 1) para converter Uber, gasolina e ônibus<input id="dolar" type="number" step="0.01" min="3" max="10" value="5.50"></label>
     <div class="hint">Uber, gasolina, estacionamento e ônibus são <b>estimativas</b> (preços médios de Miami em dólar). Hotel e carro foram conferidos à mão; confira o preço final antes de comprar.</div>
@@ -237,7 +260,7 @@
 
   <div class="links"><a href="painel.html">📊 Painel completo de preços</a></div>
   <footer>Souzastur · Desenvolvido por Jorge Stefani</footer>
-  <div id="barraDia" role="status" aria-live="polite"><div class="in" id="barraIn"></div></div>
+  <div id="barraDia" role="status" aria-live="polite"><button id="barraX" aria-label="Fechar">✕</button><div class="in" id="barraIn"></div></div>
 </main>
 
 <script>
@@ -491,7 +514,7 @@ function escolherModo(m,silencio){
 function tabelaPontos(){
   ST.pontos=true;
   const h0=hotelDe(ST.hotel);
-  if(!h0){$("pontos").innerHTML='<div class="msg pior">Escolha um hotel no passo 3 (ou um pacote) para eu calcular preços e tempos a partir dele.</div>';$("barraDia").style.display="none";document.body.classList.remove("comBarra");return}
+  if(!h0){$("pontos").innerHTML='<div class="msg pior">Escolha um hotel no passo 3 (ou um pacote) para eu calcular preços e tempos a partir dele.</div>';ST.barraOn=false;mostraBarra();return}
   const pos=hotelPos(h0);
   let h='<div class="msg">📍 Saindo do <b>'+esc(h0.hotel)+'</b>. Valores <b>ida e volta, '+UN()+'</b>. Marque os passeios que vão fazer: o total e a comparação de hotéis usam só os marcados.</div>';
   h+='<div class="rolar"><table class="tab"><tr><th>✓ Passeio</th><th>Dist.</th><th>🚕 Uber</th><th>🚗 Carro</th><th>🚌 Ônibus</th></tr>';
@@ -513,7 +536,8 @@ function tabelaPontos(){
   h+='<div class="links"><a href="https://www.google.com/search?q='+encodeURIComponent("melhores pontos turísticos de Miami")+'" target="_blank" rel="noopener">Mais pontos no Google</a><a href="https://www.tripadvisor.com.br/Attractions-g34438-Activities-Miami_Florida.html" target="_blank" rel="noopener">Tripadvisor Miami</a><a href="https://www.google.com/maps/search/'+encodeURIComponent("pontos turísticos perto de "+h0.hotel+" Miami")+'" target="_blank" rel="noopener">Ver no mapa</a></div>';
   const rt=roteiro(),k=h.lastIndexOf('<div class="links">');h=h.slice(0,k)+rt+h.slice(k);
   $("pontos").innerHTML=h;
-  document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
+  if($("btSim"))$("btSim").onclick=()=>simular();
+  document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ST.barraFechada=false;ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
 }
 
 function adicionarHotel(){
@@ -614,7 +638,7 @@ async function aAgora(){
 }
 
 // ---------- roteiro do dia ----------
-const hm=m=>{m=Math.round(m);return pad(Math.floor(m/60)%24)+":"+pad(m%60)};
+const hm=m=>{m=Math.round(m);return pad(Math.floor(m/60)%24)+":"+pad(m%60)+(m>=1440?" (+1 dia)":"")};
 const dur=m=>{m=Math.round(m);const h=Math.floor(m/60),r=m%60;return h?h+"h"+(r?pad(r):""):r+" min"};
 function minDesl(a,b,pos){   // minutos de deslocamento entre dois lugares no modo escolhido
   const k=km(a,b),t=minutos(k);
@@ -649,9 +673,9 @@ function dividirDias(r,pos){   // corta o roteiro em dias de 8h às 20h, na orde
 }
 function roteiro(){
   const h0=hotelDe(ST.hotel),idx=[...ST.sel];
-  if(!h0||!ST.pontos){$("barraDia").style.display="none";document.body.classList.remove("comBarra");return ""}
+  if(!h0||!ST.pontos){ST.barraOn=false;mostraBarra();return ""}
   const pos=hotelPos(h0),cap=DIA_FIM-DIA_INI;
-  document.body.classList.add("comBarra");$("barraDia").style.display="block";
+  ST.barraOn=true;mostraBarra();
   if(!idx.length){$("barraDia").classList.remove("estoura");$("barraIn").innerHTML='⏱️ <b>Dia de passeio: 8h às 20h</b> · marque os passeios na tabela para somar o tempo.';return ""}
   const r=melhorOrdem(idx,pos),P=planoDia(r,pos,DIA_INI),cabe=P.fim<=DIA_FIM,sobra=DIA_FIM-P.fim;
   const visita=P.total-P.desl;
@@ -663,6 +687,7 @@ function roteiro(){
     t+='<tr><td class="h">'+hm(P.L[0].ini)+'</td><td>Saída do hotel</td></tr>';
     for(const x of P.L)t+='<tr class="'+(x.tipo==="vis"?'vis':'')+(x.fim>DIA_FIM?' fora':'')+'"><td class="h">'+hm(x.ini)+'–'+hm(x.fim)+'</td><td>'+(x.tipo==="vis"?'📍 '+esc(x.txt)+' <small style="font-weight:400;color:var(--mut)">('+dur(x.fim-x.ini)+')</small>':'<span style="color:var(--mut)">'+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+esc(x.txt)+' · '+dur(x.fim-x.ini)+'</span>')+'</td></tr>';
     return t+'</table>'};
+  h+='<button class="btSim" id="btSim">▶ Ver simulação do dia (deslocamentos e soma dos tempos)</button>';
   if(cabe){h+=tab(P);h+='<div class="msg">✅ Cabe em um dia: volta ao hotel às <b>'+hm(P.fim)+'</b>.'+(sobra>=90?' Ainda dá para encaixar um passeio curto (até '+dur(sobra-30)+' com o deslocamento).':'')+'</div>'}
   else{
     const D=dividirDias(r,pos);
@@ -672,6 +697,107 @@ function roteiro(){
   return h;
 }
 $("barraDia").onclick=()=>{const e=$("roteiro");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})};
+// a barra só aparece com a parte dos passeios na tela e pode ser fechada no ✕ (volta ao marcar outro passeio)
+function mostraBarra(){const v=!!(ST.barraOn&&ST.pontosVis&&!ST.barraFechada);$("barraDia").style.display=v?"block":"none";document.body.classList.toggle("comBarra",v)}
+$("barraX").onclick=e=>{e.stopPropagation();ST.barraFechada=true;mostraBarra()};
+try{new IntersectionObserver(es=>{ST.pontosVis=es[0].isIntersecting;mostraBarra()}).observe($("secPontos"))}catch(e){ST.pontosVis=true}
+
+// ---------- simulação animada do dia ----------
+const SIM={raf:0,pausa:false,vel:1};
+function simUI(){
+  if($("simBox"))return;
+  const d=document.createElement("div");d.id="simBox";
+  d.innerHTML='<div class="cx"><div class="top"><b id="simTit">Simulação do dia</b><button id="simX">✕</button></div><canvas id="simCv" width="960" height="600"></canvas><div id="simRel"><span class="hora" id="simHora">08:00</span><span id="simTot" class="hint"></span></div><div id="simSt"></div><div class="simTr"><i id="simBar"></i><u id="simLim"></u></div><div class="simEixo"><span>8h</span><span id="simFimEixo">20h</span></div><div id="simLog"></div><div id="simCtl"><button id="simPP">⏸ Pausar</button><button id="simV">Velocidade 1×</button></div><div id="simMais"></div></div>';
+  document.body.appendChild(d);
+  $("simX").onclick=fecharSim;d.onclick=e=>{if(e.target===d)fecharSim()};
+  $("simPP").onclick=()=>{SIM.pausa=!SIM.pausa;$("simPP").textContent=SIM.pausa?"▶ Continuar":"⏸ Pausar"};
+  $("simV").onclick=()=>{SIM.vel=SIM.vel===1?2:SIM.vel===2?4:1;$("simV").textContent="Velocidade "+SIM.vel+"×"};
+}
+function fecharSim(){cancelAnimationFrame(SIM.raf);$("simBox").style.display="none"}
+const curto=n=>n.split(" · ")[0].replace(" e Ocean Drive","").replace("Museu e Jardins ","");
+function simular(){
+  const h0=hotelDe(ST.hotel),idx=[...ST.sel];if(!h0||!idx.length)return;
+  const pos=hotelPos(h0),r=melhorOrdem(idx,pos),P=planoDia(r,pos,DIA_INI);
+  simUI();$("simBox").style.display="flex";SIM.pausa=false;$("simPP").textContent="⏸ Pausar";
+  const dias=P.fim<=DIA_FIM?null:dividirDias(r,pos);
+  rodarDia(h0,pos,r,"Tentativa: tudo em um dia",()=>{
+    if(!dias){$("simMais").innerHTML='<div class="msg">✅ Tudo cabe em um dia: volta ao hotel às <b>'+hm(P.fim)+'</b>.</div>';return}
+    $("simMais").innerHTML='<div class="msg pior">⚠️ Em um dia só não dá: terminaria às <b>'+hm(P.fim)+'</b>. Dividindo em <b>'+dias.length+' dias</b>, cabe.</div><button class="btSim" id="simDias">▶ Simular em '+dias.length+' dias</button>';
+    $("simDias").onclick=()=>{let k=0;const prox=()=>{if(k>=dias.length){$("simMais").innerHTML='<div class="msg">✅ Em '+dias.length+' dias tudo cabe entre 8h e 20h.</div>';return}const d=dias[k++];rodarDia(h0,pos,d,"Dia "+k+" de "+dias.length,prox)};prox()};
+  });
+}
+function rodarDia(h0,pos,r,titulo,fim){
+  cancelAnimationFrame(SIM.raf);
+  const P=planoDia(r,pos,DIA_INI),cv=$("simCv"),g=cv.getContext("2d"),W=cv.width,H=cv.height;
+  const nos=[{lat:pos.lat,lng:pos.lng,n:"Hotel"}].concat(r.map(i=>PONTOS[i]));
+  let a=Math.min(...nos.map(x=>x.lat)),b=Math.max(...nos.map(x=>x.lat)),c=Math.min(...nos.map(x=>x.lng)),d=Math.max(...nos.map(x=>x.lng));
+  const k=Math.cos(a*Math.PI/180),sx=(d-c)*k||.01,sy=(b-a)||.01,esc_=Math.min((W-160)/sx,(H-120)/sy);
+  const xy=p=>[W/2+((p.lng-(c+d)/2)*k)*esc_,H/2-(p.lat-(a+b)/2)*esc_];
+  const fimT=Math.max(DIA_FIM,P.fim),cap=fimT-DIA_INI;
+  $("simTit").textContent="🗺️ "+titulo;$("simLog").innerHTML="";$("simMais").innerHTML="";$("simSt").className="";
+  $("simFimEixo").textContent=fimT===DIA_FIM?"20h":hm(fimT);$("simLim").style.left=((DIA_FIM-DIA_INI)/cap*100)+"%";
+  const ic={carro:"🚗",uber:"🚕",coletivo:"🚌"}[ST.modo];
+  let t=DIA_INI,ult=performance.now(),feitos=0,passou=false;
+  const desenha=()=>{
+    g.fillStyle="#0d1b2a";g.fillRect(0,0,W,H);
+    g.strokeStyle="rgba(255,255,255,.06)";for(let x=0;x<W;x+=60){g.beginPath();g.moveTo(x,0);g.lineTo(x,H);g.stroke()}for(let y=0;y<H;y+=60){g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke()}
+    g.setLineDash([10,10]);g.strokeStyle="rgba(120,180,255,.5)";g.lineWidth=3;g.beginPath();
+    nos.concat([nos[0]]).forEach((p,i)=>{const [x,y]=xy(p);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();g.setLineDash([]);
+    const atual=P.L.find(x=>t>=x.ini&&t<x.fim);
+    nos.forEach((p,i)=>{const [x,y]=xy(p);
+      if(!i){g.font="40px sans-serif";g.textAlign="center";g.fillText("🏨",x,y+14);g.fillStyle="#fff";g.font="bold 22px sans-serif";g.fillText(curto(h0.hotel).slice(0,22),x,y+44);return}
+      const v=P.L.find(L=>L.tipo==="vis"&&L.i===r[i-1]),ok=t>=v.fim,ag=atual===v;
+      g.beginPath();g.arc(x,y,16,0,7);g.fillStyle=ok?"#4cc9a0":ag?"#ffd166":"#5a6878";g.fill();
+      if(ag){g.beginPath();g.lineWidth=7;g.strokeStyle="#ffd166";g.arc(x,y,28,-Math.PI/2,-Math.PI/2+2*Math.PI*(t-v.ini)/(v.fim-v.ini));g.stroke()}
+      g.fillStyle="#0d1b2a";g.font="bold 18px sans-serif";g.textAlign="center";g.fillText(i,x,y+6);
+      g.fillStyle="#fff";g.font=(ag?"bold 24px":"18px")+" sans-serif";g.fillText(curto(p.n).slice(0,20),x,y-24)});
+    if(atual&&atual.tipo==="ida"){const j=P.L.indexOf(atual),de=j===0?nos[0]:PONTOS[P.L[j-1].i],para=atual.txt==="Volta ao hotel"?nos[0]:PONTOS[P.L[j+1].i];
+      const f=(t-atual.ini)/Math.max(1,atual.fim-atual.ini),[x1,y1]=xy(de),[x2,y2]=xy(para);g.font="40px sans-serif";g.textAlign="center";g.fillText(ic,x1+(x2-x1)*f,y1+(y2-y1)*f+14)}
+    $("simHora").textContent=hm(Math.min(t,P.fim));$("simHora").style.color=t>DIA_FIM?"var(--err)":"";
+    $("simBar").style.width=Math.min(100,(t-DIA_INI)/cap*100)+"%";$("simBar").style.background=t>DIA_FIM?"var(--err)":"var(--ok)";
+    $("simTot").textContent="usado: "+dur(Math.min(t,P.fim)-DIA_INI)+" de 12h";
+    if(atual){$("simSt").textContent=atual.tipo==="vis"?"📍 Visitando "+curto(atual.txt)+" ("+dur(t-atual.ini)+" de "+dur(atual.fim-atual.ini)+")":ic+" "+atual.txt+" · "+dur(atual.fim-atual.ini)}
+    if(t>DIA_FIM&&!passou){passou=true;$("simSt").className="err"}
+    if(passou&&atual)$("simSt").textContent="⚠️ Passou das 20h · "+$("simSt").textContent;
+    while(feitos<P.L.length&&t>=P.L[feitos].fim){const x=P.L[feitos++];
+      $("simLog").insertAdjacentHTML("beforeend",'<div><span>'+hm(x.fim)+' '+(x.tipo==="vis"?'📍 '+esc(curto(x.txt)):ic+' '+esc(x.txt))+'</span><b>+'+dur(x.fim-x.ini)+' = '+dur(x.fim-DIA_INI)+'</b></div>');$("simLog").scrollTop=1e6}
+  };
+  const passo=now=>{const dt=Math.min(.1,(now-ult)/1000);ult=now;
+    if(!SIM.pausa)t+=dt*55*SIM.vel;   // 1× = cerca de 13 s para um dia de 12 h
+    if(t>=P.fim){t=P.fim;desenha();$("simSt").className=P.fim>DIA_FIM?"err":"";$("simSt").textContent=(P.fim>DIA_FIM?"⚠️ Voltou ao hotel às "+hm(P.fim)+": passou das 20h em "+dur(P.fim-DIA_FIM):"✅ Voltou ao hotel às "+hm(P.fim)+" · sobraram "+dur(DIA_FIM-P.fim));setTimeout(fim,600);return}
+    desenha();SIM.raf=requestAnimationFrame(passo)};
+  desenha();SIM.raf=requestAnimationFrame(passo);
+}
+
+// ---------- tour com toques simulados (usado para gravar o vídeo de abertura: ?tour) ----------
+const dorme=ms=>new Promise(r=>setTimeout(r,ms));
+async function tocar(el,acao){
+  if(typeof el==="string")el=document.querySelector(el);if(!el)return;
+  let d=$("dedo");if(!d){d=document.createElement("div");d.id="dedo";document.body.appendChild(d)}
+  d.style.display="block";
+  el.scrollIntoView({behavior:"smooth",block:"center"});await dorme(650);
+  const r=el.getBoundingClientRect();d.style.transform="translate("+(r.left+Math.min(r.width/2,140))+"px,"+(r.top+r.height/2)+"px)";await dorme(600);
+  d.classList.remove("toque");void d.offsetWidth;d.classList.add("toque");await dorme(180);
+  if(acao)acao(el);else el.click();await dorme(350);
+}
+const escolhe=(id,v)=>tocar("#"+id,el=>{el.value=v;el.dispatchEvent(new Event("change",{bubbles:true}))});
+const radio=sel=>tocar(document.querySelector(sel).closest("label"),el=>{const i=el.querySelector("input");i.checked=true;i.dispatchEvent(new Event("change",{bubbles:true}))});
+const PASSOS_TOUR=[
+  async()=>{scrollTo({top:0,behavior:"smooth"});await dorme(500);await tocar("#topoBusca",()=>{})},
+  async()=>{await escolhe("aIntervalo","4");await escolhe("aPeriodo","30")},
+  async()=>{await radio('input[name=pesq][value=pacote]');const r=()=>document.querySelectorAll('input[name=pac]');await radio('input[name=pac][value="'+r()[0].value+'"]');await radio('input[name=pac][value="'+r()[2].value+'"]');await tocar("#msgPac",()=>{})},
+  async()=>{await radio('input[name=pesq][value=separado]');await escolhe("ida","2027-02-17");await tocar("#buscarVoo");await tocar("#voos .opt",()=>{})},
+  async()=>{await radio('input[name=modo][value=uber]');await radio('input[name=unid][value=pessoa]');await radio('input[name=unid][value=casal]');await radio('input[name=modo][value=carro]')},
+  async()=>{await radio('input[name=hotel][value="'+ST.hoteis[0].curto+'"]');await radio('input[name=hotel][value="Tru Hilton Brickell"]');await tocar("#msgHotel",()=>{})},
+  async()=>{ST.sel=new Set();ls.set("st_sel","");await tocar("#pesquisar");for(const i of [0,1,2,3,4,5]){await tocar('#pontos input[data-p="'+i+'"]');await dorme(250)}},
+  async()=>{await tocar("#btSim");SIM.vel=3;await dorme(5200);fecharSim()},
+  async()=>{await tocar("#secResumo",()=>{});await dorme(400)}
+];
+async function tour(durs){   // durs = segundos mínimos de cada passo (tamanho da narração)
+  const T=[];for(let i=0;i<PASSOS_TOUR.length;i++){const t0=performance.now();await PASSOS_TOUR[i]();
+    const resto=(durs[i]||0)*1000-(performance.now()-t0);if(resto>0)await dorme(resto);T.push(Math.round(performance.now()-t0))}
+  const d=$("dedo");if(d)d.style.display="none";window.TOUR_T=T;return T;
+}
 
 // ---------- pacotes completos ----------
 function pacotesCompletos(){
@@ -792,7 +918,7 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
     if(DEMO!=="1"){const alvo=DEMO==="roteiro"?"secPontos":DEMO==="topo"?"secAuto":DEMO;
       for(const s of document.querySelectorAll("main>section,main>.links,footer"))s.style.display=s.id===alvo?"":"none";
       document.querySelector(".marca").style.display=DEMO==="topo"?"":"none";
-      if(DEMO!=="roteiro")$("barraDia").style.display="none"}
+      if(DEMO!=="roteiro"){ST.barraFechada=true;mostraBarra()}}
   }
 
 })();
