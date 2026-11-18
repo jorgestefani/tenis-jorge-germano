@@ -70,6 +70,8 @@
   .modos.dois{grid-template-columns:1fr 1fr}
   body[data-pesq=pacote] .soSep,body[data-pesq=pacote] #secHotel{display:none!important}
   body:not([data-pesq=pacote]) #secPacote{display:none}
+  .hotel small.inc{color:var(--ink);opacity:.9;margin-top:2px}
+  .hotel small.inc b{color:var(--warn)}
   .eco{font-size:12px;color:var(--ok);display:block}
   #barraDia{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -4px 14px rgba(0,0,0,.15);padding:8px 14px calc(8px + env(safe-area-inset-bottom));cursor:pointer}
   #barraDia .in{max-width:640px;margin:0 auto;font-size:14px}
@@ -237,6 +239,8 @@
         <label>Nota (opcional)<input id="nNota" type="number" min="0" max="10" step="0.1" inputmode="decimal"></label>
         <label>Bairro<select id="nBairro"></select></label>
         <label>Site<select id="nSite"></select></label>
+        <label>Café da manhã<select id="nCafe"><option value="">Não sei</option><option value="1">Incluído</option><option value="0">Não incluído</option></select></label>
+        <label>Estacionamento (US$/noite)<input id="nEstac" type="number" min="0" step="1" inputmode="numeric" placeholder="0 = grátis; vazio = não sei"></label>
       </div>
       <button class="primary" id="nAdd" style="margin-top:10px">Adicionar e escolher este hotel</button>
       <div class="hint">Fica salvo só neste aparelho. A tabela de deslocamento usa o bairro para calcular Uber, carro e ônibus.</div>
@@ -318,6 +322,28 @@ function sitesHotel(i,v,nome){
     ["Kayak","https://www.kayak.com.br/hotels/"+encodeURIComponent((nome?nome+", ":"")+"Miami")+"/"+i+"/"+v+"/2adults"],
     ["Skyscanner","https://www.skyscanner.com.br/hoteis/search?entity_id=27536644&checkin="+i+"&checkout="+v+"&adults=2&rooms=1"]];
 }
+// Café da manhã e estacionamento (pesquisa de 18/11/2026 em Expedia, Hotels.com, Booking, Wyndham; confirmar ao reservar)
+// cafe: true incluído / false pago / null não confirmado · estac: US$ por noite (0 = grátis, null = não confirmado)
+const INCLUI={
+  "Spark Hilton":{cafe:true,estac:0},
+  "Palms Inn":{cafe:true,estac:0},
+  "Palm Tree Club":{cafe:null,estac:0,obs:"taxa de resort ~US$ 22,60/noite (Expedia)"},
+  "La Quinta Aerop.":{cafe:true,estac:0,obs:"traslado grátis ao aeroporto (5h–23h)"},
+  "Comfort Kendall":{cafe:true,estac:0},
+  "Element Doral":{cafe:true,estac:0},
+  "Hyatt Place Doral":{cafe:true,estac:10,estacObs:"sites divergem: grátis ou ~US$ 10/dia"},
+  "Hilton Blue Lagoon":{cafe:false,cafeObs:"~US$ 10–30 por pessoa",estac:30,obs:"traslado grátis ao aeroporto"},
+  "Brickell Condos":{cafe:true,cafeObs:"para levar",estac:45,estacObs:"valet"},
+  "Tru Hilton Brickell":{cafe:true,estac:35,estacObs:"só valet"},
+  "The Elser":{cafe:false,cafeObs:"~US$ 25–50 por pessoa",estac:75,estacObs:"valet"}
+};
+const inclui=h=>h.fixo?{cafe:h.cafe==null?null:h.cafe,estac:h.estac==null?null:h.estac}:(INCLUI[h.curto]||{cafe:null,estac:null});
+function txtInclui(h,curto){
+  const x=inclui(h),c=x.cafe===true?'☕ café incluído'+(x.cafeObs?' ('+x.cafeObs+')':''):x.cafe===false?'☕ café <b>não incluído</b>'+(x.cafeObs?' ('+x.cafeObs+')':''):'☕ café: confirmar com o hotel';
+  const carro=ST.modo==="carro";
+  const e=x.estac===0?'🅿️ estacionamento grátis':x.estac==null?'🅿️ estacionamento: confirmar':'🅿️ estacionamento <b>US$ '+x.estac+'/noite</b>'+(x.estacObs?' ('+x.estacObs+')':'')+(carro?' = '+Pc(x.estac*(noites()||8)*dolar()/casais())+' '+UN()+' na estadia':'');
+  return c+(curto?' · ':'<br>')+(carro?e:'<span style="opacity:.75">'+e+' (só se alugar carro)</span>')+(x.obs?' · '+x.obs:'');
+}
 const PONTOS=[
   {n:"South Beach e Ocean Drive",d:"Praia, Art Déco, Lincoln Road",lat:25.7826,lng:-80.1341,estac:30,col:4.5,ct:"Ônibus 120 Beach MAX (US$ 2,25) + South Beach Trolley grátis"},
   {n:"Wynwood Walls",d:"Grafites, cafés e galerias",lat:25.8010,lng:-80.1994,estac:20,col:0,ct:"Miami Trolley grátis (rota Wynwood)"},
@@ -367,7 +393,7 @@ function custoPonto(p,pos,modo){
 // aeroporto ida+volta e base do modo, em R$ por casal
 function custoBase(h,modo){
   const pos=hotelPos(h),k=km(AEROPORTO,pos),c=casais(),D=dolar();
-  if(modo==="carro"){const o=carroEscolhido();return (o?carroPreco(o)/c:0)+gasUSD(k*2)*D/c}
+  if(modo==="carro"){const o=carroEscolhido(),est=inclui(h).estac||0;return (o?carroPreco(o)/c:0)+gasUSD(k*2)*D/c+est*(noites()||8)*D/c}
   if(modo==="uber") return uberUSD(k,true)*2*D/c;
   return pos.acesso==="bom"||pos.acesso==="médio"?2.25*2*2*D:uberUSD(k,true)*2*D/c;   // Metrorail com malas ou UberXL
 }
@@ -460,7 +486,7 @@ function listaHoteis(){
   let h="";
   todos().forEach((x,k)=>{
     const mv=custoMov(x,ST.modo),meu=!!x.fixo,pos=meu?'★':(k-MEUS.length+1)+'º';
-    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+pos+'</span><span class="nm">'+esc(x.hotel)+(meu?'<span class="meu">seu · '+esc(x.site)+'</span><button type="button" class="tira" data-tira="'+esc(x.curto)+'">✕</button>':'')+'<small>'+(x.nota?'★ '+String(x.nota).replace(".",",")+' · ':'')+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small></span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
+    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+pos+'</span><span class="nm">'+esc(x.hotel)+(meu?'<span class="meu">seu · '+esc(x.site)+'</span><button type="button" class="tira" data-tira="'+esc(x.curto)+'">✕</button>':'')+'<small>'+(x.nota?'★ '+String(x.nota).replace(".",",")+' · ':'')+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small><small class="inc">'+txtInclui(x)+'</small></span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
   });
   $("hoteis").innerHTML=h;
   document.querySelectorAll('input[name=hotel]').forEach(r=>r.onchange=()=>escolherHotel(r.value));
@@ -499,6 +525,7 @@ function escolherHotel(c,silencio){
   const a=hotelDe(ant),b=hotelDe(c);
   if(!silencio&&a&&b&&ant!==c) comparar("msgHotel",a.hotel,b.hotel,totalHotel(a,ST.modo),totalHotel(b,ST.modo),a.nota,b.nota);
   else if(!silencio&&b&&!a) $("msgHotel").innerHTML='<div class="msg">🏨 Escolhido: <b>'+esc(b.hotel)+'</b>. Ao trocar de hotel, eu digo se a escolha anterior ou a atual foi melhor.</div>';
+  if(!silencio&&b&&$("msgHotel").firstChild) $("msgHotel").firstChild.insertAdjacentHTML("beforeend",'<div class="hint" style="color:var(--ink)">'+txtInclui(b)+'</div>');
   tabelaPontos();listaHoteis();
   resumo();
 }
@@ -527,12 +554,12 @@ function tabelaPontos(){
     h+='<tr><td><label style="color:var(--ink);font-size:14px;display:flex;gap:6px;align-items:flex-start"><input type="checkbox" data-p="'+i+'"'+(on?' checked':'')+' style="width:auto;margin:3px 0 0"><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+' · ⏱️ '+dur(p.h*60)+' de visita</small><small>🚌 '+esc(p.ct)+'</small></span></label></td><td>'+Math.round(k)+' km</td>'+cel("uber",u)+cel("carro",c,p.estac?' · estac. US$ '+p.estac:'')+cel("coletivo",o)+'</tr>';
   });
   const base={uber:custoBase(h0,"uber"),carro:custoBase(h0,"carro"),coletivo:custoBase(h0,"coletivo")};
-  h+='<tr><td>Aeroporto ↔ hotel<small>'+(ST.car?'carro: aluguel '+(noites()||ST.car.dias)+' dias + gasolina':'')+'</small></td><td>'+Math.round(km(AEROPORTO,pos))+' km</td><td>'+Pc(base.uber)+'</td><td>'+Pc(base.carro)+'</td><td>'+Pc(base.coletivo)+'</td></tr>';
+  h+='<tr><td>Aeroporto ↔ hotel<small>'+(ST.car?'carro: aluguel '+(noites()||ST.car.dias)+' dias + gasolina'+(inclui(h0).estac?' + estacionamento do hotel (US$ '+inclui(h0).estac+'/noite)':inclui(h0).estac===0?' · estacionamento do hotel grátis':''):'')+'</small></td><td>'+Math.round(km(AEROPORTO,pos))+' km</td><td>'+Pc(base.uber)+'</td><td>'+Pc(base.carro)+'</td><td>'+Pc(base.coletivo)+'</td></tr>';
   h+='<tr class="tot"><td>Total ('+ST.sel.size+' passeios)</td><td></td><td>'+Pc(T.uber+base.uber)+'</td><td>'+Pc(T.carro+base.carro)+'</td><td>'+Pc(T.coletivo+base.coletivo)+'</td></tr></table></div>';
   const tot={uber:T.uber+base.uber,carro:T.carro+base.carro,coletivo:T.coletivo+base.coletivo};
   const best=Object.keys(tot).sort((a,b)=>tot[a]-tot[b])[0];
   h+='<div class="msg">💡 Com esse hotel e esses passeios, o mais em conta é <b>'+NOME_MODO[best]+'</b> ('+Pc(tot[best])+' '+UN()+').'+(best!==ST.modo?' Você escolheu '+NOME_MODO[ST.modo]+': '+Pc(tot[ST.modo]-tot[best])+' a mais.':' É a sua escolha atual.')+'</div>';
-  h+='<div class="hint">Verde = mais barato naquele passeio. Uber: UberX estimado (US$ 5,50 + US$ 1/km + US$ 0,30/min). Carro: gasolina da minivan + estacionamento no local; o estacionamento do hotel não está incluído. Ônibus: US$ 2,25 por trecho por pessoa; Metromover e trolleys são grátis. Onde não há linha, o total usa Uber.</div>';
+  h+='<div class="hint">Verde = mais barato naquele passeio. Uber: UberX estimado (US$ 5,50 + US$ 1/km + US$ 0,30/min). Carro: gasolina da minivan + estacionamento no local; o estacionamento do hotel entra na linha Aeroporto ↔ hotel. Ônibus: US$ 2,25 por trecho por pessoa; Metromover e trolleys são grátis. Onde não há linha, o total usa Uber.</div>';
   h+='<div class="links"><a href="https://www.google.com/search?q='+encodeURIComponent("melhores pontos turísticos de Miami")+'" target="_blank" rel="noopener">Mais pontos no Google</a><a href="https://www.tripadvisor.com.br/Attractions-g34438-Activities-Miami_Florida.html" target="_blank" rel="noopener">Tripadvisor Miami</a><a href="https://www.google.com/maps/search/'+encodeURIComponent("pontos turísticos perto de "+h0.hotel+" Miami")+'" target="_blank" rel="noopener">Ver no mapa</a></div>';
   const rt=roteiro(),k=h.lastIndexOf('<div class="links">');h=h.slice(0,k)+rt+h.slice(k);
   $("pontos").innerHTML=h;
@@ -544,9 +571,10 @@ function adicionarHotel(){
   const nome=$("nNome").value.trim(),preco=+$("nPreco").value,nota=+$("nNota").value||0,b=$("nBairro").value,site=$("nSite").value;
   if(!nome||!(preco>0)){$("msgHotel").innerHTML='<div class="msg pior">Preencha o nome e o preço total da estadia.</div>';return}
   const [i,v]=datasEscolhidas();
-  const x={curto:"meu:"+Date.now(),hotel:nome,hotel_sozinho:preco,nota:nota,bairro:b,regiao:b+' · '+dmy(i)+' a '+dmy(v),site:site,fixo:true};
+  const cf=$("nCafe").value,es=$("nEstac").value;
+  const x={curto:"meu:"+Date.now(),cafe:cf===""?null:cf==="1",estac:es===""?null:+es,hotel:nome,hotel_sozinho:preco,nota:nota,bairro:b,regiao:b+' · '+dmy(i)+' a '+dmy(v),site:site,fixo:true};
   MEUS.push(x);ls.set("st_meus",JSON.stringify(MEUS));
-  $("nNome").value=$("nPreco").value=$("nNota").value="";$("addBox").open=false;
+  $("nNome").value=$("nPreco").value=$("nNota").value=$("nEstac").value="";$("nCafe").value="";$("addBox").open=false;
   listaHoteis();escolherHotel(x.curto);
   $("secHotel").scrollIntoView({behavior:"smooth"});
 }
@@ -813,7 +841,7 @@ function renderPacotes(){
   $("pacInfo").innerHTML='Pacotes voo + hotel conferidos na '+esc(P.fonte)+' em '+esc(P.conferido)+' para <b>'+dmy(P.ida)+' a '+dmy(P.volta)+'</b> ('+P.noites+' noites), voo '+esc(P.voo.cia)+' (ida '+esc(P.voo.ida)+'). Somamos as taxas do voo e o deslocamento escolhido no passo 2 ('+NOME_MODO[ST.modo].toLowerCase()+': aeroporto + passeios marcados).'+(mesmas?'':' <b style="color:var(--warn)">Suas datas ('+dmy(i)+' a '+dmy(v)+') são outras: use “Pacote na Decolar” abaixo para ver o preço delas.</b>');
   const X=pacotesCompletos();let h="";
   X.forEach((x,k)=>{const eco=x.separado-x.total;
-    h+='<label class="hotel"><input type="radio" name="pac" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small>✈️🏨 '+Pc(x.base)+' + '+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+Pc(x.mov)+'</small>'+(eco>0?'<span class="eco">✅ '+Pc(eco)+' mais barato que comprar separado</span>':'<span class="eco" style="color:var(--mut)">Separado sai '+Pc(-eco)+' mais barato</span>')+'</span><span class="pr">'+Pc(x.total)+'<small>completo '+UN()+'</small></span></label>';
+    h+='<label class="hotel"><input type="radio" name="pac" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small class="inc">'+txtInclui(x)+'</small><small>✈️🏨 '+Pc(x.base)+' + '+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+Pc(x.mov)+'</small>'+(eco>0?'<span class="eco">✅ '+Pc(eco)+' mais barato que comprar separado</span>':'<span class="eco" style="color:var(--mut)">Separado sai '+Pc(-eco)+' mais barato</span>')+'</span><span class="pr">'+Pc(x.total)+'<small>completo '+UN()+'</small></span></label>';
   });
   $("pacLista").innerHTML=h;
   document.querySelectorAll('input[name=pac]').forEach(r=>r.onchange=()=>escolherPacote(r.value));
@@ -826,6 +854,7 @@ function escolherPacote(c){
   ST.hotel=c;ls.set("st_hotel",c);
   if(a&&b&&a.curto!==b.curto) comparar("msgPac",a.hotel,b.hotel,a.total,b.total,a.nota,b.nota);
   else if(b) $("msgPac").innerHTML='<div class="msg">📦 Escolhido: <b>'+esc(b.hotel)+'</b> · '+Pc(b.total)+' completo '+UN()+'. Ao trocar de pacote, eu digo se a escolha anterior ou a atual foi melhor.</div>';
+  if(b&&$("msgPac").firstChild) $("msgPac").firstChild.insertAdjacentHTML("beforeend",'<div class="hint" style="color:var(--ink)">'+txtInclui(b)+'</div>');
   tabelaPontos();resumo();
 }
 function aplicaPesq(m,silencio){
@@ -847,7 +876,7 @@ function resumo(){
   const voo=ST.voo;
   const mv=h?custoMov(h,ST.modo):null;
   let t='<div><small>✈️ Voo (ida e volta)</small><b>'+(voo!=null?Pc(voo):'—')+'</b>'+(voo==null?'<small>toque em Buscar voos</small>':'')+'</div>';
-  t+='<div><small>🏨 Hotel</small><b>'+(h?Pc(hotelPreco(h)):'escolha')+'</b>'+(h?'<small>'+esc(h.curto)+'</small>':'')+'</div>';
+  t+='<div><small>🏨 Hotel</small><b>'+(h?Pc(hotelPreco(h)):'escolha')+'</b>'+(h?'<small>'+esc(h.curto)+'</small><small>'+txtInclui(h,true)+'</small>':'')+'</div>';
   t+='<div><small>'+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+NOME_MODO[ST.modo]+'</small><b>'+(mv?Pc(mv.v):'—')+'</b><small>aeroporto + '+ST.sel.size+' passeios</small></div>';
   const tot=(voo||0)+(h?hotelPreco(h)+mv.v:0);
   t+='<div><small>📅 Datas do voo</small><b style="font-size:15px">'+(()=>{const [i,v]=datasEscolhidas();return i&&v?dmy(i)+' a '+dmy(v)+' · '+noites()+' noites':'—'})()+'</b></div>';
