@@ -126,8 +126,9 @@
     </div>
     <div class="hint" id="aQuando"></div>
     <label class="chk"><input type="checkbox" id="aIncluir"><span id="aIncluirTxt">Incluir as datas do passo 1 na busca automática</span></label>
+    <label class="chk" id="aRotaBox" style="display:none"><input type="checkbox" id="aRota"><span id="aRotaTxt"></span></label>
     <div class="hint" id="aEstado"></div>
-    <label id="aTokBox" style="display:none;margin-top:10px">Token do GitHub (fica só neste aparelho)<input id="aToken" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+    <label id="aQuemBox" style="margin-top:10px">Seu nome (aparece em “quem mudou”)<input id="aQuem" placeholder="Ex.: Jorge" autocomplete="given-name"></label>
     <div class="btns2"><button class="primary" id="aSalvar">💾 Salvar horários</button><button id="aAgora">🔄 Buscar agora</button></div>
     <div id="aMsg"></div>
   </section>
@@ -508,11 +509,16 @@ function adicionarHotel(){
 }
 
 // ---------- 5. busca automática ----------
-let CFG=null;
+// A configuração compartilhada fica no Apps Script do Jorge (sem token). Para mudar, o aparelho precisa
+// ter aberto uma vez o "link de acesso" (?acesso=CÓDIGO), que fica guardado neste aparelho.
+const REMOTO="https://script.google.com/macros/s/AKfycbxGeD9hMyUXiqVXgS6z4Hrj1FhjaRNbKoaJzaK9SG4lbV98kd98cfi61EsD2Wps_HpV/exec";
+let CFG=null,REM=null;
 const pad=n=>String(n).padStart(2,"0");
 const hojeBR=()=>new Date(Date.now()-3*3600e3).toISOString().slice(0,10);
 const somaDias=n=>{const d=new Date(Date.now()-3*3600e3);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
-const tok=()=>($("aToken").value.trim()||ls.get("gh_token")||"");
+(function(){const q=new URLSearchParams(location.search).get("acesso");if(q){ls.set("st_acesso",q);history.replaceState(null,"",location.pathname)}})();
+const acesso=()=>ls.get("st_acesso")||"";
+const quando_=iso=>{try{return new Date(iso).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}catch(e){return ""}};
 function aQuando(){
   const p=+$("aIntervalo").value,a=+$("aIni").value,b=+$("aFim").value;
   if(a>b) return '<span style="color:var(--err)">O horário inicial precisa ser antes do final.</span>';
@@ -522,64 +528,68 @@ function aQuando(){
 }
 function aEstado(c){
   if(!c) return "";
-  if(c.ativo===false) return "⛔ Busca automática cancelada. Salve para ligar de novo.";
-  if(c.ate&&c.ate<hojeBR()) return "⏹️ Período encerrado em "+dmy(c.ate)+"/"+c.ate.slice(0,4)+". Escolha um novo período e salve.";
-  return "✅ Busca ligada"+(c.ate?" até "+dmy(c.ate)+"/"+c.ate.slice(0,4):", sem prazo")+". Datas acompanhadas: "+((ST.res&&ST.res.datas)||[]).length+".";
+  let t;
+  if(c.ativo===false) t="⛔ Busca automática desligada. Salve para ligar de novo.";
+  else if(c.ate&&c.ate<hojeBR()) t="⏹️ Período encerrado em "+dmy(c.ate)+"/"+c.ate.slice(0,4)+". Escolha um novo período e salve.";
+  else t="✅ Busca ligada"+(c.ate?" até "+dmy(c.ate)+"/"+c.ate.slice(0,4):", sem prazo")+" · rota "+esc(c.origem)+" → "+esc(c.destino)+" · "+((ST.res&&ST.res.datas)||[]).length+" datas acompanhadas.";
+  if(c.mudado) t+=" Última mudança: "+quando_(c.mudado)+(c.quem?" por "+esc(c.quem):"")+".";
+  if(REM&&REM.pedido) t+=" Último “Buscar agora”: "+quando_(REM.pedido)+".";
+  if(ST.res&&ST.res.atualizado) t+=" Última busca feita: "+esc(ST.res.atualizado)+".";
+  return t;
 }
-function jaAcompanha(i,v){const c=CFG&&CFG.datas||{};return ((ST.res&&ST.res.datas)||[]).some(d=>d.ida===i&&d.volta===v)||(c.extras||[]).some(e=>e.ida===i&&e.volta===v)}
+const extrasAtuais=()=>(CFG&&CFG.extras)||[];
+function jaAcompanha(i,v){return ((ST.res&&ST.res.datas)||[]).some(d=>d.ida===i&&d.volta===v)||extrasAtuais().some(e=>e.ida===i&&e.volta===v)}
 function aAtualiza(){
   $("aQuando").innerHTML=aQuando();$("aAteBox").style.display=$("aPeriodo").value==="data"?"":"none";
   const [i,v]=datasEscolhidas(),ja=i&&v&&jaAcompanha(i,v);
   $("aIncluirTxt").innerHTML=i&&v?(ja?'✅ '+dmy(i)+' → '+dmy(v)+' já está na busca automática':'Incluir também <b>'+dmy(i)+' → '+dmy(v)+'</b> (datas do passo 1) na busca automática'):'Escolha as datas no passo 1';
   $("aIncluir").disabled=!!ja||!(i&&v);if(ja)$("aIncluir").checked=false;
-  $("aTokBox").style.display=ls.get("gh_token")?"none":"";
+  const o=$("origem").value.trim().toUpperCase(),d=$("destino").value.trim().toUpperCase(),muda=CFG&&/^[A-Z]{3}$/.test(o)&&/^[A-Z]{3}$/.test(d)&&(o!==CFG.origem||d!==CFG.destino);
+  $("aRotaBox").style.display=muda?"":"none";if(!muda)$("aRota").checked=false;
+  if(muda)$("aRotaTxt").innerHTML='Trocar a rota da busca automática de '+esc(CFG.origem)+' → '+esc(CFG.destino)+' para <b>'+esc(o)+' → '+esc(d)+'</b> (do passo 1)';
+  const pode=!!acesso();
+  $("aSalvar").disabled=$("aAgora").disabled=!pode;$("aQuemBox").style.display=pode?"":"none";
+  if(!pode)$("aMsg").innerHTML='<div class="msg pior">Este aparelho só pode ver os horários. Para mudar, abra uma vez o <b>link de acesso</b> que o Jorge mandou (ele fica guardado neste aparelho).</div>';
 }
 async function carregaCfg(){
-  CFG=await json("config.json");if(!CFG)return;
+  const base=await json("config.json")||{};
+  try{const r=await fetch(REMOTO+"?ts="+Date.now());REM=await r.json()}catch(e){REM=null}
+  CFG=Object.assign({},base,{extras:((base.datas||{}).extras)||[]},(REM&&REM.cfg)||{});
   $("aIntervalo").value=String(CFG.intervalo_horas||2);$("aIni").value=String(CFG.hora_inicio||0);$("aFim").value=String(CFG.hora_fim==null?23:CFG.hora_fim);
   if(CFG.ate){$("aPeriodo").value="data";$("aAte").value=CFG.ate}else $("aPeriodo").value="0";
-  $("aEstado").textContent=aEstado(CFG);aAtualiza();topoBusca();
+  $("aEstado").innerHTML=aEstado(CFG);aAtualiza();topoBusca();
 }
 function topoBusca(){
   if(!CFG)return;const p=+CFG.intervalo_horas;
-  $("topoBusca").textContent="🕒 Busca automática: "+(CFG.ativo===false?"desligada":(p>=24?"1 vez por dia às "+pad(CFG.hora_inicio)+"h":"a cada "+p+" h, das "+pad(CFG.hora_inicio)+"h às "+pad(CFG.hora_fim)+"h")+(CFG.ate?" · até "+dmy(CFG.ate):" · sem prazo"));
+  $("topoBusca").textContent="🕒 Busca automática "+CFG.origem+" → "+CFG.destino+": "+(CFG.ativo===false?"desligada":(p>=24?"1 vez por dia às "+pad(CFG.hora_inicio)+"h":"a cada "+p+" h, das "+pad(CFG.hora_inicio)+"h às "+pad(CFG.hora_fim)+"h")+(CFG.ate?" · até "+dmy(CFG.ate):" · sem prazo"));
 }
-async function gh(path,opts){
-  const t=tok();if(!t)throw new Error("Cole o token do GitHub (o mesmo do painel completo).");
-  ls.set("gh_token",t);
-  const r=await fetch("https://api.github.com/repos/jorgestefani/tenis-jorge-germano"+path,Object.assign({},opts||{},{headers:{"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json","Content-Type":"application/json"}}));
-  if(!r.ok){let m="";try{m=(await r.json()).message}catch(e){}
-    if(r.status===401)throw new Error("Token inválido ou vencido.");
-    if(r.status===403||r.status===404)throw new Error("O token não tem permissão (Contents e Actions: leitura e escrita). "+m);
-    throw new Error("O GitHub respondeu "+r.status+". "+m)}
-  return r;
+async function enviar(corpo){
+  const r=await fetch(REMOTO,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({codigo:acesso(),quem:$("aQuem").value.trim()},corpo))});
+  const d=await r.json();if(!d.ok)throw new Error(d.erro||"não deu certo");return d;
 }
 const aMsg=(t,ok)=>$("aMsg").innerHTML='<div class="msg'+(ok?'':' pior')+'">'+t+'</div>';
 async function aSalvar(){
   const a=+$("aIni").value,b=+$("aFim").value,per=$("aPeriodo").value;
   if(a>b)return aMsg("O horário inicial precisa ser antes do final.");
   if(per==="data"&&!($("aAte").value>=hojeBR()))return aMsg("Escolha o último dia da busca (hoje ou depois).");
+  ls.set("st_quem",$("aQuem").value.trim());
+  const c={intervalo_horas:+$("aIntervalo").value,hora_inicio:a,hora_fim:b,ativo:true,ate:per==="0"?"":per==="data"?$("aAte").value:somaDias(+per),extras:extrasAtuais().slice()};
+  let extra="";const [i,v]=datasEscolhidas();
+  if($("aIncluir").checked&&i&&v&&v>i&&!c.extras.some(e=>e.ida===i&&e.volta===v)){c.extras.push({ida:i,volta:v});extra=" Datas "+dmy(i)+" → "+dmy(v)+" incluídas."}
+  if($("aRota").checked){c.origem=$("origem").value.trim().toUpperCase();c.destino=$("destino").value.trim().toUpperCase();extra+=" Rota trocada para "+c.origem+" → "+c.destino+"."}
   $("aSalvar").disabled=true;aMsg("Salvando…",true);
   try{
-    const cur=await (await gh("/contents/monitor/config.json?ref=main")).json();
-    const c=JSON.parse(decodeURIComponent(escape(atob(cur.content.replace(/\n/g,"")))));
-    c.intervalo_horas=+$("aIntervalo").value;c.hora_inicio=a;c.hora_fim=b;c.ativo=true;
-    c.ate=per==="0"?"":per==="data"?$("aAte").value:somaDias(+per);
-    let extra="";
-    const [i,v]=datasEscolhidas();
-    if($("aIncluir").checked&&i&&v&&v>i){c.datas=c.datas||{};c.datas.extras=c.datas.extras||[];
-      if(!c.datas.extras.some(e=>e.ida===i&&e.volta===v)){c.datas.extras.push({ida:i,volta:v});extra=" Datas "+dmy(i)+" → "+dmy(v)+" incluídas."}}
-    const txt=JSON.stringify(c,null,2)+"\n";
-    await gh("/contents/monitor/config.json",{method:"PUT",body:JSON.stringify({message:"Horários da busca atualizados pela página inicial",content:btoa(unescape(encodeURIComponent(txt))),sha:cur.sha,branch:"main"})});
-    CFG=c;topoBusca();$("aIncluir").checked=false;$("aEstado").textContent=aEstado(c);aAtualiza();
-    aMsg("✅ Salvo. "+aQuando().replace("🕒 ","")+extra+(extra?" Toque em “Buscar agora” para pesquisar já.":""),true);
+    const d=await enviar({acao:"salvar",cfg:c,buscar:!!extra});
+    CFG=Object.assign({},CFG,d.cfg);REM=Object.assign({},REM||{},{pedido:d.pedido});
+    $("aIncluir").checked=$("aRota").checked=false;$("aEstado").innerHTML=aEstado(CFG);aAtualiza();topoBusca();
+    aMsg("✅ Salvo para todos que usam a página. "+aQuando().replace("🕒 ","")+extra+(extra?" Já pedi uma busca: os preços novos aparecem em até 30 minutos.":""),true);
   }catch(e){aMsg(esc(e.message))}
   $("aSalvar").disabled=false;
 }
 async function aAgora(){
-  $("aAgora").disabled=true;aMsg("Disparando a busca…",true);
-  try{await gh("/actions/workflows/monitor.yml/dispatches",{method:"POST",body:JSON.stringify({ref:"main"})});
-    aMsg("✅ Busca disparada. Em 2 a 5 minutos os preços novos aparecem (recarregue a página).",true)}
+  $("aAgora").disabled=true;aMsg("Pedindo a busca…",true);
+  try{const d=await enviar({acao:"buscar"});REM=Object.assign({},REM||{},{pedido:d.pedido});$("aEstado").innerHTML=aEstado(CFG);
+    aMsg("✅ Busca pedida. O GitHub confere os pedidos a cada 30 minutos (às vezes atrasa um pouco). Depois é só recarregar a página.",true)}
   catch(e){aMsg(esc(e.message))}
   $("aAgora").disabled=false;
 }
@@ -678,7 +688,8 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   $("nAdd").onclick=adicionarHotel;
   const hh=[...Array(24).keys()].map(h=>'<option value="'+h+'">'+pad(h)+':00</option>').join("");$("aIni").innerHTML=$("aFim").innerHTML=hh;
   ["aIntervalo","aIni","aFim","aPeriodo"].forEach(k=>$(k).onchange=aAtualiza);
-  $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;
+  $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;$("aQuem").value=ls.get("st_quem")||"";
+  $("origem").oninput=$("destino").oninput=()=>{if(CFG)aAtualiza()};
   carregaCfg();
   document.querySelectorAll('input[name=pesq]').forEach(r=>r.onchange=()=>aplicaPesq(r.value));
   aplicaPesq(ls.get("st_pesq")==="pacote"?"pacote":"separado",true);

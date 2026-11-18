@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Busca passagens no Google Flights (fast-flights) em várias datas (config "datas"), filtra esperas longas,
 grava monitor/resultado.json e (opcional) envia e-mail com as 5 melhores."""
-import json, os, sys, smtplib, traceback
+import json, os, sys, smtplib, traceback, urllib.request
 from datetime import datetime, timedelta, timezone
 from email.mime.text import MIMEText
 from pathlib import Path
 
 HERE = Path(__file__).parent
 BRT = timezone(timedelta(hours=-3))
+# Configuração compartilhada (horários, período, rota, datas extras e "Buscar agora"), gravada pela
+# página inicial no Apps Script do Jorge; config.json continua como base e reserva.
+REMOTO = "https://script.google.com/macros/s/AKfycbxGeD9hMyUXiqVXgS6z4Hrj1FhjaRNbKoaJzaK9SG4lbV98kd98cfi61EsD2Wps_HpV/exec"
 
 
 def dt(sf):
@@ -340,19 +343,54 @@ def busca_ativa(cfg):
     return not ate or datetime.now(BRT).strftime("%Y-%m-%d") <= ate
 
 
-def deve_rodar(cfg):
+def config_remota(cfg):
+    """Sobrepõe ao config.json o que foi salvo pela página. Devolve (cfg, pedido de busca em ISO UTC)."""
+    try:
+        d = json.loads(urllib.request.urlopen(REMOTO, timeout=25).read().decode("utf-8"))
+    except Exception as e:
+        print(f"config remota indisponível ({type(e).__name__}); usando config.json"); return cfg, ""
+    r = d.get("cfg") or {}
+    for k in ("intervalo_horas", "hora_inicio", "hora_fim", "ate", "ativo", "origem", "destino"):
+        if k in r:
+            cfg[k] = r[k]
+    if isinstance(r.get("extras"), list):
+        cfg.setdefault("datas", {})["extras"] = r["extras"]
+    return cfg, d.get("pedido") or ""
+
+
+def ultima_busca():
+    try:
+        a = json.loads((HERE / "resultado.json").read_text(encoding="utf-8")).get("atualizado", "")
+        return datetime.strptime(a, "%d/%m/%Y %H:%M").replace(tzinfo=BRT)
+    except Exception:
+        return None
+
+
+def deve_rodar(cfg, pedido=""):
     if os.getenv("GITHUB_EVENT_NAME") != "schedule":
         return True
+    agora, ult = datetime.now(BRT), ultima_busca()
+    # "Buscar agora" da página: atende se o pedido é mais novo que a última busca e tem menos de 6 h
+    try:
+        ped = datetime.fromisoformat(pedido.replace("Z", "+00:00")) if pedido else None
+    except ValueError:
+        ped = None
+    if ped and (ult is None or ped > ult) and agora - ped < timedelta(hours=6):
+        print("Busca pedida pela página."); return True
     if not busca_ativa(cfg):
         return False
-    h = datetime.now(BRT).hour
+    h = agora.hour
     ini, fim, passo = cfg["hora_inicio"], cfg["hora_fim"], max(1, cfg["intervalo_horas"])
-    return ini <= h <= fim and (h - ini) % passo == 0
+    no_horario = ini <= h <= fim and (h - ini) % passo == 0
+    # o cron roda 2x por hora (:07 e :37); só uma busca por hora programada
+    ja_feita = ult is not None and ult.strftime("%Y%m%d%H") == agora.strftime("%Y%m%d%H")
+    return no_horario and not ja_feita
 
 
 def main():
     cfg = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
-    if not deve_rodar(cfg):
+    cfg, pedido = config_remota(cfg)
+    if not deve_rodar(cfg, pedido):
         print("Busca cancelada, prazo encerrado ou fora do horário; nada a fazer."); return
     res = {"atualizado": datetime.now(BRT).strftime("%d/%m/%Y %H:%M"), "config": cfg}
     try:
