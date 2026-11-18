@@ -67,6 +67,10 @@
   .chk{display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:14px;margin-top:10px}
   .chk input{width:auto;margin:3px 0 0}
   .btns2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .modos.dois{grid-template-columns:1fr 1fr}
+  body[data-pesq=pacote] .soSep,body[data-pesq=pacote] #secHotel{display:none!important}
+  body:not([data-pesq=pacote]) #secPacote{display:none}
+  .eco{font-size:12px;color:var(--ok);display:block}
   .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .links a{flex:1 1 140px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;text-decoration:none;font-size:14px}
   .resumo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -91,7 +95,7 @@
   #intro label{color:#ddd;display:flex;gap:8px;align-items:center;justify-content:center}
   #intro label input{width:auto;margin:0}
   footer{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}
-  @media (max-width:520px){.modos{grid-template-columns:1fr}.modo{display:grid;grid-template-columns:34px 1fr;align-items:center}.modo small{grid-column:2}}
+  @media (max-width:520px){.modos:not(.dois){grid-template-columns:1fr}.modos.dois .modo{display:block}.modo{display:grid;grid-template-columns:34px 1fr;align-items:center}.modo small{grid-column:2}}
 </style>
 </head>
 <body>
@@ -106,8 +110,36 @@
   <div class="marca">
     <div class="logo"><span class="sol">☀️</span><div><div class="nome">Souza<span>stur</span></div><div class="slogan">Viagens e Turismo</div></div></div>
     <div class="viagem">Monte a viagem: voo, locomoção, hotel e passeios</div>
+    <div class="hint" id="topoBusca" style="color:#fff;opacity:.92;margin-top:8px"></div>
     <button id="verVideo">▶︎ Ver o vídeo explicativo</button>
   </div>
+
+  <!-- 5. BUSCA AUTOMÁTICA -->
+  <section id="secAuto">
+    <h2><span class="n">🕒</span> Horário e periodicidade da busca automática</h2>
+    <div class="grid">
+      <label class="full">Pesquisar a cada<select id="aIntervalo"><option value="1">1 hora</option><option value="2">2 horas</option><option value="3">3 horas</option><option value="4">4 horas</option><option value="6">6 horas</option><option value="8">8 horas</option><option value="12">12 horas</option><option value="24">1 vez por dia</option></select></label>
+      <label>A partir das<select id="aIni"></select></label>
+      <label>Até as<select id="aFim"></select></label>
+      <label class="full">Período da busca<select id="aPeriodo"><option value="0">Sem prazo (até cancelar)</option><option value="1">1 dia</option><option value="3">3 dias</option><option value="7">7 dias</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option><option value="data">Até uma data…</option></select></label>
+      <label class="full" id="aAteBox" style="display:none">Pesquisar até o dia<input type="date" id="aAte"></label>
+    </div>
+    <div class="hint" id="aQuando"></div>
+    <label class="chk"><input type="checkbox" id="aIncluir"><span id="aIncluirTxt">Incluir as datas do passo 1 na busca automática</span></label>
+    <div class="hint" id="aEstado"></div>
+    <label id="aTokBox" style="display:none;margin-top:10px">Token do GitHub (fica só neste aparelho)<input id="aToken" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+    <div class="btns2"><button class="primary" id="aSalvar">💾 Salvar horários</button><button id="aAgora">🔄 Buscar agora</button></div>
+    <div id="aMsg"></div>
+  </section>
+
+  <!-- COMO PESQUISAR -->
+  <section id="secModo">
+    <h2><span class="n">?</span> Como pesquisar</h2>
+    <div class="modos dois">
+      <label class="modo"><input type="radio" name="pesq" value="separado" checked><span class="ic">🧩</span><b>Tudo em separado</b><small>Passagem, hotel e deslocamento escolhidos um a um</small></label>
+      <label class="modo"><input type="radio" name="pesq" value="pacote"><span class="ic">📦</span><b>Só pacotes completos</b><small>Passagem + hotel + deslocamento num preço só</small></label>
+    </div>
+  </section>
 
   <!-- 1. VOO -->
   <section id="secVoo">
@@ -118,14 +150,24 @@
       <label>Ida<input type="date" id="ida"></label>
       <label>Volta<input type="date" id="volta"></label>
       <div class="full hint" id="noites"></div>
-      <label>Horário da ida<select id="hIda"></select></label>
-      <label>Horário da volta<select id="hVolta"></select></label>
+      <label class="soSep">Horário da ida<select id="hIda"></select></label>
+      <label class="soSep">Horário da volta<select id="hVolta"></select></label>
       <label class="full">Pessoas<select id="pessoas"><option value="4">2 casais (4 pessoas)</option><option value="2">1 casal (2 pessoas)</option></select></label>
     </div>
     <datalist id="aeros"><option value="FLN">Florianópolis</option><option value="GRU">São Paulo – Guarulhos</option><option value="POA">Porto Alegre</option><option value="CWB">Curitiba</option><option value="NVT">Navegantes</option><option value="MIA">Miami</option><option value="FLL">Fort Lauderdale</option><option value="MCO">Orlando</option></datalist>
     <div class="hint" id="sugestoes"></div>
-    <button class="primary" id="buscarVoo" style="margin-top:12px">✈️ Buscar voos</button>
-    <div id="voos"></div>
+    <button class="primary soSep" id="buscarVoo" style="margin-top:12px">✈️ Buscar voos</button>
+    <div id="voos" class="soSep"></div>
+  </section>
+
+  <!-- PACOTES COMPLETOS -->
+  <section id="secPacote">
+    <h2><span class="n">📦</span> Pacotes completos: passagem + hotel + deslocamento</h2>
+    <div class="hint" id="pacInfo" style="margin:-4px 0 10px"></div>
+    <div class="hoteis" id="pacLista"></div>
+    <div id="msgPac"></div>
+    <div class="hint" style="margin-top:12px">🔎 Pesquisar pacotes em outros sites:</div>
+    <div class="sites" id="sitesPac"></div>
   </section>
 
   <!-- 2. LOCOMOÇÃO -->
@@ -169,24 +211,6 @@
     <h2><span class="n">4</span> Pontos turísticos a partir do hotel</h2>
     <button class="primary" id="pesquisar">🔎 Pesquisar melhores pontos turísticos</button>
     <div id="pontos"></div>
-  </section>
-
-  <!-- 5. BUSCA AUTOMÁTICA -->
-  <section id="secAuto">
-    <h2><span class="n">5</span> Busca automática de voos: horários e período</h2>
-    <div class="grid">
-      <label class="full">Pesquisar a cada<select id="aIntervalo"><option value="1">1 hora</option><option value="2">2 horas</option><option value="3">3 horas</option><option value="4">4 horas</option><option value="6">6 horas</option><option value="8">8 horas</option><option value="12">12 horas</option><option value="24">1 vez por dia</option></select></label>
-      <label>A partir das<select id="aIni"></select></label>
-      <label>Até as<select id="aFim"></select></label>
-      <label class="full">Período da busca<select id="aPeriodo"><option value="0">Sem prazo (até cancelar)</option><option value="1">1 dia</option><option value="3">3 dias</option><option value="7">7 dias</option><option value="15">15 dias</option><option value="30">30 dias</option><option value="60">60 dias</option><option value="data">Até uma data…</option></select></label>
-      <label class="full" id="aAteBox" style="display:none">Pesquisar até o dia<input type="date" id="aAte"></label>
-    </div>
-    <div class="hint" id="aQuando"></div>
-    <label class="chk"><input type="checkbox" id="aIncluir"><span id="aIncluirTxt">Incluir as datas do passo 1 na busca automática</span></label>
-    <div class="hint" id="aEstado"></div>
-    <label id="aTokBox" style="display:none;margin-top:10px">Token do GitHub (fica só neste aparelho)<input id="aToken" type="password" placeholder="github_pat_…" autocomplete="off"></label>
-    <div class="btns2"><button class="primary" id="aSalvar">💾 Salvar horários</button><button id="aAgora">🔄 Buscar agora</button></div>
-    <div id="aMsg"></div>
   </section>
 
   <!-- RESUMO -->
@@ -406,10 +430,12 @@ function listaHoteis(){
   if(h0){const l=sitesHotel(di,dv,h0.hotel).filter(x=>["Hotels.com","Kayak","Trivago"].includes(x[0]));
     $("msgHotelSites").innerHTML='<div class="hint">Conferir o preço de <b>'+esc(h0.hotel)+'</b> em: '+l.map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(" · ")+' · <a href="https://www.google.com/travel/search?q='+encodeURIComponent(h0.hotel+" Miami")+'" target="_blank" rel="noopener">Google Hotéis</a></div>'}
   else $("msgHotelSites").innerHTML="";
+  renderPacotes();
 }
 let MEUS=[];try{MEUS=JSON.parse(ls.get("st_meus")||"[]")}catch(e){MEUS=[]}
 const todos=()=>MEUS.concat(ST.hoteis);
-const hotelDe=c=>todos().find(x=>x.curto===c);
+const hotelDe=c=>todos().find(x=>x.curto===c)||((ST.pac&&ST.pac.pacotes)||[]).find(x=>x.curto===c);
+let PESQ="separado";
 function comparar(alvo,anteriorNome,atualNome,vAnt,vAtu,extraAnt,extraAtu){
   const dif=Math.abs(vAnt-vAtu);
   let t,pior=false;
@@ -512,7 +538,11 @@ async function carregaCfg(){
   CFG=await json("config.json");if(!CFG)return;
   $("aIntervalo").value=String(CFG.intervalo_horas||2);$("aIni").value=String(CFG.hora_inicio||0);$("aFim").value=String(CFG.hora_fim==null?23:CFG.hora_fim);
   if(CFG.ate){$("aPeriodo").value="data";$("aAte").value=CFG.ate}else $("aPeriodo").value="0";
-  $("aEstado").textContent=aEstado(CFG);aAtualiza();
+  $("aEstado").textContent=aEstado(CFG);aAtualiza();topoBusca();
+}
+function topoBusca(){
+  if(!CFG)return;const p=+CFG.intervalo_horas;
+  $("topoBusca").textContent="🕒 Busca automática: "+(CFG.ativo===false?"desligada":(p>=24?"1 vez por dia às "+pad(CFG.hora_inicio)+"h":"a cada "+p+" h, das "+pad(CFG.hora_inicio)+"h às "+pad(CFG.hora_fim)+"h")+(CFG.ate?" · até "+dmy(CFG.ate):" · sem prazo"));
 }
 async function gh(path,opts){
   const t=tok();if(!t)throw new Error("Cole o token do GitHub (o mesmo do painel completo).");
@@ -541,7 +571,7 @@ async function aSalvar(){
       if(!c.datas.extras.some(e=>e.ida===i&&e.volta===v)){c.datas.extras.push({ida:i,volta:v});extra=" Datas "+dmy(i)+" → "+dmy(v)+" incluídas."}}
     const txt=JSON.stringify(c,null,2)+"\n";
     await gh("/contents/monitor/config.json",{method:"PUT",body:JSON.stringify({message:"Horários da busca atualizados pela página inicial",content:btoa(unescape(encodeURIComponent(txt))),sha:cur.sha,branch:"main"})});
-    CFG=c;$("aIncluir").checked=false;$("aEstado").textContent=aEstado(c);aAtualiza();
+    CFG=c;topoBusca();$("aIncluir").checked=false;$("aEstado").textContent=aEstado(c);aAtualiza();
     aMsg("✅ Salvo. "+aQuando().replace("🕒 ","")+extra+(extra?" Toque em “Buscar agora” para pesquisar já.":""),true);
   }catch(e){aMsg(esc(e.message))}
   $("aSalvar").disabled=false;
@@ -554,8 +584,50 @@ async function aAgora(){
   $("aAgora").disabled=false;
 }
 
+// ---------- pacotes completos ----------
+function pacotesCompletos(){
+  const P=ST.pac;if(!P)return[];
+  const tx=(P.voo||{}).taxas_casal||0,av=(P.melhor_avulsa||{}).casal||0;
+  return (P.pacotes||[]).map(x=>{const mv=custoMov(x,ST.modo).v;
+    return Object.assign({},x,{base:x.pacote+tx,mov:mv,total:x.pacote+tx+mv,separado:av+x.hotel_sozinho+mv})}).sort((a,b)=>a.total-b.total);
+}
+function linkPacDecolar(i,v){return "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/"+i+"/"+v+"/CIT_4544/"+i+"/"+v+"/2?from=PSB&nw=true"}
+function renderPacotes(){
+  const P=ST.pac;if(!P||!$("pacLista"))return;
+  const [i,v]=datasEscolhidas(),mesmas=i===P.ida&&v===P.volta;
+  $("pacInfo").innerHTML='Pacotes voo + hotel conferidos na '+esc(P.fonte)+' em '+esc(P.conferido)+' para <b>'+dmy(P.ida)+' a '+dmy(P.volta)+'</b> ('+P.noites+' noites), voo '+esc(P.voo.cia)+' (ida '+esc(P.voo.ida)+'). Somamos as taxas do voo e o deslocamento escolhido no passo 2 ('+NOME_MODO[ST.modo].toLowerCase()+': aeroporto + passeios marcados).'+(mesmas?'':' <b style="color:var(--warn)">Suas datas ('+dmy(i)+' a '+dmy(v)+') são outras: use “Pacote na Decolar” abaixo para ver o preço delas.</b>');
+  const X=pacotesCompletos();let h="";
+  X.forEach((x,k)=>{const eco=x.separado-x.total;
+    h+='<label class="hotel"><input type="radio" name="pac" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small>✈️🏨 '+Pc(x.base)+' + '+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+Pc(x.mov)+'</small>'+(eco>0?'<span class="eco">✅ '+Pc(eco)+' mais barato que comprar separado</span>':'<span class="eco" style="color:var(--mut)">Separado sai '+Pc(-eco)+' mais barato</span>')+'</span><span class="pr">'+Pc(x.total)+'<small>completo '+UN()+'</small></span></label>';
+  });
+  $("pacLista").innerHTML=h;
+  document.querySelectorAll('input[name=pac]').forEach(r=>r.onchange=()=>escolherPacote(r.value));
+  const L=[["Pacote na Decolar",linkPacDecolar(i,v)],["Carro na Booking","https://cars.booking.com/search-results?cor=br&prefcurrency=BRL&preflang=br&locationName=Miami+International+Airport&locationIata=MIA&dropLocationName=Miami+International+Airport&dropLocationIata=MIA&driversAge=40&puDay="+(+i.slice(8))+"&puMonth="+(+i.slice(5,7))+"&puYear="+i.slice(0,4)+"&puMinute=0&puHour=17&doDay="+(+v.slice(8))+"&doMonth="+(+v.slice(5,7))+"&doYear="+v.slice(0,4)+"&doMinute=0&doHour=8&ftsType=A&dropFtsType=A&filterCriteria_carCategory=carriers"],
+    ["Expedia Flórida","https://expedia.com.br/Florida.d836914347931500544.Guia-de-Pacotes"],["Livelo pacotes","https://www.livelo.com.br/viagens/pacotes"],["Melhores Destinos","https://www.melhoresdestinos.com.br/pacotes-de-viagem"],["LATAM hotéis","https://www.latamairlines.com/br/pt/hoteis/hoteis-miami"]];
+  if(i&&v)$("sitesPac").innerHTML=L.map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+l[0]+'</a>').join("");
+}
+function escolherPacote(c){
+  const X=pacotesCompletos(),a=X.find(x=>x.curto===ST.hotel),b=X.find(x=>x.curto===c);
+  ST.hotel=c;ls.set("st_hotel",c);
+  if(a&&b&&a.curto!==b.curto) comparar("msgPac",a.hotel,b.hotel,a.total,b.total,a.nota,b.nota);
+  else if(b) $("msgPac").innerHTML='<div class="msg">📦 Escolhido: <b>'+esc(b.hotel)+'</b> · '+Pc(b.total)+' completo '+UN()+'. Ao trocar de pacote, eu digo se a escolha anterior ou a atual foi melhor.</div>';
+  tabelaPontos();resumo();
+}
+function aplicaPesq(m,silencio){
+  PESQ=m;ls.set("st_pesq",m);document.body.dataset.pesq=m;
+  document.querySelectorAll('input[name=pesq]').forEach(r=>r.checked=r.value===m);
+  renderPacotes();resumo();
+}
+
 // ---------- resumo ----------
 function resumo(){
+  if(PESQ==="pacote"){
+    const x=pacotesCompletos().find(p=>p.curto===ST.hotel);
+    let t='<div><small>📦 Pacote voo + hotel</small><b>'+(x?Pc(x.base):'escolha')+'</b>'+(x?'<small>'+esc(x.curto)+' · com taxas do voo</small>':'')+'</div>';
+    t+='<div><small>'+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' Deslocamento</small><b>'+(x?Pc(x.mov):'—')+'</b><small>'+NOME_MODO[ST.modo]+' · aeroporto + '+ST.sel.size+' passeios</small></div>';
+    t+='<div class="tt"><small>Pacote completo '+UN()+'</small><b>'+(x?Pc(x.total):'escolha um pacote')+'</b></div>';
+    $("resumo").innerHTML=t;return;
+  }
   const h=hotelDe(ST.hotel);
   const voo=ST.voo;
   const mv=h?custoMov(h,ST.modo):null;
@@ -608,6 +680,8 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   ["aIntervalo","aIni","aFim","aPeriodo"].forEach(k=>$(k).onchange=aAtualiza);
   $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;
   carregaCfg();
+  document.querySelectorAll('input[name=pesq]').forEach(r=>r.onchange=()=>aplicaPesq(r.value));
+  aplicaPesq(ls.get("st_pesq")==="pacote"?"pacote":"separado",true);
   if(hotelDe(ST.hotel)) tabelaPontos();
   $("pesquisar").onclick=()=>{tabelaPontos();$("pontos").scrollIntoView({behavior:"smooth",block:"start"})};
   $("dolar").onchange=()=>{ls.set("st_dolar",$("dolar").value);listaHoteis();if(ST.pontos)tabelaPontos();resumo()};
