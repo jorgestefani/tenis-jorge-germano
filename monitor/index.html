@@ -71,6 +71,19 @@
   body[data-pesq=pacote] .soSep,body[data-pesq=pacote] #secHotel{display:none!important}
   body:not([data-pesq=pacote]) #secPacote{display:none}
   .eco{font-size:12px;color:var(--ok);display:block}
+  #barraDia{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -4px 14px rgba(0,0,0,.15);padding:8px 14px calc(8px + env(safe-area-inset-bottom));cursor:pointer}
+  #barraDia .in{max-width:640px;margin:0 auto;font-size:14px}
+  #barraDia .tr{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:5px;position:relative}
+  #barraDia .tr i{display:block;height:100%;background:var(--ok)}
+  #barraDia.estoura .tr i{background:var(--err)}
+  #barraDia.estoura b.st{color:var(--err)}
+  body.comBarra main{padding-bottom:110px}
+  .rot{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+  .rot td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+  .rot td.h{white-space:nowrap;color:var(--mut);font-variant-numeric:tabular-nums;width:92px}
+  .rot tr.vis td{font-weight:600}
+  .rot tr.fora td{color:var(--err)}
+  .rot tr.dia td{background:var(--sel);font-weight:700}
   .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .links a{flex:1 1 140px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;text-decoration:none;font-size:14px}
   .resumo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -224,6 +237,7 @@
 
   <div class="links"><a href="painel.html">📊 Painel completo de preços</a></div>
   <footer>Souzastur · Desenvolvido por Jorge Stefani</footer>
+  <div id="barraDia" role="status" aria-live="polite"><div class="in" id="barraIn"></div></div>
 </main>
 
 <script>
@@ -295,6 +309,10 @@ const PONTOS=[
   {n:"Everglades · airboat",d:"Passeio de barco no pântano",lat:25.7580,lng:-80.5740,estac:0,col:null,ct:"Sem transporte coletivo"},
   {n:"Fort Lauderdale Beach",d:"Praia e canais",lat:26.1220,lng:-80.1040,estac:15,col:12,ct:"Tri-Rail ou Brightline + ônibus"}
 ];
+// horas de visita típicas (sem contar o deslocamento)
+const VISITA=[3,2,2,1.5,1.5,2,3,3,3,4,3,3];
+PONTOS.forEach((p,i)=>p.h=VISITA[i]||2);
+const DIA_INI=8*60,DIA_FIM=20*60;   // dia de passeio: 8h às 20h
 const HORARIOS=[["qualquer","Qualquer horário",0,24],["madrugada","Madrugada (0h–6h)",0,6],["manha","Manhã (6h–12h)",6,12],["tarde","Tarde (12h–18h)",12,18],["noite","Noite (18h–24h)",18,24]];
 
 const ST={res:null,pac:null,car:null,hoteis:[],modo:"carro",hotel:null,pontos:false,sel:new Set(PONTOS.map((p,i)=>i).filter(i=>i<8)),voo:null};
@@ -473,7 +491,7 @@ function escolherModo(m,silencio){
 function tabelaPontos(){
   ST.pontos=true;
   const h0=hotelDe(ST.hotel);
-  if(!h0){$("pontos").innerHTML='<div class="msg pior">Escolha um hotel no passo 3 para eu calcular os preços a partir dele.</div>';return}
+  if(!h0){$("pontos").innerHTML='<div class="msg pior">Escolha um hotel no passo 3 (ou um pacote) para eu calcular preços e tempos a partir dele.</div>';$("barraDia").style.display="none";document.body.classList.remove("comBarra");return}
   const pos=hotelPos(h0);
   let h='<div class="msg">📍 Saindo do <b>'+esc(h0.hotel)+'</b>. Valores <b>ida e volta, '+UN()+'</b>. Marque os passeios que vão fazer: o total e a comparação de hotéis usam só os marcados.</div>';
   h+='<div class="rolar"><table class="tab"><tr><th>✓ Passeio</th><th>Dist.</th><th>🚕 Uber</th><th>🚗 Carro</th><th>🚌 Ônibus</th></tr>';
@@ -483,7 +501,7 @@ function tabelaPontos(){
     if(on){T.uber+=u.v;T.carro+=c.v;T.coletivo+=(o.v==null?u.v:o.v)}
     const vals=[["uber",u.v],["carro",c.v],["coletivo",o.v]].filter(x=>x[1]!=null),min=Math.min(...vals.map(x=>x[1]));
     const cel=(m,x,extra)=>'<td>'+(x.v==null?'—<small>sem linha</small>':(Math.abs(x.v-min)<1?'<b class="bom">'+Pc(x.v)+'</b>':Pc(x.v))+'<small>'+x.t+' min'+(extra||'')+'</small>')+'</td>';
-    h+='<tr><td><label style="color:var(--ink);font-size:14px;display:flex;gap:6px;align-items:flex-start"><input type="checkbox" data-p="'+i+'"'+(on?' checked':'')+' style="width:auto;margin:3px 0 0"><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+'</small><small>🚌 '+esc(p.ct)+'</small></span></label></td><td>'+Math.round(k)+' km</td>'+cel("uber",u)+cel("carro",c,p.estac?' · estac. US$ '+p.estac:'')+cel("coletivo",o)+'</tr>';
+    h+='<tr><td><label style="color:var(--ink);font-size:14px;display:flex;gap:6px;align-items:flex-start"><input type="checkbox" data-p="'+i+'"'+(on?' checked':'')+' style="width:auto;margin:3px 0 0"><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+' · ⏱️ '+dur(p.h*60)+' de visita</small><small>🚌 '+esc(p.ct)+'</small></span></label></td><td>'+Math.round(k)+' km</td>'+cel("uber",u)+cel("carro",c,p.estac?' · estac. US$ '+p.estac:'')+cel("coletivo",o)+'</tr>';
   });
   const base={uber:custoBase(h0,"uber"),carro:custoBase(h0,"carro"),coletivo:custoBase(h0,"coletivo")};
   h+='<tr><td>Aeroporto ↔ hotel<small>'+(ST.car?'carro: aluguel '+(noites()||ST.car.dias)+' dias + gasolina':'')+'</small></td><td>'+Math.round(km(AEROPORTO,pos))+' km</td><td>'+Pc(base.uber)+'</td><td>'+Pc(base.carro)+'</td><td>'+Pc(base.coletivo)+'</td></tr>';
@@ -493,6 +511,7 @@ function tabelaPontos(){
   h+='<div class="msg">💡 Com esse hotel e esses passeios, o mais em conta é <b>'+NOME_MODO[best]+'</b> ('+Pc(tot[best])+' '+UN()+').'+(best!==ST.modo?' Você escolheu '+NOME_MODO[ST.modo]+': '+Pc(tot[ST.modo]-tot[best])+' a mais.':' É a sua escolha atual.')+'</div>';
   h+='<div class="hint">Verde = mais barato naquele passeio. Uber: UberX estimado (US$ 5,50 + US$ 1/km + US$ 0,30/min). Carro: gasolina da minivan + estacionamento no local; o estacionamento do hotel não está incluído. Ônibus: US$ 2,25 por trecho por pessoa; Metromover e trolleys são grátis. Onde não há linha, o total usa Uber.</div>';
   h+='<div class="links"><a href="https://www.google.com/search?q='+encodeURIComponent("melhores pontos turísticos de Miami")+'" target="_blank" rel="noopener">Mais pontos no Google</a><a href="https://www.tripadvisor.com.br/Attractions-g34438-Activities-Miami_Florida.html" target="_blank" rel="noopener">Tripadvisor Miami</a><a href="https://www.google.com/maps/search/'+encodeURIComponent("pontos turísticos perto de "+h0.hotel+" Miami")+'" target="_blank" rel="noopener">Ver no mapa</a></div>';
+  const rt=roteiro(),k=h.lastIndexOf('<div class="links">');h=h.slice(0,k)+rt+h.slice(k);
   $("pontos").innerHTML=h;
   document.querySelectorAll('#pontos input[data-p]').forEach(c=>c.onchange=()=>{const i=+c.dataset.p;c.checked?ST.sel.add(i):ST.sel.delete(i);ls.set("st_sel",[...ST.sel].join(","));tabelaPontos();listaHoteis();resumo()});
 }
@@ -593,6 +612,66 @@ async function aAgora(){
   catch(e){aMsg(esc(e.message))}
   $("aAgora").disabled=false;
 }
+
+// ---------- roteiro do dia ----------
+const hm=m=>{m=Math.round(m);return pad(Math.floor(m/60)%24)+":"+pad(m%60)};
+const dur=m=>{m=Math.round(m);const h=Math.floor(m/60),r=m%60;return h?h+"h"+(r?pad(r):""):r+" min"};
+function minDesl(a,b,pos){   // minutos de deslocamento entre dois lugares no modo escolhido
+  const k=km(a,b),t=minutos(k);
+  if(ST.modo!=="coletivo") return t;
+  return Math.round(t*(pos.acesso==="bom"?1.6:pos.acesso==="médio"?2.3:2.8));
+}
+function custoRota(r,pos){let t=0,ant=pos;for(const i of r){t+=minDesl(ant,PONTOS[i],pos);ant=PONTOS[i]}return t+minDesl(ant,pos,pos)}
+function melhorOrdem(idx,pos){   // vizinho mais próximo + 2-opt, saindo e voltando ao hotel
+  let r=[],rest=idx.slice(),ant=pos;
+  while(rest.length){rest.sort((a,b)=>minDesl(ant,PONTOS[a],pos)-minDesl(ant,PONTOS[b],pos));const n=rest.shift();r.push(n);ant=PONTOS[n]}
+  let melhorou=true;
+  while(melhorou){melhorou=false;
+    for(let i=0;i<r.length-1;i++)for(let j=i+1;j<r.length;j++){
+      const c=r.slice(0,i).concat(r.slice(i,j+1).reverse(),r.slice(j+1));
+      if(custoRota(c,pos)<custoRota(r,pos)-0.5){r=c;melhorou=true}}}
+  return r;
+}
+function planoDia(r,pos,ini){   // linhas do roteiro com horários
+  let t=ini,ant=pos;const L=[];
+  for(const i of r){const p=PONTOS[i],d=minDesl(ant,p,pos);
+    L.push({tipo:"ida",txt:"Deslocamento até "+p.n,ini:t,fim:t+d});t+=d;
+    L.push({tipo:"vis",txt:p.n,ini:t,fim:t+p.h*60,i:i});t+=p.h*60;ant=p}
+  const v=minDesl(ant,pos,pos);L.push({tipo:"ida",txt:"Volta ao hotel",ini:t,fim:t+v});t+=v;
+  return {L:L,fim:t,total:t-ini,desl:L.filter(x=>x.tipo==="ida").reduce((a,x)=>a+x.fim-x.ini,0)};
+}
+function dividirDias(r,pos){   // corta o roteiro em dias de 8h às 20h, na ordem otimizada
+  const dias=[];let cur=[];
+  for(const i of r){const tent=cur.concat([i]);
+    if(cur.length&&planoDia(melhorOrdem(tent,pos),pos,DIA_INI).fim>DIA_FIM){dias.push(melhorOrdem(cur,pos));cur=[i]}else cur=tent}
+  if(cur.length)dias.push(melhorOrdem(cur,pos));
+  return dias;
+}
+function roteiro(){
+  const h0=hotelDe(ST.hotel),idx=[...ST.sel];
+  if(!h0||!ST.pontos){$("barraDia").style.display="none";document.body.classList.remove("comBarra");return ""}
+  const pos=hotelPos(h0),cap=DIA_FIM-DIA_INI;
+  document.body.classList.add("comBarra");$("barraDia").style.display="block";
+  if(!idx.length){$("barraDia").classList.remove("estoura");$("barraIn").innerHTML='⏱️ <b>Dia de passeio: 8h às 20h</b> · marque os passeios na tabela para somar o tempo.';return ""}
+  const r=melhorOrdem(idx,pos),P=planoDia(r,pos,DIA_INI),cabe=P.fim<=DIA_FIM,sobra=DIA_FIM-P.fim;
+  const visita=P.total-P.desl;
+  $("barraDia").classList.toggle("estoura",!cabe);
+  $("barraIn").innerHTML='⏱️ <b>'+dur(P.total)+'</b> de 12h ('+idx.length+' passeios: '+dur(visita)+' de visita + '+dur(P.desl)+' de '+({carro:'carro',uber:'Uber',coletivo:'ônibus'}[ST.modo])+') · <b class="st">'+(cabe?'✅ cabe no dia'+(sobra>=60?' · sobram '+dur(sobra):''):'⚠️ não cabe em um dia só (passa das 20h em '+dur(-sobra)+')')+'</b> <span style="color:var(--acc)">ver roteiro ↓</span><div class="tr"><i style="width:'+Math.min(100,P.total/cap*100)+'%"></i></div>';
+  let h='<h3 id="roteiro" style="font-size:15px;margin:16px 0 4px">🗺️ Roteiro sugerido (sem ir e voltar)</h3>';
+  h+='<div class="hint">Ordem que faz o menor caminho saindo do <b>'+esc(h0.hotel)+'</b> e voltando para ele, no dia das 8h às 20h. Tempos de visita são médios; o deslocamento é estimado para '+NOME_MODO[ST.modo].toLowerCase()+'.</div>';
+  const tab=(P,tit)=>{let t='<table class="rot">'+(tit?'<tr class="dia"><td colspan="2">'+tit+'</td></tr>':'');
+    t+='<tr><td class="h">'+hm(P.L[0].ini)+'</td><td>Saída do hotel</td></tr>';
+    for(const x of P.L)t+='<tr class="'+(x.tipo==="vis"?'vis':'')+(x.fim>DIA_FIM?' fora':'')+'"><td class="h">'+hm(x.ini)+'–'+hm(x.fim)+'</td><td>'+(x.tipo==="vis"?'📍 '+esc(x.txt)+' <small style="font-weight:400;color:var(--mut)">('+dur(x.fim-x.ini)+')</small>':'<span style="color:var(--mut)">'+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+esc(x.txt)+' · '+dur(x.fim-x.ini)+'</span>')+'</td></tr>';
+    return t+'</table>'};
+  if(cabe){h+=tab(P);h+='<div class="msg">✅ Cabe em um dia: volta ao hotel às <b>'+hm(P.fim)+'</b>.'+(sobra>=90?' Ainda dá para encaixar um passeio curto (até '+dur(sobra-30)+' com o deslocamento).':'')+'</div>'}
+  else{
+    const D=dividirDias(r,pos);
+    h+='<div class="msg pior">⚠️ <b>Em um dia só não é possível:</b> são '+dur(P.total)+' e o dia tem 12h (8h às 20h). Sugestão: dividir em <b>'+D.length+' dias</b>, agrupando os passeios que ficam perto uns dos outros:</div>';
+    D.forEach((d,k)=>{const Pd=planoDia(d,pos,DIA_INI);h+=tab(Pd,'Dia '+(k+1)+' · '+d.length+' passeio'+(d.length>1?'s':'')+' · volta às '+hm(Pd.fim)+(Pd.fim>DIA_FIM?' (passa das 20h: este passeio sozinho já é longo)':''))});
+  }
+  return h;
+}
+$("barraDia").onclick=()=>{const e=$("roteiro");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})};
 
 // ---------- pacotes completos ----------
 function pacotesCompletos(){
