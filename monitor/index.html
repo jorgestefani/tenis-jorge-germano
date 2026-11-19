@@ -909,12 +909,13 @@ const PASSOS_TOUR=[
   async()=>{await radio('input[name=pesq][value=separado]');await escolhe("ida","2027-02-17");await tocar("#buscarVoo");await tocar("#voos .opt",()=>{})},
   async()=>{await radio('input[name=modo][value=uber]');await radio('input[name=unid][value=pessoa]');await radio('input[name=unid][value=casal]');await radio('input[name=modo][value=carro]')},
   async()=>{await radio('input[name=hotel][value="'+ST.hoteis[0].curto+'"]');await radio('input[name=hotel][value="Tru Hilton Brickell"]');await tocar("#msgHotel",()=>{})},
+  async()=>{const sm=()=>document.querySelector('input[name=hotel][value="Tru Hilton Brickell"]').closest("label").querySelector("details.bk>summary");await tocar(sm());await dorme(500);const c=sm().parentNode.querySelector(".bkC");if(c)await tocar(c.querySelector(".bkL"),()=>{});await dorme(1500);const p=sm().parentNode.querySelectorAll(".bkL");if(p[2])await tocar(p[2],()=>{});await dorme(1200);await tocar(sm())},
   async()=>{ST.sel=new Set();ls.set("st_sel","");await tocar("#pesquisar");for(const i of [0,1,2,3,4,5]){await tocar('#pontos input[data-p="'+i+'"]');await dorme(250)}},
   async()=>{await tocar("#btSim");SIM.vel=3;await dorme(5200);fecharSim()},
   async()=>{await tocar("#secResumo",()=>{});await dorme(400)}
 ];
 async function tour(durs){window.TOURING=true;   // durs = segundos mínimos de cada passo (tamanho da narração)
-  const T=[];for(let i=0;i<PASSOS_TOUR.length;i++){const t0=performance.now();await PASSOS_TOUR[i]();
+  const T=[];for(let i=0;i<PASSOS_TOUR.length;i++){window.TOUR_I=i;const t0=performance.now();await PASSOS_TOUR[i]();
     const resto=(durs[i]||0)*1000-(performance.now()-t0);if(resto>0)await dorme(resto);T.push(Math.round(performance.now()-t0))}
   const d=$("dedo");if(d)d.style.display="none";window.TOUR_T=T;return T;
 }
