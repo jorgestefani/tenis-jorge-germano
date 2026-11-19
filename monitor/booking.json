@@ -1,0 +1,308 @@
+{
+ "conferido": "19/11/2026",
+ "fonte": "Booking.com (avaliações de hóspedes)",
+ "checkin": "2027-02-17",
+ "checkout": "2027-02-25",
+ "adultos": 2,
+ "hoteis": {
+  "Spark Hilton": {
+   "url": "https://www.booking.com/hotel/us/baymont-inn-suites-miami.pt-br.html",
+   "nota": 8.2,
+   "conceito": "Muito bom",
+   "avaliacoes": 829,
+   "itens": {
+    "Funcionários": 8.5,
+    "Comodidades": 8.2,
+    "Limpeza": 8.5,
+    "Conforto": 8.5,
+    "Custo-benefício": 8.1,
+    "Localização": 8.8,
+    "WiFi gratuito": 8.4
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Continental",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "Discover"
+   ],
+   "dinheiro": "",
+   "caucao_usd": 50,
+   "preco_booking": 7867
+  },
+  "Palms Inn": {
+   "url": "https://www.booking.com/hotel/us/country-inn-suites-miami.pt-br.html",
+   "nota": 8.2,
+   "conceito": "Muito bom",
+   "avaliacoes": 2840,
+   "itens": {
+    "Funcionários": 8.9,
+    "Comodidades": 8.1,
+    "Limpeza": 8.5,
+    "Conforto": 8.5,
+    "Custo-benefício": 8.2,
+    "Localização": 8.9,
+    "WiFi gratuito": 8.1
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Continental",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Discover"
+   ],
+   "dinheiro": "",
+   "caucao_usd": 500,
+   "preco_booking": 8349
+  },
+  "Palm Tree Club": {
+   "url": "https://www.booking.com/hotel/us/on-the-bay-inn-marina.pt-br.html",
+   "nota": 6.3,
+   "conceito": "Satisfatório",
+   "avaliacoes": 725,
+   "itens": {
+    "Funcionários": 7.5,
+    "Comodidades": 6.3,
+    "Limpeza": 6.8,
+    "Conforto": 6.8,
+    "Custo-benefício": 6.6,
+    "Localização": 7.6,
+    "WiFi gratuito": 8.5
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Continental",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Discover",
+    "Carte Blanche"
+   ],
+   "dinheiro": "",
+   "caucao_usd": null,
+   "preco_booking": 6728
+  },
+  "Comfort Kendall": {
+   "url": "https://www.booking.com/hotel/us/comfort-suites-miami.pt-br.html",
+   "nota": 8.4,
+   "conceito": "Muito bom",
+   "avaliacoes": 901,
+   "itens": {
+    "Funcionários": 8.6,
+    "Comodidades": 8.4,
+    "Limpeza": 8.6,
+    "Conforto": 8.7,
+    "Custo-benefício": 8.3,
+    "Localização": 8.8,
+    "WiFi gratuito": 8.9
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Americano",
+   "cafe_obs": "Café da manhã muito bom incluído · Não reembolsável",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Discover",
+    "Carte Blanche"
+   ],
+   "dinheiro": "não aceita dinheiro",
+   "caucao_usd": 150,
+   "preco_booking": 7926
+  },
+  "Element Doral": {
+   "url": "https://www.booking.com/hotel/us/element-miami-doral.pt-br.html",
+   "nota": 8.4,
+   "conceito": "Muito bom",
+   "avaliacoes": 709,
+   "itens": {
+    "Funcionários": 8.7,
+    "Comodidades": 8.5,
+    "Limpeza": 8.7,
+    "Conforto": 8.8,
+    "Custo-benefício": 8.2,
+    "Localização": 8.7,
+    "WiFi gratuito": 8.4
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Inglês/irlandês completo, Americano",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Discover",
+    "Cartão de crédito UnionPay"
+   ],
+   "dinheiro": "",
+   "caucao_usd": null,
+   "preco_booking": 11032
+  },
+  "Hyatt Place Doral": {
+   "url": "https://www.booking.com/hotel/us/hyatt-place-miami.pt-br.html",
+   "nota": 7.8,
+   "conceito": "Bom",
+   "avaliacoes": 1912,
+   "itens": {
+    "Funcionários": 8.4,
+    "Comodidades": 7.8,
+    "Limpeza": 8.1,
+    "Conforto": 8.2,
+    "Custo-benefício": 7.8,
+    "Localização": 8.6,
+    "WiFi gratuito": 8.2
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã · Continental, Americano",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Maestro",
+    "Discover",
+    "Carte Blanche",
+    "Cartão de crédito UnionPay"
+   ],
+   "dinheiro": "",
+   "caucao_usd": null,
+   "preco_booking": 10395
+  },
+  "Hilton Blue Lagoon": {
+   "url": "https://www.booking.com/hotel/us/hilton-miami-airport.pt-br.html",
+   "nota": 7.7,
+   "conceito": "Bom",
+   "avaliacoes": 3340,
+   "itens": {
+    "Funcionários": 8.3,
+    "Comodidades": 7.8,
+    "Limpeza": 8.2,
+    "Conforto": 8.3,
+    "Custo-benefício": 7.5,
+    "Localização": 8.7
+   },
+   "estacionamento": "privativo no hotel (pago)",
+   "cafe": "tem café da manhã · Continental, Inglês/irlandês completo",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Discover"
+   ],
+   "dinheiro": "não aceita dinheiro",
+   "caucao_usd": 50,
+   "preco_booking": 12661
+  },
+  "Tru Hilton Brickell": {
+   "url": "https://www.booking.com/hotel/us/tru-by-hilton-miami-west-brickell.pt-br.html",
+   "nota": 8.5,
+   "conceito": "Muito bom",
+   "avaliacoes": 1907,
+   "itens": {
+    "Funcionários": 8.9,
+    "Comodidades": 8.7,
+    "Limpeza": 8.9,
+    "Conforto": 9,
+    "Custo-benefício": 8.4,
+    "Localização": 8.6,
+    "WiFi gratuito": 8.4
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Discover",
+    "Cartão de débito UnionPay",
+    "Cartão de crédito UnionPay"
+   ],
+   "dinheiro": "não aceita dinheiro",
+   "caucao_usd": 45,
+   "preco_booking": 12885
+  },
+  "La Quinta Aerop.": {
+   "url": "https://www.booking.com/hotel/us/la-quinta-miami-airport-east.pt-br.html",
+   "nota": 5.4,
+   "conceito": "Aceitável",
+   "avaliacoes": 2234,
+   "itens": {
+    "Funcionários": 6.8,
+    "Comodidades": 5.6,
+    "Limpeza": 5.9,
+    "Conforto": 6,
+    "Custo-benefício": 5.9,
+    "Localização": 7.3
+   },
+   "estacionamento": "grátis no hotel",
+   "cafe": "tem café da manhã",
+   "cafe_obs": "Café da manhã incluído no preço · Cancelamento grátis antes de 16 de fevereiro de 2027",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Maestro",
+    "Discover",
+    "Carte Blanche",
+    "Cartão de crédito UnionPay"
+   ],
+   "dinheiro": "",
+   "caucao_usd": null,
+   "preco_booking": 6866
+  },
+  "The Elser": {
+   "url": "https://www.booking.com/hotel/us/the-elser-and-residences-miami.pt-br.html",
+   "nota": 8.5,
+   "conceito": "Muito bom",
+   "avaliacoes": 6080,
+   "itens": {
+    "Funcionários": 8.5,
+    "Comodidades": 9,
+    "Limpeza": 8.9,
+    "Conforto": 8.9,
+    "Custo-benefício": 8.3,
+    "Localização": 9.3,
+    "WiFi gratuito": 8.6
+   },
+   "estacionamento": "privativo no hotel (pago)",
+   "cafe": "tem café da manhã",
+   "cafe_obs": "",
+   "cartoes": [
+    "American Express",
+    "Visa",
+    "Mastercard",
+    "Diners",
+    "JCB",
+    "Maestro",
+    "Discover",
+    "Carte Blanche",
+    "Cartão de crédito UnionPay"
+   ],
+   "dinheiro": "não aceita dinheiro",
+   "caucao_usd": 250,
+   "preco_booking": 18028
+  }
+ }
+}

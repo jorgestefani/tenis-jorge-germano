@@ -72,6 +72,14 @@
   body:not([data-pesq=pacote]) #secPacote{display:none}
   .hotel small.inc{color:var(--ink);opacity:.9;margin-top:2px}
   .hotel small.inc b{color:var(--warn)}
+  details.bk{margin-top:6px;font-size:13px;font-weight:400}
+  details.bk summary{cursor:pointer;color:var(--acc);list-style:revert}
+  .bkC{margin-top:6px;display:grid;gap:4px}
+  .bkI{display:grid;grid-template-columns:110px 1fr 30px;gap:6px;align-items:center}
+  .bkI i{height:8px;border-radius:4px;background:var(--line);overflow:hidden;display:block}
+  .bkI u{display:block;height:100%}
+  .bkI b{text-align:right}
+  .bkL{line-height:1.4}
   .eco{font-size:12px;color:var(--ok);display:block}
   #barraDia{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -4px 14px rgba(0,0,0,.15);padding:8px 14px calc(8px + env(safe-area-inset-bottom));cursor:pointer}
   #barraDia .in{max-width:640px;margin:0 auto;font-size:14px}
@@ -315,7 +323,8 @@ const BAIRROS={
 };
 function sitesHotel(i,v,nome){
   const q=encodeURIComponent((nome?nome+" ":"")+"Miami");
-  return [["Decolar","https://www.decolar.com/accommodations/results/CIT_4544/"+i+"/"+v+"/2"],
+  return [["Booking","https://www.booking.com/searchresults.pt-br.html?ss="+q+"&checkin="+i+"&checkout="+v+"&group_adults=2&no_rooms=1&group_children=0"],
+    ["Decolar","https://www.decolar.com/accommodations/results/CIT_4544/"+i+"/"+v+"/2"],
     ["LATAM Travel","https://www.latamairlines.com/br/pt/hoteis/hoteis-miami"],
     ["Trivago","https://www.trivago.com.br/pt-BR/srl?search=Miami&query="+q+"&dr="+i.replace(/-/g,"")+"-"+v.replace(/-/g,"")+"&rms=2"],
     ["Hotels.com","https://pt.hotels.com/Hotel-Search?destination="+q+"&startDate="+i+"&endDate="+v+"&adults=2&rooms=1"],
@@ -337,6 +346,24 @@ const INCLUI={
   "Tru Hilton Brickell":{cafe:true,estac:35,estacObs:"só valet"},
   "The Elser":{cafe:false,cafeObs:"~US$ 25–50 por pessoa",estac:75,estacObs:"valet"}
 };
+// Avaliações dos hóspedes no Booking (booking.json, conferido à mão pelo Chrome)
+const bk=h=>ST.bk&&ST.bk.hoteis&&ST.bk.hoteis[h.curto]||null;
+const n1=x=>String(x).replace(".",",");
+function bkHTML(h){
+  const b=bk(h);
+  if(!b)return h.fixo?'':'<details class="bk"><summary>⭐ Booking: sem avaliações deste hotel</summary></details>';
+  const cor=v=>v>=8.5?"var(--ok)":v>=7.5?"var(--acc)":v>=6.5?"var(--warn)":"var(--err)";
+  const itens=Object.entries(b.itens||{}).map(([k,v])=>'<div class="bkI"><span>'+esc(k.replace("WiFi gratuito","Wi-Fi"))+'</span><i><u style="width:'+(v*10)+'%;background:'+cor(v)+'"></u></i><b>'+n1(v)+'</b></div>').join("");
+  const preco=b.preco_booking?(' · '+Pc(b.preco_booking*fator())+' '+UN()):"";
+  return '<details class="bk"><summary>⭐ Booking <b>'+n1(b.nota)+'</b> '+esc(b.conceito)+' · '+(b.avaliacoes||0).toLocaleString("pt-BR")+' avaliações'+preco+'</summary>'+
+    '<div class="bkC">'+itens+
+    '<div class="bkL">🅿️ <b>Estacionamento:</b> '+esc(b.estacionamento)+'</div>'+
+    '<div class="bkL">☕ <b>Café da manhã:</b> '+esc(b.cafe)+(b.cafe_obs?' ('+esc(b.cafe_obs.split(" · ")[0].toLowerCase())+' em algumas tarifas)':'')+'</div>'+
+    '<div class="bkL">💳 <b>Pagamento:</b> '+esc((b.cartoes||[]).join(", ")||"cartões")+(b.dinheiro?' · <b>'+esc(b.dinheiro)+'</b>':'')+(b.caucao_usd?' · caução de US$ '+b.caucao_usd+' na chegada (devolvida)':'')+'</div>'+
+    (b.preco_booking?'<div class="bkL">💲 <b>Preço no Booking</b> ('+dmy(ST.bk.checkin)+' a '+dmy(ST.bk.checkout)+', 1 quarto, 2 adultos): R$ '+brl(b.preco_booking)+(h.hotel_sozinho?(b.preco_booking<h.hotel_sozinho?' · <b style="color:var(--ok)">R$ '+brl(h.hotel_sozinho-b.preco_booking)+' mais barato que na Decolar</b>':' · Decolar: R$ '+brl(h.hotel_sozinho)):'')+'</div>':'')+
+    '<div class="bkL"><a href="'+esc(b.url)+'?checkin='+datasEscolhidas()[0]+'&checkout='+datasEscolhidas()[1]+'&group_adults=2&no_rooms=1" target="_blank" rel="noopener">Ver no Booking com as datas do passo 1 ›</a></div>'+
+    '<div class="hint">Notas de 1 a 10 dadas pelos hóspedes. Conferido em '+esc(ST.bk.conferido)+'.</div></div></details>';
+}
 const inclui=h=>h.fixo?{cafe:h.cafe==null?null:h.cafe,estac:h.estac==null?null:h.estac}:(INCLUI[h.curto]||{cafe:null,estac:null});
 function txtInclui(h,curto){
   const x=inclui(h),c=x.cafe===true?'☕ café incluído'+(x.cafeObs?' ('+x.cafeObs+')':''):x.cafe===false?'☕ café <b>não incluído</b>'+(x.cafeObs?' ('+x.cafeObs+')':''):'☕ café: confirmar com o hotel';
@@ -488,7 +515,7 @@ function listaHoteis(){
   let h="";
   todos().forEach((x,k)=>{
     const mv=custoMov(x,ST.modo),meu=!!x.fixo,pos=meu?'★':(k-MEUS.length+1)+'º';
-    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+pos+'</span><span class="nm">'+esc(x.hotel)+(meu?'<span class="meu">seu · '+esc(x.site)+'</span><button type="button" class="tira" data-tira="'+esc(x.curto)+'">✕</button>':'')+'<small>'+(x.nota?'★ '+String(x.nota).replace(".",",")+' · ':'')+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small><small class="inc">'+txtInclui(x)+'</small></span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
+    h+='<label class="hotel"><input type="radio" name="hotel" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+pos+'</span><span class="nm">'+esc(x.hotel)+(meu?'<span class="meu">seu · '+esc(x.site)+'</span><button type="button" class="tira" data-tira="'+esc(x.curto)+'">✕</button>':'')+'<small>'+(x.nota?'★ '+String(x.nota).replace(".",",")+' · ':'')+esc(x.regiao)+'</small><small>'+esc(hotelPos(x).dica)+'</small><small class="inc">'+txtInclui(x)+'</small>'+bkHTML(x)+'</span><span class="pr">'+Pc(hotelPreco(x))+'<small>com '+NOME_MODO[ST.modo].toLowerCase()+': '+Pc(hotelPreco(x)+mv.v)+'</small></span></label>';
   });
   $("hoteis").innerHTML=h;
   document.querySelectorAll('input[name=hotel]').forEach(r=>r.onchange=()=>escolherHotel(r.value));
@@ -497,7 +524,7 @@ function listaHoteis(){
     if(ST.hotel===b.dataset.tira){ST.hotel=null;$("pontos").innerHTML="";ST.pontos=false}
     listaHoteis();resumo()});
   const h0=hotelDe(ST.hotel);
-  if(h0){const l=sitesHotel(di,dv,h0.hotel).filter(x=>["Hotels.com","Kayak","Trivago"].includes(x[0]));
+  if(h0){const l=sitesHotel(di,dv,h0.hotel).filter(x=>["Hotels.com","Kayak","Trivago"].includes(x[0]));const bkh=bk(h0);if(bkh)l.unshift(["Booking",bkh.url+"?checkin="+di+"&checkout="+dv+"&group_adults=2&no_rooms=1"]);
     $("msgHotelSites").innerHTML='<div class="hint">Conferir o preço de <b>'+esc(h0.hotel)+'</b> em: '+l.map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(" · ")+' · <a href="https://www.google.com/travel/search?q='+encodeURIComponent(h0.hotel+" Miami")+'" target="_blank" rel="noopener">Google Hotéis</a></div>'}
   else $("msgHotelSites").innerHTML="";
   renderPacotes();
@@ -726,7 +753,8 @@ document.addEventListener("click",e=>{
 function guiaBt(){$("guiaBt").textContent=GUIA?"🔊 Guia por voz: ligado":"🔇 Guia por voz: desligado"}
 const proxDepoisHotel=()=>ST.pontos?"Agora marque os passeios que querem fazer.":"Agora toque em Pesquisar melhores pontos turísticos.";
 const falaComp=()=>{const u=ST.ultComp;if(!u)return"";return u.tipo==="atual"?"A escolha atual foi melhor: "+reaisF(u.dif)+" mais barato. ":u.tipo==="anterior"?"A escolha anterior foi melhor: era "+reaisF(u.dif)+" mais barato. ":"As duas custam quase o mesmo. "};
-const falaInclui=h=>{const x=inclui(h);return (x.cafe===true?"Café da manhã incluído. ":x.cafe===false?"Café da manhã não incluído. ":"")+(ST.modo==="carro"?(x.estac===0?"Estacionamento grátis. ":x.estac?"Estacionamento de "+x.estac+" dólares por noite. ":""):"")};
+const falaBk=h=>{const b=bk(h);if(!b)return"";const it=b.itens||{};return "No Booking, nota "+n1(b.nota)+(it.Limpeza?", limpeza "+n1(it.Limpeza):"")+(it["Localização"]?", localização "+n1(it["Localização"]):"")+". "+(b.dinheiro?"Não aceita dinheiro. ":"")};
+const falaInclui=h=>{const x=inclui(h);return falaBk(h)+(x.cafe===true?"Café da manhã incluído. ":x.cafe===false?"Café da manhã não incluído. ":"")+(ST.modo==="carro"?(x.estac===0?"Estacionamento grátis. ":x.estac?"Estacionamento de "+x.estac+" dólares por noite. ":""):"")};
 
 // ---------- roteiro do dia ----------
 const hm=m=>{m=Math.round(m);return pad(Math.floor(m/60)%24)+":"+pad(m%60)+(m>=1440?" (+1 dia)":"")};
@@ -905,7 +933,7 @@ function renderPacotes(){
   $("pacInfo").innerHTML='Pacotes voo + hotel conferidos na '+esc(P.fonte)+' em '+esc(P.conferido)+' para <b>'+dmy(P.ida)+' a '+dmy(P.volta)+'</b> ('+P.noites+' noites), voo '+esc(P.voo.cia)+' (ida '+esc(P.voo.ida)+'). Somamos as taxas do voo e o deslocamento escolhido no passo 2 ('+NOME_MODO[ST.modo].toLowerCase()+': aeroporto + passeios marcados).'+(mesmas?'':' <b style="color:var(--warn)">Suas datas ('+dmy(i)+' a '+dmy(v)+') são outras: use “Pacote na Decolar” abaixo para ver o preço delas.</b>');
   const X=pacotesCompletos();let h="";
   X.forEach((x,k)=>{const eco=x.separado-x.total;
-    h+='<label class="hotel"><input type="radio" name="pac" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small class="inc">'+txtInclui(x)+'</small><small>✈️🏨 '+Pc(x.base)+' + '+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+Pc(x.mov)+'</small>'+(eco>0?'<span class="eco">✅ '+Pc(eco)+' mais barato que comprar separado</span>':'<span class="eco" style="color:var(--mut)">Separado sai '+Pc(-eco)+' mais barato</span>')+'</span><span class="pr">'+Pc(x.total)+'<small>completo '+UN()+'</small></span></label>';
+    h+='<label class="hotel"><input type="radio" name="pac" value="'+esc(x.curto)+'"'+(ST.hotel===x.curto?' checked':'')+'><span class="pos">'+(k+1)+'º</span><span class="nm">'+esc(x.hotel)+'<small>★ '+String(x.nota).replace(".",",")+' · '+esc(x.regiao)+'</small><small class="inc">'+txtInclui(x)+'</small>'+bkHTML(x)+'<small>✈️🏨 '+Pc(x.base)+' + '+({carro:'🚗',uber:'🚕',coletivo:'🚌'}[ST.modo])+' '+Pc(x.mov)+'</small>'+(eco>0?'<span class="eco">✅ '+Pc(eco)+' mais barato que comprar separado</span>':'<span class="eco" style="color:var(--mut)">Separado sai '+Pc(-eco)+' mais barato</span>')+'</span><span class="pr">'+Pc(x.total)+'<small>completo '+UN()+'</small></span></label>';
   });
   $("pacLista").innerHTML=h;
   document.querySelectorAll('input[name=pac]').forEach(r=>r.onchange=()=>escolherPacote(r.value));
@@ -972,7 +1000,9 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   const sel=ls.get("st_sel");if(sel!=null)ST.sel=new Set(sel.split(",").filter(Boolean).map(Number).filter(i=>i<PONTOS.length));
   if(!DEMO&&ls.get("st_semvideo")!=="1") abrirVideo();
   $("naoMostrar").checked=ls.get("st_semvideo")==="1";
-  [ST.res,ST.pac,ST.car]=await Promise.all([json("resultado.json"),json("pacotes.json"),json("carros.json")]);
+  [ST.res,ST.pac,ST.car,ST.bk]=await Promise.all([json("resultado.json"),json("pacotes.json"),json("carros.json"),json("booking.json")]);
+  // o resumo do Booking fica dentro do cartão (label): abrir/fechar sem marcar o hotel
+  document.addEventListener("click",e=>{const sm=e.target.closest("details.bk>summary");if(!sm)return;e.preventDefault();e.stopPropagation();const d=sm.parentNode;d.open=!d.open;if(d.open){const b=Object.values((ST.bk||{}).hoteis||{}).length;falar("Avaliações dos hóspedes no Booking: notas de limpeza, localização, conforto e mais, além de estacionamento, café da manhã e formas de pagamento.")}},true);
   preencherDatas();
   const o=carroEscolhido();$("mCarro").textContent=o?o.locadora+' · '+Pc(carroPreco(o)/casais())+' '+UN()+'':'Minivan no aeroporto';
   ST.hoteis=(ST.pac&&ST.pac.pacotes||[]).slice().sort((a,b)=>a.hotel_sozinho-b.hotel_sozinho).slice(0,10);
