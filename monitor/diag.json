@@ -1,7 +1,10 @@
 {
- "quando_utc": "19/11/2026 19:29",
+ "quando_utc": "20/11/2026 01:28",
  "testes": {
   "padrao": [
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
    {
     "erro": "RuntimeError: o Google devolveu erro"
    },
@@ -24,13 +27,6 @@
       "melhores"
      ],
      [
-      5011,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
       5016,
       "Gol+Avianca",
       "11:05",
@@ -77,6 +73,13 @@
       "Gol+American",
       "18:50",
       1,
+      "outros"
+     ],
+     [
+      6004,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
       "outros"
      ],
      [
@@ -89,170 +92,7 @@
     ]
    },
    {
-    "voos": 10,
-    "menor": 4923,
-    "forma": [
-     5,
-     2,
-     5,
-     5,
-     "NoneType"
-    ],
-    "lista": [
-     [
-      4923,
-      "LATAM",
-      "20:10",
-      1,
-      "melhores"
-     ],
-     [
-      5011,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      5016,
-      "Gol+Avianca",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      5069,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "melhores"
-     ],
-     [
-      5150,
-      "LATAM",
-      "20:50",
-      2,
-      "melhores"
-     ],
-     [
-      5167,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
-      5360,
-      "Gol+American",
-      "18:55",
-      1,
-      "melhores"
-     ],
-     [
-      5360,
-      "Gol+American",
-      "20:15",
-      1,
-      "outros"
-     ],
-     [
-      5365,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      6353,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ]
-    ]
-   },
-   {
-    "voos": 10,
-    "menor": 4923,
-    "forma": [
-     5,
-     2,
-     5,
-     5,
-     "NoneType"
-    ],
-    "lista": [
-     [
-      4923,
-      "LATAM",
-      "20:10",
-      1,
-      "melhores"
-     ],
-     [
-      5011,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      5016,
-      "Gol+Avianca",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      5069,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "melhores"
-     ],
-     [
-      5150,
-      "LATAM",
-      "20:50",
-      2,
-      "melhores"
-     ],
-     [
-      5167,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
-      5360,
-      "Gol+American",
-      "18:55",
-      1,
-      "melhores"
-     ],
-     [
-      5360,
-      "Gol+American",
-      "20:15",
-      1,
-      "outros"
-     ],
-     [
-      5365,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      6353,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ]
-    ]
+    "erro": "RuntimeError: o Google devolveu erro"
    }
   ],
   "tfu": [
@@ -270,7 +110,21 @@
      [
       0,
       "Gol+Avianca",
+      "05:35",
+      2,
+      "outros"
+     ],
+     [
+      0,
+      "Gol+Avianca",
       "10:40",
+      2,
+      "outros"
+     ],
+     [
+      0,
+      "Gol+Avianca",
+      "18:50",
       2,
       "outros"
      ],
@@ -331,30 +185,9 @@
       "melhores"
      ],
      [
-      5011,
-      "Gol+Avianca",
-      "05:35",
-      2,
-      "outros"
-     ],
-     [
-      5011,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
       5016,
       "Gol+Avianca",
       "11:05",
-      2,
-      "outros"
-     ],
-     [
-      5016,
-      "Gol+Avianca",
-      "18:50",
       2,
       "outros"
      ],
@@ -485,27 +318,6 @@
       "outros"
      ],
      [
-      5765,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      5765,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      5765,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
       5795,
       "LATAM",
       "06:30",
@@ -551,6 +363,27 @@
       5917,
       "LATAM+Delta",
       "20:10",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "Gol+Aeromexico",
+      "06:05",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "LATAM+Aeromexico",
+      "05:25",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "LATAM+Aeromexico",
+      "08:40",
       2,
       "outros"
      ],
@@ -660,14 +493,14 @@
       "outros"
      ],
      [
-      8337,
+      8364,
       "Gol+Air Canada",
       "11:05",
       2,
       "outros"
      ],
      [
-      8337,
+      8364,
       "Gol+Air Canada",
       "11:05",
       2,
@@ -679,8 +512,21 @@
       "12:45",
       1,
       "outros"
+     ],
+     [
+      13831,
+      "Gol+Avianca",
+      "10:40",
+      2,
+      "outros"
      ]
     ]
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
+   {
+    "erro": "RuntimeError: o Google devolveu erro"
    },
    {
     "voos": 59,
@@ -696,7 +542,21 @@
      [
       0,
       "Gol+Avianca",
+      "05:35",
+      2,
+      "outros"
+     ],
+     [
+      0,
+      "Gol+Avianca",
       "10:40",
+      2,
+      "outros"
+     ],
+     [
+      0,
+      "Gol+Avianca",
+      "18:50",
       2,
       "outros"
      ],
@@ -757,30 +617,9 @@
       "melhores"
      ],
      [
-      5011,
-      "Gol+Avianca",
-      "05:35",
-      2,
-      "outros"
-     ],
-     [
-      5011,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
       5016,
       "Gol+Avianca",
       "11:05",
-      2,
-      "outros"
-     ],
-     [
-      5016,
-      "Gol+Avianca",
-      "18:50",
       2,
       "outros"
      ],
@@ -911,27 +750,6 @@
       "outros"
      ],
      [
-      5765,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      5765,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      5765,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
       5795,
       "LATAM",
       "06:30",
@@ -977,6 +795,27 @@
       5917,
       "LATAM+Delta",
       "20:10",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "Gol+Aeromexico",
+      "06:05",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "LATAM+Aeromexico",
+      "05:25",
+      2,
+      "outros"
+     ],
+     [
+      6004,
+      "LATAM+Aeromexico",
+      "08:40",
       2,
       "outros"
      ],
@@ -1086,14 +925,14 @@
       "outros"
      ],
      [
-      8337,
+      8364,
       "Gol+Air Canada",
       "11:05",
       2,
       "outros"
      ],
      [
-      8337,
+      8364,
       "Gol+Air Canada",
       "11:05",
       2,
@@ -1105,14 +944,15 @@
       "12:45",
       1,
       "outros"
+     ],
+     [
+      13831,
+      "Gol+Avianca",
+      "10:40",
+      2,
+      "outros"
      ]
     ]
-   },
-   {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
-    "erro": "RuntimeError: o Google devolveu erro"
    }
   ]
  }
