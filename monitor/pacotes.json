@@ -1,25 +1,25 @@
 {
- "conferido": "15/11/2026",
+ "conferido": "23/11/2026",
  "fonte": "Decolar",
  "origem": "FLN",
  "destino": "MIA",
- "ida": "2027-02-17",
+ "ida": "2027-02-18",
  "volta": "2027-02-25",
  "pessoas": 2,
- "noites": 8,
- "link": "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/2027-02-17/2027-02-25/CIT_4544/2027-02-17/2027-02-25/2?from=PSB&nw=true",
- "link_hoteis": "https://www.decolar.com/accommodations/results/CIT_4544/2027-02-17/2027-02-25/2",
+ "noites": 7,
+ "link": "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/2027-02-18/2027-02-25/CIT_4544/2027-02-18/2027-02-25/2?from=PSB&nw=true",
+ "link_hoteis": "https://www.decolar.com/accommodations/results/CIT_4544/2027-02-18/2027-02-25/2",
  "voo": {
-  "cia": "Copa Airlines",
-  "ida": "17/02 01:40 → 15:41 (1 parada)",
-  "volta": "25/02 11:21 → 26/02 00:40 (1 parada)",
-  "avulso_casal": 8988,
+  "cia": "LATAM",
+  "ida": "18/02 06:30 → 18:55 (1 parada, troca de aeroporto)",
+  "volta": "25/02 09:20 → 23:40 (1 parada)",
+  "avulso_casal": 9694,
   "taxas_casal": 1092,
-  "obs": "taxas do voo estimadas pela conferência de 13/11 (mesmo voo Copa)"
+  "obs": "pacote da Decolar sem impostos e taxas; taxas do voo estimadas (conferência de 13/11)"
  },
  "melhor_avulsa": {
-  "cia": "Copa",
-  "casal": 8988
+  "cia": "Gol + Avianca",
+  "casal": 9694
  },
  "pacotes": [
   {
@@ -27,88 +27,65 @@
    "curto": "Spark Hilton",
    "nota": 8.6,
    "regiao": "Doral, 14 km do centro · café da manhã",
-   "pacote": 14914,
-   "hotel_sozinho": 8694
+   "pacote": 15602,
+   "hotel_sozinho": 7926
   },
   {
    "hotel": "The Palms Inn & Suites",
    "curto": "Palms Inn",
    "nota": 8.8,
    "regiao": "Perto de shopping",
-   "pacote": 14162,
-   "hotel_sozinho": 8482
+   "pacote": 15770,
+   "hotel_sozinho": 7876
   },
   {
    "hotel": "Palm Tree Club Miami",
    "curto": "Palm Tree Club",
    "nota": 8.1,
    "regiao": "10 km do centro",
-   "pacote": 14968,
-   "hotel_sozinho": 11138
+   "pacote": 16330,
+   "hotel_sozinho": 7110
   },
   {
    "hotel": "La Quinta Inn & Suites Miami Airport East",
    "curto": "La Quinta Aerop.",
    "nota": 6.4,
    "regiao": "Aeroporto · café da manhã",
-   "pacote": 14240,
-   "hotel_sozinho": 10308
-  },
-  {
-   "hotel": "Comfort Suites Miami - Kendall",
-   "curto": "Comfort Kendall",
-   "nota": 9.0,
-   "regiao": "Kendall",
-   "pacote": 15184,
-   "hotel_sozinho": 8640
-  },
-  {
-   "hotel": "Element by Marriott Miami Doral",
-   "curto": "Element Doral",
-   "nota": 8.8,
-   "regiao": "Doral, perto do Dolphin Mall · café da manhã",
-   "pacote": 15820,
-   "hotel_sozinho": 11650
+   "pacote": 15174,
+   "hotel_sozinho": 6692
   },
   {
    "hotel": "Hyatt Place Miami Airport West/Doral",
    "curto": "Hyatt Place Doral",
    "nota": 8.4,
    "regiao": "Doral, 10 km do centro",
-   "pacote": 16964,
-   "hotel_sozinho": 13082
-  },
-  {
-   "hotel": "Hilton Miami Airport Blue Lagoon",
-   "curto": "Hilton Blue Lagoon",
-   "nota": 8.2,
-   "regiao": "Aeroporto",
-   "pacote": 18320,
-   "hotel_sozinho": 11600
+   "pacote": 17616,
+   "hotel_sozinho": 12144
   },
   {
    "hotel": "Brickell Condos by Vibras Concierge",
    "curto": "Brickell Condos",
    "nota": 9.0,
    "regiao": "Downtown, 4 km do centro · café da manhã",
-   "pacote": 18966,
-   "hotel_sozinho": 16468
+   "pacote": 19136,
+   "hotel_sozinho": 13278
   },
   {
    "hotel": "Tru by Hilton Miami West Brickell",
    "curto": "Tru Hilton Brickell",
    "nota": 9.2,
    "regiao": "Perto do Brickell City Centre · café da manhã",
-   "pacote": 22634,
-   "hotel_sozinho": 13970
+   "pacote": 20576,
+   "hotel_sozinho": 12792
   },
   {
    "hotel": "The Elser Hotel Miami",
    "curto": "The Elser",
    "nota": 9.0,
    "regiao": "Perto de Bayside (centro)",
-   "pacote": 24180,
-   "hotel_sozinho": 27876
+   "pacote": 24278,
+   "hotel_sozinho": 19754
   }
- ]
+ ],
+ "obs": "Conferido em 23/11 para 18/02→25/02 (data mais barata da busca de 7 noites). Comfort Kendall, Element Doral e Hilton Blue Lagoon não apareceram no pacote."
 }
