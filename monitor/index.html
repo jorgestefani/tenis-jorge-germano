@@ -141,7 +141,7 @@
   #intro label{color:#ddd;display:flex;gap:8px;align-items:center;justify-content:center}
   #intro label input{width:auto;margin:0}
   footer{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}
-  @media (max-width:520px){.modos:not(.dois){grid-template-columns:1fr}.modos.dois .modo{display:block}.modo{display:grid;grid-template-columns:34px 1fr;align-items:center}.modo small{grid-column:2}}
+  @media (max-width:520px){.modos:not(.dois){grid-template-columns:1fr}.modos.dois .modo{display:block}.modo{display:grid;grid-template-columns:34px 1fr;align-items:center}.modo small{grid-column:2}.hotel{grid-template-columns:28px 1fr}.hotel .pr{grid-column:2;text-align:left}}
 </style>
 </head>
 <body>
@@ -655,8 +655,8 @@ function aAtualiza(){
   $("aRotaBox").style.display=muda?"":"none";if(!muda)$("aRota").checked=false;
   if(muda)$("aRotaTxt").innerHTML='Trocar a rota da busca automática de '+esc(CFG.origem)+' → '+esc(CFG.destino)+' para <b>'+esc(o)+' → '+esc(d)+'</b> (do passo 1)';
   const pode=!!acesso();
-  $("aSalvar").disabled=$("aAgora").disabled=!pode;$("aQuemBox").style.display=pode?"":"none";
-  if(!pode)$("aMsg").innerHTML='<div class="msg pior">Este aparelho só pode ver os horários. Para mudar, abra uma vez o <b>link de acesso</b> que o Jorge mandou (ele fica guardado neste aparelho).</div>';
+  $("aSalvar").disabled=!pode;$("aAgora").disabled=false;$("aQuemBox").style.display=pode?"":"none";
+  if(!pode)$("aMsg").innerHTML='<div class="msg pior">Daqui dá para usar o <b>Buscar agora</b>. Para mudar os horários, abra uma vez o <b>link de acesso</b> que o Jorge mandou (ele fica guardado neste aparelho).</div>';
 }
 async function carregaCfg(){
   const base=await json("config.json")||{};
