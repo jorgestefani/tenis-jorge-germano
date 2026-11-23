@@ -1,18 +1,199 @@
 {
- "quando_utc": "23/11/2026 03:13",
+ "quando_utc": "23/11/2026 12:28",
  "testes": {
   "padrao": [
    {
     "erro": "RuntimeError: o Google devolveu erro"
    },
    {
-    "erro": "RuntimeError: o Google devolveu erro"
+    "voos": 12,
+    "menor": 5136,
+    "forma": [
+     5,
+     2,
+     5,
+     5,
+     "NoneType"
+    ],
+    "lista": [
+     [
+      5136,
+      "Gol+Avianca",
+      "20:15",
+      2,
+      "outros"
+     ],
+     [
+      5218,
+      "LATAM",
+      "20:50",
+      2,
+      "melhores"
+     ],
+     [
+      5235,
+      "LATAM",
+      "16:30",
+      1,
+      "melhores"
+     ],
+     [
+      5235,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
+     ],
+     [
+      5430,
+      "Gol+American",
+      "18:55",
+      1,
+      "melhores"
+     ],
+     [
+      5430,
+      "Gol+American",
+      "20:15",
+      1,
+      "outros"
+     ],
+     [
+      5612,
+      "LATAM",
+      "18:40",
+      1,
+      "outros"
+     ],
+     [
+      5948,
+      "LATAM",
+      "17:55",
+      1,
+      "outros"
+     ],
+     [
+      5965,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      5965,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      6084,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
+      "outros"
+     ],
+     [
+      14016,
+      "Gol+Avianca",
+      "20:15",
+      2,
+      "outros"
+     ]
+    ]
    },
    {
     "erro": "RuntimeError: o Google devolveu erro"
    },
    {
-    "erro": "AttributeError: 'NoneType' object has no attribute 'text'"
+    "voos": 11,
+    "menor": 5218,
+    "forma": [
+     5,
+     2,
+     5,
+     5,
+     "NoneType"
+    ],
+    "lista": [
+     [
+      5218,
+      "LATAM",
+      "20:50",
+      2,
+      "melhores"
+     ],
+     [
+      5235,
+      "LATAM",
+      "16:30",
+      1,
+      "melhores"
+     ],
+     [
+      5235,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
+     ],
+     [
+      5430,
+      "Gol+American",
+      "18:55",
+      1,
+      "melhores"
+     ],
+     [
+      5430,
+      "Gol+American",
+      "20:15",
+      1,
+      "outros"
+     ],
+     [
+      5612,
+      "LATAM",
+      "18:40",
+      1,
+      "outros"
+     ],
+     [
+      5948,
+      "LATAM",
+      "17:55",
+      1,
+      "outros"
+     ],
+     [
+      5965,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      5965,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      6084,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
+      "outros"
+     ],
+     [
+      14016,
+      "Gol+Avianca",
+      "20:15",
+      2,
+      "outros"
+     ]
+    ]
    }
   ],
   "tfu": [
