@@ -130,13 +130,13 @@ def sem_repetir(voos):
     return list(m.values())
 
 
-def buscar(cfg, ida_d=None, volta_d=None):
+def buscar(cfg, ida_d=None, volta_d=None, com_volta=True, tentativas_max=6):
     import time
     ida_d, volta_d = ida_d or cfg["ida"], volta_d or cfg["volta"]
     from fast_flights import FlightQuery, Passengers, create_query
     from fast_flights.fetcher import fetch_flights_html
 
-    def get_flights(q, tentativas=6):
+    def get_flights(q, tentativas=tentativas_max):
         # o Google responde com erro de forma intermitente; tenta de novo
         for i in range(tentativas):
             try:
@@ -161,7 +161,7 @@ def buscar(cfg, ida_d=None, volta_d=None):
         flights=[FlightQuery(date=volta_d, from_airport=d, to_airport=o)],
         trip="one-way", passengers=Passengers(adults=1),
         language="pt-BR", currency="BRL")
-    volta = sem_repetir([fmt(f) for f in get_flights(qv)])
+    volta = sem_repetir([fmt(f) for f in get_flights(qv)]) if com_volta else []
     lim = cfg["espera_max_horas"]
     ida_ok = sorted([x for x in ida if x["espera_max_h"] < lim], key=lambda x: x["preco"])
     volta_ok = sorted([x for x in volta if x["espera_max_h"] < lim], key=lambda x: x["preco"])
@@ -188,6 +188,21 @@ def buscar(cfg, ida_d=None, volta_d=None):
 DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
 
 
+def flex_ativo(cfg):
+    """config "flex": {"noites": 7, "de": "AAAA-MM-DD", "ate": "AAAA-MM-DD"} (pedido de 23/11/2026):
+    pesquisa todas as idas do período com volta N noites depois; a volta também fica dentro do período."""
+    f = cfg.get("flex") or {}
+    try:
+        n, de, ate = int(f["noites"]), datetime.strptime(f["de"], "%Y-%m-%d"), datetime.strptime(f["ate"], "%Y-%m-%d")
+    except Exception:
+        return None
+    hoje = datetime.now(BRT).replace(tzinfo=None, hour=0, minute=0, second=0, microsecond=0)
+    de = max(de, hoje + timedelta(days=1))
+    if not (1 <= n <= 30) or de + timedelta(days=n) > ate:
+        return None
+    return n, de, ate
+
+
 def combinacoes(cfg):
     """Datas a pesquisar. config "datas": {"idas": [...], "volta": "AAAA-MM-DD", "semanas": [0, 1, 2],
     "extras": [{"ida": "AAAA-MM-DD", "volta": "AAAA-MM-DD"}]}
@@ -195,7 +210,16 @@ def combinacoes(cfg):
     dd = cfg.get("datas") or {}
     idas, volta = dd.get("idas") or [cfg["ida"]], dd.get("volta") or cfg["volta"]
     out = []
-    for sem in dd.get("semanas") or [0]:
+    fx = flex_ativo(cfg)
+    if fx:                                   # período: troca as datas fixas por todas as idas do período
+        n, de, ate = fx
+        d = de
+        while d + timedelta(days=n) <= ate and len(out) < 62:
+            v = d + timedelta(days=n)
+            out.append({"semana": 0, "ida": d.strftime("%Y-%m-%d"), "volta": v.strftime("%Y-%m-%d"),
+                        "dia_ida": DIAS[d.weekday()], "dia_volta": DIAS[v.weekday()], "noites": n, "flex": True})
+            d += timedelta(days=1)
+    for sem in ([] if fx else (dd.get("semanas") or [0])):
         for ida in idas:
             mais = lambda x: (datetime.strptime(x, "%Y-%m-%d") + timedelta(days=7 * sem)).strftime("%Y-%m-%d")
             i, v = mais(ida), mais(volta)
@@ -204,7 +228,7 @@ def combinacoes(cfg):
                         "dia_volta": DIAS[datetime.strptime(v, "%Y-%m-%d").weekday()],
                         "noites": (datetime.strptime(v, "%Y-%m-%d") - datetime.strptime(i, "%Y-%m-%d")).days})
     # combinações avulsas fora da regra (ex.: domingo 14/02 -> terça 23/02, pedido de 16/11/2026); contam como semana original
-    for ex in dd.get("extras") or []:
+    for ex in ([] if fx else (dd.get("extras") or [])):
         i, v = ex["ida"], ex["volta"]
         if any(o["ida"] == i and o["volta"] == v for o in out):
             continue
@@ -220,10 +244,11 @@ def buscar_todas(cfg):
     """Busca cada combinação; a melhor (menor preço) vira o resultado principal."""
     import time
     datas, melhor = [], None
+    fx = flex_ativo(cfg)
     for c in combinacoes(cfg):
         item = dict(c)
         try:
-            r_ = buscar(cfg, c["ida"], c["volta"])
+            r_ = buscar(cfg, c["ida"], c["volta"], com_volta=not fx, tentativas_max=3 if fx else 6)
             item.update({"status": "ok", "menor": min((x["preco"] for x in r_["ida"]), default=None),
                          "opcoes": r_["ida"], "volta_opcoes": r_["volta"],
                          "link_google_flights": r_["link_google_flights"]})
@@ -236,9 +261,18 @@ def buscar_todas(cfg):
     if melhor is None:
         raise RuntimeError("nenhuma data trouxe preço: " + "; ".join(d.get("erro", "") for d in datas)[:300])
     m, r_ = melhor
+    if fx:                                   # completa os voos de volta só da data mais barata
+        try:
+            r_ = buscar(cfg, m["ida"], m["volta"])
+            m["volta_opcoes"] = r_["volta"]
+        except Exception as e:
+            print(f"volta da melhor data: {type(e).__name__}")
     x = min(m["opcoes"], key=lambda y: y["preco"])
     res = dict(r_)
     res["datas"] = datas
+    if fx:
+        res["flex"] = {"noites": fx[0], "de": fx[1].strftime("%Y-%m-%d"), "ate": fx[2].strftime("%Y-%m-%d"),
+                       "pesquisadas": len(datas), "com_preco": sum(1 for d in datas if d.get("status") == "ok")}
     res["melhor"] = {"ida": m["ida"], "volta": m["volta"], "dia_ida": m["dia_ida"], "dia_volta": m["dia_volta"],
                      "semana": m["semana"], "noites": m["noites"], "preco": x["preco"], "companhias": x["companhias"],
                      "saida": x["saida"], "chegada": x["chegada"], "paradas": x["paradas"], "duracao_h": x["duracao_h"]}
@@ -353,6 +387,8 @@ def config_remota(cfg):
     for k in ("intervalo_horas", "hora_inicio", "hora_fim", "ate", "ativo", "origem", "destino"):
         if k in r:
             cfg[k] = r[k]
+    if "flex" in r:
+        cfg["flex"] = r["flex"]
     if isinstance(r.get("extras"), list):
         cfg.setdefault("datas", {})["extras"] = r["extras"]
     return cfg, d.get("pedido") or ""

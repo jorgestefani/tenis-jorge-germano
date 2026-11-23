@@ -203,6 +203,18 @@
     </div>
     <datalist id="aeros"><option value="FLN">Florianópolis</option><option value="GRU">São Paulo – Guarulhos</option><option value="POA">Porto Alegre</option><option value="CWB">Curitiba</option><option value="NVT">Navegantes</option><option value="MIA">Miami</option><option value="FLL">Fort Lauderdale</option><option value="MCO">Orlando</option></datalist>
     <div class="hint" id="sugestoes"></div>
+    <div id="flexBox" style="margin-top:14px;padding:12px;border:1px solid #3a4a63;border-radius:12px">
+      <b>📆 Procurar o mais barato num período</b>
+      <div class="hint" style="margin:4px 0 8px">Diga quantas noites quer ficar e entre quais dias pode viajar. A busca automática testa todas as datas de ida do período e mostra a mais barata.</div>
+      <div class="grid">
+        <label class="full">Quantas noites<select id="fNoites"></select></label>
+        <label>De<input type="date" id="fDe"></label>
+        <label>Até (volta no máximo)<input type="date" id="fAte"></label>
+      </div>
+      <div class="hint" id="fInfo"></div>
+      <div class="btns2"><button class="primary" id="fSalvar">🔎 Procurar no período</button><button id="fDesliga">Datas fixas</button></div>
+      <div id="fMsg"></div>
+    </div>
     <button class="primary soSep" id="buscarVoo" style="margin-top:12px">✈️ Buscar voos</button>
     <div id="voos" class="soSep"></div>
   </section>
@@ -437,10 +449,11 @@ function preencherDatas(){
   const sal=ls.get("st_datas"),m=ST.res&&ST.res.melhor;
   const [i,v]=sal?sal.split("|"):(m?[m.ida,m.volta]:["2027-02-17","2027-02-25"]);
   $("ida").value=i;$("volta").value=v;
-  const D=(ST.res&&ST.res.datas||[]).filter(d=>d.status==="ok");
-  if(D.length) $("sugestoes").innerHTML='Sugestões: datas que a busca automática já acompanha (toque para usar):<div class="chips">'+D.map(d=>'<button type="button" data-i="'+d.ida+'" data-v="'+d.volta+'">'+dmy(d.ida)+'→'+dmy(d.volta)+' · '+Pc(d.menor*2)+'</button>').join("")+'</div>';
+  const D0=(ST.res&&ST.res.datas||[]).filter(d=>d.status==="ok"),muitas=D0.length>10;
+  const D=muitas?D0.slice().sort((a,b)=>a.menor-b.menor).slice(0,8):D0;
+  if(D.length) $("sugestoes").innerHTML=(muitas?'As 8 datas mais baratas de '+D0.length+' pesquisadas (toque para usar):':'Sugestões: datas que a busca automática já acompanha (toque para usar):')+'<div class="chips">'+D.map(d=>'<button type="button" data-i="'+d.ida+'" data-v="'+d.volta+'">'+dmy(d.ida)+'→'+dmy(d.volta)+' · '+Pc(d.menor*2)+'</button>').join("")+'</div>';
   document.querySelectorAll("#sugestoes button").forEach(b=>b.onclick=()=>{$("ida").value=b.dataset.i;$("volta").value=b.dataset.v;mudouDatas();buscarVoos()});
-  mostraNoites();
+  mostraNoites();if(CFG&&$("fNoites").options.length)fInfo();
 }
 function datasEscolhidas(){return [$("ida").value,$("volta").value]}
 function noites(){const [i,v]=datasEscolhidas();if(!i||!v)return 0;const n=Math.round((new Date(v+"T12:00")-new Date(i+"T12:00"))/864e5);return n>0?n:0}
@@ -664,7 +677,7 @@ async function carregaCfg(){
   CFG=Object.assign({},base,{extras:((base.datas||{}).extras)||[]},(REM&&REM.cfg)||{});
   $("aIntervalo").value=String(CFG.intervalo_horas||2);$("aIni").value=String(CFG.hora_inicio||0);$("aFim").value=String(CFG.hora_fim==null?23:CFG.hora_fim);
   if(CFG.ate){$("aPeriodo").value="data";$("aAte").value=CFG.ate}else $("aPeriodo").value="0";
-  $("aEstado").innerHTML=aEstado(CFG);aAtualiza();topoBusca();
+  $("aEstado").innerHTML=aEstado(CFG);aAtualiza();topoBusca();fPreenche();
 }
 function topoBusca(){
   if(!CFG)return;const p=+CFG.intervalo_horas;
@@ -692,6 +705,45 @@ async function aSalvar(){
     falar("Horários da busca salvos.");aMsg("✅ Salvo para todos que usam a página. "+aQuando().replace("🕒 ","")+extra+(extra?" Já pedi uma busca: os preços novos aparecem em até 30 minutos.":""),true);
   }catch(e){aMsg(esc(e.message))}
   $("aSalvar").disabled=false;
+}
+// ---------- período flexível (N noites entre duas datas) ----------
+const fMsg=(t,ok)=>$("fMsg").innerHTML='<div class="msg'+(ok?'':' pior')+'">'+t+'</div>';
+function fPreenche(){
+  if(!$("fNoites").options.length)for(let n=2;n<=21;n++)$("fNoites").insertAdjacentHTML("beforeend",'<option value="'+n+'">'+n+' noites ('+(n+1)+' dias)</option>');
+  const f=CFG&&CFG.flex;
+  if(f){$("fNoites").value=String(f.noites);$("fDe").value=f.de;$("fAte").value=f.ate}
+  else if(!$("fDe").value){const [i]=datasEscolhidas();$("fNoites").value=String(Math.min(21,Math.max(2,noites()||7)));if(i){$("fDe").value=i.slice(0,8)+"01";$("fAte").value=somaDiasDe(i.slice(0,8)+"01",58)}}
+  fInfo();
+}
+const somaDiasDe=(d,n)=>{const x=new Date(d+"T12:00");x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
+function fInfo(){
+  const f=CFG&&CFG.flex,rf=ST.res&&ST.res.flex;let t="";
+  if(f){t='✅ Ligado: <b>'+f.noites+' noites</b> entre '+dmy(f.de)+' e '+dmy(f.ate)+'.';
+    if(rf&&rf.noites===f.noites&&rf.ate===f.ate&&ST.res.melhor){const m=ST.res.melhor;t+=' Última busca: '+rf.com_preco+' de '+rf.pesquisadas+' datas com preço. <b>Mais barato: '+dmy(m.ida)+' → '+dmy(m.volta)+' · '+Pc(m.preco*2)+' '+UN()+'</b>.'}
+    else t+=' A primeira busca do período leva até 1 hora (são muitas datas).';
+    $("fDesliga").style.display=""}
+  else{t='Hoje a busca acompanha só as datas fixas da lista acima.';$("fDesliga").style.display="none"}
+  if(!acesso())t+='<br>Para ligar ou mudar o período, abra uma vez o <b>link de acesso</b> que o Jorge mandou.';
+  $("fInfo").innerHTML=t;$("fSalvar").disabled=$("fDesliga").disabled=!acesso();
+}
+async function fSalvar(){
+  const n=+$("fNoites").value,de=$("fDe").value,ate=$("fAte").value;
+  if(!de||!ate)return fMsg("Escolha as duas datas do período.");
+  if(somaDiasDe(de,n)>ate)return fMsg("O período precisa ter pelo menos "+n+" noites.");
+  if((new Date(ate)-new Date(de))/864e5>100)return fMsg("Período longo demais: escolha no máximo uns 3 meses.");
+  $("fSalvar").disabled=true;fMsg("Salvando…",true);
+  try{const d=await enviar({acao:"salvar",cfg:{flex:{noites:n,de:de,ate:ate}},buscar:true});CFG=Object.assign({},CFG,d.cfg);REM=Object.assign({},REM||{},{pedido:d.pedido});
+    const q=Math.round((new Date(ate)-new Date(de))/864e5)-n+1;
+    fMsg("✅ Salvo. A busca vai testar "+q+" datas de ida ("+n+" noites entre "+dmy(de)+" e "+dmy(ate)+"). O resultado aparece em até 1 hora; depois recarregue a página.",true);
+    falar("Período salvo. O resultado aparece em até uma hora.");$("aEstado").innerHTML=aEstado(CFG)}
+  catch(e){fMsg(esc(e.message))}
+  fInfo();
+}
+async function fDesliga(){
+  $("fDesliga").disabled=true;
+  try{const d=await enviar({acao:"salvar",cfg:{flex:null},buscar:true});CFG=Object.assign({},d.cfg);if(!d.cfg.flex)delete CFG.flex;fMsg("✅ Voltou às datas fixas. A próxima busca usa a lista de datas de antes.",true)}
+  catch(e){fMsg(esc(e.message))}
+  fInfo();
 }
 async function aAgora(){
   $("aAgora").disabled=true;aMsg("Pedindo a busca…",true);
@@ -1020,7 +1072,7 @@ async function json(n){try{const r=await fetch(n+"?ts="+Date.now(),{cache:"no-st
   guiaBt();$("guiaBt").onclick=()=>{GUIA=!GUIA;ls.set("st_guia",GUIA?"1":"0");guiaBt();if(GUIA)falar("Guia por voz ligado. A cada escolha eu digo o próximo passo.");else try{speechSynthesis.cancel()}catch(e){}};
   const hh=[...Array(24).keys()].map(h=>'<option value="'+h+'">'+pad(h)+':00</option>').join("");$("aIni").innerHTML=$("aFim").innerHTML=hh;
   ["aIntervalo","aIni","aFim","aPeriodo"].forEach(k=>$(k).onchange=aAtualiza);
-  $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;$("aQuem").value=ls.get("st_quem")||"";
+  $("aSalvar").onclick=aSalvar;$("aAgora").onclick=aAgora;$("fSalvar").onclick=fSalvar;$("fDesliga").onclick=fDesliga;$("aQuem").value=ls.get("st_quem")||"";
   $("origem").oninput=$("destino").oninput=()=>{if(CFG)aAtualiza()};
   carregaCfg();
   document.querySelectorAll('input[name=pesq]').forEach(r=>r.onchange=()=>aplicaPesq(r.value));
