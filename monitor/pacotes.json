@@ -3,23 +3,23 @@
  "fonte": "Decolar",
  "origem": "FLN",
  "destino": "MIA",
- "ida": "2027-02-18",
- "volta": "2027-02-25",
+ "ida": "2027-03-02",
+ "volta": "2027-03-09",
  "pessoas": 2,
  "noites": 7,
- "link": "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/2027-02-18/2027-02-25/CIT_4544/2027-02-18/2027-02-25/2?from=PSB&nw=true",
- "link_hoteis": "https://www.decolar.com/accommodations/results/CIT_4544/2027-02-18/2027-02-25/2",
+ "link": "https://www.decolar.com/trip/start/FH/CIT_2261/CIT_4544/2027-03-02/2027-03-09/CIT_4544/2027-03-02/2027-03-09/2?from=PSB&nw=true",
+ "link_hoteis": "https://www.decolar.com/accommodations/results/CIT_4544/2027-03-02/2027-03-09/2",
  "voo": {
-  "cia": "LATAM",
-  "ida": "18/02 06:30 → 18:55 (1 parada, troca de aeroporto)",
-  "volta": "25/02 09:20 → 23:40 (1 parada)",
-  "avulso_casal": 9694,
+  "cia": "LATAM (volta Delta)",
+  "ida": "02/03 05:25 → 16:40 (1 parada em Guarulhos, sem troca de aeroporto)",
+  "volta": "09/03 09:20 → 23:40 (1 parada)",
+  "avulso_casal": 11106,
   "taxas_casal": 1092,
-  "obs": "pacote da Decolar sem impostos e taxas; taxas do voo estimadas (conferência de 13/11)"
+  "obs": "voo escolhido em 'Alterar voo' (+R$ 1.690 por casal sobre o voo padrão, conferido no Spark); taxas do voo estimadas"
  },
  "melhor_avulsa": {
-  "cia": "Gol + Avianca",
-  "casal": 9694
+  "cia": "LATAM",
+  "casal": 11106
  },
  "pacotes": [
   {
@@ -27,55 +27,63 @@
    "curto": "Spark Hilton",
    "nota": 8.6,
    "regiao": "Doral, 14 km do centro · café da manhã",
-   "pacote": 15602,
-   "hotel_sozinho": 7926
+   "pacote": 17340,
+   "hotel_sozinho": 8736
   },
   {
    "hotel": "The Palms Inn & Suites",
    "curto": "Palms Inn",
    "nota": 8.8,
    "regiao": "Perto de shopping",
-   "pacote": 15770,
-   "hotel_sozinho": 7876
+   "pacote": 17052,
+   "hotel_sozinho": 7978
   },
   {
    "hotel": "Palm Tree Club Miami",
    "curto": "Palm Tree Club",
    "nota": 8.1,
    "regiao": "10 km do centro",
-   "pacote": 16330,
-   "hotel_sozinho": 7110
+   "pacote": 16660,
+   "hotel_sozinho": 6442
   },
   {
    "hotel": "La Quinta Inn & Suites Miami Airport East",
    "curto": "La Quinta Aerop.",
    "nota": 6.4,
    "regiao": "Aeroporto · café da manhã",
-   "pacote": 15174,
-   "hotel_sozinho": 6692
+   "pacote": 16178,
+   "hotel_sozinho": 6856
+  },
+  {
+   "hotel": "Element by Marriott Miami Doral",
+   "curto": "Element Doral",
+   "nota": 8.8,
+   "regiao": "Doral, perto do Dolphin Mall · café da manhã",
+   "pacote": 18464,
+   "hotel_sozinho": 10666
   },
   {
    "hotel": "Hyatt Place Miami Airport West/Doral",
    "curto": "Hyatt Place Doral",
    "nota": 8.4,
    "regiao": "Doral, 10 km do centro",
-   "pacote": 17616,
-   "hotel_sozinho": 12144
+   "pacote": 17684,
+   "hotel_sozinho": 13016
   },
   {
    "hotel": "Brickell Condos by Vibras Concierge",
    "curto": "Brickell Condos",
    "nota": 9.0,
    "regiao": "Downtown, 4 km do centro · café da manhã",
-   "pacote": 19136,
-   "hotel_sozinho": 13278
+   "pacote": 19428,
+   "hotel_sozinho": 13258
   },
   {
    "hotel": "Tru by Hilton Miami West Brickell",
    "curto": "Tru Hilton Brickell",
    "nota": 9.2,
    "regiao": "Perto do Brickell City Centre · café da manhã",
-   "pacote": 20576,
+   "pacote": 21200,
    "hotel_sozinho": 12792
   },
   {
@@ -83,12 +91,13 @@
    "curto": "The Elser",
    "nota": 9.0,
    "regiao": "Perto de Bayside (centro)",
-   "pacote": 24278,
-   "hotel_sozinho": 19754
+   "pacote": 20900,
+   "hotel_sozinho": 14818
   }
  ],
- "obs": "Conferido em 23/11 para 18/02→25/02 (data mais barata da busca de 7 noites). Comfort Kendall, Element Doral e Hilton Blue Lagoon não apareceram no pacote.",
+ "obs": "Conferido em 23/11 para 02/03→09/03 com o filtro do grupo (sem troca de aeroporto, ida cedo chegando depois das 12h).",
  "avisos": [
-  "Também conferi 23/03 → 30/03 (pacote La Quinta R$ 15.692), mas o voo sai às 16:30 e só chega a Miami às 06:25 do dia 24: ficam só 6 noites de hotel."
+  "O voo padrão do pacote nesta data tem troca de aeroporto e chega no dia seguinte. Na Decolar, toque em \"Alterar voo\" e escolha o LATAM das 05:25 (chega 16:40), que custa R$ 1.690 a mais por casal e já está somado aqui.",
+  "Tru by Hilton: preço do hotel avulso é o de 18/02 (não apareceu na busca de 02/03)."
  ]
 }
