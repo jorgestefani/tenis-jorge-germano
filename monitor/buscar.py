@@ -77,6 +77,9 @@ def fmt(f):
         "escalas": [f"{s.to_airport.code}: {h:.1f}h" for s, h in zip(segs, w)],
         "espera_max_h": round(max(w), 1) if w else 0,
         "duracao_h": round((fim - ini).total_seconds() / 3600, 1),
+        "troca_aeroporto": any(a.to_airport.code != b.from_airport.code for a, b in zip(segs, segs[1:])),
+        "chegada_hm": fim.hour + fim.minute / 60,
+        "chega_outro_dia": fim.date() != ini.date(),
         "preco": f.price,
     }
 
@@ -130,6 +133,24 @@ def sem_repetir(voos):
     return list(m.values())
 
 
+def sem_troca(cfg):
+    return (cfg.get("filtro") or {}).get("sem_troca_aeroporto", True)
+
+
+def ida_aceita(cfg, x):
+    """Pedido do grupo (23/11/2026): sem troca de aeroporto; ida saindo cedo e chegando
+    a Miami às 12h ou depois, no mesmo dia (dormir em casa e chegar perto do check-in).
+    config "filtro": {"sem_troca_aeroporto": true, "ida_saida_de": 5, "ida_saida_ate": 10, "ida_chegada_min": 12}"""
+    f = cfg.get("filtro") or {}
+    if sem_troca(cfg) and x["troca_aeroporto"]:
+        return False
+    if not (f.get("ida_saida_de", 5) <= x["hora_saida"] < f.get("ida_saida_ate", 10)):   # nada de madrugada
+        return False
+    if x["chega_outro_dia"] or x["chegada_hm"] < f.get("ida_chegada_min", 12):
+        return False
+    return True
+
+
 def buscar(cfg, ida_d=None, volta_d=None, com_volta=True, tentativas_max=6):
     import time
     ida_d, volta_d = ida_d or cfg["ida"], volta_d or cfg["volta"]
@@ -163,8 +184,9 @@ def buscar(cfg, ida_d=None, volta_d=None, com_volta=True, tentativas_max=6):
         language="pt-BR", currency="BRL")
     volta = sem_repetir([fmt(f) for f in get_flights(qv)]) if com_volta else []
     lim = cfg["espera_max_horas"]
-    ida_ok = sorted([x for x in ida if x["espera_max_h"] < lim], key=lambda x: x["preco"])
-    volta_ok = sorted([x for x in volta if x["espera_max_h"] < lim], key=lambda x: x["preco"])
+    ida_ok = sorted([x for x in ida if x["espera_max_h"] < lim and ida_aceita(cfg, x)], key=lambda x: x["preco"])
+    volta_ok = sorted([x for x in volta if x["espera_max_h"] < lim and not (sem_troca(cfg) and x["troca_aeroporto"])],
+                      key=lambda x: x["preco"])
     # 5 melhores com horários variados: 1 por período, depois completa pelo preço
     top, usados = [], set()
     for x in ida_ok:
@@ -249,6 +271,8 @@ def buscar_todas(cfg):
         item = dict(c)
         try:
             r_ = buscar(cfg, c["ida"], c["volta"], com_volta=not fx, tentativas_max=3 if fx else 6)
+            if not r_["ida"]:
+                raise RuntimeError("nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)")
             item.update({"status": "ok", "menor": min((x["preco"] for x in r_["ida"]), default=None),
                          "opcoes": r_["ida"], "volta_opcoes": r_["volta"],
                          "link_google_flights": r_["link_google_flights"]})

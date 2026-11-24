@@ -30,5 +30,11 @@
   "hora_inicio": 0,
   "hora_fim": 23,
   "ate": "",
-  "ativo": true
+  "ativo": true,
+  "filtro": {
+    "sem_troca_aeroporto": true,
+    "ida_saida_de": 5,
+    "ida_saida_ate": 10,
+    "ida_chegada_min": 12
+  }
 }
