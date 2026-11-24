@@ -1,10 +1,10 @@
 {
- "quando_utc": "24/11/2026 01:41",
+ "quando_utc": "24/11/2026 10:24",
  "testes": {
   "padrao": [
    {
     "voos": 11,
-    "menor": 5218,
+    "menor": 5288,
     "forma": [
      5,
      2,
@@ -14,77 +14,77 @@
     ],
     "lista": [
      [
-      5218,
+      5288,
       "LATAM",
       "20:50",
       2,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "16:30",
       1,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "20:45",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "melhores"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "20:15",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5948,
+      6029,
       "LATAM",
       "17:55",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "20:10",
       1,
       "outros"
      ],
      [
-      6184,
+      6397,
       "LATAM+Aeromexico",
       "08:40",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "20:15",
       2,
@@ -94,7 +94,7 @@
    },
    {
     "voos": 11,
-    "menor": 5218,
+    "menor": 5288,
     "forma": [
      5,
      2,
@@ -104,77 +104,77 @@
     ],
     "lista": [
      [
-      5218,
+      5288,
       "LATAM",
       "20:50",
       2,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "16:30",
       1,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "20:45",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "melhores"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "20:15",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5948,
+      6029,
       "LATAM",
       "17:55",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "20:10",
       1,
       "outros"
      ],
      [
-      6184,
+      6397,
       "LATAM+Aeromexico",
       "08:40",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "20:15",
       2,
@@ -183,11 +183,8 @@
     ]
    },
    {
-    "erro": "RuntimeError: o Google devolveu erro"
-   },
-   {
     "voos": 11,
-    "menor": 5218,
+    "menor": 5288,
     "forma": [
      5,
      2,
@@ -197,77 +194,167 @@
     ],
     "lista": [
      [
-      5218,
+      5288,
       "LATAM",
       "20:50",
       2,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "16:30",
       1,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "20:45",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "melhores"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "20:15",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5948,
+      6029,
       "LATAM",
       "17:55",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "20:10",
       1,
       "outros"
      ],
      [
-      6184,
+      6397,
       "LATAM+Aeromexico",
       "08:40",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
+      "Gol+Avianca",
+      "20:15",
+      2,
+      "outros"
+     ]
+    ]
+   },
+   {
+    "voos": 11,
+    "menor": 5288,
+    "forma": [
+     5,
+     2,
+     5,
+     5,
+     "NoneType"
+    ],
+    "lista": [
+     [
+      5288,
+      "LATAM",
+      "20:50",
+      2,
+      "melhores"
+     ],
+     [
+      5306,
+      "LATAM",
+      "16:30",
+      1,
+      "melhores"
+     ],
+     [
+      5306,
+      "LATAM",
+      "20:45",
+      1,
+      "outros"
+     ],
+     [
+      5504,
+      "Gol+American",
+      "18:55",
+      1,
+      "melhores"
+     ],
+     [
+      5504,
+      "Gol+American",
+      "20:15",
+      1,
+      "outros"
+     ],
+     [
+      5688,
+      "LATAM",
+      "18:40",
+      1,
+      "outros"
+     ],
+     [
+      6029,
+      "LATAM",
+      "17:55",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      6397,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
+      "outros"
+     ],
+     [
+      14209,
       "Gol+Avianca",
       "20:15",
       2,
@@ -278,8 +365,11 @@
   ],
   "tfu": [
    {
-    "voos": 69,
-    "menor": 5218,
+    "erro": "RuntimeError: o Google devolveu erro"
+   },
+   {
+    "voos": 64,
+    "menor": 5288,
     "forma": [
      5,
      2,
@@ -298,13 +388,6 @@
      [
       0,
       "Gol+Avianca",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
       "10:40",
       2,
       "outros"
@@ -373,399 +456,371 @@
       "outros"
      ],
      [
-      5218,
-      "LATAM",
-      "14:25",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "17:55",
-      2,
-      "outros"
-     ],
-     [
-      5218,
+      5288,
       "LATAM",
       "20:50",
       2,
       "melhores"
      ],
      [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      5235,
+      5306,
       "LATAM",
       "11:25",
       1,
       "outros"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "13:45",
       1,
       "outros"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "16:30",
       1,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "20:45",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "melhores"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "20:15",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5871,
+      5950,
+      "LATAM",
+      "06:30",
+      1,
+      "outros"
+     ],
+     [
+      5950,
       "LATAM",
       "08:30",
       1,
       "outros"
      ],
      [
-      5871,
+      5950,
       "LATAM",
       "19:30",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5927,
-      "LATAM",
-      "11:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "18:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5948,
-      "LATAM",
-      "17:55",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "08:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "11:15",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "18:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      6184,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6272,
+      5999,
       "LATAM",
       "20:50",
       2,
       "outros"
      ],
      [
-      6436,
-      "Gol+American",
-      "11:05",
+      6016,
+      "LATAM",
+      "18:40",
+      2,
+      "outros"
+     ],
+     [
+      6016,
+      "LATAM",
+      "20:10",
+      2,
+      "outros"
+     ],
+     [
+      6016,
+      "LATAM",
+      "20:10",
+      2,
+      "outros"
+     ],
+     [
+      6029,
+      "LATAM",
+      "10:30",
       1,
       "outros"
      ],
      [
-      6436,
+      6029,
+      "LATAM",
+      "14:25",
+      1,
+      "outros"
+     ],
+     [
+      6029,
+      "LATAM",
+      "17:55",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "05:25",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "08:40",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "11:15",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "18:40",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      6046,
+      "LATAM",
+      "20:10",
+      1,
+      "outros"
+     ],
+     [
+      6397,
+      "Gol+Aeromexico",
+      "06:05",
+      2,
+      "outros"
+     ],
+     [
+      6397,
+      "LATAM+Aeromexico",
+      "05:25",
+      2,
+      "outros"
+     ],
+     [
+      6397,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
+      "outros"
+     ],
+     [
+      6519,
+      "Gol+Aeromexico",
+      "06:05",
+      2,
+      "outros"
+     ],
+     [
+      6519,
+      "LATAM+Aeromexico",
+      "08:40",
+      2,
+      "outros"
+     ],
+     [
+      6524,
       "Gol+American",
       "12:15",
       1,
       "outros"
      ],
      [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
+      6524,
       "Gol+American",
       "16:20",
       1,
       "outros"
      ],
      [
-      6469,
+      6524,
+      "Gol+American",
+      "16:20",
+      1,
+      "outros"
+     ],
+     [
+      6524,
+      "Gol+American",
+      "16:20",
+      1,
+      "outros"
+     ],
+     [
+      6557,
       "LATAM+Delta",
       "20:10",
       2,
       "outros"
      ],
      [
-      6823,
+      6915,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      6823,
+      6915,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      7136,
+      7218,
+      "Gol+Air Canada",
+      "11:05",
+      2,
+      "outros"
+     ],
+     [
+      7233,
       "Aerolineas Argentinas",
       "12:45",
       1,
       "outros"
      ],
      [
-      7136,
+      7233,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      7136,
+      7233,
       "Aerolineas Argentinas",
       "22:05",
       1,
       "outros"
      ],
      [
-      7176,
+      7274,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      7195,
+      7293,
       "Aerolineas Argentinas",
       "08:05",
       1,
       "outros"
      ],
      [
-      7195,
+      7293,
       "Aerolineas Argentinas",
       "17:05",
       1,
       "outros"
      ],
      [
-      7306,
+      7572,
       "Gol+Air Canada",
       "11:05",
       2,
       "outros"
      ],
      [
-      7578,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      8043,
+      8152,
       "Gol+United",
       "18:55",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "20:15",
       2,
       "outros"
      ],
      [
-      14021,
+      14214,
       "Gol+Avianca",
       "11:05",
       2,
@@ -774,504 +829,11 @@
     ]
    },
    {
-    "voos": 69,
-    "menor": 5218,
-    "forma": [
-     5,
-     2,
-     5,
-     5,
-     "NoneType"
-    ],
-    "lista": [
-     [
-      0,
-      "Gol+Avianca",
-      "05:35",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "14:25",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "17:55",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "melhores"
-     ],
-     [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      5235,
-      "LATAM",
-      "11:25",
-      1,
-      "outros"
-     ],
-     [
-      5235,
-      "LATAM",
-      "13:45",
-      1,
-      "outros"
-     ],
-     [
-      5235,
-      "LATAM",
-      "16:30",
-      1,
-      "melhores"
-     ],
-     [
-      5235,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "18:55",
-      1,
-      "melhores"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "18:55",
-      1,
-      "outros"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "20:15",
-      1,
-      "outros"
-     ],
-     [
-      5612,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      5612,
-      "LATAM",
-      "18:40",
-      1,
-      "outros"
-     ],
-     [
-      5871,
-      "LATAM",
-      "08:30",
-      1,
-      "outros"
-     ],
-     [
-      5871,
-      "LATAM",
-      "19:30",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5927,
-      "LATAM",
-      "11:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "18:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5948,
-      "LATAM",
-      "17:55",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "08:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "11:15",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "18:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      6184,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6272,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "11:05",
-      1,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "16:20",
-      1,
-      "outros"
-     ],
-     [
-      6469,
-      "LATAM+Delta",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      6823,
-      "Gol+United",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      6823,
-      "Gol+United",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      7136,
-      "Aerolineas Argentinas",
-      "12:45",
-      1,
-      "outros"
-     ],
-     [
-      7136,
-      "Aerolineas Argentinas",
-      "14:05",
-      1,
-      "outros"
-     ],
-     [
-      7136,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
-      "outros"
-     ],
-     [
-      7176,
-      "Gol+United",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      7195,
-      "Aerolineas Argentinas",
-      "08:05",
-      1,
-      "outros"
-     ],
-     [
-      7195,
-      "Aerolineas Argentinas",
-      "17:05",
-      1,
-      "outros"
-     ],
-     [
-      7306,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      7578,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      8043,
-      "Gol+United",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      14016,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      14016,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      14021,
-      "Gol+Avianca",
-      "11:05",
-      2,
-      "outros"
-     ]
-    ]
+    "erro": "AttributeError: 'NoneType' object has no attribute 'text'"
    },
    {
-    "voos": 69,
-    "menor": 5218,
+    "voos": 64,
+    "menor": 5288,
     "forma": [
      5,
      2,
@@ -1290,13 +852,6 @@
      [
       0,
       "Gol+Avianca",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
       "10:40",
       2,
       "outros"
@@ -1365,895 +920,371 @@
       "outros"
      ],
      [
-      5218,
-      "LATAM",
-      "14:25",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "17:55",
-      2,
-      "outros"
-     ],
-     [
-      5218,
+      5288,
       "LATAM",
       "20:50",
       2,
       "melhores"
      ],
      [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      5235,
+      5306,
       "LATAM",
       "11:25",
       1,
       "outros"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "13:45",
       1,
       "outros"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "16:30",
       1,
       "melhores"
      ],
      [
-      5235,
+      5306,
       "LATAM",
       "20:45",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "melhores"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "18:55",
       1,
       "outros"
      ],
      [
-      5430,
+      5504,
       "Gol+American",
       "20:15",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5612,
+      5688,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5871,
+      5950,
+      "LATAM",
+      "06:30",
+      1,
+      "outros"
+     ],
+     [
+      5950,
       "LATAM",
       "08:30",
       1,
       "outros"
      ],
      [
-      5871,
+      5950,
       "LATAM",
       "19:30",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5877,
+      5956,
       "Gol+American",
       "18:50",
       1,
       "outros"
      ],
      [
-      5927,
-      "LATAM",
-      "11:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "18:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5948,
-      "LATAM",
-      "17:55",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "08:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "11:15",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "18:40",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      5965,
-      "LATAM",
-      "20:10",
-      1,
-      "outros"
-     ],
-     [
-      6184,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6184,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "Gol+Aeromexico",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6202,
-      "LATAM+Aeromexico",
-      "08:40",
-      2,
-      "outros"
-     ],
-     [
-      6272,
+      5999,
       "LATAM",
       "20:50",
       2,
       "outros"
      ],
      [
-      6436,
-      "Gol+American",
-      "11:05",
-      1,
+      6016,
+      "LATAM",
+      "18:40",
+      2,
       "outros"
      ],
      [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "16:20",
-      1,
-      "outros"
-     ],
-     [
-      6469,
-      "LATAM+Delta",
+      6016,
+      "LATAM",
       "20:10",
       2,
       "outros"
      ],
      [
-      6823,
-      "Gol+United",
-      "18:50",
+      6016,
+      "LATAM",
+      "20:10",
       2,
       "outros"
      ],
      [
-      6823,
-      "Gol+United",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      7136,
-      "Aerolineas Argentinas",
-      "12:45",
+      6029,
+      "LATAM",
+      "10:30",
       1,
       "outros"
      ],
      [
-      7136,
-      "Aerolineas Argentinas",
-      "14:05",
-      1,
-      "outros"
-     ],
-     [
-      7136,
-      "Aerolineas Argentinas",
-      "22:05",
-      1,
-      "outros"
-     ],
-     [
-      7176,
-      "Gol+United",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      7195,
-      "Aerolineas Argentinas",
-      "08:05",
-      1,
-      "outros"
-     ],
-     [
-      7195,
-      "Aerolineas Argentinas",
-      "17:05",
-      1,
-      "outros"
-     ],
-     [
-      7306,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      7578,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      8043,
-      "Gol+United",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      14016,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      14016,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      14021,
-      "Gol+Avianca",
-      "11:05",
-      2,
-      "outros"
-     ]
-    ]
-   },
-   {
-    "voos": 69,
-    "menor": 5218,
-    "forma": [
-     5,
-     2,
-     5,
-     5,
-     "NoneType"
-    ],
-    "lista": [
-     [
-      0,
-      "Gol+Avianca",
-      "05:35",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "06:05",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "10:40",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:50",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "18:55",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      0,
-      "Gol+Avianca",
-      "20:15",
-      2,
-      "outros"
-     ],
-     [
-      5218,
+      6029,
       "LATAM",
       "14:25",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "17:55",
-      2,
-      "outros"
-     ],
-     [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "melhores"
-     ],
-     [
-      5218,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      5235,
-      "LATAM",
-      "11:25",
       1,
       "outros"
      ],
      [
-      5235,
-      "LATAM",
-      "13:45",
-      1,
-      "outros"
-     ],
-     [
-      5235,
-      "LATAM",
-      "16:30",
-      1,
-      "melhores"
-     ],
-     [
-      5235,
-      "LATAM",
-      "20:45",
-      1,
-      "outros"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "18:55",
-      1,
-      "melhores"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "18:55",
-      1,
-      "outros"
-     ],
-     [
-      5430,
-      "Gol+American",
-      "20:15",
-      1,
-      "outros"
-     ],
-     [
-      5612,
-      "LATAM",
-      "05:25",
-      1,
-      "outros"
-     ],
-     [
-      5612,
-      "LATAM",
-      "18:40",
-      1,
-      "outros"
-     ],
-     [
-      5871,
-      "LATAM",
-      "08:30",
-      1,
-      "outros"
-     ],
-     [
-      5871,
-      "LATAM",
-      "19:30",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5877,
-      "Gol+American",
-      "18:50",
-      1,
-      "outros"
-     ],
-     [
-      5927,
-      "LATAM",
-      "11:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "13:55",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "18:40",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5936,
-      "LATAM",
-      "20:10",
-      2,
-      "outros"
-     ],
-     [
-      5948,
+      6029,
       "LATAM",
       "17:55",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "05:25",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "08:40",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "11:15",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "18:40",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "20:10",
       1,
       "outros"
      ],
      [
-      5965,
+      6046,
       "LATAM",
       "20:10",
       1,
       "outros"
      ],
      [
-      6184,
+      6397,
       "Gol+Aeromexico",
       "06:05",
       2,
       "outros"
      ],
      [
-      6184,
+      6397,
       "LATAM+Aeromexico",
       "05:25",
       2,
       "outros"
      ],
      [
-      6184,
+      6397,
       "LATAM+Aeromexico",
       "08:40",
       2,
       "outros"
      ],
      [
-      6202,
+      6519,
       "Gol+Aeromexico",
       "06:05",
       2,
       "outros"
      ],
      [
-      6202,
-      "LATAM+Aeromexico",
-      "05:25",
-      2,
-      "outros"
-     ],
-     [
-      6202,
+      6519,
       "LATAM+Aeromexico",
       "08:40",
       2,
       "outros"
      ],
      [
-      6272,
-      "LATAM",
-      "20:50",
-      2,
-      "outros"
-     ],
-     [
-      6436,
-      "Gol+American",
-      "11:05",
-      1,
-      "outros"
-     ],
-     [
-      6436,
+      6524,
       "Gol+American",
       "12:15",
       1,
       "outros"
      ],
      [
-      6436,
-      "Gol+American",
-      "12:15",
-      1,
-      "outros"
-     ],
-     [
-      6436,
+      6524,
       "Gol+American",
       "16:20",
       1,
       "outros"
      ],
      [
-      6469,
+      6524,
+      "Gol+American",
+      "16:20",
+      1,
+      "outros"
+     ],
+     [
+      6524,
+      "Gol+American",
+      "16:20",
+      1,
+      "outros"
+     ],
+     [
+      6557,
       "LATAM+Delta",
       "20:10",
       2,
       "outros"
      ],
      [
-      6823,
+      6915,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      6823,
+      6915,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      7136,
+      7218,
+      "Gol+Air Canada",
+      "11:05",
+      2,
+      "outros"
+     ],
+     [
+      7233,
       "Aerolineas Argentinas",
       "12:45",
       1,
       "outros"
      ],
      [
-      7136,
+      7233,
       "Aerolineas Argentinas",
       "14:05",
       1,
       "outros"
      ],
      [
-      7136,
+      7233,
       "Aerolineas Argentinas",
       "22:05",
       1,
       "outros"
      ],
      [
-      7176,
+      7274,
       "Gol+United",
       "18:50",
       2,
       "outros"
      ],
      [
-      7195,
+      7293,
       "Aerolineas Argentinas",
       "08:05",
       1,
       "outros"
      ],
      [
-      7195,
+      7293,
       "Aerolineas Argentinas",
       "17:05",
       1,
       "outros"
      ],
      [
-      7306,
+      7572,
       "Gol+Air Canada",
       "11:05",
       2,
       "outros"
      ],
      [
-      7578,
-      "Gol+Air Canada",
-      "11:05",
-      2,
-      "outros"
-     ],
-     [
-      8043,
+      8152,
       "Gol+United",
       "18:55",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "10:40",
       2,
       "outros"
      ],
      [
-      14016,
+      14209,
       "Gol+Avianca",
       "20:15",
       2,
       "outros"
      ],
      [
-      14021,
+      14214,
       "Gol+Avianca",
       "11:05",
       2,
