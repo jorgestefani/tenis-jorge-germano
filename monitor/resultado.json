@@ -1,5 +1,5 @@
 {
- "atualizado": "23/11/2026 10:21",
+ "atualizado": "23/11/2026 22:37",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -33,96 +33,27 @@
   "hora_fim": 23,
   "ate": "",
   "ativo": true,
+  "filtro": {
+   "sem_troca_aeroporto": true,
+   "ida_saida_de": 5,
+   "ida_saida_ate": 10,
+   "ida_chegada_min": 12
+  },
   "flex": {
    "noites": 7,
    "de": "2027-02-01",
    "ate": "2027-03-31"
   }
  },
- "ida_data": "2027-02-18",
- "volta_data": "2027-02-25",
- "total_ida": 17,
+ "ida_data": "2027-03-02",
+ "volta_data": "2027-03-09",
+ "total_ida": 11,
  "total_volta": 11,
- "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMThqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
+ "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA5agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
    "escalas_detalhe": [
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 18/02 12:10, sai 18/02 16:50 (horário local) – espera 4h40",
-    "BOG – El Dorado International Airport: chega 18/02 21:10, sai 18/02 23:00 (horário local) – espera 1h50"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "18/02 10:40",
-   "chegada": "19/02 02:50",
-   "hora_saida": 10,
-   "paradas": 2,
-   "escalas": [
-    "GIG: 4.7h",
-    "BOG: 1.8h"
-   ],
-   "espera_max_h": 4.7,
-   "duracao_h": 16.2,
-   "preco": 4900
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 12:30, sai 18/02 17:25 (horário local) – espera 4h55",
-    "BOG – El Dorado International Airport: chega 18/02 21:30, sai 18/02 23:00 (horário local) – espera 1h30"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "18/02 11:05",
-   "chegada": "19/02 02:50",
-   "hora_saida": 11,
-   "paradas": 2,
-   "escalas": [
-    "GRU: 4.9h",
-    "BOG: 1.5h"
-   ],
-   "espera_max_h": 4.9,
-   "duracao_h": 15.8,
-   "preco": 4905
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 20:25, sai 19/02 00:25 (horário local) – espera 4h00",
-    "BOG – El Dorado International Airport: chega 19/02 04:25, sai 19/02 07:40 (horário local) – espera 3h15"
-   ],
-   "sites": [
-    "Gol: https://www.voegol.com.br",
-    "Avianca: https://www.avianca.com/br/pt"
-   ],
-   "companhias": [
-    "Gol",
-    "Avianca"
-   ],
-   "saida": "18/02 18:50",
-   "chegada": "19/02 11:40",
-   "hora_saida": 18,
-   "paradas": 2,
-   "escalas": [
-    "GRU: 4.0h",
-    "BOG: 3.2h"
-   ],
-   "espera_max_h": 4.0,
-   "duracao_h": 16.8,
-   "preco": 4964
-  },
-  {
-   "escalas_detalhe": [
-    "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 18/02 17:45, sai 18/02 23:00 (horário local) – espera 5h15"
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 02/03 06:55, sai 02/03 10:15 (horário local) – espera 3h20"
    ],
    "sites": [
     "LATAM: https://www.latamairlines.com/br/pt"
@@ -130,29 +61,8 @@
    "companhias": [
     "LATAM"
    ],
-   "saida": "18/02 16:30",
-   "chegada": "19/02 05:25",
-   "hora_saida": 16,
-   "paradas": 1,
-   "escalas": [
-    "CGH: 5.2h"
-   ],
-   "espera_max_h": 5.2,
-   "duracao_h": 12.9,
-   "preco": 5235
-  },
-  {
-   "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 06:55, sai 18/02 10:15 (horário local) – espera 3h20"
-   ],
-   "sites": [
-    "LATAM: https://www.latamairlines.com/br/pt"
-   ],
-   "companhias": [
-    "LATAM"
-   ],
-   "saida": "18/02 05:25",
-   "chegada": "18/02 16:40",
+   "saida": "02/03 05:25",
+   "chegada": "02/03 16:40",
    "hora_saida": 5,
    "paradas": 1,
    "escalas": [
@@ -160,14 +70,41 @@
    ],
    "espera_max_h": 3.3,
    "duracao_h": 11.2,
-   "preco": 5965
+   "troca_aeroporto": false,
+   "chegada_hm": 16.666666666666668,
+   "chega_outro_dia": false,
+   "preco": 5553
   }
  ],
  "volta": [
   {
    "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 25/02 05:15, sai 25/02 07:10 (horário local) – espera 1h55",
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 15:45, sai 25/02 18:00 (horário local) – espera 2h15"
+    "PTY – Aeroporto Internacional Tocumen: chega 09/03 12:21, sai 09/03 15:13 (horário local) – espera 2h52"
+   ],
+   "sites": [
+    "COPA: https://www.copaair.com/pt-br"
+   ],
+   "companhias": [
+    "COPA"
+   ],
+   "saida": "09/03 09:14",
+   "chegada": "10/03 00:20",
+   "hora_saida": 9,
+   "paradas": 1,
+   "escalas": [
+    "PTY: 2.9h"
+   ],
+   "espera_max_h": 2.9,
+   "duracao_h": 15.1,
+   "troca_aeroporto": false,
+   "chegada_hm": 0.3333333333333333,
+   "chega_outro_dia": true,
+   "preco": 2454
+  },
+  {
+   "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 09/03 05:15, sai 09/03 07:10 (horário local) – espera 1h55",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 09/03 15:45, sai 09/03 18:00 (horário local) – espera 2h15"
    ],
    "sites": [
     "Avianca: https://www.avianca.com/br/pt",
@@ -177,8 +114,8 @@
     "Avianca",
     "Gol"
    ],
-   "saida": "25/02 01:35",
-   "chegada": "25/02 19:35",
+   "saida": "09/03 01:35",
+   "chegada": "09/03 19:35",
    "hora_saida": 1,
    "paradas": 2,
    "escalas": [
@@ -187,12 +124,15 @@
    ],
    "espera_max_h": 2.2,
    "duracao_h": 18.0,
-   "preco": 2640
+   "troca_aeroporto": false,
+   "chegada_hm": 19.583333333333332,
+   "chega_outro_dia": false,
+   "preco": 2613
   },
   {
    "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:45 (horário local) – espera 2h00",
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 06:05, sai 26/02 09:05 (horário local) – espera 3h00"
+    "BOG – El Dorado International Airport: chega 09/03 19:45, sai 09/03 21:25 (horário local) – espera 1h40",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 10/03 05:55, sai 10/03 08:25 (horário local) – espera 2h30"
    ],
    "sites": [
     "Avianca: https://www.avianca.com/br/pt",
@@ -202,42 +142,20 @@
     "Avianca",
     "Gol"
    ],
-   "saida": "25/02 16:00",
-   "chegada": "26/02 10:25",
+   "saida": "09/03 16:00",
+   "chegada": "10/03 10:00",
    "hora_saida": 16,
    "paradas": 2,
    "escalas": [
-    "BOG: 2.0h",
-    "GRU: 3.0h"
-   ],
-   "espera_max_h": 3.0,
-   "duracao_h": 18.4,
-   "preco": 2640
-  },
-  {
-   "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 25/02 17:10, sai 25/02 21:25 (horário local) – espera 4h15",
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 05:55, sai 26/02 08:25 (horário local) – espera 2h30"
-   ],
-   "sites": [
-    "Avianca: https://www.avianca.com/br/pt",
-    "Gol: https://www.voegol.com.br"
-   ],
-   "companhias": [
-    "Avianca",
-    "Gol"
-   ],
-   "saida": "25/02 13:20",
-   "chegada": "26/02 10:00",
-   "hora_saida": 13,
-   "paradas": 2,
-   "escalas": [
-    "BOG: 4.2h",
+    "BOG: 1.7h",
     "GIG: 2.5h"
    ],
-   "espera_max_h": 4.2,
-   "duracao_h": 20.7,
-   "preco": 2640
+   "espera_max_h": 2.5,
+   "duracao_h": 18.0,
+   "troca_aeroporto": false,
+   "chegada_hm": 10.0,
+   "chega_outro_dia": true,
+   "preco": 2613
   }
  ],
  "datas": [
@@ -250,31 +168,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 7078,
+   "menor": 7225,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "POA – Aeroporto Internacional de Porto Alegre - Salgado Filho: chega 01/02 15:15, sai 01/02 18:00 (horário local) – espera 2h45",
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 01/02 19:50, sai 01/02 23:00 (horário local) – espera 3h10"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "01/02 14:15",
-     "chegada": "02/02 05:25",
-     "hora_saida": 14,
-     "paradas": 2,
-     "escalas": [
-      "POA: 2.8h",
-      "GRU: 3.2h"
-     ],
-     "espera_max_h": 3.2,
-     "duracao_h": 15.2,
-     "preco": 7078
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 01/02 06:55, sai 01/02 10:15 (horário local) – espera 3h20"
@@ -294,74 +189,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 7225
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 01/02 17:45, sai 01/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "01/02 16:30",
-     "chegada": "02/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 7225
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 01/02 21:40, sai 01/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "01/02 20:10",
-     "chegada": "02/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 7814
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 01/02 12:10, sai 01/02 16:50 (horário local) – espera 4h40",
-      "BOG – El Dorado International Airport: chega 01/02 21:10, sai 01/02 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "01/02 10:40",
-     "chegada": "02/02 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.7h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.7,
-     "duracao_h": 16.2,
-     "preco": 7904
     }
    ],
    "volta_opcoes": [],
@@ -375,8 +206,36 @@
    "dia_volta": "terça",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "status": "ok",
+   "menor": 7343,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 02/02 06:55, sai 02/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "02/02 05:25",
+     "chegada": "02/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7343
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTA5agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -387,29 +246,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6972,
+   "menor": 6990,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 03/02 21:35, sai 03/02 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "03/02 17:55",
-     "chegada": "04/02 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 6972
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/02 06:55, sai 03/02 10:15 (horário local) – espera 3h20"
@@ -429,74 +267,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 6990
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/02 21:40, sai 03/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "03/02 20:10",
-     "chegada": "04/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 6990
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/02 20:25, sai 03/02 23:15 (horário local) – espera 2h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "03/02 18:50",
-     "chegada": "04/02 05:45",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.8h"
-     ],
-     "espera_max_h": 2.8,
-     "duracao_h": 10.9,
-     "preco": 7202
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/02 20:25, sai 03/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "03/02 18:50",
-     "chegada": "04/02 05:05",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 7644
     }
    ],
    "volta_opcoes": [],
@@ -511,58 +285,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5868,
+   "menor": 7702,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 04/02 06:43, sai 04/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "04/02 01:40",
-     "chegada": "04/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5868
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/02 20:25, sai 05/02 00:25 (horário local) – espera 4h00",
-      "BOG – El Dorado International Airport: chega 05/02 04:25, sai 05/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "04/02 18:50",
-     "chegada": "05/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.0h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.0,
-     "duracao_h": 16.8,
-     "preco": 6319
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 04/02 18:05, sai 04/02 20:25 (horário local) – espera 2h20",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 04/02 22:10, sai 05/02 00:15 (horário local) – espera 2h05"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/02 06:55, sai 04/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -570,63 +297,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "04/02 14:25",
-     "chegada": "05/02 06:10",
-     "hora_saida": 14,
-     "paradas": 2,
-     "escalas": [
-      "SCL: 2.3h",
-      "LIM: 2.1h"
-     ],
-     "espera_max_h": 2.3,
-     "duracao_h": 15.8,
-     "preco": 6484
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 04/02 21:45, sai 05/02 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 05/02 06:00, sai 05/02 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "04/02 20:15",
-     "chegada": "05/02 11:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 15.4,
-     "preco": 6991
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/02 21:40, sai 04/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "04/02 20:10",
-     "chegada": "05/02 05:25",
-     "hora_saida": 20,
+     "saida": "04/02 05:25",
+     "chegada": "04/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "GRU: 1.3h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 7496
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7702
     }
    ],
    "volta_opcoes": [],
@@ -641,105 +324,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6642,
+   "menor": 6816,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 12:30, sai 05/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 05/02 21:30, sai 05/02 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "05/02 11:05",
-     "chegada": "06/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 6642
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 20:25, sai 06/02 00:25 (horário local) – espera 4h00",
-      "BOG – El Dorado International Airport: chega 06/02 04:25, sai 06/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "05/02 18:50",
-     "chegada": "06/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.0h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.0,
-     "duracao_h": 16.8,
-     "preco": 6937
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 20:25, sai 05/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "05/02 18:50",
-     "chegada": "06/02 05:05",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 7508
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 05/02 06:43, sai 05/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "05/02 01:40",
-     "chegada": "05/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 7829
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 05/02 21:35, sai 05/02 23:10 (horário local) – espera 1h35"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 06:55, sai 05/02 12:35 (horário local) – espera 5h40"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -747,16 +336,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "05/02 17:55",
-     "chegada": "06/02 05:50",
-     "hora_saida": 17,
+     "saida": "05/02 05:25",
+     "chegada": "05/02 18:55",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "SCL: 1.6h"
+      "GRU: 5.7h"
      ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 7859
+     "espera_max_h": 5.7,
+     "duracao_h": 13.5,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6816
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 06:55, sai 05/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "05/02 05:25",
+     "chegada": "05/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7287
     }
    ],
    "volta_opcoes": [],
@@ -771,56 +387,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6505,
+   "menor": 8786,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/02 20:20, sai 06/02 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "06/02 18:55",
-     "chegada": "07/02 05:05",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 6505
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 06/02 06:43, sai 06/02 10:25 (horário local) – espera 3h42"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "06/02 01:40",
-     "chegada": "06/02 13:31",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 3.7h"
-     ],
-     "espera_max_h": 3.7,
-     "duracao_h": 11.8,
-     "preco": 8241
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/02 21:40, sai 07/02 03:35 (horário local) – espera 5h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 07/02 06:45, sai 07/02 08:35 (horário local) – espera 1h50"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/02 06:55, sai 06/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -828,57 +399,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "06/02 20:10",
-     "chegada": "07/02 14:30",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.9h",
-      "LIM: 1.8h"
-     ],
-     "espera_max_h": 5.9,
-     "duracao_h": 18.3,
-     "preco": 8709
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/02 21:40, sai 06/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "06/02 20:10",
-     "chegada": "07/02 05:25",
-     "hora_saida": 20,
+     "saida": "06/02 05:25",
+     "chegada": "06/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "GRU: 1.3h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 8786
-    },
-    {
-     "escalas_detalhe": [
-      "AEP – Aeroparque Jorge Newbery: chega 06/02 10:20, sai 06/02 14:40 (horário local) – espera 4h20"
-     ],
-     "sites": [],
-     "companhias": [
-      "Aerolineas Argentinas"
-     ],
-     "saida": "06/02 08:05",
-     "chegada": "06/02 21:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "AEP: 4.3h"
-     ],
-     "espera_max_h": 4.3,
-     "duracao_h": 13.8,
-     "preco": 9444
     }
    ],
    "volta_opcoes": [],
@@ -893,7 +426,7 @@
    "noites": 7,
    "flex": true,
    "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
   },
   {
    "semana": 0,
@@ -904,77 +437,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5838,
+   "menor": 6790,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "COR – Ingeniero Aeronáutico Ambrosio L.V. Taravella International Airport: chega 09/02 02:15, sai 09/02 07:40 (horário local) – espera 5h25",
-      "BOG – El Dorado International Airport: chega 09/02 11:25, sai 09/02 13:00 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "08/02 23:35",
-     "chegada": "09/02 17:00",
-     "hora_saida": 23,
-     "paradas": 2,
-     "escalas": [
-      "COR: 5.4h",
-      "BOG: 1.6h"
-     ],
-     "espera_max_h": 5.4,
-     "duracao_h": 17.4,
-     "preco": 5838
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 08/02 21:45, sai 08/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "08/02 20:15",
-     "chegada": "09/02 06:30",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 08/02 17:45, sai 08/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "08/02 16:30",
-     "chegada": "09/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 6583
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 08/02 06:55, sai 08/02 10:15 (horário local) – espera 3h20"
@@ -994,28 +458,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6669
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 08/02 21:40, sai 08/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "08/02 20:10",
-     "chegada": "09/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 6669
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6790
     }
    ],
    "volta_opcoes": [],
@@ -1030,31 +476,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6972,
+   "menor": 6672,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 10/02 00:30, sai 10/02 05:40 (horário local) – espera 5h10",
-      "PUJ – Aeroporto Internacional de Punta Cana: chega 10/02 12:35, sai 10/02 14:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "09/02 20:50",
-     "chegada": "10/02 15:55",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "SCL: 5.2h",
-      "PUJ: 1.6h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 19.1,
-     "preco": 6972
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/02 06:55, sai 09/02 10:15 (horário local) – espera 3h20"
@@ -1074,70 +497,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6990
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 09/02 17:45, sai 09/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "09/02 16:30",
-     "chegada": "10/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 6990
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 09/02 21:35, sai 09/02 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "09/02 17:55",
-     "chegada": "10/02 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 7431
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/02 21:40, sai 09/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "09/02 20:10",
-     "chegada": "10/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 7449
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6672
     }
    ],
    "volta_opcoes": [],
@@ -1151,8 +514,36 @@
    "dia_volta": "quarta",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "status": "ok",
+   "menor": 7449,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 10/02 06:55, sai 10/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "10/02 05:25",
+     "chegada": "10/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7449
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTBqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTE3agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1163,99 +554,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5868,
+   "menor": 6542,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 11/02 06:43, sai 11/02 12:33 (horário local) – espera 5h50"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "11/02 01:40",
-     "chegada": "11/02 15:41",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 5.8h"
-     ],
-     "espera_max_h": 5.8,
-     "duracao_h": 14.0,
-     "preco": 5868
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/02 20:25, sai 11/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "11/02 18:50",
-     "chegada": "12/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5877
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/02 21:45, sai 11/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "11/02 20:15",
-     "chegada": "12/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 6314
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 11/02 06:43, sai 11/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "11/02 01:40",
-     "chegada": "11/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 6510
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 11/02 07:40, sai 11/02 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/02 06:55, sai 11/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1263,16 +566,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "11/02 06:30",
-     "chegada": "11/02 18:55",
-     "hora_saida": 6,
+     "saida": "11/02 05:25",
+     "chegada": "11/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 6707
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6542
     }
    ],
    "volta_opcoes": [],
@@ -1287,94 +593,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6472,
+   "menor": 7119,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/02 20:25, sai 12/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "12/02 18:50",
-     "chegada": "13/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 6472
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 12/02 06:43, sai 12/02 10:25 (horário local) – espera 3h42"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "12/02 01:40",
-     "chegada": "12/02 13:31",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 3.7h"
-     ],
-     "espera_max_h": 3.7,
-     "duracao_h": 11.8,
-     "preco": 6510
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 12/02 06:43, sai 12/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "12/02 01:40",
-     "chegada": "12/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 6869
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/02 21:40, sai 12/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "12/02 20:10",
-     "chegada": "13/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 7127
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/02 06:55, sai 12/02 10:15 (horário local) – espera 3h20"
@@ -1394,7 +614,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 7127
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7119
     }
    ],
    "volta_opcoes": [],
@@ -1409,97 +632,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6103,
+   "menor": 6637,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 13/02 06:43, sai 13/02 12:33 (horário local) – espera 5h50"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "13/02 01:40",
-     "chegada": "13/02 15:41",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 5.8h"
-     ],
-     "espera_max_h": 5.8,
-     "duracao_h": 14.0,
-     "preco": 6103
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 13/02 06:43, sai 13/02 10:25 (horário local) – espera 3h42"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "13/02 01:40",
-     "chegada": "13/02 13:31",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 3.7h"
-     ],
-     "espera_max_h": 3.7,
-     "duracao_h": 11.8,
-     "preco": 6510
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 13/02 06:43, sai 13/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "13/02 01:40",
-     "chegada": "13/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 6869
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 13/02 20:20, sai 13/02 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "13/02 18:55",
-     "chegada": "14/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 6914
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 13/02 21:40, sai 13/02 23:00 (horário local) – espera 1h20"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 13/02 06:55, sai 13/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1507,16 +644,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "13/02 20:10",
-     "chegada": "14/02 05:25",
-     "hora_saida": 20,
+     "saida": "13/02 05:25",
+     "chegada": "13/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "GRU: 1.3h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 7127
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6637
     }
    ],
    "volta_opcoes": [],
@@ -1531,80 +671,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5956,
+   "menor": 7461,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "COR – Ingeniero Aeronáutico Ambrosio L.V. Taravella International Airport: chega 15/02 01:50, sai 15/02 07:40 (horário local) – espera 5h50",
-      "BOG – El Dorado International Airport: chega 15/02 11:25, sai 15/02 13:00 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "14/02 23:05",
-     "chegada": "15/02 17:00",
-     "hora_saida": 23,
-     "paradas": 2,
-     "escalas": [
-      "COR: 5.8h",
-      "BOG: 1.6h"
-     ],
-     "espera_max_h": 5.8,
-     "duracao_h": 17.9,
-     "preco": 5956
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 20:20, sai 14/02 23:15 (horário local) – espera 2h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "14/02 18:55",
-     "chegada": "15/02 05:50",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.9h"
-     ],
-     "espera_max_h": 2.9,
-     "duracao_h": 10.9,
-     "preco": 6472
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 14/02 06:43, sai 14/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "14/02 01:40",
-     "chegada": "14/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 6722
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 14/02 18:05, sai 14/02 23:10 (horário local) – espera 5h05"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1612,16 +683,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "14/02 14:25",
-     "chegada": "15/02 05:50",
-     "hora_saida": 14,
+     "saida": "14/02 05:25",
+     "chegada": "14/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "SCL: 5.1h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.1,
-     "duracao_h": 15.4,
-     "preco": 7443
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7461
     },
     {
      "escalas_detalhe": [
@@ -1642,6 +716,9 @@
      ],
      "espera_max_h": 2.4,
      "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
      "preco": 7461
     }
    ],
@@ -1657,75 +734,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6625,
+   "menor": 6990,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 15/02 18:05, sai 15/02 20:25 (horário local) – espera 2h20",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 15/02 22:10, sai 16/02 00:15 (horário local) – espera 2h05"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/02 14:25",
-     "chegada": "16/02 06:10",
-     "hora_saida": 14,
-     "paradas": 2,
-     "escalas": [
-      "SCL: 2.3h",
-      "LIM: 2.1h"
-     ],
-     "espera_max_h": 2.3,
-     "duracao_h": 15.8,
-     "preco": 6625
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 15/02 21:40, sai 16/02 03:35 (horário local) – espera 5h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 16/02 06:45, sai 16/02 08:35 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/02 20:10",
-     "chegada": "16/02 14:30",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.9h",
-      "LIM: 1.8h"
-     ],
-     "espera_max_h": 5.9,
-     "duracao_h": 18.3,
-     "preco": 6642
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 15/02 21:35, sai 15/02 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/02 17:55",
-     "chegada": "16/02 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 6972
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 15/02 06:55, sai 15/02 10:15 (horário local) – espera 3h20"
@@ -1745,27 +755,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6990
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 15/02 21:40, sai 15/02 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/02 20:10",
-     "chegada": "16/02 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 6990
     }
    ],
@@ -1781,98 +773,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 5965,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 17/02 00:30, sai 17/02 05:40 (horário local) – espera 5h10",
-      "PUJ – Aeroporto Internacional de Punta Cana: chega 17/02 12:35, sai 17/02 14:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/02 20:50",
-     "chegada": "17/02 15:55",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "SCL: 5.2h",
-      "PUJ: 1.6h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 19.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 16/02 20:20, sai 16/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "16/02 18:55",
-     "chegada": "17/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 16/02 21:45, sai 16/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "16/02 20:15",
-     "chegada": "17/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 16/02 17:45, sai 16/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/02 16:30",
-     "chegada": "17/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5447
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/02 06:55, sai 16/02 10:15 (horário local) – espera 3h20"
@@ -1892,7 +794,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 5800
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5965
     }
    ],
    "volta_opcoes": [],
@@ -1907,61 +812,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4905,
+   "menor": 5930,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/02 12:30, sai 17/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 17/02 21:30, sai 17/02 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "17/02 11:05",
-     "chegada": "18/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4905
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 17/02 21:45, sai 18/02 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 18/02 06:00, sai 18/02 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "17/02 20:15",
-     "chegada": "18/02 11:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 15.4,
-     "preco": 5018
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 17/02 17:45, sai 17/02 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/02 06:55, sai 17/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1969,60 +824,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "17/02 16:30",
-     "chegada": "18/02 05:25",
-     "hora_saida": 16,
+     "saida": "17/02 05:25",
+     "chegada": "17/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5235
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 17/02 06:43, sai 17/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "17/02 01:40",
-     "chegada": "17/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5721
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 17/02 20:20, sai 17/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "17/02 18:55",
-     "chegada": "18/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
     }
    ],
    "volta_opcoes": [],
@@ -2037,104 +851,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4847,
+   "menor": 5965,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 12:30, sai 18/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 18/02 21:30, sai 18/02 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "18/02 11:05",
-     "chegada": "19/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4847
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 18/02 12:10, sai 18/02 16:50 (horário local) – espera 4h40",
-      "BOG – El Dorado International Airport: chega 18/02 21:10, sai 18/02 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "18/02 10:40",
-     "chegada": "19/02 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.7h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.7,
-     "duracao_h": 16.2,
-     "preco": 4900
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 20:25, sai 19/02 00:25 (horário local) – espera 4h00",
-      "BOG – El Dorado International Airport: chega 19/02 04:25, sai 19/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "18/02 18:50",
-     "chegada": "19/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.0h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.0,
-     "duracao_h": 16.8,
-     "preco": 4964
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 18/02 17:45, sai 18/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "18/02 16:30",
-     "chegada": "19/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5235
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 06:55, sai 18/02 10:15 (horário local) – espera 3h20"
@@ -2154,86 +872,37 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5965
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/02 10:10, sai 18/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "18/02 08:40",
+     "chegada": "18/02 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
      "preco": 5965
     }
    ],
-   "volta_opcoes": [
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 25/02 05:15, sai 25/02 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 15:45, sai 25/02 18:00 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "25/02 01:35",
-     "chegada": "25/02 19:35",
-     "hora_saida": 1,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 18.0,
-     "preco": 2640
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 25/02 19:45, sai 25/02 21:45 (horário local) – espera 2h00",
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 06:05, sai 26/02 09:05 (horário local) – espera 3h00"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "25/02 16:00",
-     "chegada": "26/02 10:25",
-     "hora_saida": 16,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 2.0h",
-      "GRU: 3.0h"
-     ],
-     "espera_max_h": 3.0,
-     "duracao_h": 18.4,
-     "preco": 2640
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 25/02 17:10, sai 25/02 21:25 (horário local) – espera 4h15",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 05:55, sai 26/02 08:25 (horário local) – espera 2h30"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "25/02 13:20",
-     "chegada": "26/02 10:00",
-     "hora_saida": 13,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 4.2h",
-      "GIG: 2.5h"
-     ],
-     "espera_max_h": 4.2,
-     "duracao_h": 20.7,
-     "preco": 2640
-    }
-   ],
+   "volta_opcoes": [],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMThqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
@@ -2245,107 +914,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4905,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/02 12:30, sai 19/02 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 19/02 21:30, sai 19/02 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "19/02 11:05",
-     "chegada": "20/02 02:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 15.8,
-     "preco": 4905
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/02 20:25, sai 20/02 00:25 (horário local) – espera 4h00",
-      "BOG – El Dorado International Airport: chega 20/02 04:25, sai 20/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "19/02 18:50",
-     "chegada": "20/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.0h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.0,
-     "duracao_h": 16.8,
-     "preco": 4905
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 19/02 12:10, sai 19/02 16:50 (horário local) – espera 4h40",
-      "BOG – El Dorado International Airport: chega 19/02 21:10, sai 19/02 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "19/02 10:40",
-     "chegada": "20/02 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.7h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.7,
-     "duracao_h": 16.2,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 19/02 06:43, sai 19/02 10:25 (horário local) – espera 3h42"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "19/02 01:40",
-     "chegada": "19/02 13:31",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 3.7h"
-     ],
-     "espera_max_h": 3.7,
-     "duracao_h": 11.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 19/02 17:45, sai 19/02 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/02 06:55, sai 19/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -2353,16 +926,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "19/02 16:30",
-     "chegada": "20/02 05:25",
-     "hora_saida": 16,
+     "saida": "19/02 05:25",
+     "chegada": "19/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5871
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/02 10:10, sai 19/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "19/02 08:40",
+     "chegada": "19/02 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -2377,107 +977,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4905,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 20/02 20:20, sai 21/02 00:25 (horário local) – espera 4h05",
-      "BOG – El Dorado International Airport: chega 21/02 04:25, sai 21/02 07:40 (horário local) – espera 3h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "20/02 18:55",
-     "chegada": "21/02 11:40",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.1h",
-      "BOG: 3.2h"
-     ],
-     "espera_max_h": 4.1,
-     "duracao_h": 16.8,
-     "preco": 4905
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 20/02 12:05, sai 20/02 16:50 (horário local) – espera 4h45",
-      "BOG – El Dorado International Airport: chega 20/02 21:10, sai 20/02 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "20/02 10:40",
-     "chegada": "21/02 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.8h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.8,
-     "duracao_h": 16.2,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 20/02 21:15, sai 21/02 01:40 (horário local) – espera 4h25",
-      "BOG – El Dorado International Airport: chega 21/02 06:00, sai 21/02 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "20/02 19:45",
-     "chegada": "21/02 11:40",
-     "hora_saida": 19,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.4h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 4.4,
-     "duracao_h": 15.9,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 20/02 06:43, sai 20/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "20/02 01:40",
-     "chegada": "20/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5721
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 20/02 17:15, sai 20/02 23:00 (horário local) – espera 5h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 20/02 06:55, sai 20/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -2485,16 +989,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "20/02 16:05",
-     "chegada": "21/02 05:25",
-     "hora_saida": 16,
+     "saida": "20/02 05:25",
+     "chegada": "20/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.8,
-     "duracao_h": 13.3,
-     "preco": 5906
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -2509,101 +1016,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 21/02 21:15, sai 21/02 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "21/02 19:45",
-     "chegada": "22/02 06:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 10.8,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/02 20:20, sai 21/02 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "21/02 18:55",
-     "chegada": "22/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 5435
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 21/02 06:43, sai 21/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "21/02 01:40",
-     "chegada": "21/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 21/02 20:20, sai 21/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "21/02 18:50",
-     "chegada": "22/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.2,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 21/02 07:50, sai 21/02 12:35 (horário local) – espera 4h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/02 06:55, sai 21/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -2611,16 +1028,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "21/02 06:40",
-     "chegada": "21/02 18:55",
-     "hora_saida": 6,
+     "saida": "21/02 05:25",
+     "chegada": "21/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 4.8,
-     "duracao_h": 12.2,
-     "preco": 5906
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/02 10:10, sai 21/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "21/02 08:40",
+     "chegada": "21/02 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -2635,98 +1079,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5235,
+   "menor": 5965,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 22/02 17:45, sai 22/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "22/02 16:30",
-     "chegada": "23/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5235
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 22/02 21:45, sai 22/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "22/02 20:15",
-     "chegada": "23/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/02 20:25, sai 22/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "22/02 18:50",
-     "chegada": "23/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5435
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 22/02 20:20, sai 22/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "22/02 18:55",
-     "chegada": "23/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/02 06:55, sai 22/02 10:15 (horário local) – espera 3h20"
@@ -2746,6 +1100,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5965
     }
    ],
@@ -2760,8 +1117,36 @@
    "dia_volta": "terça",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "status": "ok",
+   "menor": 5930,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 23/02 06:55, sai 23/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "23/02 05:25",
+     "chegada": "23/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTAyagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -2772,98 +1157,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5329,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 24/02 17:45, sai 24/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "24/02 16:30",
-     "chegada": "25/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5329
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 21:40, sai 25/02 03:35 (horário local) – espera 5h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 25/02 06:45, sai 25/02 08:20 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "24/02 20:10",
-     "chegada": "25/02 14:20",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.9h",
-      "LIM: 1.6h"
-     ],
-     "espera_max_h": 5.9,
-     "duracao_h": 18.2,
-     "preco": 5612
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/02 20:20, sai 24/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "24/02 18:55",
-     "chegada": "25/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/02 21:45, sai 24/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "24/02 20:15",
-     "chegada": "25/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/02 06:55, sai 24/02 10:15 (horário local) – espera 3h20"
@@ -2883,6 +1178,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     }
    ],
@@ -2898,11 +1196,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5370,
+   "menor": 5930,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 25/02 07:40, sai 25/02 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 06:55, sai 25/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -2910,104 +1208,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "25/02 06:30",
+     "saida": "25/02 05:25",
+     "chegada": "25/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 10:10, sai 25/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "25/02 08:40",
      "chegada": "25/02 18:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 5370
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 25/02 17:45, sai 25/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "25/02 16:30",
-     "chegada": "26/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5370
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 25/02 06:43, sai 25/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "25/02 01:40",
-     "chegada": "25/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 25/02 21:45, sai 25/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "25/02 20:15",
-     "chegada": "26/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 20:25, sai 25/02 22:35 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "25/02 18:50",
-     "chegada": "26/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5877
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
     }
    ],
    "volta_opcoes": [],
@@ -3022,76 +1259,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 26/02 21:45, sai 26/02 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "26/02 20:15",
-     "chegada": "27/02 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 26/02 06:43, sai 26/02 10:25 (horário local) – espera 3h42"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "26/02 01:40",
-     "chegada": "26/02 13:31",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 3.7h"
-     ],
-     "espera_max_h": 3.7,
-     "duracao_h": 11.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 26/02 06:43, sai 26/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "26/02 01:40",
-     "chegada": "26/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5809
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 26/02 07:40, sai 26/02 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 06:55, sai 26/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -3099,37 +1271,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "26/02 06:30",
+     "saida": "26/02 05:25",
+     "chegada": "26/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 10:10, sai 26/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "26/02 08:40",
      "chegada": "26/02 18:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 26/02 17:45, sai 26/02 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "26/02 16:30",
-     "chegada": "27/02 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5871
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -3144,101 +1322,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 6312,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 27/02 20:20, sai 27/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "27/02 18:50",
-     "chegada": "28/02 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.2,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 27/02 21:15, sai 27/02 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "27/02 19:45",
-     "chegada": "28/02 06:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 10.8,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 27/02 20:20, sai 27/02 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "27/02 18:55",
-     "chegada": "28/02 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 5435
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 27/02 06:43, sai 27/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "27/02 01:40",
-     "chegada": "27/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 27/02 17:15, sai 27/02 23:00 (horário local) – espera 5h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 27/02 06:55, sai 27/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -3246,16 +1334,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "27/02 16:05",
-     "chegada": "28/02 05:25",
-     "hora_saida": 16,
+     "saida": "27/02 05:25",
+     "chegada": "27/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.8,
-     "duracao_h": 13.3,
-     "preco": 5871
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
     }
    ],
    "volta_opcoes": [],
@@ -3270,101 +1361,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5573,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 28/02 06:43, sai 28/02 08:16 (horário local) – espera 1h33"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "28/02 01:40",
-     "chegada": "28/02 11:25",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 9.8,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 28/02 20:20, sai 28/02 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "28/02 18:50",
-     "chegada": "01/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.2,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 28/02 21:15, sai 28/02 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "28/02 19:45",
-     "chegada": "01/03 06:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 10.8,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 28/02 20:20, sai 28/02 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "28/02 18:55",
-     "chegada": "01/03 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 5877
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 28/02 07:50, sai 28/02 12:35 (horário local) – espera 4h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 28/02 06:55, sai 28/02 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -3372,16 +1373,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "28/02 06:40",
-     "chegada": "28/02 18:55",
-     "hora_saida": 6,
+     "saida": "28/02 05:25",
+     "chegada": "28/02 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 4.8,
-     "duracao_h": 12.2,
-     "preco": 5906
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 28/02 10:10, sai 28/02 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "28/02 08:40",
+     "chegada": "28/02 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -3396,96 +1424,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 01/03 17:45, sai 01/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "01/03 16:30",
-     "chegada": "02/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 01/03 20:20, sai 01/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "01/03 18:55",
-     "chegada": "02/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 01/03 21:45, sai 01/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "01/03 20:15",
-     "chegada": "02/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 01/03 21:35, sai 01/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "01/03 17:55",
-     "chegada": "02/03 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 5912
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 01/03 06:55, sai 01/03 10:15 (horário local) – espera 3h20"
@@ -3505,6 +1445,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     }
    ],
@@ -3520,96 +1463,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5553,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 02/03 17:45, sai 02/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "02/03 16:30",
-     "chegada": "03/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 02/03 20:20, sai 02/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "02/03 18:55",
-     "chegada": "03/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 02/03 21:45, sai 02/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "02/03 20:15",
-     "chegada": "03/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 02/03 21:35, sai 02/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "02/03 17:55",
-     "chegada": "03/03 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 5912
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 02/03 06:55, sai 02/03 10:15 (horário local) – espera 3h20"
@@ -3629,10 +1484,94 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 5930
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5553
     }
    ],
-   "volta_opcoes": [],
+   "volta_opcoes": [
+    {
+     "escalas_detalhe": [
+      "PTY – Aeroporto Internacional Tocumen: chega 09/03 12:21, sai 09/03 15:13 (horário local) – espera 2h52"
+     ],
+     "sites": [
+      "COPA: https://www.copaair.com/pt-br"
+     ],
+     "companhias": [
+      "COPA"
+     ],
+     "saida": "09/03 09:14",
+     "chegada": "10/03 00:20",
+     "hora_saida": 9,
+     "paradas": 1,
+     "escalas": [
+      "PTY: 2.9h"
+     ],
+     "espera_max_h": 2.9,
+     "duracao_h": 15.1,
+     "troca_aeroporto": false,
+     "chegada_hm": 0.3333333333333333,
+     "chega_outro_dia": true,
+     "preco": 2454
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 09/03 05:15, sai 09/03 07:10 (horário local) – espera 1h55",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 09/03 15:45, sai 09/03 18:00 (horário local) – espera 2h15"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "09/03 01:35",
+     "chegada": "09/03 19:35",
+     "hora_saida": 1,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.9h",
+      "GIG: 2.2h"
+     ],
+     "espera_max_h": 2.2,
+     "duracao_h": 18.0,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.583333333333332,
+     "chega_outro_dia": false,
+     "preco": 2613
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 09/03 19:45, sai 09/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 10/03 05:55, sai 10/03 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "09/03 16:00",
+     "chegada": "10/03 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "troca_aeroporto": false,
+     "chegada_hm": 10.0,
+     "chega_outro_dia": true,
+     "preco": 2613
+    }
+   ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA5agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
@@ -3644,11 +1583,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5329,
+   "menor": 5930,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 03/03 17:45, sai 03/03 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/03 06:55, sai 03/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -3656,104 +1595,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "03/03 16:30",
-     "chegada": "04/03 05:25",
-     "hora_saida": 16,
+     "saida": "03/03 05:25",
+     "chegada": "03/03 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5329
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 03/03 06:44, sai 03/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "03/03 01:45",
-     "chegada": "03/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 20:20, sai 03/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "03/03 18:55",
-     "chegada": "04/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 21:45, sai 03/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "03/03 20:15",
-     "chegada": "04/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 03/03 21:35, sai 03/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "03/03 17:55",
-     "chegada": "04/03 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 5912
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
     }
    ],
    "volta_opcoes": [],
@@ -3767,8 +1621,60 @@
    "dia_volta": "quinta",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "status": "ok",
+   "menor": 5930,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 06:55, sai 04/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "04/03 05:25",
+     "chegada": "04/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 10:10, sai 04/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "04/03 08:40",
+     "chegada": "04/03 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTExagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -3779,32 +1685,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5573,
+   "menor": 6312,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 05/03 06:44, sai 05/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "05/03 01:45",
-     "chegada": "05/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 05/03 07:40, sai 05/03 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/03 06:55, sai 05/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -3812,83 +1697,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "05/03 06:30",
+     "saida": "05/03 05:25",
+     "chegada": "05/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/03 10:10, sai 05/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "05/03 08:40",
      "chegada": "05/03 18:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 05/03 17:45, sai 05/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "05/03 16:30",
-     "chegada": "06/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 05/03 20:20, sai 05/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "05/03 18:55",
-     "chegada": "06/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 05/03 21:45, sai 05/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "05/03 20:15",
-     "chegada": "06/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
     }
    ],
    "volta_opcoes": [],
@@ -3903,101 +1748,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 06/03 20:20, sai 06/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "06/03 18:50",
-     "chegada": "07/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.2,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 06/03 21:15, sai 06/03 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "06/03 19:45",
-     "chegada": "07/03 06:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 10.8,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/03 20:20, sai 06/03 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "06/03 18:55",
-     "chegada": "07/03 05:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.2,
-     "preco": 5435
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 06/03 06:44, sai 06/03 09:40 (horário local) – espera 2h56"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "06/03 01:45",
-     "chegada": "06/03 12:48",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 2.9h"
-     ],
-     "espera_max_h": 2.9,
-     "duracao_h": 11.1,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 06/03 17:15, sai 06/03 23:00 (horário local) – espera 5h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 06/03 06:55, sai 06/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4005,16 +1760,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "06/03 16:05",
-     "chegada": "07/03 05:25",
-     "hora_saida": 16,
+     "saida": "06/03 05:25",
+     "chegada": "06/03 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.8,
-     "duracao_h": 13.3,
-     "preco": 5871
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -4029,78 +1787,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5430,
+   "menor": 6312,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 07/03 20:20, sai 07/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "07/03 18:50",
-     "chegada": "08/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.2,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 07/03 21:15, sai 07/03 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "07/03 19:45",
-     "chegada": "08/03 06:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 10.8,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 07/03 06:44, sai 07/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "07/03 01:45",
-     "chegada": "07/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 07/03 07:50, sai 07/03 12:35 (horário local) – espera 4h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 07/03 06:55, sai 07/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4108,39 +1799,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "07/03 06:40",
-     "chegada": "07/03 18:55",
-     "hora_saida": 6,
+     "saida": "07/03 05:25",
+     "chegada": "07/03 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 4.8,
-     "duracao_h": 12.2,
-     "preco": 5871
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
     },
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 07/03 20:20, sai 07/03 22:35 (horário local) – espera 2h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 07/03 10:10, sai 07/03 12:35 (horário local) – espera 2h25"
      ],
      "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
+      "LATAM: https://www.latamairlines.com/br/pt"
      ],
      "companhias": [
-      "Gol",
-      "American"
+      "LATAM"
      ],
-     "saida": "07/03 18:55",
-     "chegada": "08/03 05:10",
-     "hora_saida": 18,
+     "saida": "07/03 08:40",
+     "chegada": "07/03 18:55",
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "GRU: 2.2h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 2.2,
+     "espera_max_h": 2.4,
      "duracao_h": 10.2,
-     "preco": 5877
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
     }
    ],
    "volta_opcoes": [],
@@ -4155,96 +1850,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 08/03 17:45, sai 08/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "08/03 16:30",
-     "chegada": "09/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 08/03 20:20, sai 08/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "08/03 18:55",
-     "chegada": "09/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 08/03 21:45, sai 08/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "08/03 20:15",
-     "chegada": "09/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 08/03 21:35, sai 08/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "08/03 17:55",
-     "chegada": "09/03 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 5912
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 08/03 06:55, sai 08/03 10:15 (horário local) – espera 3h20"
@@ -4264,6 +1871,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     }
    ],
@@ -4279,75 +1889,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 09/03 17:45, sai 09/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "09/03 16:30",
-     "chegada": "10/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 09/03 20:20, sai 09/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "09/03 18:55",
-     "chegada": "10/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 09/03 21:45, sai 09/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "09/03 20:15",
-     "chegada": "10/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/03 06:55, sai 09/03 10:15 (horário local) – espera 3h20"
@@ -4367,28 +1910,37 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     },
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/03 21:40, sai 09/03 23:00 (horário local) – espera 1h20"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/03 06:55, sai 09/03 08:30 (horário local) – espera 1h35",
+      "MEX – Mexico City International Airport Benito Juárez: chega 09/03 14:50, sai 09/03 19:30 (horário local) – espera 4h40"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
      ],
      "companhias": [
-      "LATAM"
+      "LATAM",
+      "Aeromexico"
      ],
-     "saida": "09/03 20:10",
-     "chegada": "10/03 05:25",
-     "hora_saida": 20,
-     "paradas": 1,
+     "saida": "09/03 05:25",
+     "chegada": "09/03 23:56",
+     "hora_saida": 5,
+     "paradas": 2,
      "escalas": [
-      "GRU: 1.3h"
+      "GRU: 1.6h",
+      "MEX: 4.7h"
      ],
-     "espera_max_h": 1.3,
-     "duracao_h": 9.2,
-     "preco": 5930
+     "espera_max_h": 4.7,
+     "duracao_h": 18.5,
+     "troca_aeroporto": false,
+     "chegada_hm": 23.933333333333334,
+     "chega_outro_dia": false,
+     "preco": 6381
     }
    ],
    "volta_opcoes": [],
@@ -4403,11 +1955,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5930,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 10/03 17:45, sai 10/03 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 10/03 06:55, sai 10/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4415,108 +1967,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "10/03 16:30",
-     "chegada": "11/03 05:25",
-     "hora_saida": 16,
+     "saida": "10/03 05:25",
+     "chegada": "10/03 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 10/03 12:10, sai 10/03 16:50 (horário local) – espera 4h40",
-      "BOG – El Dorado International Airport: chega 10/03 21:10, sai 10/03 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "10/03 10:40",
-     "chegada": "11/03 02:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.7h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.7,
-     "duracao_h": 16.2,
-     "preco": 5460
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 10/03 06:44, sai 10/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "10/03 01:45",
-     "chegada": "10/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 10/03 20:20, sai 10/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "10/03 18:55",
-     "chegada": "11/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 10/03 21:45, sai 10/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "10/03 20:15",
-     "chegada": "11/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
     }
    ],
    "volta_opcoes": [],
@@ -4531,11 +1994,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5365,
+   "menor": 5965,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 11/03 07:40, sai 11/03 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/03 06:55, sai 11/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4543,104 +2006,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "11/03 06:30",
+     "saida": "11/03 05:25",
+     "chegada": "11/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5965
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/03 10:10, sai 11/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "11/03 08:40",
      "chegada": "11/03 18:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 5365
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 11/03 17:45, sai 11/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "11/03 16:30",
-     "chegada": "12/03 05:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 12.9,
-     "preco": 5365
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/03 20:20, sai 11/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "11/03 18:55",
-     "chegada": "12/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 11/03 21:45, sai 11/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "11/03 20:15",
-     "chegada": "12/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5430
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 11/03 06:44, sai 11/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "11/03 01:45",
-     "chegada": "11/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 5965
     }
    ],
    "volta_opcoes": [],
@@ -4655,32 +2057,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5573,
+   "menor": 6348,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 12/03 06:44, sai 12/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "12/03 01:45",
-     "chegada": "12/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 12/03 07:40, sai 12/03 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/03 06:55, sai 12/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4688,83 +2069,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "12/03 06:30",
+     "saida": "12/03 05:25",
+     "chegada": "12/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/03 10:10, sai 12/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "12/03 08:40",
      "chegada": "12/03 18:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 12.4,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 12/03 20:20, sai 12/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "12/03 18:55",
-     "chegada": "13/03 05:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 10.1,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 12/03 21:45, sai 12/03 23:55 (horário local) – espera 2h10"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "12/03 20:15",
-     "chegada": "13/03 06:35",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 10.3,
-     "preco": 5872
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 12/03 21:35, sai 12/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "12/03 17:55",
-     "chegada": "13/03 05:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 11.9,
-     "preco": 6331
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6348
     }
    ],
    "volta_opcoes": [],
@@ -4779,32 +2120,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5573,
+   "menor": 6312,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 13/03 06:44, sai 13/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "13/03 01:45",
-     "chegada": "13/03 11:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 9.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 13/03 17:15, sai 13/03 23:00 (horário local) – espera 5h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 13/03 06:55, sai 13/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4812,85 +2132,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "13/03 16:05",
-     "chegada": "14/03 06:25",
-     "hora_saida": 16,
+     "saida": "13/03 05:25",
+     "chegada": "13/03 16:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.8,
-     "duracao_h": 14.3,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 13/03 20:20, sai 13/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "13/03 18:50",
-     "chegada": "14/03 06:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
+     "espera_max_h": 3.3,
      "duracao_h": 11.2,
-     "preco": 6019
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 13/03 21:15, sai 13/03 23:55 (horário local) – espera 2h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "13/03 19:45",
-     "chegada": "14/03 07:35",
-     "hora_saida": 19,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 2.7h"
-     ],
-     "espera_max_h": 2.7,
-     "duracao_h": 11.8,
-     "preco": 6019
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 13/03 20:20, sai 13/03 22:35 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "13/03 18:55",
-     "chegada": "14/03 06:10",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 11.2,
-     "preco": 6024
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
     }
    ],
    "volta_opcoes": [],
@@ -4905,32 +2159,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5573,
+   "menor": 6312,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 14/03 06:44, sai 14/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "14/03 01:45",
-     "chegada": "14/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 14/03 07:50, sai 14/03 12:35 (horário local) – espera 4h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/03 06:55, sai 14/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -4938,78 +2171,42 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "14/03 06:40",
+     "saida": "14/03 05:25",
+     "chegada": "14/03 17:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6312
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/03 10:10, sai 14/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "14/03 08:40",
      "chegada": "14/03 19:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.8h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.8,
-     "duracao_h": 13.2,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 14/03 17:15, sai 14/03 23:00 (horário local) – espera 5h45"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "14/03 16:05",
-     "chegada": "15/03 06:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.8h"
-     ],
-     "espera_max_h": 5.8,
-     "duracao_h": 14.3,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 14/03 21:35, sai 14/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "14/03 17:55",
-     "chegada": "15/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 6295
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/03 21:40, sai 14/03 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "14/03 20:10",
-     "chegada": "15/03 06:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 10.2,
+     "espera_max_h": 2.4,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.916666666666668,
+     "chega_outro_dia": false,
      "preco": 6312
     }
    ],
@@ -5025,92 +2222,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5199,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 15/03 17:45, sai 15/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/03 16:30",
-     "chegada": "16/03 06:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 13.9,
-     "preco": 5199
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 15/03 06:44, sai 15/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "15/03 01:45",
-     "chegada": "15/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 15/03 21:35, sai 15/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/03 17:55",
-     "chegada": "16/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 5912
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 15/03 21:40, sai 15/03 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "15/03 20:10",
-     "chegada": "16/03 06:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 10.2,
-     "preco": 5930
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 15/03 06:55, sai 15/03 10:15 (horário local) – espera 3h20"
@@ -5130,6 +2243,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     }
    ],
@@ -5145,50 +2261,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5612,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 16/03 17:45, sai 16/03 23:00 (horário local) – espera 5h15"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/03 16:30",
-     "chegada": "17/03 06:25",
-     "hora_saida": 16,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 5.2h"
-     ],
-     "espera_max_h": 5.2,
-     "duracao_h": 13.9,
-     "preco": 5612
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 16/03 21:35, sai 16/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/03 17:55",
-     "chegada": "17/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 5912
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/03 06:55, sai 16/03 10:15 (horário local) – espera 3h20"
@@ -5208,53 +2282,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.3,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.75,
+     "chega_outro_dia": false,
      "preco": 5930
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/03 21:40, sai 16/03 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/03 20:10",
-     "chegada": "17/03 06:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 10.2,
-     "preco": 5930
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/03 20:25, sai 16/03 22:25 (horário local) – espera 2h00",
-      "EWR – Aeroporto Internacional de Newark: chega 17/03 07:10, sai 17/03 09:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "United: https://www.united.com/pt/br"
-     ],
-     "companhias": [
-      "Gol",
-      "United"
-     ],
-     "saida": "16/03 18:50",
-     "chegada": "17/03 12:27",
-     "hora_saida": 18,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 2.0h",
-      "EWR: 1.8h"
-     ],
-     "espera_max_h": 2.0,
-     "duracao_h": 17.6,
-     "preco": 6823
     }
    ],
    "volta_opcoes": [],
@@ -5269,98 +2300,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5259,
+   "menor": 5930,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/03 12:30, sai 17/03 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 17/03 21:30, sai 17/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "17/03 11:05",
-     "chegada": "18/03 03:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 16.8,
-     "preco": 5259
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/03 21:40, sai 18/03 03:35 (horário local) – espera 5h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 18/03 06:45, sai 18/03 08:20 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "17/03 20:10",
-     "chegada": "18/03 15:20",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.9h",
-      "LIM: 1.6h"
-     ],
-     "espera_max_h": 5.9,
-     "duracao_h": 19.2,
-     "preco": 5612
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 17/03 06:44, sai 17/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "17/03 01:45",
-     "chegada": "17/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5721
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 17/03 21:35, sai 17/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "17/03 17:55",
-     "chegada": "18/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 5912
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/03 06:55, sai 17/03 10:15 (horário local) – espera 3h20"
@@ -5380,6 +2321,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
     }
    ],
@@ -5395,11 +2339,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5329,
+   "menor": 5930,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 18/03 07:40, sai 18/03 12:35 (horário local) – espera 4h55"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/03 10:10, sai 18/03 12:35 (horário local) – espera 2h25"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -5407,37 +2351,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "18/03 06:30",
+     "saida": "18/03 08:40",
      "chegada": "18/03 19:55",
-     "hora_saida": 6,
+     "hora_saida": 8,
      "paradas": 1,
      "escalas": [
-      "CGH: 4.9h"
+      "GRU: 2.4h"
      ],
-     "espera_max_h": 4.9,
-     "duracao_h": 13.4,
-     "preco": 5329
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 18/03 06:44, sai 18/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "18/03 01:45",
-     "chegada": "18/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5721
+     "espera_max_h": 2.4,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 5930
     },
     {
      "escalas_detalhe": [
@@ -5458,51 +2384,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
      "preco": 5930
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 18/03 10:10, sai 18/03 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "18/03 08:40",
-     "chegada": "18/03 19:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 11.2,
-     "preco": 5930
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 18/03 20:20, sai 18/03 22:15 (horário local) – espera 1h55"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "American: https://www.aa.com.br"
-     ],
-     "companhias": [
-      "Gol",
-      "American"
-     ],
-     "saida": "18/03 18:55",
-     "chegada": "19/03 06:00",
-     "hora_saida": 18,
-     "paradas": 1,
-     "escalas": [
-      "GIG: 1.9h"
-     ],
-     "espera_max_h": 1.9,
-     "duracao_h": 11.1,
-     "preco": 7056
     }
    ],
    "volta_opcoes": [],
@@ -5517,50 +2402,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5871,
+   "menor": 6348,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 19/03 07:40, sai 19/03 12:35 (horário local) – espera 4h55"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "19/03 06:30",
-     "chegada": "19/03 19:55",
-     "hora_saida": 6,
-     "paradas": 1,
-     "escalas": [
-      "CGH: 4.9h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 13.4,
-     "preco": 5871
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/03 21:40, sai 19/03 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "19/03 20:10",
-     "chegada": "20/03 06:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 10.2,
-     "preco": 6312
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/03 06:55, sai 19/03 10:15 (horário local) – espera 3h20"
@@ -5580,6 +2423,9 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
      "preco": 6348
     },
     {
@@ -5601,28 +2447,10 @@
      ],
      "espera_max_h": 2.4,
      "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.916666666666668,
+     "chega_outro_dia": false,
      "preco": 6348
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 19/03 06:44, sai 19/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "19/03 01:45",
-     "chegada": "19/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 6745
     }
    ],
    "volta_opcoes": [],
@@ -5637,94 +2465,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6719,
+   "menor": 6436,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 20/03 14:10, sai 20/03 19:05 (horário local) – espera 4h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 20/03 20:55, sai 21/03 00:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "20/03 10:30",
-     "chegada": "21/03 07:10",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "SCL: 4.9h",
-      "LIM: 3.3h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 20.7,
-     "preco": 6719
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 20/03 06:44, sai 20/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "20/03 01:45",
-     "chegada": "20/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 6745
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 20/03 21:35, sai 20/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "20/03 17:55",
-     "chegada": "21/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 7126
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 20/03 21:40, sai 20/03 23:00 (horário local) – espera 1h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "20/03 20:10",
-     "chegada": "21/03 06:25",
-     "hora_saida": 20,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 1.3h"
-     ],
-     "espera_max_h": 1.3,
-     "duracao_h": 10.2,
-     "preco": 7143
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 20/03 06:55, sai 20/03 10:15 (horário local) – espera 3h20"
@@ -5744,7 +2486,10 @@
      ],
      "espera_max_h": 3.3,
      "duracao_h": 12.2,
-     "preco": 7261
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6436
     }
    ],
    "volta_opcoes": [],
@@ -5759,107 +2504,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5195,
+   "menor": 7732,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 21/03 21:15, sai 22/03 01:40 (horário local) – espera 4h25",
-      "BOG – El Dorado International Airport: chega 22/03 06:00, sai 22/03 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "21/03 19:45",
-     "chegada": "22/03 12:40",
-     "hora_saida": 19,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.4h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 4.4,
-     "duracao_h": 16.9,
-     "preco": 5195
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/03 12:25, sai 21/03 17:25 (horário local) – espera 5h00",
-      "BOG – El Dorado International Airport: chega 21/03 21:30, sai 21/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "21/03 11:00",
-     "chegada": "22/03 03:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.0h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 5.0,
-     "duracao_h": 16.8,
-     "preco": 5200
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 21/03 12:05, sai 21/03 16:50 (horário local) – espera 4h45",
-      "BOG – El Dorado International Airport: chega 21/03 21:10, sai 21/03 23:00 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "21/03 10:40",
-     "chegada": "22/03 03:50",
-     "hora_saida": 10,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 4.8h",
-      "BOG: 1.8h"
-     ],
-     "espera_max_h": 4.8,
-     "duracao_h": 17.2,
-     "preco": 5312
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 21/03 06:44, sai 21/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "21/03 01:45",
-     "chegada": "21/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5721
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 21/03 17:15, sai 21/03 23:00 (horário local) – espera 5h45"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/03 06:55, sai 21/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -5867,16 +2516,43 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "21/03 16:05",
-     "chegada": "22/03 06:25",
-     "hora_saida": 16,
+     "saida": "21/03 05:25",
+     "chegada": "21/03 17:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.8h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.8,
-     "duracao_h": 14.3,
-     "preco": 7408
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 7732
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/03 10:10, sai 21/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "21/03 08:40",
+     "chegada": "21/03 19:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 7732
     }
    ],
    "volta_opcoes": [],
@@ -5891,61 +2567,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4959,
+   "menor": 6584,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 22/03 21:45, sai 23/03 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 23/03 06:00, sai 23/03 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "22/03 20:15",
-     "chegada": "23/03 12:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 16.4,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/03 12:30, sai 22/03 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 22/03 21:30, sai 22/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "22/03 11:05",
-     "chegada": "23/03 03:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 16.8,
-     "preco": 5023
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 22/03 17:45, sai 22/03 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/03 06:55, sai 22/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -5953,60 +2579,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "22/03 16:30",
-     "chegada": "23/03 06:25",
-     "hora_saida": 16,
+     "saida": "22/03 05:25",
+     "chegada": "22/03 17:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 13.9,
-     "preco": 5759
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/03 21:40, sai 23/03 03:35 (horário local) – espera 5h55",
-      "LIM – Aeroporto Internacional Jorge Chávez: chega 23/03 06:45, sai 23/03 08:35 (horário local) – espera 1h50"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "22/03 20:10",
-     "chegada": "23/03 15:30",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 5.9h",
-      "LIM: 1.8h"
-     ],
-     "espera_max_h": 5.9,
-     "duracao_h": 19.3,
-     "preco": 5759
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 22/03 06:44, sai 22/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "22/03 01:45",
-     "chegada": "22/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 6045
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6584
     }
    ],
    "volta_opcoes": [],
@@ -6021,61 +2606,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4905,
+   "menor": 6189,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 23/03 12:30, sai 23/03 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 23/03 21:30, sai 23/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "23/03 11:05",
-     "chegada": "24/03 03:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 16.8,
-     "preco": 4905
-    },
-    {
-     "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 23/03 21:45, sai 24/03 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 24/03 06:00, sai 24/03 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "23/03 20:15",
-     "chegada": "24/03 12:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 16.4,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 23/03 17:45, sai 23/03 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 23/03 06:55, sai 23/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -6083,58 +2618,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "23/03 16:30",
-     "chegada": "24/03 06:25",
-     "hora_saida": 16,
+     "saida": "23/03 05:25",
+     "chegada": "23/03 17:45",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 13.9,
-     "preco": 5365
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 23/03 06:44, sai 23/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "23/03 01:45",
-     "chegada": "23/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 23/03 21:35, sai 23/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "23/03 17:55",
-     "chegada": "24/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 6419
+     "espera_max_h": 3.3,
+     "duracao_h": 12.3,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.75,
+     "chega_outro_dia": false,
+     "preco": 6189
     }
    ],
    "volta_opcoes": [],
@@ -6149,61 +2645,11 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 4959,
+   "menor": 6436,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/03 21:45, sai 25/03 01:40 (horário local) – espera 3h55",
-      "BOG – El Dorado International Airport: chega 25/03 06:00, sai 25/03 07:40 (horário local) – espera 1h40"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "24/03 20:15",
-     "chegada": "25/03 12:40",
-     "hora_saida": 20,
-     "paradas": 2,
-     "escalas": [
-      "GIG: 3.9h",
-      "BOG: 1.7h"
-     ],
-     "espera_max_h": 3.9,
-     "duracao_h": 16.4,
-     "preco": 4959
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/03 12:30, sai 24/03 17:25 (horário local) – espera 4h55",
-      "BOG – El Dorado International Airport: chega 24/03 21:30, sai 24/03 23:00 (horário local) – espera 1h30"
-     ],
-     "sites": [
-      "Gol: https://www.voegol.com.br",
-      "Avianca: https://www.avianca.com/br/pt"
-     ],
-     "companhias": [
-      "Gol",
-      "Avianca"
-     ],
-     "saida": "24/03 11:05",
-     "chegada": "25/03 03:50",
-     "hora_saida": 11,
-     "paradas": 2,
-     "escalas": [
-      "GRU: 4.9h",
-      "BOG: 1.5h"
-     ],
-     "espera_max_h": 4.9,
-     "duracao_h": 16.8,
-     "preco": 4964
-    },
-    {
-     "escalas_detalhe": [
-      "CGH – Aeroporto de São Paulo/Congonhas–Deputado Freitas Nobre: chega 24/03 17:45, sai 24/03 23:00 (horário local) – espera 5h15"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/03 06:55, sai 24/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -6211,58 +2657,19 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "24/03 16:30",
-     "chegada": "25/03 06:25",
-     "hora_saida": 16,
+     "saida": "24/03 05:25",
+     "chegada": "24/03 17:40",
+     "hora_saida": 5,
      "paradas": 1,
      "escalas": [
-      "CGH: 5.2h"
+      "GRU: 3.3h"
      ],
-     "espera_max_h": 5.2,
-     "duracao_h": 13.9,
-     "preco": 5365
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 24/03 06:44, sai 24/03 08:10 (horário local) – espera 1h26"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "24/03 01:45",
-     "chegada": "24/03 12:18",
-     "hora_saida": 1,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.4h"
-     ],
-     "espera_max_h": 1.4,
-     "duracao_h": 10.6,
-     "preco": 5573
-    },
-    {
-     "escalas_detalhe": [
-      "SCL – Arturo Merino Benitez International Airport: chega 24/03 21:35, sai 24/03 23:10 (horário local) – espera 1h35"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "24/03 17:55",
-     "chegada": "25/03 06:50",
-     "hora_saida": 17,
-     "paradas": 1,
-     "escalas": [
-      "SCL: 1.6h"
-     ],
-     "espera_max_h": 1.6,
-     "duracao_h": 12.9,
-     "preco": 6419
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6436
     }
    ],
    "volta_opcoes": [],
@@ -6274,27 +2681,26 @@
   "de": "2027-02-01",
   "ate": "2027-03-31",
   "pesquisadas": 52,
-  "com_preco": 47
+  "com_preco": 51
  },
  "melhor": {
-  "ida": "2027-02-18",
-  "volta": "2027-02-25",
-  "dia_ida": "quinta",
-  "dia_volta": "quinta",
+  "ida": "2027-03-02",
+  "volta": "2027-03-09",
+  "dia_ida": "terça",
+  "dia_volta": "terça",
   "semana": 0,
   "noites": 7,
-  "preco": 4847,
+  "preco": 5553,
   "companhias": [
-   "Gol",
-   "Avianca"
+   "LATAM"
   ],
-  "saida": "18/02 11:05",
-  "chegada": "19/02 02:50",
-  "paradas": 2,
-  "duracao_h": 15.8
+  "saida": "02/03 05:25",
+  "chegada": "02/03 16:40",
+  "paradas": 1,
+  "duracao_h": 11.2
  },
  "status": "ok",
  "email": "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)",
  "menor_visto": 4900,
- "alerta": "alerta não configurado (faltam TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID)"
+ "alerta": "sem queda"
 }
