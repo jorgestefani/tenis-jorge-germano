@@ -1,5 +1,5 @@
 {
- "atualizado": "25/11/2026 20:16",
+ "atualizado": "26/11/2026 02:25",
  "config": {
   "origem": "FLN",
   "destino": "MIA",
@@ -45,15 +45,15 @@
    "ate": "2027-03-31"
   }
  },
- "ida_data": "2027-02-17",
- "volta_data": "2027-02-24",
- "total_ida": 11,
- "total_volta": 11,
- "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTdqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
+ "ida_data": "2027-02-23",
+ "volta_data": "2027-03-02",
+ "total_ida": 12,
+ "total_volta": 12,
+ "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTAyagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL",
  "ida": [
   {
    "escalas_detalhe": [
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 17/02 06:55, sai 17/02 10:15 (horário local) – espera 3h20"
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 23/02 06:55, sai 23/02 10:15 (horário local) – espera 3h20"
    ],
    "sites": [
     "LATAM: https://www.latamairlines.com/br/pt"
@@ -61,8 +61,8 @@
    "companhias": [
     "LATAM"
    ],
-   "saida": "17/02 05:25",
-   "chegada": "17/02 16:40",
+   "saida": "23/02 05:25",
+   "chegada": "23/02 16:40",
    "hora_saida": 5,
    "paradas": 1,
    "escalas": [
@@ -79,8 +79,8 @@
  "volta": [
   {
    "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 24/02 05:15, sai 24/02 07:10 (horário local) – espera 1h55",
-    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/02 15:45, sai 24/02 18:00 (horário local) – espera 2h15"
+    "BOG – El Dorado International Airport: chega 02/03 19:45, sai 02/03 21:25 (horário local) – espera 1h40",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 05:55, sai 03/03 08:25 (horário local) – espera 2h30"
    ],
    "sites": [
     "Avianca: https://www.avianca.com/br/pt",
@@ -90,8 +90,36 @@
     "Avianca",
     "Gol"
    ],
-   "saida": "24/02 01:35",
-   "chegada": "24/02 19:35",
+   "saida": "02/03 16:00",
+   "chegada": "03/03 10:00",
+   "hora_saida": 16,
+   "paradas": 2,
+   "escalas": [
+    "BOG: 1.7h",
+    "GIG: 2.5h"
+   ],
+   "espera_max_h": 2.5,
+   "duracao_h": 18.0,
+   "troca_aeroporto": false,
+   "chegada_hm": 10.0,
+   "chega_outro_dia": true,
+   "preco": 2566
+  },
+  {
+   "escalas_detalhe": [
+    "BOG – El Dorado International Airport: chega 02/03 05:15, sai 02/03 07:10 (horário local) – espera 1h55",
+    "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 02/03 15:45, sai 02/03 18:00 (horário local) – espera 2h15"
+   ],
+   "sites": [
+    "Avianca: https://www.avianca.com/br/pt",
+    "Gol: https://www.voegol.com.br"
+   ],
+   "companhias": [
+    "Avianca",
+    "Gol"
+   ],
+   "saida": "02/03 01:35",
+   "chegada": "02/03 19:35",
    "hora_saida": 1,
    "paradas": 2,
    "escalas": [
@@ -107,8 +135,8 @@
   },
   {
    "escalas_detalhe": [
-    "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:45 (horário local) – espera 2h00",
-    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 06:05, sai 25/02 09:05 (horário local) – espera 3h00"
+    "BOG – El Dorado International Airport: chega 02/03 19:45, sai 02/03 21:45 (horário local) – espera 2h00",
+    "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/03 06:05, sai 03/03 09:05 (horário local) – espera 3h00"
    ],
    "sites": [
     "Avianca: https://www.avianca.com/br/pt",
@@ -118,8 +146,8 @@
     "Avianca",
     "Gol"
    ],
-   "saida": "24/02 16:00",
-   "chegada": "25/02 10:25",
+   "saida": "02/03 16:00",
+   "chegada": "03/03 10:25",
    "hora_saida": 16,
    "paradas": 2,
    "escalas": [
@@ -132,30 +160,6 @@
    "chegada_hm": 10.416666666666666,
    "chega_outro_dia": true,
    "preco": 2566
-  },
-  {
-   "escalas_detalhe": [
-    "PTY – Aeroporto Internacional Tocumen: chega 24/02 14:30, sai 24/02 15:32 (horário local) – espera 1h02"
-   ],
-   "sites": [
-    "COPA: https://www.copaair.com/pt-br"
-   ],
-   "companhias": [
-    "COPA"
-   ],
-   "saida": "24/02 11:21",
-   "chegada": "25/02 00:40",
-   "hora_saida": 11,
-   "paradas": 1,
-   "escalas": [
-    "PTY: 1.0h"
-   ],
-   "espera_max_h": 1.0,
-   "duracao_h": 13.3,
-   "troca_aeroporto": false,
-   "chegada_hm": 0.6666666666666666,
-   "chega_outro_dia": true,
-   "preco": 3050
   }
  ],
  "datas": [
@@ -168,7 +172,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6725,
+   "menor": 7662,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -192,7 +196,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6725
+     "preco": 7662
     }
    ],
    "volta_opcoes": [],
@@ -228,36 +232,8 @@
    "dia_volta": "quinta",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 7662,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/02 06:55, sai 04/02 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "04/02 05:25",
-     "chegada": "04/02 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 7662
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTExagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
   },
   {
    "semana": 0,
@@ -268,7 +244,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 7509,
+   "menor": 7743,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -292,31 +268,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 7509
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/02 06:55, sai 05/02 12:35 (horário local) – espera 5h40"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "05/02 05:25",
-     "chegada": "05/02 18:55",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 5.7h"
-     ],
-     "espera_max_h": 5.7,
-     "duracao_h": 13.5,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 8131
+     "preco": 7743
     }
    ],
    "volta_opcoes": [],
@@ -331,7 +283,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 9178,
+   "menor": 8095,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -355,7 +307,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 9178
+     "preco": 8095
     }
    ],
    "volta_opcoes": [],
@@ -370,7 +322,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 8757,
+   "menor": 8739,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -394,7 +346,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 8757
+     "preco": 8739
     }
    ],
    "volta_opcoes": [],
@@ -409,7 +361,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 7773,
+   "menor": 7304,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -433,7 +385,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 7773
+     "preco": 7304
     }
    ],
    "volta_opcoes": [],
@@ -487,7 +439,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 7410,
+   "menor": 7441,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -511,7 +463,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 7410
+     "preco": 7441
     }
    ],
    "volta_opcoes": [],
@@ -526,7 +478,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6672,
+   "menor": 6664,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -550,7 +502,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6672
+     "preco": 6664
     }
    ],
    "volta_opcoes": [],
@@ -565,7 +517,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 7082,
+   "menor": 7111,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -589,7 +541,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 7082
+     "preco": 7111
     }
    ],
    "volta_opcoes": [],
@@ -604,7 +556,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6602,
+   "menor": 6630,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -628,7 +580,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6602
+     "preco": 6630
     }
    ],
    "volta_opcoes": [],
@@ -642,60 +594,8 @@
    "dia_volta": "domingo",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 7429,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 06:55, sai 14/02 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "14/02 05:25",
-     "chegada": "14/02 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 7429
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 14/02 10:10, sai 14/02 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "14/02 08:40",
-     "chegada": "14/02 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 7429
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTIxagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
   },
   {
    "semana": 0,
@@ -706,7 +606,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6953,
+   "menor": 6982,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -730,7 +630,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6953
+     "preco": 6982
     }
    ],
    "volta_opcoes": [],
@@ -744,36 +644,8 @@
    "dia_volta": "terça",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 5934,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 16/02 06:55, sai 16/02 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "16/02 05:25",
-     "chegada": "16/02 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 5934
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTZqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTIzagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
   },
   {
    "semana": 0,
@@ -784,7 +656,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5898,
+   "menor": 5923,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -808,91 +680,10 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 5898
+     "preco": 5923
     }
    ],
-   "volta_opcoes": [
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 24/02 05:15, sai 24/02 07:10 (horário local) – espera 1h55",
-      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 24/02 15:45, sai 24/02 18:00 (horário local) – espera 2h15"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "24/02 01:35",
-     "chegada": "24/02 19:35",
-     "hora_saida": 1,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 1.9h",
-      "GIG: 2.2h"
-     ],
-     "espera_max_h": 2.2,
-     "duracao_h": 18.0,
-     "troca_aeroporto": false,
-     "chegada_hm": 19.583333333333332,
-     "chega_outro_dia": false,
-     "preco": 2566
-    },
-    {
-     "escalas_detalhe": [
-      "BOG – El Dorado International Airport: chega 24/02 19:45, sai 24/02 21:45 (horário local) – espera 2h00",
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 06:05, sai 25/02 09:05 (horário local) – espera 3h00"
-     ],
-     "sites": [
-      "Avianca: https://www.avianca.com/br/pt",
-      "Gol: https://www.voegol.com.br"
-     ],
-     "companhias": [
-      "Avianca",
-      "Gol"
-     ],
-     "saida": "24/02 16:00",
-     "chegada": "25/02 10:25",
-     "hora_saida": 16,
-     "paradas": 2,
-     "escalas": [
-      "BOG: 2.0h",
-      "GRU: 3.0h"
-     ],
-     "espera_max_h": 3.0,
-     "duracao_h": 18.4,
-     "troca_aeroporto": false,
-     "chegada_hm": 10.416666666666666,
-     "chega_outro_dia": true,
-     "preco": 2566
-    },
-    {
-     "escalas_detalhe": [
-      "PTY – Aeroporto Internacional Tocumen: chega 24/02 14:30, sai 24/02 15:32 (horário local) – espera 1h02"
-     ],
-     "sites": [
-      "COPA: https://www.copaair.com/pt-br"
-     ],
-     "companhias": [
-      "COPA"
-     ],
-     "saida": "24/02 11:21",
-     "chegada": "25/02 00:40",
-     "hora_saida": 11,
-     "paradas": 1,
-     "escalas": [
-      "PTY: 1.0h"
-     ],
-     "espera_max_h": 1.0,
-     "duracao_h": 13.3,
-     "troca_aeroporto": false,
-     "chegada_hm": 0.6666666666666666,
-     "chega_outro_dia": true,
-     "preco": 3050
-    }
-   ],
+   "volta_opcoes": [],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTdqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
@@ -904,7 +695,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 5934,
+   "menor": 5959,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -928,7 +719,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 5934
+     "preco": 5959
     },
     {
      "escalas_detalhe": [
@@ -952,7 +743,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 5934
+     "preco": 5959
     }
    ],
    "volta_opcoes": [],
@@ -966,36 +757,8 @@
    "dia_volta": "sexta",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 6403,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/02 10:10, sai 19/02 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "19/02 08:40",
-     "chegada": "19/02 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 6403
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTlqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI2agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
   },
   {
    "semana": 0,
@@ -1005,8 +768,36 @@
    "dia_volta": "sábado",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "status": "ok",
+   "menor": 6430,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 20/02 06:55, sai 20/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "20/02 05:25",
+     "chegada": "20/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6430
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjBqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI3agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1016,36 +807,8 @@
    "dia_volta": "domingo",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 6403,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/02 10:10, sai 21/02 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "21/02 08:40",
-     "chegada": "21/02 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 6403
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjFqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAyLTI4agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
   },
   {
    "semana": 0,
@@ -1122,7 +885,92 @@
      "preco": 5898
     }
    ],
-   "volta_opcoes": [],
+   "volta_opcoes": [
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 02/03 19:45, sai 02/03 21:25 (horário local) – espera 1h40",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 03/03 05:55, sai 03/03 08:25 (horário local) – espera 2h30"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "02/03 16:00",
+     "chegada": "03/03 10:00",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.7h",
+      "GIG: 2.5h"
+     ],
+     "espera_max_h": 2.5,
+     "duracao_h": 18.0,
+     "troca_aeroporto": false,
+     "chegada_hm": 10.0,
+     "chega_outro_dia": true,
+     "preco": 2566
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 02/03 05:15, sai 02/03 07:10 (horário local) – espera 1h55",
+      "GIG – Aeroporto Internacional do Rio de Janeiro - Galeão – Antonio Carlos Jobim: chega 02/03 15:45, sai 02/03 18:00 (horário local) – espera 2h15"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "02/03 01:35",
+     "chegada": "02/03 19:35",
+     "hora_saida": 1,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 1.9h",
+      "GIG: 2.2h"
+     ],
+     "espera_max_h": 2.2,
+     "duracao_h": 18.0,
+     "troca_aeroporto": false,
+     "chegada_hm": 19.583333333333332,
+     "chega_outro_dia": false,
+     "preco": 2566
+    },
+    {
+     "escalas_detalhe": [
+      "BOG – El Dorado International Airport: chega 02/03 19:45, sai 02/03 21:45 (horário local) – espera 2h00",
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/03 06:05, sai 03/03 09:05 (horário local) – espera 3h00"
+     ],
+     "sites": [
+      "Avianca: https://www.avianca.com/br/pt",
+      "Gol: https://www.voegol.com.br"
+     ],
+     "companhias": [
+      "Avianca",
+      "Gol"
+     ],
+     "saida": "02/03 16:00",
+     "chegada": "03/03 10:25",
+     "hora_saida": 16,
+     "paradas": 2,
+     "escalas": [
+      "BOG: 2.0h",
+      "GRU: 3.0h"
+     ],
+     "espera_max_h": 3.0,
+     "duracao_h": 18.4,
+     "troca_aeroporto": false,
+     "chegada_hm": 10.416666666666666,
+     "chega_outro_dia": true,
+     "preco": 2566
+    }
+   ],
    "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTAyagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
@@ -1173,7 +1021,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6367,
+   "menor": 5898,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1197,7 +1045,31 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6367
+     "preco": 5898
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 25/02 06:55, sai 25/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "25/02 05:25",
+     "chegada": "25/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5898
     }
    ],
    "volta_opcoes": [],
@@ -1212,8 +1084,32 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6315,
+   "menor": 6403,
    "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 06:55, sai 26/02 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "26/02 05:25",
+     "chegada": "26/02 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6403
+    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 26/02 10:10, sai 26/02 12:35 (horário local) – espera 2h25"
@@ -1236,7 +1132,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6315
+     "preco": 6403
     }
    ],
    "volta_opcoes": [],
@@ -1251,7 +1147,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6279,
+   "menor": 6367,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1275,7 +1171,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6279
+     "preco": 6367
     }
    ],
    "volta_opcoes": [],
@@ -1290,7 +1186,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6315,
+   "menor": 6430,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -1314,7 +1210,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6315
+     "preco": 6430
     }
    ],
    "volta_opcoes": [],
@@ -1328,12 +1224,23 @@
    "dia_volta": "segunda",
    "noites": 7,
    "flex": true,
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
+  },
+  {
+   "semana": 0,
+   "ida": "2027-03-02",
+   "volta": "2027-03-09",
+   "dia_ida": "terça",
+   "dia_volta": "terça",
+   "noites": 7,
+   "flex": true,
    "status": "ok",
-   "menor": 6367,
+   "menor": 5923,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 01/03 06:55, sai 01/03 10:15 (horário local) – espera 3h20"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 02/03 06:55, sai 02/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1341,8 +1248,8 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "01/03 05:25",
-     "chegada": "01/03 16:40",
+     "saida": "02/03 05:25",
+     "chegada": "02/03 16:40",
      "hora_saida": 5,
      "paradas": 1,
      "escalas": [
@@ -1353,22 +1260,11 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6367
+     "preco": 5923
     }
    ],
    "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDFqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA4agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
-  },
-  {
-   "semana": 0,
-   "ida": "2027-03-02",
-   "volta": "2027-03-09",
-   "dia_ida": "terça",
-   "dia_volta": "terça",
-   "noites": 7,
-   "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTA5agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1378,8 +1274,36 @@
    "dia_volta": "quarta",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "status": "ok",
+   "menor": 5923,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 03/03 06:55, sai 03/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "03/03 05:25",
+     "chegada": "03/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5923
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDNqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTEwagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1390,8 +1314,32 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6367,
+   "menor": 5923,
    "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 06:55, sai 04/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "04/03 05:25",
+     "chegada": "04/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5923
+    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 04/03 10:10, sai 04/03 12:35 (horário local) – espera 2h25"
@@ -1414,7 +1362,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6367
+     "preco": 5923
     }
    ],
    "volta_opcoes": [],
@@ -1429,32 +1377,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6367,
+   "menor": 6394,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/03 06:55, sai 05/03 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "05/03 05:25",
-     "chegada": "05/03 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 6367
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 05/03 10:10, sai 05/03 12:35 (horário local) – espera 2h25"
@@ -1477,7 +1401,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6367
+     "preco": 6394
     }
    ],
    "volta_opcoes": [],
@@ -1502,60 +1426,8 @@
    "dia_volta": "domingo",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 6279,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 07/03 06:55, sai 07/03 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "07/03 05:25",
-     "chegada": "07/03 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 6279
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 07/03 10:10, sai 07/03 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "07/03 08:40",
-     "chegada": "07/03 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 6279
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDdqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTE0agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
   },
   {
    "semana": 0,
@@ -1565,12 +1437,23 @@
    "dia_volta": "segunda",
    "noites": 7,
    "flex": true,
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
+  },
+  {
+   "semana": 0,
+   "ida": "2027-03-09",
+   "volta": "2027-03-16",
+   "dia_ida": "terça",
+   "dia_volta": "terça",
+   "noites": 7,
+   "flex": true,
    "status": "ok",
-   "menor": 6367,
+   "menor": 5898,
    "opcoes": [
     {
      "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 08/03 06:55, sai 08/03 10:15 (horário local) – espera 3h20"
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 09/03 06:55, sai 09/03 10:15 (horário local) – espera 3h20"
      ],
      "sites": [
       "LATAM: https://www.latamairlines.com/br/pt"
@@ -1578,8 +1461,8 @@
      "companhias": [
       "LATAM"
      ],
-     "saida": "08/03 05:25",
-     "chegada": "08/03 16:40",
+     "saida": "09/03 05:25",
+     "chegada": "09/03 16:40",
      "hora_saida": 5,
      "paradas": 1,
      "escalas": [
@@ -1590,22 +1473,11 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6367
+     "preco": 5898
     }
    ],
    "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDhqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTE1agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
-  },
-  {
-   "semana": 0,
-   "ida": "2027-03-09",
-   "volta": "2027-03-16",
-   "dia_ida": "terça",
-   "dia_volta": "terça",
-   "noites": 7,
-   "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDlqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTE2agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1615,8 +1487,36 @@
    "dia_volta": "quarta",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: o Google devolveu erro"
+   "status": "ok",
+   "menor": 5898,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 10/03 06:55, sai 10/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "10/03 05:25",
+     "chegada": "10/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5898
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMTBqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTE3agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -1627,32 +1527,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6403,
+   "menor": 5934,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/03 06:55, sai 11/03 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "11/03 05:25",
-     "chegada": "11/03 16:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 16.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 6403
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/03 10:10, sai 11/03 12:35 (horário local) – espera 2h25"
@@ -1675,7 +1551,31 @@
      "troca_aeroporto": false,
      "chegada_hm": 18.916666666666668,
      "chega_outro_dia": false,
-     "preco": 6403
+     "preco": 5934
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 11/03 06:55, sai 11/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "11/03 05:25",
+     "chegada": "11/03 16:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 11.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 16.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 5934
     }
    ],
    "volta_opcoes": [],
@@ -1690,32 +1590,8 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6315,
+   "menor": 6403,
    "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/03 10:10, sai 12/03 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "12/03 08:40",
-     "chegada": "12/03 18:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 10.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 18.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 6315
-    },
     {
      "escalas_detalhe": [
       "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/03 06:55, sai 12/03 10:15 (horário local) – espera 3h20"
@@ -1738,7 +1614,31 @@
      "troca_aeroporto": false,
      "chegada_hm": 16.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6315
+     "preco": 6403
+    },
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 12/03 10:10, sai 12/03 12:35 (horário local) – espera 2h25"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "12/03 08:40",
+     "chegada": "12/03 18:55",
+     "hora_saida": 8,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 2.4h"
+     ],
+     "espera_max_h": 2.4,
+     "duracao_h": 10.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 18.916666666666668,
+     "chega_outro_dia": false,
+     "preco": 6403
     }
    ],
    "volta_opcoes": [],
@@ -2034,60 +1934,8 @@
    "dia_volta": "sexta",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 6403,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/03 06:55, sai 19/03 10:15 (horário local) – espera 3h20"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "19/03 05:25",
-     "chegada": "19/03 17:40",
-     "hora_saida": 5,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 3.3h"
-     ],
-     "espera_max_h": 3.3,
-     "duracao_h": 12.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 17.666666666666668,
-     "chega_outro_dia": false,
-     "preco": 6403
-    },
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 19/03 10:10, sai 19/03 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "19/03 08:40",
-     "chegada": "19/03 19:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 19.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 6403
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMTlqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTI2agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
   },
   {
    "semana": 0,
@@ -2098,7 +1946,7 @@
    "noites": 7,
    "flex": true,
    "status": "ok",
-   "menor": 6725,
+   "menor": 6754,
    "opcoes": [
     {
      "escalas_detalhe": [
@@ -2122,7 +1970,7 @@
      "troca_aeroporto": false,
      "chegada_hm": 17.666666666666668,
      "chega_outro_dia": false,
-     "preco": 6725
+     "preco": 6754
     }
    ],
    "volta_opcoes": [],
@@ -2136,36 +1984,8 @@
    "dia_volta": "domingo",
    "noites": 7,
    "flex": true,
-   "status": "ok",
-   "menor": 8434,
-   "opcoes": [
-    {
-     "escalas_detalhe": [
-      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 21/03 10:10, sai 21/03 12:35 (horário local) – espera 2h25"
-     ],
-     "sites": [
-      "LATAM: https://www.latamairlines.com/br/pt"
-     ],
-     "companhias": [
-      "LATAM"
-     ],
-     "saida": "21/03 08:40",
-     "chegada": "21/03 19:55",
-     "hora_saida": 8,
-     "paradas": 1,
-     "escalas": [
-      "GRU: 2.4h"
-     ],
-     "espera_max_h": 2.4,
-     "duracao_h": 11.2,
-     "troca_aeroporto": false,
-     "chegada_hm": 19.916666666666668,
-     "chega_outro_dia": false,
-     "preco": 8434
-    }
-   ],
-   "volta_opcoes": [],
-   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMjFqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTI4agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
+   "status": "erro",
+   "erro": "RuntimeError: o Google devolveu erro"
   },
   {
    "semana": 0,
@@ -2175,8 +1995,36 @@
    "dia_volta": "segunda",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "status": "ok",
+   "menor": 6754,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 22/03 06:55, sai 22/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "22/03 05:25",
+     "chegada": "22/03 17:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6754
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMjJqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTI5agUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   },
   {
    "semana": 0,
@@ -2187,7 +2035,7 @@
    "noites": 7,
    "flex": true,
    "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "erro": "RuntimeError: o Google devolveu erro"
   },
   {
    "semana": 0,
@@ -2197,8 +2045,36 @@
    "dia_volta": "quarta",
    "noites": 7,
    "flex": true,
-   "status": "erro",
-   "erro": "RuntimeError: nenhum voo dentro do filtro (sem troca de aeroporto, saída cedo e chegada às 12h ou depois)"
+   "status": "ok",
+   "menor": 6403,
+   "opcoes": [
+    {
+     "escalas_detalhe": [
+      "GRU – Aeroporto Internacional de São Paulo/Guarulhos–Governador André Franco Montoro: chega 24/03 06:55, sai 24/03 10:15 (horário local) – espera 3h20"
+     ],
+     "sites": [
+      "LATAM: https://www.latamairlines.com/br/pt"
+     ],
+     "companhias": [
+      "LATAM"
+     ],
+     "saida": "24/03 05:25",
+     "chegada": "24/03 17:40",
+     "hora_saida": 5,
+     "paradas": 1,
+     "escalas": [
+      "GRU: 3.3h"
+     ],
+     "espera_max_h": 3.3,
+     "duracao_h": 12.2,
+     "troca_aeroporto": false,
+     "chegada_hm": 17.666666666666668,
+     "chega_outro_dia": false,
+     "preco": 6403
+    }
+   ],
+   "volta_opcoes": [],
+   "link_google_flights": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMjRqBRIDRkxOcgUSA01JQRoaEgoyMDI3LTAzLTMxagUSA01JQXIFEgNGTE5CAQFIAZgBAQ==&hl=pt-BR&curr=BRL"
   }
  ],
  "flex": {
@@ -2206,21 +2082,21 @@
   "de": "2027-02-01",
   "ate": "2027-03-31",
   "pesquisadas": 52,
-  "com_preco": 41
+  "com_preco": 38
  },
  "melhor": {
-  "ida": "2027-02-17",
-  "volta": "2027-02-24",
-  "dia_ida": "quarta",
-  "dia_volta": "quarta",
+  "ida": "2027-02-23",
+  "volta": "2027-03-02",
+  "dia_ida": "terça",
+  "dia_volta": "terça",
   "semana": 0,
   "noites": 7,
   "preco": 5898,
   "companhias": [
    "LATAM"
   ],
-  "saida": "17/02 05:25",
-  "chegada": "17/02 16:40",
+  "saida": "23/02 05:25",
+  "chegada": "23/02 16:40",
   "paradas": 1,
   "duracao_h": 11.2
  },
