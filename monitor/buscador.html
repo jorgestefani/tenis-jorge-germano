@@ -255,11 +255,10 @@ function mostrar(R,quieto){
 
 async function inicio(){
   montarViagem();montarChips();
-  // se já tem busca em andamento (pedida por outro aparelho) ou pronta, mostra
+  // só mostra a busca feita agora; se uma busca já está rodando, acompanha a barra dela
   try{
     const r=await fetch(REMOTO+"?busca=1&ts="+Date.now());const b=(await r.json()).busca||{};
     if((b.estado==="pedida"||b.estado==="rodando")&&Date.now()-(b.atualizado||0)<4*60*1000)acompanhar(b.id);
-    else if(b.estado==="pronta"&&b.resultado)mostrar(b.resultado,true),$("res").insertAdjacentHTML("afterbegin",'<div class="sub" style="margin:6px 4px">Última busca feita (pode ter sido de outro aparelho):</div>');
   }catch(e){}
 }
 inicio();

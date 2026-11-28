@@ -333,6 +333,7 @@ def corpo(cfg, res):
 
 
 def enviar(cfg, res):
+    return "e-mail desligado (pedido do Jorge, 27/11/2026)"
     user, pw = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
     if not (user and pw):
         return "e-mail não configurado (faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD)"
