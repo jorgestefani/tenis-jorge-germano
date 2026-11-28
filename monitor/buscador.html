@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscador de viagem</title>
+<style>
+:root{--az:#0b5cab;--azc:#e8f1fb;--vd:#127a3e;--vdc:#e7f6ec;--am:#9a6700;--amc:#fff6db;--vm:#b42318;--cz:#5b6470;--bd:#d7dde4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f4f6f9;color:#16202b}
+header{background:var(--az);color:#fff;padding:14px 16px}
+header h1{margin:0;font-size:20px}
+header p{margin:2px 0 0;font-size:13px;opacity:.9}
+main{max-width:760px;margin:0 auto;padding:10px}
+section.cx{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:10px 0}
+section.cx h2{font-size:16px;margin:0 0 8px}
+.lin{margin:10px 0 4px;font-size:13px;color:var(--cz);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--bd);background:#fff;border-radius:999px;padding:8px 12px;font-size:14px;cursor:pointer;user-select:none;color:#16202b}
+.chip.on{background:var(--az);border-color:var(--az);color:#fff}
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+select,input[type=date]{width:100%;font-size:16px;padding:9px;border:1.5px solid var(--bd);border-radius:10px;background:#fff;color:#16202b;-webkit-appearance:none;appearance:none;min-height:44px}
+.noites{font-size:13px;color:var(--cz);margin-top:6px}
+#btBuscar{display:block;width:100%;font-size:18px;font-weight:700;padding:15px;border:0;border-radius:12px;background:var(--vd);color:#fff;margin:14px 0;cursor:pointer}
+#btBuscar:disabled{background:#8fa39a}
+#prog{display:none}
+.barra{height:16px;background:#e3e8ee;border-radius:999px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--az),#3d8be0);transition:width .6s}
+.pmsg{font-size:14px;margin-top:6px}
+.ptempo{font-size:12px;color:var(--cz)}
+.card{border:1.5px solid var(--bd);border-radius:12px;padding:12px;margin:8px 0;background:#fff}
+.card.top{border-color:var(--vd);background:var(--vdc)}
+.card h3{margin:0 0 4px;font-size:15px}
+.valor{font-size:22px;font-weight:800}
+.sub{font-size:13px;color:var(--cz)}
+.tag{display:inline-block;font-size:12px;border-radius:6px;padding:2px 6px;margin:2px 4px 2px 0;font-weight:600}
+.ok{background:var(--vdc);color:var(--vd)}.av{background:var(--amc);color:var(--am)}.no{background:#fde8e6;color:var(--vm)}
+.item{border-top:1px dashed var(--bd);padding-top:6px;margin-top:6px;font-size:14px}
+a{color:var(--az)}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600;font-size:14px;padding:6px 0}
+.lista .l{border-bottom:1px solid #eef1f4;padding:7px 0;font-size:14px}
+.vence{font-size:15px;font-weight:700;padding:10px;border-radius:10px;background:var(--azc);margin:8px 0}
+.erro{color:var(--vm);font-weight:600}
+.resumoF{font-size:13px;color:var(--cz)}
+</style>
+</head>
+<body>
+<header><h1>✈️🏨 Buscador de viagem</h1><p>Escolha tocando nas opções. No fim, as 2 opções mais baratas: viagem montada (voo + hotel separados) e pacote pronto.</p></header>
+<main>
+
+<section class="cx"><h2>1 · Viagem</h2>
+  <div class="dois">
+    <div><div class="lin">Saindo de</div><select id="origem"></select></div>
+    <div><div class="lin">Indo para</div><select id="destino"></select></div>
+    <div><div class="lin">Ida</div><input type="date" id="ida"></div>
+    <div><div class="lin">Volta</div><input type="date" id="volta"></div>
+  </div>
+  <div class="noites" id="noites"></div>
+  <div class="lin">Quantas pessoas</div><div class="chips" data-k="pessoas" data-um="1"></div>
+</section>
+
+<section class="cx"><h2>2 · Horários</h2>
+  <div class="lin">Saída do voo de ida (pode marcar mais de um)</div><div class="chips" data-k="ida_saida"></div>
+  <div class="lin">Chegada no destino</div><div class="chips" data-k="ida_chegada" data-um="1"></div>
+  <div class="chips" data-k="mesmo_dia" data-um="1" style="margin-top:6px"></div>
+  <div class="lin">Saída do voo de volta (pode marcar mais de um)</div><div class="chips" data-k="volta_saida"></div>
+</section>
+
+<section class="cx"><h2>3 · Paradas e tempo de voo</h2>
+  <div class="lin">Número de paradas</div><div class="chips" data-k="paradas_max" data-um="1"></div>
+  <div class="lin">Espera máxima em aeroporto (cada conexão)</div><div class="chips" data-k="espera_max" data-um="1"></div>
+  <div class="lin">Tempo total máximo da viagem (ida)</div><div class="chips" data-k="total_max" data-um="1"></div>
+  <div class="lin">Troca de aeroporto na conexão</div><div class="chips" data-k="sem_troca" data-um="1"></div>
+</section>
+
+<section class="cx"><h2>4 · Hotel</h2>
+  <div class="lin">Café da manhã</div><div class="chips" data-k="cafe" data-um="1"></div>
+  <div class="lin">Estacionamento</div><div class="chips" data-k="estac" data-um="1"></div>
+  <div class="lin">Avaliação mínima dos hóspedes (de 1 a 5)</div><div class="chips" data-k="nota_min" data-um="1"></div>
+  <div class="lin">Região</div><div class="chips" data-k="regiao" data-um="1"></div>
+</section>
+
+<section class="cx"><h2>5 · Pacote pronto (voo + hotel juntos)</h2>
+  <div class="chips" data-k="pacotes" data-um="1"></div>
+</section>
+
+<button id="btBuscar" onclick="buscar()">🔎 Buscar</button>
+
+<section class="cx" id="prog"><h2>Buscando…</h2>
+  <div class="barra"><i id="pbar"></i></div>
+  <div class="pmsg" id="pmsg"></div><div class="ptempo" id="ptempo"></div>
+</section>
+
+<div id="res"></div>
+</main>
+<script>
+const REMOTO="https://script.google.com/macros/s/AKfycbxGeD9hMyUXiqVXgS6z4Hrj1FhjaRNbKoaJzaK9SG4lbV98kd98cfi61EsD2Wps_HpV/exec";
+const $=id=>document.getElementById(id);
+const AERO=[["FLN","Florianópolis (FLN)"],["NVT","Navegantes (NVT)"],["POA","Porto Alegre (POA)"],["CWB","Curitiba (CWB)"],["GRU","São Paulo – Guarulhos (GRU)"],["VCP","Campinas (VCP)"],["GIG","Rio – Galeão (GIG)"],["BSB","Brasília (BSB)"]];
+const DEST=[["MIA","Miami (MIA)"],["FLL","Fort Lauderdale (FLL)"],["MCO","Orlando (MCO)"],["JFK","Nova York (JFK)"],["LIS","Lisboa (LIS)"],["MAD","Madri (MAD)"],["CUN","Cancún (CUN)"],["SCL","Santiago (SCL)"]];
+const OPC={
+  pessoas:[[2,"2 (1 casal · 1 quarto)"],[4,"4 (2 casais · 2 quartos)"]],
+  ida_saida:[["madrugada","Madrugada 0–5h"],["cedo","Cedo 5–9h"],["manha","Manhã 9–12h"],["tarde","Tarde 12–18h"],["noite","Noite 18–24h"]],
+  ida_chegada:[["qualquer","Qualquer hora"],["ate12","Até 12h"],["12a18","Das 12h às 18h"],["apos12","Depois das 12h"],["apos18","Depois das 18h"]],
+  mesmo_dia:[[true,"Chegar no mesmo dia"],[false,"Pode chegar no dia seguinte"]],
+  volta_saida:[["madrugada","Madrugada 0–5h"],["cedo","Cedo 5–9h"],["manha","Manhã 9–12h"],["tarde","Tarde 12–18h"],["noite","Noite 18–24h"]],
+  paradas_max:[[0,"Só direto"],[1,"Até 1 parada"],[2,"Até 2 paradas"],[9,"Tanto faz"]],
+  espera_max:[[2,"2h"],[3,"3h"],[4,"4h"],[6,"6h"],[8,"8h"],[0,"Tanto faz"]],
+  total_max:[[10,"10h"],[12,"12h"],[15,"15h"],[18,"18h"],[24,"24h"],[0,"Tanto faz"]],
+  sem_troca:[[true,"Não aceito trocar"],[false,"Tanto faz"]],
+  cafe:[[true,"Só com café da manhã"],[false,"Tanto faz"]],
+  estac:[[true,"Só com estacionamento grátis"],[false,"Tanto faz"]],
+  nota_min:[[0,"Tanto faz"],[3.5,"3,5 ★"],[4,"4,0 ★"],[4.3,"4,3 ★"],[4.5,"4,5 ★"]],
+  regiao:[["todas","Toda a cidade"],["aeroporto","Aeroporto e Doral"],["centro","Centro e Brickell"],["praia","Praia (Beach)"]],
+  pacotes:[[true,"Procurar também pacotes prontos"],[false,"Só a viagem montada"]],
+};
+const PADRAO={origem:"FLN",destino:"MIA",ida:"2027-03-02",volta:"2027-03-09",pessoas:2,ida_saida:["cedo","manha"],ida_chegada:"apos12",mesmo_dia:true,volta_saida:[],
+  paradas_max:2,espera_max:6,total_max:0,sem_troca:true,cafe:true,estac:true,nota_min:4,regiao:"todas",pacotes:true};
+let F=Object.assign({},PADRAO);
+try{Object.assign(F,JSON.parse(localStorage.getItem("buscadorFiltro")||"{}"))}catch(e){}
+const brl=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function guardar(){localStorage.setItem("buscadorFiltro",JSON.stringify(F))}
+
+function montarChips(){
+  document.querySelectorAll(".chips").forEach(box=>{
+    const k=box.dataset.k, um=!!box.dataset.um;
+    box.innerHTML="";
+    OPC[k].forEach(([v,txt])=>{
+      const b=document.createElement("span");b.className="chip";b.textContent=txt;
+      const on=um?F[k]===v:(F[k]||[]).includes(v);
+      if(on)b.classList.add("on");
+      b.onclick=()=>{
+        if(um)F[k]=v;
+        else{const a=new Set(F[k]||[]);a.has(v)?a.delete(v):a.add(v);F[k]=OPC[k].map(x=>x[0]).filter(x=>a.has(x))}
+        guardar();montarChips();
+      };
+      box.appendChild(b);
+    });
+    if(!um){const n=document.createElement("span");n.className="sub";n.style.alignSelf="center";n.textContent=(F[k]||[]).length?"":"(nenhum marcado = qualquer horário)";box.appendChild(n)}
+  });
+}
+function montarViagem(){
+  const op=(sel,l,v)=>{sel.innerHTML=l.map(([c,t])=>'<option value="'+c+'"'+(c===v?" selected":"")+">"+esc(t)+"</option>").join("")};
+  op($("origem"),AERO,F.origem);op($("destino"),DEST,F.destino);
+  const amanha=new Date(Date.now()+864e5).toISOString().slice(0,10);
+  $("ida").min=amanha;$("volta").min=amanha;
+  $("ida").value=F.ida;$("volta").value=F.volta;
+  ["origem","destino","ida","volta"].forEach(id=>$(id).onchange=()=>{
+    F[id]=$(id).value;
+    if(id==="ida"&&F.volta<=F.ida){const d=new Date(F.ida+"T12:00");d.setDate(d.getDate()+7);F.volta=d.toISOString().slice(0,10);$("volta").value=F.volta}
+    guardar();noites()});
+  noites();
+}
+function noites(){
+  const n=Math.round((new Date(F.volta+"T12:00")-new Date(F.ida+"T12:00"))/864e5);
+  const fmt=s=>new Date(s+"T12:00").toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"2-digit"});
+  $("noites").textContent=n>0?("🗓️ "+fmt(F.ida)+" → "+fmt(F.volta)+" · "+n+" noites"):"⚠️ A volta precisa ser depois da ida";
+}
+
+let POLL=null,INICIO=0,BUSCA_ID=null;
+async function buscar(){
+  const n=Math.round((new Date(F.volta+"T12:00")-new Date(F.ida+"T12:00"))/864e5);
+  if(!(n>0)){alertaRes("A volta precisa ser depois da ida.");return}
+  $("btBuscar").disabled=true;$("btBuscar").textContent="Enviando…";
+  $("res").innerHTML="";
+  try{
+    const r=await fetch(REMOTO,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({acao:"nova_busca",params:F})});
+    const d=await r.json();
+    if(!d.ok){alertaRes(d.erro||"Não deu certo.");if(d.busca&&d.busca.id){acompanhar(d.busca.id)}else liberar();return}
+    acompanhar(d.busca.id);
+  }catch(e){alertaRes("Sem conexão com o servidor. Tente de novo.");liberar()}
+}
+function liberar(){$("btBuscar").disabled=false;$("btBuscar").textContent="🔎 Buscar"}
+function alertaRes(t){$("res").innerHTML='<section class="cx"><div class="erro">'+esc(t)+"</div></section>"}
+function acompanhar(id){
+  BUSCA_ID=id;INICIO=Date.now();$("prog").style.display="block";$("btBuscar").disabled=true;$("btBuscar").textContent="Buscando…";
+  $("prog").scrollIntoView({behavior:"smooth"});
+  clearInterval(POLL);POLL=setInterval(consultar,3000);consultar();
+}
+async function consultar(){
+  let b;try{const r=await fetch(REMOTO+"?busca=1&ts="+Date.now());b=(await r.json()).busca||{}}catch(e){return}
+  if(String(b.id)!==String(BUSCA_ID))return;
+  const pct=Math.max(2,b.pct||0);$("pbar").style.width=pct+"%";
+  $("pmsg").textContent=(b.pct?Math.round(b.pct)+"% · ":"")+(b.msg||"");
+  const s=Math.round((Date.now()-(b.pedido||INICIO))/1000);
+  $("ptempo").textContent="Tempo: "+Math.floor(s/60)+" min "+(s%60)+" s · costuma levar de 1 a 3 minutos";
+  if(b.estado==="pedida"&&Date.now()-(b.pedido||INICIO)>90000)$("ptempo").textContent+=" · o computador que faz a busca não respondeu ainda (ele precisa estar ligado)";
+  if(b.estado==="pronta"||b.estado==="erro"){
+    clearInterval(POLL);liberar();
+    if(b.estado==="erro"){$("prog").style.display="none";alertaRes(b.msg);return}
+    $("pbar").style.width="100%";setTimeout(()=>{$("prog").style.display="none"},800);
+    mostrar(b.resultado);
+  }
+}
+
+function tagImp(incl){return incl?'<span class="tag ok">✅ impostos e taxas incluídos</span>':'<span class="tag no">⚠️ sem impostos e taxas</span>'}
+function tagHotel(h){
+  const t=[];
+  t.push(h.cafe==="sim"?'<span class="tag ok">☕ café incluído</span>':h.cafe==="talvez"?'<span class="tag av">☕ café (confirmar se é grátis)</span>':h.cafe==="pago"?'<span class="tag no">☕ café pago</span>':'<span class="tag no">sem café</span>');
+  t.push(h.estacionamento==="sim"?'<span class="tag ok">🅿️ estacionamento grátis</span>':h.estacionamento==="pago"?'<span class="tag no">🅿️ estacionamento pago</span>':'<span class="tag av">🅿️ confirmar estacionamento</span>');
+  return t.join("");
+}
+function vooTxt(v){
+  return esc(v.companhias.join(" + "))+" · sai "+esc(v.saida)+" → chega "+esc(v.chegada)+"<br><span class='sub'>"+(v.paradas?v.paradas+" parada(s)":"direto")+" · "+String(v.duracao_h).replace(".",",")+" h no total"+(v.paradas?" · maior espera "+String(v.espera_max_h).replace(".",",")+" h":"")+(v.troca_aeroporto?" · ⚠️ troca de aeroporto":"")+"</span>";
+}
+function hotelTxt(h,noites){
+  return "<b>"+esc(h.nome)+"</b>"+(h.nota?" · ⭐ "+String(h.nota).replace(".",",")+" ("+h.avaliacoes.toLocaleString("pt-BR")+" avaliações)":"")+"<br>"+tagHotel(h)+(h.link?' <a href="'+esc(h.link)+'" target="_blank">ver hotel</a>':"");
+}
+function mostrar(R,quieto){
+  if(!R){alertaRes("Não veio resultado.");return}
+  const p=R.params,pes=p.pessoas,q=Math.max(1,pes/2),cas=pes===4?" (2 casais)":"";
+  let h='<section class="cx"><h2>Resultado · '+esc(p.origem)+" → "+esc(p.destino)+" · "+new Date(p.ida+"T12:00").toLocaleDateString("pt-BR")+" a "+new Date(p.volta+"T12:00").toLocaleDateString("pt-BR")+" · "+pes+" pessoas"+cas+'</h2><div class="resumoF">Busca feita em '+esc(R.feito)+". Voos: "+R.voos.ida_ok+" de "+R.voos.ida_total+" atendem o filtro. Hotéis: "+R.hoteis.ok_n+" de "+R.hoteis.total+" atendem o filtro.</div>";
+
+  // viagem montada
+  h+='<h3 style="margin:14px 0 2px">🧩 Viagem montada (voo + hotel separados)</h3>';
+  const sep=R.separado||[];
+  if(!sep.length){
+    h+='<div class="card">'+(!R.voos.ida_ok?"Nenhum voo de ida atende o filtro. Tente afrouxar horário, paradas ou espera.":"Nenhum hotel atende o filtro. Tente afrouxar café, estacionamento ou avaliação.")+"</div>";
+  }
+  sep.forEach((c,i)=>{
+    const v=R.voos.ida[c.voo],ho=R.hoteis.ok[c.hotel];
+    h+='<div class="card'+(i===0?" top":"")+'"><h3>'+(i===0?"🥇 Mais barata":"🥈 2ª mais barata")+'</h3><div class="valor">'+brl(c.total)+'</div><div class="sub">total para '+pes+" pessoas · "+brl(c.total/q)+" por casal</div>"+
+      '<div class="item">✈️ <b>Voo ida e volta: '+brl(c.voo_total)+"</b> ("+brl(v.preco)+" por pessoa) "+tagImp(true)+"<br>"+vooTxt(v)+' <a href="'+esc(R.voos.link)+'" target="_blank">ver no Google Voos</a></div>'+
+      '<div class="item">🏨 <b>Hotel '+R.hoteis.noites+" noites: "+brl(c.hotel_total)+"</b>"+(q>1?" ("+q+" quartos de "+brl(ho.total)+")":"")+" "+tagImp(ho.impostos==="incluídos")+"<br>"+hotelTxt(ho)+"</div></div>";
+  });
+
+  // pacote
+  const P=R.pacotes;
+  if(p.pacotes){
+    h+='<h3 style="margin:14px 0 2px">📦 Pacote pronto (voo + hotel juntos)</h3>';
+    if(!P||!P.lista||!P.lista.length){
+      h+='<div class="card">'+esc((P&&(P.aviso||P.erro))||"Nenhum pacote atende o filtro.")+(P&&P.link?' <a href="'+esc(P.link)+'" target="_blank">Abrir pacotes na Decolar</a>':"")+"</div>";
+    }else{
+      P.lista.slice(0,2).forEach((k,i)=>{
+        h+='<div class="card'+(i===0?" top":"")+'"><h3>'+(i===0?"🥇 Pacote mais barato":"🥈 2º pacote mais barato")+" · "+esc(P.fonte)+'</h3><div class="valor">'+brl(k.total_grupo)+'</div><div class="sub">total para '+pes+" pessoas · "+brl(k.total)+" por casal</div>"+
+          '<div class="item">'+tagImp(!k.sem_impostos)+(k.cafe?'<span class="tag ok">☕ café</span>':"")+'<span class="tag av">🅿️ confirmar estacionamento</span><br><b>'+esc(k.nome)+"</b>"+(k.nota?" · nota "+String(k.nota).replace(".",",")+" de 10":"")+'<br><a href="'+esc(P.link)+'" target="_blank">Abrir na Decolar</a></div></div>';
+      });
+      if(P.obs)h+='<div class="sub">'+esc(P.obs)+"</div>";
+    }
+  }
+  // quem vence
+  if(sep.length&&P&&P.lista&&P.lista.length){
+    const a=sep[0].total,b=P.lista[0].total_grupo;
+    h+='<div class="vence">'+(a<=b?"🧩 A viagem montada sai "+brl(b-a)+" mais barata que o pacote.":"📦 O pacote sai "+brl(a-b)+" mais barato que a viagem montada.")+(P.lista[0].sem_impostos?" Atenção: o preço do pacote ainda não tem impostos e taxas, então a diferença real é maior para o lado da viagem montada.":"")+"</div>";
+  }
+  // listas
+  h+='<details><summary>✈️ Outros voos de ida dentro do filtro ('+R.voos.ida.length+")</summary><div class='lista'>"+R.voos.ida.map(v=>"<div class='l'><b>"+brl(v.preco)+"</b> por pessoa · "+vooTxt(v)+"</div>").join("")+"</div></details>";
+  h+='<details><summary>🔙 Voos de volta dentro do filtro ('+R.voos.volta_ok+")</summary><div class='lista'>"+(R.voos.volta.length?R.voos.volta.map(v=>"<div class='l'>"+vooTxt(v)+"</div>").join(""):"<div class='l'>Nenhum voo de volta no horário escolhido. O preço acima considera a volta mais em conta que o Google oferecer.</div>")+"</div><div class='sub'>O preço do Google Voos é de ida e volta; a volta exata se escolhe na hora da compra.</div></details>";
+  h+='<details><summary>🏨 Hotéis dentro do filtro ('+R.hoteis.ok_n+")</summary><div class='lista'>"+R.hoteis.ok.map(x=>"<div class='l'><b>"+brl(x.total*q)+"</b> "+R.hoteis.noites+" noites"+(q>1?" ("+q+" quartos)":"")+" · "+hotelTxt(x)+"</div>").join("")+"</div></details>";
+  h+='<div class="sub" style="margin-top:8px">Preços do Google Voos e Google Hotéis (que juntam Booking, Trivago, sites dos hotéis e outros). Confira bagagem, regras de cancelamento e o preço final antes de comprar.</div></section>';
+  $("res").innerHTML=h;
+  if(!quieto)$("res").scrollIntoView({behavior:"smooth"});
+}
+
+async function inicio(){
+  montarViagem();montarChips();
+  // se já tem busca em andamento (pedida por outro aparelho) ou pronta, mostra
+  try{
+    const r=await fetch(REMOTO+"?busca=1&ts="+Date.now());const b=(await r.json()).busca||{};
+    if((b.estado==="pedida"||b.estado==="rodando")&&Date.now()-(b.atualizado||0)<4*60*1000)acompanhar(b.id);
+    else if(b.estado==="pronta"&&b.resultado)mostrar(b.resultado,true),$("res").insertAdjacentHTML("afterbegin",'<div class="sub" style="margin:6px 4px">Última busca feita (pode ter sido de outro aparelho):</div>');
+  }catch(e){}
+}
+inicio();
+</script>
+</body>
+</html>
