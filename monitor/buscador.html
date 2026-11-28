@@ -42,6 +42,8 @@ details{margin:8px 0}summary{cursor:pointer;font-weight:600;font-size:14px;paddi
 .vence{font-size:15px;font-weight:700;padding:10px;border-radius:10px;background:var(--azc);margin:8px 0}
 .erro{color:var(--vm);font-weight:600}
 .resumoF{font-size:13px;color:var(--cz)}
+.card.fora{border-style:dashed;border-color:#d4a72c;background:var(--amc)}
+.motivos{font-size:13px;color:var(--am);font-weight:600;margin-top:4px}
 </style>
 </head>
 <body>
@@ -77,6 +79,7 @@ details{margin:8px 0}summary{cursor:pointer;font-weight:600;font-size:14px;paddi
   <div class="lin">Café da manhã</div><div class="chips" data-k="cafe" data-um="1"></div>
   <div class="lin">Estacionamento</div><div class="chips" data-k="estac" data-um="1"></div>
   <div class="lin">Avaliação mínima dos hóspedes (de 1 a 5)</div><div class="chips" data-k="nota_min" data-um="1"></div>
+  <div class="lin">Tipo de hospedagem</div><div class="chips" data-k="so_hotel" data-um="1"></div>
   <div class="lin">Região</div><div class="chips" data-k="regiao" data-um="1"></div>
 </section>
 
@@ -111,11 +114,12 @@ const OPC={
   cafe:[[true,"Só com café da manhã"],[false,"Tanto faz"]],
   estac:[[true,"Só com estacionamento grátis"],[false,"Tanto faz"]],
   nota_min:[[0,"Tanto faz"],[3.5,"3,5 ★"],[4,"4,0 ★"],[4.3,"4,3 ★"],[4.5,"4,5 ★"]],
+  so_hotel:[[true,"Só hotéis (com estrelas)"],[false,"Aceito aluguel de temporada"]],
   regiao:[["todas","Toda a cidade"],["aeroporto","Aeroporto e Doral"],["centro","Centro e Brickell"],["praia","Praia (Beach)"]],
   pacotes:[[true,"Procurar também pacotes prontos"],[false,"Só a viagem montada"]],
 };
 const PADRAO={origem:"FLN",destino:"MIA",ida:"2027-03-02",volta:"2027-03-09",pessoas:2,ida_saida:["cedo","manha"],ida_chegada:"apos12",mesmo_dia:true,volta_saida:[],
-  paradas_max:2,espera_max:6,total_max:0,sem_troca:true,cafe:true,estac:true,nota_min:4,regiao:"todas",pacotes:true};
+  paradas_max:2,espera_max:6,total_max:0,sem_troca:true,cafe:true,estac:true,nota_min:4,so_hotel:true,regiao:"todas",pacotes:true};
 let F=Object.assign({},PADRAO);
 try{Object.assign(F,JSON.parse(localStorage.getItem("buscadorFiltro")||"{}"))}catch(e){}
 const brl=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
@@ -199,6 +203,8 @@ function tagHotel(h){
   const t=[];
   t.push(h.cafe==="sim"?'<span class="tag ok">☕ café incluído</span>':h.cafe==="talvez"?'<span class="tag av">☕ café (confirmar se é grátis)</span>':h.cafe==="pago"?'<span class="tag no">☕ café pago</span>':'<span class="tag no">sem café</span>');
   t.push(h.estacionamento==="sim"?'<span class="tag ok">🅿️ estacionamento grátis</span>':h.estacionamento==="pago"?'<span class="tag no">🅿️ estacionamento pago</span>':'<span class="tag av">🅿️ confirmar estacionamento</span>');
+  if(h.tipo==="aluguel")t.push('<span class="tag av">🏠 aluguel de temporada</span>');
+  else if(h.tipo==="sem_estrelas")t.push('<span class="tag av">sem classificação de hotel</span>');
   return t.join("");
 }
 function vooTxt(v){
@@ -225,6 +231,13 @@ function mostrar(R,quieto){
       '<div class="item">🏨 <b>Hotel '+R.hoteis.noites+" noites: "+brl(c.hotel_total)+"</b>"+(q>1?" ("+q+" quartos de "+brl(ho.total)+")":"")+" "+tagImp(ho.impostos==="incluídos")+"<br>"+hotelTxt(ho)+"</div></div>";
   });
 
+  const SF=R.separado_fora;
+  if(SF){
+    h+='<div class="card fora"><h3>⚠️ Mais barata de todas, mas FORA do seu filtro</h3><div class="valor">'+brl(SF.total)+'</div><div class="sub">total para '+pes+" pessoas · "+brl(SF.total/q)+" por casal</div>"+
+      '<div class="motivos">Ficou de fora por: '+esc(SF.motivos.join(" · "))+"</div>"+
+      '<div class="item">✈️ <b>Voo: '+brl(SF.voo_total)+"</b> ("+brl(SF.voo.preco)+" por pessoa)<br>"+vooTxt(SF.voo)+"</div>"+
+      '<div class="item">🏨 <b>Hotel: '+brl(SF.hotel_total)+"</b><br>"+hotelTxt(SF.hotel)+"</div></div>";
+  }
   // pacote
   const P=R.pacotes;
   if(p.pacotes){
@@ -233,16 +246,24 @@ function mostrar(R,quieto){
       h+='<div class="card">'+esc((P&&(P.aviso||P.erro))||"Nenhum pacote atende o filtro.")+(P&&P.link?' <a href="'+esc(P.link)+'" target="_blank">Abrir pacotes na Decolar</a>':"")+"</div>";
     }else{
       P.lista.slice(0,2).forEach((k,i)=>{
-        h+='<div class="card'+(i===0?" top":"")+'"><h3>'+(i===0?"🥇 Pacote mais barato":"🥈 2º pacote mais barato")+" · "+esc(P.fonte)+'</h3><div class="valor">'+brl(k.total_grupo)+'</div><div class="sub">total para '+pes+" pessoas · "+brl(k.total)+" por casal</div>"+
-          '<div class="item">'+tagImp(!k.sem_impostos)+(k.cafe?'<span class="tag ok">☕ café</span>':"")+'<span class="tag av">🅿️ confirmar estacionamento</span><br><b>'+esc(k.nome)+"</b>"+(k.nota?" · nota "+String(k.nota).replace(".",",")+" de 10":"")+'<br><a href="'+esc(P.link)+'" target="_blank">Abrir na Decolar</a></div></div>';
+        h+='<div class="card'+(i===0?" top":"")+'"><h3>'+(i===0?"🥇 Pacote mais barato":"🥈 2º pacote mais barato")+" · "+esc(P.fonte)+'</h3><div class="valor">'+brl(k.total_grupo)+'</div><div class="sub">total para '+pes+" pessoas, sem impostos · "+brl(k.total_casal)+" por casal</div>"+
+          '<div class="sub"><b>Com impostos (estimado): '+brl(k.com_impostos_est)+"</b></div>"+
+          '<div class="item">'+tagImp(!k.sem_impostos)+(k.cafe?'<span class="tag ok">☕ café</span>':"")+'<span class="tag av">🅿️ confirmar estacionamento</span><br><b>'+esc(k.nome)+"</b>"+(k.nota?" · nota "+String(k.nota).replace(".",",")+" de 10":"")+
+          (k.voo?'<br>✈️ '+esc(k.voo):"")+'<br><a href="'+esc(P.link)+'" target="_blank">Abrir na Decolar</a></div></div>';
       });
-      if(P.obs)h+='<div class="sub">'+esc(P.obs)+"</div>";
     }
+    if(P&&P.fora){
+      const k=P.fora;
+      h+='<div class="card fora"><h3>⚠️ Pacote mais barato de todos, mas FORA do seu filtro</h3><div class="valor">'+brl(k.total_grupo)+'</div><div class="sub">total para '+pes+" pessoas, sem impostos · com impostos (estimado): <b>"+brl(k.com_impostos_est)+"</b></div>"+
+        '<div class="motivos">Ficou de fora por: '+esc((k.motivos||[]).join(" · "))+"</div>"+
+        '<div class="item"><b>'+esc(k.nome)+"</b>"+(k.nota?" · nota "+String(k.nota).replace(".",",")+" de 10":"")+(k.voo?'<br>✈️ '+esc(k.voo):"")+'<br><a href="'+esc(P.link)+'" target="_blank">Abrir na Decolar</a></div></div>';
+    }
+    if(P&&P.obs)h+='<div class="sub">'+esc(P.obs)+(P.lidos?" ("+P.lidos+" hotéis e "+(P.voos_lidos||0)+" voos lidos na Decolar.)":"")+"</div>";
   }
   // quem vence
   if(sep.length&&P&&P.lista&&P.lista.length){
-    const a=sep[0].total,b=P.lista[0].total_grupo;
-    h+='<div class="vence">'+(a<=b?"🧩 A viagem montada sai "+brl(b-a)+" mais barata que o pacote.":"📦 O pacote sai "+brl(a-b)+" mais barato que a viagem montada.")+(P.lista[0].sem_impostos?" Atenção: o preço do pacote ainda não tem impostos e taxas, então a diferença real é maior para o lado da viagem montada.":"")+"</div>";
+    const a=sep[0].total,b=P.lista[0].com_impostos_est||P.lista[0].total_grupo;
+    h+='<div class="vence">Comparando com impostos: '+(a<=b?"🧩 a viagem montada sai "+brl(b-a)+" mais barata que o pacote.":"📦 o pacote sai cerca de "+brl(a-b)+" mais barato que a viagem montada.")+" (Os impostos do pacote são estimados.)</div>";
   }
   // listas
   h+='<details><summary>✈️ Outros voos de ida dentro do filtro ('+R.voos.ida.length+")</summary><div class='lista'>"+R.voos.ida.map(v=>"<div class='l'><b>"+brl(v.preco)+"</b> por pessoa · "+vooTxt(v)+"</div>").join("")+"</div></details>";
